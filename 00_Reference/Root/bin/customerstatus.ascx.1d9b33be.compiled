@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Account/Customer/CustomerStatus.ascx" hash="fffffff3343c8b72" filehash="36c7277a12d3980e" flags="110000" assembly="App_Web_qsyxx2at" type="ASP.views_account_customer_customerstatus_ascx">
+    <filedeps>
+        <filedep name="/Views/Account/Customer/CustomerStatus.ascx" />
+        <filedep name="/Views/Core/PhotoPlayer.ascx" />
+    </filedeps>
+</preserve>

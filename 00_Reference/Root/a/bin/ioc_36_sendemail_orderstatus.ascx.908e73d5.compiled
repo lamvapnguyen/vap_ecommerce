@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/DataManager/IOControls/IOC_36_SendEmail_OrderStatus.ascx" hash="fffffffaa8934d59" filehash="ffffee405caaa979" flags="110000" assembly="App_Web_blthx1em" type="ASP.views_datamanager_iocontrols_ioc_36_sendemail_orderstatus_ascx">
+    <filedeps>
+        <filedep name="/Views/DataManager/IOControls/IOC_36_SendEmail_OrderStatus.ascx" />
+    </filedeps>
+</preserve>

@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Shipping" Title="#Phí vận chuyển" R="504" DefaultSort="Shipping_Date" DefaultSortAsc="false">
+  <controls>
+    <field Name="Search" Path="UC/DM_Search.ascx" Pos="4" />
+    <field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+    <field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+    <field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+    <field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+    <field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+  </controls>
+
+  <list>
+	<field Name="Shipping_ID" Title="f_id" Type="1" Sort="true" Css="width:45px;text-align:left;color:#a00;"/>
+	<field Name="Shipping_Type" Title="shipping_method" Type="1" Sort="true"/>
+	<field Name="Shipping_State" Title="#Tỉnh thành" Type="1" Sort="true"/>
+	<field Name="Shipping_County" Title="#Quận huyện" Type="1" Sort="true"/>
+	<field Name="Shipping_Price" Title="#Đơn giá" Sort="true" Css="width:70px;text-align:right;"/>
+	<field Name="Shipping_Note" Title="#Ghi chú" Type="1" Sort="true" Css="width:80px;"/>
+	<field Name="Shipping_A" Title="f_active" Type="3" Sort="true" Css="width:60px;text-align:center;"/>
+  </list>
+
+  <command_plus><![CDATA[]]></command_plus>
+
+  <search>
+	<field Name="Shipping_ID" Title="f_id"/>
+	<field Name="Shipping_Note" Title="#Ghi chú"/>
+  </search>
+
+  <edit>
+    <group Title="group_brief" Pos="2" Expand="true">
+		<field Name="Shipping_Type" Title="#Loại" Type="8" Property="SqlSP='SP_A_R_001_GetDefinition1Level' ParentID='5300' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Default='5101' DisplayNoSelectText='false'"/>
+		<field Name="Shipping_County" Title="#Quận huyện" Type="8" Property="SqlSP='SP_A_R_001_Tree_County' ParentID='58' Active='true' EnableHeader='false' ShowLock='true' Default='6' Format='{1}' DisplayNoSelectText='false'"/>
+		<field Name="Shipping_Price" Title="#Đơn giá" Type="1" Property="Width='90px' Currency='true' Css='text-align:right;'"/>
+		<field Name="Shipping_Note" Title="f_note" Type="2" Property="Height='50'"/>
+		<field Name="Shipping_A" Title="f_active" Type="5" Property="Default='true'"/>
+    </group>
+  </edit>
+
+  <html><![CDATA[]]></html>
+
+  <SQL_SELECT_LIST>
+    <![CDATA[
+	set nocount on
+	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem =
+	(
+		select count(0) from WCMS_Shipping
+		where 1=1
+		{ AND Shipping_ID	<o> @Search:Shipping_ID }
+		{ AND Shipping_Note	<o> @Search:Shipping_Note }
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage	= ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Shipping_ID]
+		,(select Definition_Name from wcms_Definition where Definition_ID = Shipping_Type) as Shipping_Type
+		,(select State_Name from wcms_State where State_ID = Shipping_State) as Shipping_State
+		,(select County_Name from wcms_County where County_ID = Shipping_County) as Shipping_County
+		,replace(CONVERT(varchar, Shipping_Price, 1), '.00', '') as Shipping_Price
+		,Shipping_Note
+		,Shipping_A
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Shipping_ID]
+			,Shipping_Type
+			,Shipping_State
+			,Shipping_County
+			,Shipping_Price
+			,Shipping_Note
+			,case when [Shipping_A] = 1 then 'checked' else '' end as [Shipping_A]
+		from WCMS_Shipping
+		where 1=1
+		{ AND Shipping_ID	<o> @Search:Shipping_ID }
+		{ AND Shipping_Note	<o> @Search:Shipping_Note }
+	) tb 
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex	
+	]]>
+  </SQL_SELECT_LIST>
+
+  <SQL_LOAD_EDIT>
+    <![CDATA[
+	set nocount on
+	select  [Shipping_ID]
+			,Shipping_Type
+			,Shipping_State
+			,Shipping_County
+			,Shipping_Price
+			,Shipping_Note
+			,Shipping_Date
+			,Shipping_A
+	from WCMS_Shipping where Shipping_ID = @editID	
+	]]>
+  </SQL_LOAD_EDIT>
+
+  <SQL_NEW><![CDATA[]]></SQL_NEW>
+  
+  <SQL_ADD>
+  <![CDATA[
+	insert wcms_Shipping
+	(
+		Shipping_Type
+		,Shipping_State
+		,Shipping_County
+		,Shipping_Price
+		,Shipping_Note
+		,Shipping_Date
+		,Shipping_A
+	) 
+	values
+	(
+		{@Get:Shipping_Type}
+		,58
+		,{@Get:Shipping_County}
+		,{@Get:Shipping_Price}
+		,{@Get:Shipping_Note}
+		,getutcdate()
+		,{@Get:Shipping_A}
+	)
+	
+	select SCOPE_IDENTITY() 
+  ]]>
+  </SQL_ADD>
+
+  <SQL_UPDATE>
+    <![CDATA[
+	set nocount on	
+	declare @id int
+	set @id = @editID
+	
+	update WCMS_Shipping set
+		Shipping_Type 		= {@Get:Shipping_Type}
+		,Shipping_Date = getutcdate()
+		,Shipping_State = {@Get:Shipping_State}
+		,Shipping_County = {@Get:Shipping_County}
+		,Shipping_Price= {@Get:Shipping_Price}
+		,Shipping_Note= {@Get:Shipping_Note}
+		,Shipping_A= {@Get:Shipping_A}
+	where Shipping_ID = @id
+	
+	select @id
+	]]>
+  </SQL_UPDATE>
+
+  <SQL_UPDATE_ACTIVE>
+    <![CDATA[
+	Update WCMS_Shipping set [Shipping_A] = @active where Shipping_ID = @editID	
+	Select @editID 
+	]]>
+  </SQL_UPDATE_ACTIVE>
+
+  <SQL_COPY><![CDATA[]]></SQL_COPY>
+
+  <SQL_DELETE>
+    <![CDATA[
+	set nocount on
+	Delete WCMS_Shipping where Shipping_ID = @delID	
+	Select @@ROWCOUNT
+	]]>
+  </SQL_DELETE>
+</table>

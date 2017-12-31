@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<table Name="WCMS_Shipping" Title="a_menu_shipping" R="502" AddRole="325" DeleteRole="326" DefaultSort="Shipping_ID" DefaultSortAsc="false">
+  <controls>
+    <field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+    <field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+    <field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+    <field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+    <field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+    <field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+  </controls>
+
+  <list>
+	<field Name="Shipping_ID" Title="f_id" Type="1" Sort="true" Css="width:60px;text-align:left;color:#a00;"/>
+    <field Name="Shipping_FirstName" Title="consignee_info" Type="1" Sort="true" Css="width:150px;font-weight:bold;"/>
+	<field Name="Shipping_Phone" Title="f_phone" Type="1" Sort="true" Css="width:100px;" />
+	<field Name="Shipping_Email" Title="f_email" Type="1" Sort="true" Css="width:100px;" />
+	<field Name="Shipping_Company" Title="f_account_company" Type="1" Sort="true" />
+    <field Name="Shipping_TrackCode" Title="#Tracking Code" Type="1" Sort="true" Css="width:100px;"/>
+	<field Name="OrderID" Title="order_id" Type="1" Sort="true" Css="width:100px;"/>
+  </list>
+
+  <command_plus><![CDATA[]]></command_plus>
+
+  <search>
+	<field Name="Shipping_ID" Title="f_fullname"/>
+	<field Name="Shipping_TrackCode" Title="#Tracking Code"/>
+	<field Name="Shipping_FirstName" Title="consignee_info"/>
+	<field Name="Shipping_Phone" Title="f_phone"/>
+	<field Name="Shipping_Email" Title="f_email"/>
+  </search>
+
+  <edit>
+    <group Title="consignee_info" Pos="2" Expand="true">
+		<field Name="Shipping_FirstName" Title="f_fullname" Type="1" Property="Require='true' Width='380px' Css='font-weight:bold;'"/>
+		<field Name="Shipping_Phone" Title="f_phone" Type="1" Property="Require='true' Width='380px'"/>
+		<field Name="Shipping_Email" Title="f_email" Type="1" Property="Width='380px'"/>
+		<field Name="Shipping_Address1" Title="f_address" Type="1" Property="Width='380px'"/>
+		<field Name="Shipping_Country" Title="f_country" Type="1" Property="Width='150px'"/>
+		<field Name="Shipping_City" Title="f_city" Type="1" Property="Width='150px'"/>
+		<field Name="Shipping_State" Title="f_state" Type="1" Property="Width='150px'"/>
+		<field Name="Shipping_Zip" Title="f_zipcode" Type="1" Property="Width='150px'"/>
+    </group>
+	<group Title="f_status" Pos="2" Expand="true">
+		<field Name="Shipping_Company" Title="f_account_company" Type="1" Property="MaxLength='200' Width='380px'"/>
+		<field Name="Shipping_Date" Title="shipping_date" Type="4"/>
+		<field Name="Shipping_TrackUrl" Title="#Tracking Url" Type="1" Property="Width='380px'"/>
+		<field Name="Shipping_TrackCode" Title="#Tracking Code" Type="1" Property="Width='200px'"/>
+		<field Name="Shipping_TrackDate" Title="#Tracking Date" Type="4" />
+		<field Name="Shipping_A" Title="f_active" Type="5" Property="Default='true'"/>
+	</group>
+  </edit>
+
+  <html><![CDATA[]]></html>
+
+  <SQL_SELECT_LIST>
+    <![CDATA[
+	set nocount on
+	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem	=
+	(
+		select count(0) from WCMS_Shipping
+		where
+		{ Shipping_ID			<o> @Search:Shipping_ID and }
+		{ Shipping_TrackCode	<o> @Search:Shipping_TrackCode and }
+		{ Shipping_FirstName	<o> @Search:Shipping_FirstName and }
+		{ Shipping_Email	<o> @Search:Shipping_Email and }
+		{ Shipping_Phone	<o> @Search:Shipping_Phone and }
+		1 = 1
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Shipping_ID]
+		,[Shipping_FirstName]
+		,[Shipping_Phone]
+		,[Shipping_Email]
+		,(Select top 1 Order_ID from wcms_Order where Order_ShippingID = Shipping_ID) as [OrderID]
+		,[Shipping_Company]
+		,[Shipping_TrackCode]
+		,case when [Shipping_A] = 1 then 'checked' else '' end as [Shipping_A]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Shipping_ID]
+			,[Shipping_FirstName]
+			,[Shipping_Phone]
+			,[Shipping_Email]
+			,[Shipping_Company]
+			,[Shipping_TrackCode]
+			,[Shipping_A]
+		from WCMS_Shipping
+		where
+		{ Shipping_ID			<o> @Search:Shipping_ID and }
+		{ Shipping_TrackCode	<o> @Search:Shipping_TrackCode and }
+		{ Shipping_FirstName	<o> @Search:Shipping_FirstName and }
+		{ Shipping_Email	<o> @Search:Shipping_Email and }
+		{ Shipping_Phone	<o> @Search:Shipping_Phone and }
+		1 = 1
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex	
+	]]>
+  </SQL_SELECT_LIST>
+
+  <SQL_LOAD_EDIT>
+    <![CDATA[
+	set nocount on
+	select  [Shipping_ID]
+		   ,[Shipping_FirstName]
+		   ,[Shipping_Email]
+		   ,[Shipping_A]
+		   ,[Shipping_Company]
+		   ,[Shipping_Address1]
+		   ,[Shipping_Address2]
+		   ,[Shipping_City]
+		   ,[Shipping_Country]
+		   ,[Shipping_State]
+		   ,[Shipping_Zip]
+		   ,[Shipping_Phone]
+		   ,[Shipping_Date]
+		   ,[Shipping_TrackUrl]
+		   ,[Shipping_TrackCode]
+		   ,[Shipping_TrackDate]
+	from WCMS_Shipping where Shipping_ID = @editID	
+	]]>
+  </SQL_LOAD_EDIT>
+
+  <SQL_NEW><![CDATA[]]></SQL_NEW>
+
+  <SQL_ADD>
+    <![CDATA[
+	set nocount on
+	
+	INSERT INTO WCMS_Shipping
+	(
+		[Shipping_FirstName]
+		,[Shipping_Email]
+		,[Shipping_A]
+		,[Shipping_Company]
+		,[Shipping_Address1]
+		,[Shipping_City]
+		,[Shipping_Country]
+		,[Shipping_State]
+		,[Shipping_Zip]
+		,[Shipping_Phone]
+		,[Shipping_Date]
+		,[Shipping_TrackUrl]
+		,[Shipping_TrackCode]
+		,[Shipping_TrackDate]
+	)
+	VALUES
+	(
+		 {@Get:Shipping_FirstName}
+		,{@Get:Shipping_Email}
+		,{@Get:Shipping_A}
+		,{@Get:Shipping_Company}
+		,{@Get:Shipping_Address1}
+		,{@Get:Shipping_City}
+		,{@Get:Shipping_Country}
+		,{@Get:Shipping_State}
+		,{@Get:Shipping_Zip}
+		,{@Get:Shipping_Phone}
+		,getutcdate()
+		,{@Get:Shipping_TrackUrl}
+		,{@Get:Shipping_TrackCode}
+		,{@Get:Shipping_TrackDate}
+	)
+	
+	declare @id int	
+	select @id = SCOPE_IDENTITY()
+	select @id
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_Shipping_add', '(' + @logIP + ') Add 1 Shipping [' + {@Get:Shipping_FirstName} + '].', 'Shipping', @id, @logAcc)
+	]]>
+  </SQL_ADD>
+
+  <SQL_UPDATE>
+    <![CDATA[
+	set nocount on	
+	
+	update WCMS_Shipping set
+		[Shipping_Email]		= {@Get:Shipping_Email}
+		,[Shipping_A]			= {@Get:Shipping_A}
+		,[Shipping_FirstName]	= {@Get:Shipping_FirstName}
+		,[Shipping_Company]		= {@Get:Shipping_Company}
+		,[Shipping_Address1]		= {@Get:Shipping_Address1}
+		,[Shipping_City]		= {@Get:Shipping_City}
+		,[Shipping_Country]		= {@Get:Shipping_Country}
+		,[Shipping_State]		= {@Get:Shipping_State}
+		,[Shipping_Zip]		= {@Get:Shipping_Zip}
+		,[Shipping_Phone]		= {@Get:Shipping_Phone}
+		,[Shipping_Date]		= getutcdate()
+		,[Shipping_Code] 		= {@Get:Shipping_Code}
+	where Shipping_ID = @editID
+	
+	select @editID
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_Shipping_update', '(' + @logIP + ') Updated Shipping [' + {@Get:Shipping_FirstName} + '].', 'Shipping', @editID, @logAcc)
+	]]>
+  </SQL_UPDATE>
+
+  <SQL_UPDATE_ACTIVE>
+    <![CDATA[
+	update WCMS_Shipping set [Shipping_A]= @active, [Shipping_Date] = getutcdate()
+	where Shipping_ID = @editID
+	select @editID	
+	]]>
+  </SQL_UPDATE_ACTIVE>
+
+  <SQL_COPY><![CDATA[]]></SQL_COPY>
+
+  <SQL_DELETE>
+    <![CDATA[
+	delete WCMS_Shipping where Shipping_ID = @delID
+	select @@ROWCOUNT 
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_delete', '(' + @logIP + ') Deleted 1 Shipping.', 'Shipping', @delID, @logAcc)
+	]]>
+  </SQL_DELETE>
+</table>

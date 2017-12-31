@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<htmlcode>
+<![CDATA[
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!--[if IE]><style> img {behavior: url(/scripts/fm/fixnaturalwh.htc)}</style><![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<link href="/scripts/fm/fmgr.css" rel="stylesheet" type="text/css" />
+	<script src="/scripts/fm/fmgr.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	function hideLoading(c)
+	{
+		$(c).prev().hide();
+		$(c).show();
+	};
+	function closeImagePreview(c)
+	{
+		$(c).next().children(':first-child').show();
+		$(c).next().children(':last-child').hide();
+		__FMgr.hide_win(false);
+	};
+	</script>
+</head>
+<body>
+<div style="position:absolute; top:20px; left:15px; right:20px; bottom:20px; background:#fff; border:3px solid #fff; box-shadow: 0 0 15px #000; -moz-box-shadow: 0 0 15px #000; -webkit-box-shadow: 0 0 15px #000;">
+<div id="sysFileManager">
+	<div id="top_c">
+		<div id="d_domain" style="float:left;">http://localhost</div>
+		<div style="float:right; display:block; padding-right:15px; font-family:arial; color:#fff; text-shadow:-1px 0 #ccc, 0 1px #ccc, 1px 0 #ccc, 0 -1px #ccc;"></div>
+		<div style="clear:both;"></div>
+	</div>
+	
+	<div id="tools_c">
+    <div>
+        <input id="path_c" class="fm_txtbox" type="text" value="" />      
+		  
+        <input id="searh_c" class="fm_txtbox" type="text" value="" />
+		    <input class="fm_button btn_refresh" type="button" value="&nbsp;" onclick="__FMgr.refresh_dir()" />		  
+    </div>
+	</div>
+	<div id="center_c" style="clear:both;">
+		<div id="file"></div>
+		<div id="fmrg_space_view">
+			<div class="allow_space_c" onclick="__FMgr.compute_storage()">&nbsp;<div id="current_page_c">&nbsp;</div><div id="disk_space_c" title="Click here to calculation">N/A</div></div>
+		</div>
+		<div id="content">
+			<div class="filelist_container">
+				<table cellpadding="0" cellspacing="0" class="header_table">
+					<col width="32px" />
+					<col width="25px" />
+					<col class="c_title" />
+					<col width="100px"/>
+					<col width="50px" />
+					<col width="118px"/>
+					<thead>
+						<tr class="header" id="file_header">
+							<th><input type="checkbox" class="hide_if_no_script" onclick="__FMgr.check_all(this)" name="row_check_all"/></th>
+							<th></th>
+							<th class="c_title"><a href="#" class="sort_none" onclick="return __FMgr.change_sort(this, 1, true)">File Name</a></th>
+							<th align="right"><a href="#" class="sort_none" onclick="return __FMgr.change_sort(this, 2, true)">Size</a></th>
+							<th><a href="#" class="sort_none" onclick="return __FMgr.change_sort(this, 3, true)">Type</a></th>
+							<th><a href="#" class="sort_none sort_desc" onclick="return __FMgr.change_sort(this, 4, false)">Date Created</a></th>
+						</tr>
+					</thead>
+				</table>
+				<div id="fm_file_list">
+					<table cellpadding="0" cellspacing="0" class="file_table">
+						<col width="32px" />
+						<col width="25px" />
+						<col class="c_title" />
+						<col width="100px"/>
+						<col width="50px" />
+						<col width="100px"/>
+						<tbody id="fm_file_list_content"></tbody>
+					</table>
+				</div>
+			</div>
+			<div class="file_buttons">
+				<input class="fm_button btn_deleteall" type="button" value="Delete" onclick="__FMgr.delete_all_file()" />
+				&nbsp;
+				<input id="btn_moveallfile" class="fm_button btn_moveall" type="button" value="Move" onclick="__FMgr.move_all_file()" />      
+				<input id="btn_makedir" class="fm_button btn_makedir" type="button" value="New Folder" onclick="__FMgr.make_dir()" />
+					<input id="btn_uploadfile" class="fm_button btn_upload" type="button" value="Upload" onclick="__FMgr.upload_file()" />
+		  </div>
+			<div id="file_info_c">
+				<table>
+					<col width="50px" />
+					<col />
+					<tr>
+						<td align="right"><label class="italic_label">File:</label></td>
+						<td>
+							<input id="link_abs" type="text" class="txt_link" readonly="readonly" onmouseup="this.select()" />
+							<input id="download_file" type="button" class="fm_button btn_download btn_disabled" disabled="disabled" value="&nbsp;" title="Tải về" onclick="__FMgr.download_file(this)" />
+							<input class="fm_button btn_disabled" id="wf_btn_insert" disabled="true" type="button" value="Choose" style="width:75px;" />
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	
+	<div id="layer_background"></div>
+	<div id="message_c">
+		<div id="loading_c">Loading...</div>
+		<div id="make_dir_c">
+			Enter folder name:
+			<input id="dir_name" class="fm_txtbox" maxlength="100" type="text" value="" />
+			<div class="help_c">Characters in directory name include (az 0-9 _ -). Program will replace invalid characters.</div>
+			<div class="btn_c">
+				<div class="btn_right"><input class="fm_button" type="button" value="Create Folder" onclick="__FMgr.hide_win(true)" />&nbsp;<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" /></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+		<div id="change_folder_name">
+			Enter new name:
+			<input id="new_folder_name" class="fm_txtbox" maxlength="100" type="text" value="" style="width:170px" />
+			<div class="help_c">Characters in directory name include (az 0-9 _ -). Program will replace invalid characters.</div>
+			<div class="btn_c">
+				<div class="btn_right"><input class="fm_button" type="button" value="Rename" onclick="__FMgr.hide_win(true)" />&nbsp;<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" /></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+		<div id="change_file_name">
+			Nhập tên mới:
+			<input id="new_file_name" class="fm_txtbox" maxlength="100" type="text" value="" style="width:170px" />.<input id="new_file_ext" class="fm_txtbox" maxlength="5" type="text" value="" style="width:50px" />
+			<div class="help_c">Characters in file name include (az 0-9 _ -). Program will replace invalid characters.</div>
+			<div class="btn_c">
+				<div class="btn_right"><input class="fm_button" type="button" value="Rename" onclick="__FMgr.hide_win(true)" />&nbsp;<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" /></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+		<div id="move_file_c">
+			<div style="text-align:left; padding-bottom:5px;">Choose destination folder:</div>
+			<div id="target_folder_c"></div>
+			<div class="btn_c">
+				<div class="btn_right"><input class="fm_button" type="button" value="OK" onclick="__FMgr.hide_win(true)" />&nbsp;<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" /></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+		<div id="upload_file_c">
+			<link href="/Scripts/FM/uploadfile.css" rel="stylesheet">
+			<script src="/Scripts/FM/jquery.uploadfile.js"></script>
+			<div id="div_upload_flash"></div>
+		</div>  
+      
+		<div id="delete_file_confirm">
+			Are you sure you want to be delete file?
+			<div class="btn_c">
+				<div class="btn_right"><input class="fm_button" type="button" value="Yes" onclick="__FMgr.hide_win(true)" />&nbsp;<input class="fm_button" type="button" value="No" onclick="__FMgr.hide_win(false)" /></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+    
+		<div id="delete_dir_confirm">
+			Are you sure you want to delete folder?
+			<div class="btn_c">
+				<div class="btn_right"><input class="fm_button" type="button" value="Xóa" onclick="__FMgr.hide_win(true)" />&nbsp;<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" /></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+      
+		<div id="no_file_select">
+			You need to select at least one file or folder.
+			<div class="btn_c">
+				<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" />
+			</div>
+		</div>
+    
+		<div id="delete_all_file_confirm">
+			Are you sure you want to delete all selected files and folders?
+			<div class="btn_c">
+				<div class="btn_right"><input class="fm_button" type="button" value="OK" onclick="__FMgr.hide_win(true)" />&nbsp;<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" /></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+		<div id="folder_not_exists_c">
+			Source file or folder do not exists.
+			<div class="btn_c">
+				<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" />
+			</div>
+		</div>
+    
+		<div id="target_not_exists_c">
+			Destination folder does not exist.
+			<div class="btn_c">
+				<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" />
+			</div>
+		</div>
+    
+		<div id="folder_exists_c">
+			Name of this file or folder already exists.
+			<div class="btn_c">
+				<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" />
+			</div>
+		</div>
+		
+		<div id="cannot_move_c">
+			These folders or files are being used and cannot be moved, renamed ,or deleted.<br/>
+			Please try again in a few minutes.
+			<div class="btn_c">
+				<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" />
+			</div>
+		</div>
+    
+		<div id="file_ext_invalid">
+			Cannot rename file because file extension is not permitted (the system does not allow this file extension).
+			<div class="btn_c">
+				<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" />
+			</div>
+		</div>
+    
+		<div id="cannot_make_dir_c">
+			Cannot create folder.
+			<div class="btn_c">
+				<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" />
+			</div>
+		</div>
+    
+		<div id="notenoughtspace_c">
+			Exceeding storage space.
+			<div class="btn_c">
+				<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" />
+			</div>
+		</div>
+    
+		<div id="require_select_file">
+			You must select at least one file before you can insert this.
+			<div class="btn_c">
+				<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" />
+			</div>
+		</div>
+    
+		<div id="insert_max_length">
+			The content box allows only <b id="allow_file_insert">1</b> file(s).<br/>
+			The firstly inserted file will be used, is it Ok?
+			<div class="btn_c">
+				<div class="btn_right"><input class="fm_button" type="button" value="OK" onclick="__FMgr.hide_win(true)" />&nbsp;<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" /></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+    
+		<div id="not_permission_c">
+			You do not have permission to use this function.
+			<div class="btn_c">
+				<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" />
+			</div>
+		</div>
+		
+		<div id="not_convert_c">
+			This file can not convert.
+			<div class="btn_c">
+				<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" />
+			</div>
+		</div>
+		
+		<div id="image_preview">
+			<div class="image_preview image_preview_2"></div>
+			<div class="image_preview">
+				<table style="width:100%; height:100%;">
+					<tr>
+						<td align="center" valign="middle">
+							<table>
+								<tr>
+									<td>
+										<div style="position:relative; min-width:50px; min-height:50px;">
+											<input type="button" title="Close" onclick="closeImagePreview(this)" class="close_button" />
+											<a id="image_preview_link" href="" target="_blank" style="padding:0;font-size:0;line-height:0;">
+												<img src="/scripts/fm/images/loading.gif" alt="loading" border="0" />
+												<img src="" alt="" border="0" id="image_preview_img" onload="hideLoading(this)" style="display:none; max-width:600px; max-height:450px;" />
+											</a>
+											<div id="image_preview_media"></div>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>		
+			</div>
+		</div>
+		
+		<div id="picture_converter_c">
+			<div>
+				<fieldset>
+					<legend>Image Setting</legend>
+					<div>
+					<table>
+						<col width="100px" />
+						<col />
+						<tr>
+							<td>File name:</td>
+							<td><input type="text" maxlength="100" id="picture_new_name" class="fm_txtbox" style="width:200px" /></td>
+						</tr>
+						<tr>
+							<td>Format:</td>
+							<td>
+								<select id="picture_new_ext" class="fm_select" style="min-width:120px">
+									<option value="jpg" selected="selected">jpg</option>
+									<option value="jpeg">jpeg</option>
+									<option value="png">png</option>
+									<option value="bmp">bmp</option>
+									<option value="gif">gif</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Output Quality:</td>
+							<td>
+								<select id="picture_quality" class="fm_select" style="min-width:120px">
+									<option value="255">255</option>
+									<option value="250" selected="selected">250</option>
+									<option value="220">220</option>
+									<option value="200">200</option>
+									<option value="150">150</option>
+									<option value="100">100</option>
+									<option value="80">80</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Draw title:</td>
+							<td><input type="text" maxlength="400" id="picture_caption" class="fm_txtbox" style="width:200px" /></td>
+						</tr>
+						<tr><td colspan="2"><div class="help_c" style="text-align:justify">Title will not be drawn on the thumbnail.</div></td></tr>
+						<tr>
+							<td></td>
+							<td><input type="checkbox" id="cbx_draw_mask" />Draw Watermark</td>
+						</tr>
+					</table>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Standard Images</legend>
+					<label class="label_radio"><input id="cbx_picture_original" type="checkbox" checked="checked" />Original</label><br />
+					<label class="label_radio"><input id="cbx_picture_thumb" type="checkbox" />Thumnail (<span class="help_c0">{name}-thumb.{format}</span>)</label><br />
+					<label class="label_radio"><input id="cbx_picture_medium" type="checkbox" />Medium (Content Image) (<span class="help_c0">{name}-medium.{format}</span>)</label><br />
+					<label class="label_radio"><input id="cbx_picture_large" type="checkbox" />Large (<span class="help_c0">{name}-large.{format}</span>)</label><br />
+					<div class="help_c" style="text-align:justify">The output images will overwrite if it is existed.</div>
+				</fieldset>
+			</div>
+			<div class="btn_c">
+				<div class="btn_right"><input class="fm_button" type="button" value="Convert" onclick="__FMgr.hide_win(true)" />&nbsp;<input class="fm_button" type="button" value="Close" onclick="__FMgr.hide_win(false)" /></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>
+
+]]>
+</htmlcode>

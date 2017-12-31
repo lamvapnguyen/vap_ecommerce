@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/PostCenter/Box/HotPhoto.ascx" hash="fffffff3343c8b72" filehash="20118f3492c6610a" flags="110000" assembly="App_Web_nf3z1nhx" type="ASP.views_postcenter_box_hotphoto_ascx">
+    <filedeps>
+        <filedep name="/Views/Core/Box.ascx" />
+        <filedep name="/Views/PostCenter/Box/HotPhoto.ascx" />
+    </filedeps>
+</preserve>

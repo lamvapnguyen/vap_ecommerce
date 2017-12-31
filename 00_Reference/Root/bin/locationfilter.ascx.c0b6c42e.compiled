@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Common/LocationFilter.ascx" hash="fffffff3343c8b72" filehash="ffffdd63640b074e" flags="110000" assembly="App_Web_yb1zdjmr" type="ASP.views_common_locationfilter_ascx">
+    <filedeps>
+        <filedep name="/Views/Common/LocationFilter.ascx" />
+    </filedeps>
+</preserve>

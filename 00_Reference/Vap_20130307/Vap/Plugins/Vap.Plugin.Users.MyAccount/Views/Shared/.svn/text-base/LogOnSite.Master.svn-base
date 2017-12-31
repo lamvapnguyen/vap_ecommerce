@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <link href="../../Content/LogOnSite.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div>
+        <div class="page">
+            <div id="header">
+                <div id="title" class = "homePageTitle">
+                   <%=Html.ActionLink("VAP", "index", "home", new { }, new { @class = "homehomePageTitlepage" })%>
+                </div>
+                <div id="logindisplay">
+                    <% Html.RenderPartial("LogOnUserControl"); %>
+                </div>
+               <%-- <div id="menucontainer">
+                </div>--%>
+            </div>
+            <div id="main">
+            <div style="margin-top:50px;">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="footer-copyright">
+           Copyright © 2011 Nguyễn Tiến Lẫm. All rights reserved. 
+           <%=Html.ActionLink("Help", "help", "home")%>
+           </div>
+           <div id ="footer-contact">
+             <span>Contact us </span>
+            <span><a href="mailto:lamvapnguyen@gmail.com"><img src="../../Content/images/mail.png"/ ></a></span>
+           </div>
+        </div>
+    </div>
+</body>
+</html>

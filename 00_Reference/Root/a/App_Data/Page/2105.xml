@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<layout Id="2104" Name="Mobile">
+	<edit>
+	<![CDATA[
+<table width="100%" cellpadding="0" cellspacing="0">
+	<tr>
+		<td valign="top" width="25%">
+			<fieldset class="m_container" style="border-color:#B3C3D5;background:#F6F9FE;">
+				<legend>Left</legend>
+				<ul class="m_group" pos="4"></ul>
+				<input type="button" value="Add" class="m_button_add" />
+				<input type="button" value="[active]" class="m_btn_checkall" />
+				<input type="button" value="[deactive]" class="m_btn_uncheckall" />
+			</fieldset>
+		</td>
+		<td valign="top" width="75%" style="border:1px solid #ccc;border-top:0;border-bottom:0;">
+			<table width="100%" cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top" width="50%">
+						<fieldset class="m_container">
+							<legend>Header-Left</legend>
+							<ul class="m_group" pos="1"></ul>
+							<input type="button" value="Add" class="m_button_add" />
+							<input type="button" value="[active]" class="m_btn_checkall" />
+							<input type="button" value="[deactive]" class="m_btn_uncheckall" />
+						</fieldset>
+					</td>
+					<td valign="top" width="50%">
+						<fieldset class="m_container">
+							<legend>Header-Right</legend>
+							<ul class="m_group" pos="2"></ul>
+							<input type="button" value="Add" class="m_button_add" />
+							<input type="button" value="[active]" class="m_btn_checkall" />
+							<input type="button" value="[deactive]" class="m_btn_uncheckall" />
+						</fieldset>
+					</td>
+				</tr>
+			</table>
+			<fieldset class="m_container">
+				<legend>Header</legend>
+				<ul class="m_group" pos="3"></ul>
+				<input type="button" value="Add" class="m_button_add" />
+				<input type="button" value="[active]" class="m_btn_checkall" />
+				<input type="button" value="[deactive]" class="m_btn_uncheckall" />
+			</fieldset>
+			<fieldset class="m_container" style="border-color:#B3C3D5;background:#F6F9FE;">
+				<legend>Center</legend>
+				<ul class="m_group" pos="8"></ul>
+				<input type="button" value="Add" class="m_button_add" />
+				<input type="button" value="[active]" class="m_btn_checkall" />
+				<input type="button" value="[deactive]" class="m_btn_uncheckall" />
+			</fieldset>
+			<fieldset class="m_container">
+				<legend>Footer</legend>
+				<ul class="m_group" pos="12"></ul>
+				<input type="button" value="Add" class="m_button_add" />
+				<input type="button" value="[active]" class="m_btn_checkall" />
+				<input type="button" value="[deactive]" class="m_btn_uncheckall" />
+			</fieldset>
+		</td>
+		<td valign="top" width="25%">
+			<fieldset class="m_container" style="border-color:#B3C3D5;background:#F6F9FE;">
+				<legend>Right</legend>
+				<ul class="m_group" pos="11"></ul>
+				<input type="button" value="Add" class="m_button_add" />
+				<input type="button" value="[active]" class="m_btn_checkall" />
+				<input type="button" value="[deactive]" class="m_btn_uncheckall" />
+			</fieldset>
+		</td>
+	</tr>
+</table>
+]]>
+	</edit>
+	
+	<real>
+	<![CDATA[
+<div class="root_2105">
+    <div data-role="page" class="jqm-demos" id="panel-fixed-page1" data-title="">
+        <div data-role="header" data-position="fixed">
+            <div class="cpos_1_2">
+				[<div id="cpos_1">{1}<div class="clear"></div></div>]
+				[<div id="cpos_2">{2}<div class="clear"></div></div>]
+				<div class="clear"></div>
+			</div>
+			[<div id="cpos_3">{3}<div class="clear"></div></div>]
+            <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+            <a href="#add-form" data-icon="gear" data-iconpos="notext">Add</a>
+        </div>
+        <div role="main" class="ui-content jqm-content jqm-fullwidth">
+            [<div id="cpos_8">{8}<div class="clear"></div></div>]
+        </div>
+        <div data-role="footer" data-position="fixed">
+    	    [<div id="cpos_12">{12}<div class="clear"></div></div>]
+        </div>
+        <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="b" id="nav-panel">
+		    <ul data-role="listview">
+                <li data-icon="delete"><a href="#" data-rel="close">Menu</a></li>
+		    </ul>
+            [<div id="cpos_4">{4}<div class="clear"></div></div>]
+	    </div>
+        <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="add-form">
+            [<div id="cpos_11">{11}<div class="clear"></div></div>]
+        </div>
+    </div>
+    <div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span><h1>loading</h1></div>
+</div>
+]]>
+	</real>
+</layout>

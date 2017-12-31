@@ -1,0 +1,13 @@
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\bin\Vap.Plugin.Users.MyAccount.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\bin\Vap.Plugin.Users.MyAccount.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Users.MyAccount\bin\Vap.Plugin.Users.MyAccount.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Users.MyAccount\bin\Vap.Plugin.Users.MyAccount.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Users.MyAccount\bin\Vap.Framework.Authorization.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Users.MyAccount\bin\Vap.Framework.Configuration.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Users.MyAccount\bin\Vap.Framework.Configuration.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Users.MyAccount\bin\Vap.Framework.Authorization.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Users.MyAccount\obj\Debug\ResolveAssemblyReference.cache
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Users.MyAccount\obj\Debug\Vap.Plugin.Users.MyAccount.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Users.MyAccount\obj\Debug\Vap.Plugin.Users.MyAccount.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Users.MyAccount\bin\Vap.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Users.MyAccount\bin\Vap.pdb

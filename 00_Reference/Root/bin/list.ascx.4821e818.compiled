@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Product/SubControls/ListStyle/List.ascx" hash="fffffff3343c8b72" filehash="3f22fb211182" flags="110000" assembly="App_Web_ea4e42m3" type="ASP.views_product_subcontrols_liststyle_list_ascx">
+    <filedeps>
+        <filedep name="/Views/Product/SubControls/ListStyle/List.ascx" />
+    </filedeps>
+</preserve>

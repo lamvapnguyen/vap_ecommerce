@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Default.aspx" hash="fffffffaa8934d59" filehash="17693c65e6cc51c7" flags="110000" assembly="App_Web_e1gfan1v" type="ASP.default_aspx">
+    <filedeps>
+        <filedep name="/Default.aspx" />
+        <filedep name="/Views/CommonUC/Language.ascx" />
+    </filedeps>
+</preserve>

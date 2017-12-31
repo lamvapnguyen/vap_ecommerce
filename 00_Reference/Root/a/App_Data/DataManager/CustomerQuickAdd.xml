@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="WCMS_Customer" Title="a_menu_customer" R="502" DefaultSort="Customer_ID" DefaultSortAsc="false">
+  <controls>
+    <field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+    <field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+    <field Name="WCMS_Customer" Path="Process/Customer.ascx" Pos="7"/>
+  </controls>
+
+  <list></list>
+
+  <command_plus><![CDATA[]]></command_plus>
+
+  <search><![CDATA[]]></search>
+
+  <edit>
+    <group Title="group_customer_info" Pos="2" Expand="true">
+		<field Name="Customer_Code" Title="f_cust_code" Type="1" Property="Require='true' MaxLength='50' Width='120px' Css='color:#090'"/>
+		<field Name="Customer_FullName" Title="f_fullname" Type="1" Property="Require='true' MaxLength='150' Width='250px'"/>
+		<field Name="Customer_Email" Title="f_email" Type="1" Property="Require='true' Width='250px'"/>
+		<field Name="Customer_Phone" Title="f_phone" Type="1" Property="MaxLength='50' Width='150px'"/>
+		<field Name="Customer_Address" Title="f_address" Type="1" Property="MaxLength='200' Width='96%'"/>
+		
+		<field Name="Customer_StateID" Title="f_city" Type="8" Property="SqlSP='SP_A_R_001_Tree_State' ParentID='3' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Default='5101' DisplayNoSelectText='false'"/>
+		<field Name="Customer_QuanHuyen" Title="f_quanhuyen" Type="8" Property="SqlSP='SP_A_R_001_Tree_StateCounty' ParentID='3' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Default='5101' DisplayNoSelectText='false'"/>
+    </group>
+  </edit>
+
+  <html><![CDATA[]]></html>
+
+  <SQL_SELECT_LIST>
+    <![CDATA[]]>
+  </SQL_SELECT_LIST>
+
+  <SQL_LOAD_EDIT>
+    <![CDATA[
+	set nocount on
+	select  Customer_ID
+		   ,Customer_UName
+		   ,Customer_FullName
+		   ,Customer_Email
+		   ,Customer_A
+		   ,Customer_Company
+		   ,Customer_Address
+		   ,Customer_Phone
+		   ,Customer_Date
+		   ,Customer_Code
+		   ,Customer_ParentCode
+		   ,Customer_BankAccountName
+		   ,Customer_BankAccountNumber
+		   ,Customer_Bank
+		   ,Customer_Birthday
+		   ,Customer_CMNDNumber
+		   ,Customer_CMNDDate
+		   ,Customer_CMNDPlace
+		   ,Customer_StateID
+		   ,Customer_QuanHuyen
+		   
+		   ,Customer_AccID
+		   ,Customer_TokenAddNew
+	from WCMS_Customer where Customer_ID = @editID	
+	]]>
+  </SQL_LOAD_EDIT>
+
+  <SQL_NEW><![CDATA[]]></SQL_NEW>
+
+  <SQL_ADD>
+    <![CDATA[
+	set nocount on
+	declare @pid int, @ft nvarchar(2000), @fulllName nvarchar(200) = {@Get:Customer_FullName}, @phone varchar(50) = {@Get:Customer_Phone}, @code varchar(20) = {@Get:Customer_Code}
+	Select @ft = dbo.FN_001_ConvertToFullText(ISNULL(@fulllName,'') + ISNULL(' | ' + @phone,'') + ISNULL(' | ' + @code,''))
+	
+	INSERT INTO WCMS_Customer
+	(
+		Customer_AccID
+		,Customer_TokenAddNew
+		,Customer_CreateDate
+	   
+		,Customer_FullName
+	   ,Customer_Email
+	   ,Customer_A
+	   ,Customer_Company
+	   ,Customer_Address
+	   ,Customer_Phone
+	   ,Customer_Date
+	   ,Customer_Code
+	   ,Customer_FullText
+	   ,Customer_StateID
+	   ,Customer_QuanHuyen
+	)
+	VALUES
+	(
+		{@AccID}
+		,{@Get:Customer_TokenAddNew}
+		,getutcdate()
+		
+		,@fulllName
+		,{@Get:Customer_Email}
+		,1
+		,{@Get:Customer_Company}
+		,{@Get:Customer_Address}
+		,@phone
+		,getutcdate()
+		,@code
+	   ,@ft
+	   ,{@Get:Customer_StateID}
+	   ,{@Get:Customer_QuanHuyen}
+	)
+	
+	declare @id int	
+	select @id = SCOPE_IDENTITY()
+	
+	select @id
+	]]>
+  </SQL_ADD>
+
+  <SQL_UPDATE>
+    <![CDATA[
+	set nocount on	
+	declare @ft nvarchar(2000), @fulllName nvarchar(200) = {@Get:Customer_FullName}, @phone varchar(50) = {@Get:Customer_Phone}, @code varchar(20) = {@Get:Customer_Code}
+	Select @ft = dbo.FN_001_ConvertToFullText(ISNULL(@fulllName,'') + ISNULL(' | ' + @phone,'') + ISNULL(' | ' + @code,''))
+	
+	update WCMS_Customer set
+		Customer_Email		= {@Get:Customer_Email}
+		,Customer_FullName	= @fulllName
+		,Customer_Company	= {@Get:Customer_Company}
+		,Customer_Address	= {@Get:Customer_Address}
+		,Customer_Phone		= @phone
+		,Customer_Date		= getutcdate()
+		,Customer_Code 		= @code
+	   ,Customer_StateID	= {@Get:Customer_StateID}
+	   ,Customer_QuanHuyen	= {@Get:Customer_QuanHuyen}
+	   ,Customer_FullText	= @ft
+	where Customer_ID = @editID
+	
+	select @editID
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_customer_update', '(' + @logIP + ') Updated customer [' + {@Get:Customer_FullName} + '].', 'Customer', @editID, @logAcc)
+	]]>
+  </SQL_UPDATE>
+
+  <SQL_UPDATE_ACTIVE>
+    <![CDATA[
+	update WCMS_Customer set [Customer_A]= @active, [Customer_Date] = getutcdate()
+	where Customer_ID = @editID
+	select @editID	
+	]]>
+  </SQL_UPDATE_ACTIVE>
+
+  <SQL_COPY><![CDATA[]]></SQL_COPY>
+
+  <SQL_DELETE>
+    <![CDATA[
+	delete WCMS_Customer where Customer_ID = @delID
+	select @@ROWCOUNT 
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_delete', '(' + @logIP + ') Deleted 1 Customer.', 'Customer', @delID, @logAcc)
+	]]>
+  </SQL_DELETE>
+</table>

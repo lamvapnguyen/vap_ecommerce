@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/App_Themes/Theme1/" hash="fffffffaa8934d59" filehash="48111c56eafd2d9" flags="110000" assembly="App_Theme_Theme1" type="ASP.Theme1">
+    <filedeps>
+        <filedep name="/App_Themes/Theme1/" />
+    </filedeps>
+</preserve>

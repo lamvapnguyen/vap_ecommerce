@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/Vap-Portal/!svn/ver/28/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Admin.UserRoles/Models
+END
+T_ROLE_MENU_MODELS.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Vap-Portal/!svn/ver/28/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Admin.UserRoles/Models/T_ROLE_MENU_MODELS.cs
+END
+AccountModels.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Vap-Portal/!svn/ver/11/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Admin.UserRoles/Models/AccountModels.cs
+END
+M_ROLE_MODELS.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Vap-Portal/!svn/ver/11/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Admin.UserRoles/Models/M_ROLE_MODELS.cs
+END
+M0110_Models.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Vap-Portal/!svn/ver/28/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Admin.UserRoles/Models/M0110_Models.cs
+END
+M_MENU_MODELS.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Vap-Portal/!svn/ver/11/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Admin.UserRoles/Models/M_MENU_MODELS.cs
+END
+M_PERSON_MODELS.cs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Vap-Portal/!svn/ver/11/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Admin.UserRoles/Models/M_PERSON_MODELS.cs
+END

@@ -1,0 +1,1 @@
+tinyMCE.addI18n("ja.emotions_dlg",{cry:"Cry",cool:"Cool",desc:"表情アイコン",title:"表情アイコンの挿入",yell:"Yell",wink:"Wink",undecided:"Undecided",tongue_out:"Tongue out",surprised:"Surprised",smile:"Smile",sealed:"Sealed",money_mouth:"Money mouth",laughing:"Laughing",kiss:"Kiss",innocent:"Innocent",frown:"Frown",foot_in_mouth:"Foot in mouth",embarassed:"Embarassed"});

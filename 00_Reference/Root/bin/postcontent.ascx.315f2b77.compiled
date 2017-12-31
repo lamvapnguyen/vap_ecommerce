@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/PostCenter/SubControls/PostContent.ascx" hash="fffffff3343c8b72" filehash="f713bce7c2f00e4b" flags="110000" assembly="App_Web_dhx1elbe" type="ASP.views_postcenter_subcontrols_postcontent_ascx">
+    <filedeps>
+        <filedep name="/Views/Core/Box.ascx" />
+        <filedep name="/Views/Core/PhotoPlayer.ascx" />
+        <filedep name="/Views/PostCenter/SubControls/PostContent.ascx" />
+        <filedep name="/Views/PostCenter/SubControls/Register.ascx" />
+    </filedeps>
+</preserve>

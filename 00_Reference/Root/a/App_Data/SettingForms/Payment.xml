@@ -1,0 +1,272 @@
+﻿<setting name="Payment">
+<![CDATA[
+
+<input type="hidden" value="1" name="update_hidden_field" />
+<script type="text/javascript" src="Scripts/Tools/tiny_mce/jquery.tinymce.js"></script>
+<table cellspacing="0" cellpadding="0" width="100%" class="dm_edit_table">
+	<col width="200px" /><col width="1px" /><col />
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr style="display:none;">
+		<td class="dm_ioc_value_t">{lang:f_money_type}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value"><input type="text" name="checkout_money_type" value="{p:checkout_money_type}" class="ioc_textbox" style="width:70px;" /></td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">{lang:integrated}</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value multi_div">
+			<div id="gw_nganluong" style="width:530px;padding-left:3px;">
+				<fieldset>
+					<legend><a target="_blank" href="https://www.nganluong.vn">Ngân Lượng <span style="font-weight:normal;">(nganluong.vn)</span></a></legend>
+					<label>
+						<span class="label_lbl" style="width:150px;">ID kết nối</span>
+						<input type="text" name="nganluong_merchant_code" value="{p:nganluong_merchant_code}" class="ioc_textbox" style="float:left;width:280px;" />
+						<br clear="all"/>
+					</label>
+					<label>
+						<span class="label_lbl" style="width:150px;">Mật khẩu kết nối</span>
+						<input type="text" name="nganluong_passwd" value="{p:nganluong_passwd}" class="ioc_textbox" style="float:left;width:280px;" />
+						<br clear="all"/>
+					</label>
+				</fieldset>
+				<br clear="all" />
+			</div>
+			<div id="gw_1payvn" style="width:530px;padding-left:3px;">
+				<fieldset>
+					<legend><a target="_blank" href="https://www.1pay.vn">1Pay.vn</a></legend>
+					<label>
+						<span class="label_lbl" style="width:150px;">Access key</span>
+						<input type="text" name="_1pay_accesskey" value="{p:_1pay_accesskey}" class="ioc_textbox" style="float:left;width:280px;" />
+						<br clear="all"/>
+					</label>
+					<label>
+						<span class="label_lbl" style="width:150px;">Secret key</span>
+						<input type="text" name="_1pay_secretkey" value="{p:_1pay_secretkey}" class="ioc_textbox" style="float:left;width:280px;" />
+						<br clear="all"/>
+					</label>
+				</fieldset>
+				<br clear="all" />
+			</div>
+			
+			
+			<div style="width:530px;padding-left:3px; display:none;">
+				<fieldset>
+					<legend><a target="_blank" href="https://www.baokim.vn">Bảo Kim <span style="font-weight:normal;">(baokim.vn)</span></a></legend><br/>
+					<label>
+						<span class="label_lbl" style="width:150px;">Code</span>
+						<input type="text" name="baokim_merchant_code" value="{p:baokim_merchant_code}" class="ioc_textbox" style="float:left;width:280px;" />
+						<br clear="all"/>
+					</label>
+					<label>
+						<span class="label_lbl" style="width:150px;">Password</span>
+						<input type="text" name="baokim_passwd" value="{p:baokim_passwd}" class="ioc_textbox" style="float:left;width:280px;" />
+						<br clear="all"/>
+					</label>
+				</fieldset>
+				<br clear="all" />
+			</div>
+			<div style="width:530px;padding-left:3px; display:none;">
+				<fieldset>
+					<legend><a target="_blank" href="https://www.paypal.com/vn">Paypal</a></legend><br/>
+					<label>
+						<span class="label_lbl" style="width:150px;">Authorization</span>
+						<input type="checkbox" value="True" name="paypal_authorization" {p:paypal_authorization} />
+						<br clear="all"/>
+					</label>
+					<label>
+						<span class="label_lbl" style="width:150px;">Signature</span>
+						<input type="checkbox" value="True" name="paypal_using_signature" {p:paypal_using_signature} />
+						<br clear="all"/>
+					</label>
+					<label>
+						<span class="label_lbl" style="width:150px;">API Username</span>
+						<input type="text" name="paypal_apiusername" value="{p:paypal_apiusername}" class="ioc_textbox" style="float:left;width:280px;" />
+						<br clear="all"/>
+					</label>
+					<label>
+						<span class="label_lbl" style="width:150px;">API Password</span>
+						<input type="text" name="paypal_apipassword" value="{p:paypal_apipassword}" class="ioc_textbox" style="float:left;width:280px;" />
+						<br clear="all"/>
+					</label>
+					<label>
+						<span class="label_lbl" style="width:150px;">Certificate File</span>
+						<input type="text" name="paypal_certificatefile" value="{p:paypal_certificatefile}" class="ioc_textbox" style="float:left;width:280px;" />
+						<br clear="all"/>
+					</label>
+					<label>
+						<span class="label_lbl" style="width:150px;">Private Key Password</span>
+						<input type="text" name="paypal_privatekeypassword" value="{p:paypal_privatekeypassword}" class="ioc_textbox" style="float:left;width:280px;" />
+						<br clear="all"/>
+					</label>
+					<hr/>
+					<label>
+						<span class="label_lbl" style="width:150px;">Payflow (Pro Account)</span>
+						<input type="checkbox" value="True" name="paypal_using_payflow" {p:paypal_using_payflow} />
+						<br clear="all"/>
+					</label>
+					
+					<label>
+						<span class="label_lbl" style="width:150px;">Username</span>
+						<input type="text" name="payflow_pro_account_user" value="{p:payflow_pro_account_user}" class="ioc_textbox" style="float:left;width:280px;" />
+						<br clear="all"/>
+					</label>
+					<label>
+						<span class="label_lbl" style="width:150px;">Password</span>
+						<input type="text" name="payflow_pro_account_password" value="{p:payflow_pro_account_password}" class="ioc_textbox" style="float:left;width:280px;" />
+						<br clear="all"/>
+					</label>
+					<label>
+						<span class="label_lbl" style="width:150px;">Vendor</span>
+						<input type="text" name="payflow_pro_account_vendor" value="{p:payflow_pro_account_vendor}" class="ioc_textbox" style="float:left;width:280px;" />
+						<br clear="all"/>
+					</label>
+					<label>
+						<span class="label_lbl" style="width:150px;">Partner</span>
+						<input type="text" name="payflow_pro_account_partner" value="{p:payflow_pro_account_partner}" class="ioc_textbox" style="float:left;width:280px;" />
+						<br clear="all"/>
+					</label>
+				</fieldset>
+				<br clear="all" />
+			</div>
+			<div style="clear:both;"></div>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">{lang:wcms_definition_5102}</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value">
+			<div style="border:1px solid #ccc; padding:3px;">
+				<table border="0" cellspacing="0" cellpadding="0" width="100%">
+					<tr>
+						<td valign="top" align="right" style="padding:10px 5px 0;">Tiếng Việt:</td>
+						<td><div><textarea name="pay_gateway_5102_vn" id="pay_gateway_5102_vn">{p:pay_gateway_5102_vn}</textarea></div></td>
+					</tr>
+					<tr>
+						<td valign="top" align="right" style="padding:10px 5px 0;">English:</td>
+						<td style="padding-top:3px;"><div><textarea name="pay_gateway_5102_en" id="pay_gateway_5102_en">{p:pay_gateway_5102_en}</textarea></div></td>
+					</tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">{lang:wcms_definition_5111}</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value">
+			<div style="border:1px solid #ccc; padding:3px;">
+				<table border="0" cellspacing="0" cellpadding="0" width="100%">
+					<tr>
+						<td valign="top" align="right" style="padding:10px 5px 0;">Tiếng Việt:</td>
+						<td><div><textarea name="pay_gateway_5111_vn" id="pay_gateway_5111_vn">{p:pay_gateway_5111_vn}</textarea></div></td>
+					</tr>
+					<tr>
+						<td valign="top" align="right" style="padding:10px 5px 0;">English:</td>
+						<td style="padding-top:3px;"><div><textarea name="pay_gateway_5111_en" id="pay_gateway_5111_en">{p:pay_gateway_5111_en}</textarea></div></td>
+					</tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">{lang:wcms_definition_5112}</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value">
+			<div style="border:1px solid #ccc; padding:3px;">
+				<table border="0" cellspacing="0" cellpadding="0" width="100%">
+					<tr>
+						<td valign="top" align="right" style="padding:10px 5px 0;">Tiếng Việt:</td>
+						<td><div><textarea name="pay_gateway_5112_vn" id="pay_gateway_5112_vn">{p:pay_gateway_5112_vn}</textarea></div></td>
+					</tr>
+					<tr>
+						<td valign="top" align="right" style="padding:10px 5px 0;">English:</td>
+						<td style="padding-top:3px;"><div><textarea name="pay_gateway_5112_en" id="pay_gateway_5112_en">{p:pay_gateway_5112_en}</textarea></div></td>
+					</tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">{lang:wcms_definition_5113}</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value">
+			<div style="border:1px solid #ccc; padding:3px;">
+				<table border="0" cellspacing="0" cellpadding="0" width="100%">
+					<tr>
+						<td valign="top" align="right" style="padding:10px 5px 0;">Tiếng Việt:</td>
+						<td><div><textarea name="pay_gateway_5113_vn" id="pay_gateway_5113_vn">{p:pay_gateway_5113_vn}</textarea></div></td>
+					</tr>
+					<tr>
+						<td valign="top" align="right" style="padding:10px 5px 0;">English:</td>
+						<td style="padding-top:3px;"><div><textarea name="pay_gateway_5113_en" id="pay_gateway_5113_en">{p:pay_gateway_5113_en}</textarea></div></td>
+					</tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr><td colspan="3"><input type="submit" name="update_setting_submit" class="dm_edit_button_1" value="Update" /></td></tr>
+</table>
+
+<script type="text/javascript">
+	function load_setting_editor(s_id)
+  {
+    $('#' + s_id).tinymce
+		({
+			"script_url": 'Scripts/Tools/tiny_mce/tiny_mce.js',
+			"theme": "advanced",
+			"skin": "cirkuit",
+			"width": "100%",
+			language: 'en',
+			insertType: 'medium_image',
+			insertNumber: 10,
+			isBroswer: true,
+			hasLicensed: false,
+			editor_image_align: 'center',
+			default_image_border: 0,
+			editor_image_vspace: 5,
+			editor_image_hspace: 5,
+			"plugins": 'safari,table,inlinepopups,contextmenu,fullscreen,paste,searchreplace,wpeditimage,media',
+			"height": '150px',
+			theme_advanced_buttons1: 'fullscreen,code,pasteword,|,formatselect,|,removeformat,forecolor,backcolor,bold,italic,underline,strikethrough,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,image,wpeditimage,table',
+			theme_advanced_buttons2: '',
+			theme_advanced_buttons3: '',
+			theme_advanced_toolbar_location: "top",
+			theme_advanced_toolbar_align: "left",
+			theme_advanced_statusbar_location: "bottom",
+			theme_advanced_resizing: false,
+			mode: "specific_textareas",
+			editor_selector: "htmlEditor",
+			entity_encoding: "raw",
+			relative_urls: false,
+			convert_urls: false,
+			forced_root_block: "",
+			force_p_newlines: false,
+			remove_linebreaks: false,
+			force_br_newlines: true,
+			remove_trailing_nbsp: false,
+			verify_html: false,
+			inline_styles: false
+		});
+  };
+  
+	
+	$(function(){
+		var hasNL = {p:has_nganluong}, has1PayVn = {p:has_1payvn};
+		if (hasNL == 0) $('#gw_nganluong').hide();
+		if (has1PayVn == 0) $('#gw_1payvn').hide();
+		
+		$("#ucUpdateSetting5_d_HtmlContent .ioc_select").each(function(){ $(this).val($(this).attr("val")); });
+	
+		load_setting_editor('pay_gateway_5102_vn');
+		load_setting_editor('pay_gateway_5102_en');
+		load_setting_editor('pay_gateway_5111_vn');
+		load_setting_editor('pay_gateway_5111_en');
+		load_setting_editor('pay_gateway_5112_vn');
+		load_setting_editor('pay_gateway_5112_en');
+		load_setting_editor('pay_gateway_5113_vn');
+		load_setting_editor('pay_gateway_5113_en');
+  });
+</script>
+
+]]>
+</setting>

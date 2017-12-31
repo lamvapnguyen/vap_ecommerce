@@ -1,0 +1,6 @@
+<root>
+	<menu Id="1" Title="#Backup Data" Link="?PageID=114&amp;Src=Backup" Icon="" T="" R="902" A="true" />
+	<menu Id="2" Title="#Restore Data" Link="?PageID=114&amp;Src=Restore" Icon="" T="" R="903" A="true" />
+  <menu Id="3" Title="#Shrink Database" Link="?PageID=114&amp;Src=Shrink" Icon="" T="" R="903" A="true" />
+	<menu Id="4" Title="#Import Data (Cls-3: Housing)" Link="?PageID=114&amp;Src=ImportHousing" Icon="" T="" R="901" A="true" />
+</root>

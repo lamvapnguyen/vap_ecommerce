@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Vap-Portal/!svn/ver/73/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Dto/Message
+END
+MessageDto.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/Vap-Portal/!svn/ver/56/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Dto/Message/MessageDto.cs
+END
+PluginMessageInfo.cs
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Vap-Portal/!svn/ver/56/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Dto/Message/PluginMessageInfo.cs
+END
+FolderDto.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/Vap-Portal/!svn/ver/73/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Dto/Message/FolderDto.cs
+END
+ReplyDto.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/Vap-Portal/!svn/ver/56/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Dto/Message/ReplyDto.cs
+END
+SubjectDto.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/Vap-Portal/!svn/ver/56/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Dto/Message/SubjectDto.cs
+END

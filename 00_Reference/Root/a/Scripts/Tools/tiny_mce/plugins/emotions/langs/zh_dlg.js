@@ -1,0 +1,1 @@
+tinyMCE.addI18n("zh.emotions_dlg",{cry:"哭泣",cool:"酷",desc:"表情列表",title:"插入表情",yell:"大叫",wink:"眨眼",undecided:"思考",tongue_out:"吐舌头",surprised:"惊讶",smile:"微笑",sealed:"保密",money_mouth:"发财",laughing:"大笑",kiss:"吻",innocent:"天真",frown:"皱眉",foot_in_mouth:"咧嘴",embarassed:"尴尬"});

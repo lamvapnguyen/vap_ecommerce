@@ -1,0 +1,8 @@
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Libraries\Vap.Framework.Configuration\bin\Debug\Vap.Framework.Configuration.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Libraries\Vap.Framework.Configuration\bin\Debug\Vap.Framework.Configuration.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Libraries\Vap.Framework.Configuration\obj\Debug\ResolveAssemblyReference.cache
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Libraries\Vap.Framework.Configuration\obj\Debug\Vap.Framework.Configuration.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Libraries\Vap.Framework.Configuration\obj\Debug\Vap.Framework.Configuration.pdb
+E:\Bin\Projects\vap_ecommerce\00_Reference\Vap_20130307\Vap\Libraries\Vap.Framework.Configuration\obj\Debug\Vap.Framework.Configuration.csprojResolveAssemblyReference.cache
+E:\Bin\Projects\vap_ecommerce\00_Reference\Vap_20130307\Vap\Libraries\Vap.Framework.Configuration\obj\Debug\Vap.Framework.Configuration.dll
+E:\Bin\Projects\vap_ecommerce\00_Reference\Vap_20130307\Vap\Libraries\Vap.Framework.Configuration\obj\Debug\Vap.Framework.Configuration.pdb

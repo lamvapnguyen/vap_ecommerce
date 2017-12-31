@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Core/Comment.ascx" hash="fffffff3343c8b72" filehash="1996fb5f9acd" flags="110000" assembly="App_Web_1gp22pdn" type="ASP.views_core_comment_ascx">
+    <filedeps>
+        <filedep name="/Views/Core/Comment.ascx" />
+    </filedeps>
+</preserve>

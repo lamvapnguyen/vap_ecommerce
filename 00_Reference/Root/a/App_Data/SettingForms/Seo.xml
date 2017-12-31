@@ -1,0 +1,57 @@
+﻿<setting name="SEO">
+<![CDATA[
+
+<input type="hidden" value="1" name="update_hidden_field" />
+<table cellspacing="0" cellpadding="0" width="100%" class="dm_edit_table">
+	<col width="200px" /><col width="1px" /><col />
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t">Google Site Verification</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" name="google_site_verification" value="{p:google_site_verification}" class="ioc_textbox" style="width:90%;color:#090;" /><br/>
+			<input type="text" name="google_site_verification_2" value="{p:google_site_verification_2}" class="ioc_textbox" style="width:90%;color:#090;" />
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">Google Analytics</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value">
+			<textarea type="text" class="ioc_textbox" maxlength="4000" rows="9" name="gganalytics" style="height:auto;" />{p:gganalytics}</textarea>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:meta_refresh_time}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" name="meta_refresh_time" value="{p:meta_refresh_time}" class="ioc_textbox" style="width:100px;text-align:right;" /><span style="padding:3px 0;">&nbsp;seconds</span>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t">Links & Titles</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value multi_div">
+			<div>
+				<input type="checkbox" value="True" name="seo_nav_h2" {p:seo_nav_h2} />&nbsp;<span class="span_label">{lang:seo_nav_h2}</span>
+			</div>
+			<div>
+				<input type="checkbox" value="True" name="seo_title_link" {p:seo_title_link} />&nbsp;<span class="span_label">{lang:seo_title_link}</span>
+			</div>
+			<div>
+				<input type="checkbox" value="True" name="seo_title_vn" {p:seo_title_vn} />&nbsp;<span class="span_label">{lang:seo_title_vn}</span>
+			</div>
+			<div>
+				<input type="checkbox" value="True" name="on_rich_snippets" {p:on_rich_snippets} />&nbsp;<span class="span_label">Rich Snippets</span>
+			</div>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td colspan="3"><input type="submit" name="update_setting_submit" class="dm_edit_button_1" value="Update" /></td>
+	</tr>
+</table>
+
+]]>
+</setting>

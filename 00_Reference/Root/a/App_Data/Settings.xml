@@ -1,0 +1,19 @@
+﻿<root>
+	<normal>
+		<menu Id="1" Title="a_setting_site" Link="?PageID=113&amp;Src=Site" R="316" A="true" />
+		<menu Id="2" Title="a_setting_page" Link="?PageID=113&amp;Src=Page" R="317" A="true" />
+		<menu Id="3" Title="f_email" Link="?PageID=113&amp;Src=Email" R="317" A="true" />
+		<menu Id="4" Title="a_setting_site_pay" Link="?PageID=113&amp;Src=Payment" R="316" A="true" />
+		<menu Id="11" Title="a_setting_file" Link="?PageID=113&amp;Src=File" R="318" A="true" />
+		<menu Id="12" Title="a_setting_image" Link="?PageID=113&amp;Src=Image" R="320" A="true" />
+		<menu Id="13" Title="a_setting_adv" Link="?PageID=113&amp;Src=Ads" R="322" A="true" />
+		<menu Id="14" Title="a_setting_seo" Link="?PageID=113&amp;Src=SEO" R="324" A="true" />
+	</normal>
+	<sa>
+		<menu Id="111" Title="#Hệ thống" Link="?PageID=113&amp;Src=System" R="103" A="true" />
+		<menu Id="112" Title="#Modules" Link="?PageID=113&amp;Src=Function" R="103" A="true" />
+		<menu Id="115" Title="#Công cụ thay thế chuỗi" Link="?PageID=113&amp;Src=Replace" R="103" A="true" />
+		<menu Id="121" Title="#Header scripts" Link="?PageID=113&amp;Src=Script1" R="103" A="true" />
+		<menu Id="122" Title="#(Footer scripts)" Link="?PageID=113&amp;Src=Script2" R="102" A="true" />
+	</sa>
+</root>

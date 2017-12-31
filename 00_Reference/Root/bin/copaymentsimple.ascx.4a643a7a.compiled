@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Product/EC/CoPaymentSimple.ascx" hash="fffffff3343c8b72" filehash="ffffc7a714fb678d" flags="110000" assembly="App_Web_jo4wszy0" type="ASP.views_product_ec_copaymentsimple_ascx">
+    <filedeps>
+        <filedep name="/Views/Product/EC/CoPaymentSimple.ascx" />
+    </filedeps>
+</preserve>

@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Widget" Title="#Widget" R="103" DefaultSort="Widget_Name" DefaultSortAsc="true">
+	<controls>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4" />
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5" />
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	</controls>
+	
+	<list>
+		<field Name="Widget_ID" Title="f_id" Type="1" Css="width:60px;text-align:left;color:#a00;"/>
+		<field Name="Widget_Name" Title="f_name" Type="1" />
+		<field Name="Widget_A" Title="f_active" Type="3" Css="width:60px;text-align:center;"/>
+	</list>
+
+  <command_plus><![CDATA[]]></command_plus>
+	
+	<search>		
+		<field Name="f_Widget_Name" Title="f_name"/>
+		<field Name="f_Widget_ID" Title="f_id"/>
+	</search>
+	
+	<edit>
+		<group Title="group_information" Pos="2" Expand="true">
+			<field Name="Widget_ID" Title="#ID" Type="1" Property="Require='true' Width='70px' Css='color:#900'"/>
+			<field Name="Widget_Name" Title="f_name" Type="1" Property="Require='true' Width='250px'"/>
+			<field Name="Widget_A" Title="f_active" Type="5" Property="Default='true'"/>
+		</group>
+		<group Title="#Code" Pos="2" Expand="true">
+			<field Name="Widget_Code" Type="2" Property="Height='450px'"/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[ 
+	set nocount on
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem = 
+	(
+		select count(0) from wcms_Widget 
+		where Widget_SiteID = @siteID 
+		{ AND Widget_Name 	<o> @Search:Widget_Name }
+		{ AND Widget_ID 	<o> @Search:Widget_ID }
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Widget_ID]
+		,[Widget_Name]
+		,case when [Widget_A] = 1 then 'checked' else '' end as [Widget_A]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Widget_ID]
+			,[Widget_Name]
+			,[Widget_A]
+		from wcms_Widget
+		where Widget_SiteID = @siteID 
+		{ AND Widget_Name 	<o> @Search:Widget_Name }
+		{ AND Widget_ID 	<o> @Search:Widget_ID }
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex 
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[
+	select [Widget_ID]
+		,[Widget_Name]
+		,[Widget_Code]
+		,[Widget_A]
+	from wcms_Widget where Widget_ID = @editID 	
+	]]>
+	</SQL_LOAD_EDIT>
+
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+	
+	<SQL_ADD>
+	<![CDATA[
+	set nocount on
+	declare @id nvarchar(10)
+	set @id = {@Get:Widget_ID}
+	
+	insert wcms_Widget
+	(
+		[Widget_ID]
+		,[Widget_SiteID]
+		,[Widget_LanguageID]
+		,[Widget_Type]
+		,[Widget_Name]
+		,[Widget_Code]
+		,[Widget_A]
+	) 
+	values
+	(
+		cast(@id as int)
+		,@siteID
+		,@langID
+		,1
+		,{@Get:Widget_Name}
+		,{@Get:Widget_Code}
+		,{@Get:Widget_A}
+	)
+	
+	select @id 
+	]]>
+	</SQL_ADD>
+		
+	<SQL_UPDATE>
+	<![CDATA[
+	set nocount on
+	update wcms_Widget set
+			[Widget_Name]			= {@Get:Widget_Name}
+			,[Widget_Code] 			= {@Get:Widget_Code}
+			,[Widget_A] 			= {@Get:Widget_A}
+	where Widget_ID = @editID
+	
+	select @editID
+	]]>	
+	</SQL_UPDATE>
+
+	<SQL_UPDATE_ACTIVE>
+	<![CDATA[	
+	update wcms_Widget set [Widget_A]= @active
+	where Widget_ID = @editID
+	select @editID
+	]]>
+	</SQL_UPDATE_ACTIVE>
+
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+	delete wcms_Widget where Widget_ID = @delID
+	select 1
+	]]>
+	</SQL_DELETE>
+</table>

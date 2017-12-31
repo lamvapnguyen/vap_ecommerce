@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Core/PagingControl.ascx" hash="fffffff3343c8b72" filehash="fffff70e767607f6" flags="110000" assembly="App_Web_1gp22pdn" type="ASP.views_core_pagingcontrol_ascx">
+    <filedeps>
+        <filedep name="/Views/Core/PagingControl.ascx" />
+    </filedeps>
+</preserve>

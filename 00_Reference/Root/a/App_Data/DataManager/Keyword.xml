@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Keyword" Title="a_menu_keyword" R="406" DefaultSort="Keyword_Name" DefaultSortAsc="true">
+  <controls>
+    <field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+    <field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+    <field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+    <field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+    <field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+    <field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+  </controls>
+
+  <list>
+    <field Name="Keyword_Name" Title="f_Keyword" Type="1" Sort="true" Css="color:#616161;font-weight:bold;"/>
+    <field Name="Keyword_SearchCount" Title="f_search_count" Type="0" Sort="true" Css="width:150px;"/>
+  </list>
+
+  <command_plus><![CDATA[]]></command_plus>
+
+  <search>
+    <field Name="Keyword_Name" Title="f_Keyword"/>
+  </search>
+
+  <edit>
+    <group Title="group_information" Pos="2" Expand="true">
+		<field Name="Keyword_Name" Title="f_Keyword" Type="1" Property="Require='true' MaxLength='250' Width='300'"/>
+    </group>
+  </edit>
+
+  <html><![CDATA[]]></html>
+
+  <SQL_SELECT_LIST>
+    <![CDATA[
+	set nocount on
+	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem	=
+	(
+		select count(0) from WCMS_Keyword
+		{ where Keyword_Name <o> @Search:Keyword_Name }
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage	= ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Keyword_ID]
+		,[Keyword_Name]
+		,[Keyword_SearchCount]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Keyword_ID]
+			,[Keyword_Name]
+			,[Keyword_SearchCount]
+		from WCMS_Keyword
+		{ where Keyword_Name <o> @Search:Keyword_Name }
+	) tb 
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex	
+	]]>
+  </SQL_SELECT_LIST>
+
+  <SQL_LOAD_EDIT>
+    <![CDATA[
+	set nocount on
+	select  [Keyword_ID]
+		   ,[Keyword_Name]
+	from WCMS_Keyword where Keyword_ID = @editID	
+	]]>
+  </SQL_LOAD_EDIT>
+
+  <SQL_NEW><![CDATA[]]></SQL_NEW>
+
+  <SQL_ADD>
+    <![CDATA[
+	set nocount on
+	
+	INSERT INTO WCMS_Keyword
+	(
+		[Keyword_Name]
+		,[Keyword_SearchCount]
+	)
+	VALUES
+	(
+		 {@Get:Keyword_Name}
+		,1
+	)
+	select SCOPE_IDENTITY()
+	]]>
+  </SQL_ADD>
+
+  <SQL_UPDATE>
+    <![CDATA[
+	set nocount on		
+	update WCMS_Keyword set [Keyword_Name] = {@Get:Keyword_Name}
+	where Keyword_ID = @editID	
+	select @editID
+	]]>
+  </SQL_UPDATE>
+
+  <SQL_UPDATE_ACTIVE><![CDATA[]]></SQL_UPDATE_ACTIVE>
+  <SQL_COPY><![CDATA[]]></SQL_COPY>
+
+  <SQL_DELETE>
+    <![CDATA[
+	set nocount on 
+	declare @id int 
+	set @id = @delID 
+	delete WCMS_PostKeyword where PostKeyword_KeywordID = @id 
+	delete WCMS_ProductKeyword where ProductKeyword_KeywordID = @id 
+	delete WCMS_Keyword where Keyword_ID = @id 
+	select 1 
+	]]>
+  </SQL_DELETE>
+</table>

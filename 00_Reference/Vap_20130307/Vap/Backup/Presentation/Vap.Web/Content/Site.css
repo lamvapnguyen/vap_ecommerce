@@ -1,0 +1,875 @@
+﻿/*----------------------------------------------------------
+Athor: Nguyen Tien Lam
+Date create: 09/06/2011
+Description: CSS for all sites.
+----------------------------------------------------------*/
+body
+{
+	background-color: #fff;
+	font-size: 8.5pt;
+	font-family: Verdana, Tahoma, Arial, Sans-Serif;
+	margin: 0;
+	padding: 0;
+	color: #696969;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6
+{
+	font-size: 1.5em;
+	color: #000;
+	font-family: Verdana, Tahoma, Arial, Sans-Serif;
+}
+
+/* this rule styles <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+	margin-top: 0;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page
+{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1px;
+}
+
+/* DIV Header   
+----------------------------------------------------------*/
+#header
+{
+	clear: both; /*height: 38px;*/
+	height: 48px;
+	margin-bottom: 0px;
+	color: #000;
+	padding: 0;
+	background-color: #7DCDF4;
+	background-image: url('../../Content/Images/bgHeader.gif');
+	background-repeat: repeat-x;
+}
+#title
+{
+	float: left;
+	text-align: left;
+	display: inline;
+	padding-top: 7px;
+	padding-left: 5px;
+}
+
+#softnamedisplay
+{
+	float: right;
+	font-family: Verdana, Tahoma, Arial, Sans-Serif;
+	text-align: right;
+	display: inline;
+	color: #0041C0;
+	padding: 3px 10px 5px 0px;
+}
+
+#softnamedisplay p
+{
+	font-size: 11pt;
+	display: inline;
+	font-weight: bold;
+	padding-bottom: 0px;
+	color: #004080;
+}
+#userlogined h1
+{
+	display: inline;
+	font-size: 7pt;
+	color: #ECEC00;
+	font-weight: bold;
+}
+
+/* DIV navigation   
+----------------------------------------------------------*/
+#navigation
+{
+	clear: both;
+	height: 25px;
+	background-color: #fff;
+	margin-right: 10px;
+	display: block;
+}
+
+#superuseroption
+{
+	padding-top: 3px;
+	float: right;
+	min-width: 200px;
+}
+#superuseroption select
+{
+	height: 18px;
+	font-size: 12px;
+}
+#navi
+{
+	padding-top: 3px;
+	margin-left: 5px;
+	float: inherit;
+}
+
+#navi a
+{
+	text-decoration: none;
+	color: #034af3;
+	outline: none;
+}
+
+#navi a:hover
+{
+	color: #1d60ff;
+}
+
+
+#helpandlogout
+{
+	padding-top: 5px;
+	float: right;
+	display: inline;
+	margin-right: 10px;
+}
+
+/* DIV content   
+----------------------------------------------------------*/
+
+#content
+{
+	clear: both;
+	margin-top: 0px;
+	height: 100%;
+	display: inline;
+}
+
+
+#left
+{
+	width: 19%;
+	background-color: #fff;
+	float: left; /*border-bottom: 1px #B4BDC3 solid; 	border-right: 1px #B4BDC3 solid; 	border-top: 1px #B4BDC3 solid;*/
+	border-bottom: 1px #85B4E2 solid;
+	border-right: 1px #85B4E2 solid;
+	border-top: 1px #85B4E2 solid;
+	margin-bottom: 10px;
+}
+#main
+{
+	margin-left: 19%;
+	_height: 2px; /* only IE6 applies CSS properties starting with an underscore */ /*border: 1px #B4BDC3 solid;*/
+	border: 1px #85B4E2 solid;
+	padding-left: 10px;
+	margin-bottom: 10px;
+	padding-right: 10px;
+	color: #000;
+	
+}
+#main h2
+{
+	display: inline-block;
+	margin-top: 10px;
+	width: 98%;
+	overflow: hidden;
+	font-size: 16px;
+	color: #0041C0; /*border-left: solid 4px #666666; 	border-bottom: solid 1px #666666;*/
+	border-left: solid 4px #85B4E2;
+	border-bottom: solid 1px #85B4E2;
+	padding-left: 5px;
+}
+
+#footer
+{
+	color: #999;
+	padding: 10px 0;
+	text-align: center;
+	line-height: normal;
+	margin: 0;
+	font-size: .9em;
+}
+
+/* TAB LEFT MENU   
+----------------------------------------------------------*/
+.treeview, .treeview ul
+{
+	font-size: 11px;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	padding-bottom: 2px;
+}
+
+.treeview ul
+{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	list-style: none;
+}
+.treeview li
+{
+	margin-bottom: 2px;
+	overflow: hidden; /*background-color: #F0F0F0;*/
+	background-color: #DAE7F1;
+}
+
+
+#left li ul
+{
+	background-color: #fff;
+	padding-top: 2px;
+	margin-bottom: -2px;
+}
+
+.treeview ul a
+{
+	width: 100%;
+	padding: 2px 5px 2px 15px;
+}
+.treeview ul ul a
+{
+	width: 100%;
+	padding: 2px 5px 2px 25px;
+}
+
+.treeview a
+{
+	width: 98%;
+	text-decoration: none;
+	color: #000;
+	display: block;
+	outline: none;
+	font-weight: lighter;
+	padding: 2px 0px 2px 5px;
+}
+
+.treeview a:hover
+{
+	background: #548DD0;
+	color: #fff;
+	text-decoration: none;
+}
+
+#divlogin
+{
+	width: 50%;
+	margin: auto auto;
+	margin-top: 50px;
+	padding: 10px;
+	border: 1px solid #7F9DB9;
+}
+
+/* TAB HELP MENU   
+----------------------------------------------------------*/
+#helpandlogout ul
+{
+	display: inline;
+	list-style: none;
+}
+#helpandlogout ul li
+{
+	display: inline;
+}
+#helpandlogout ul li a
+{
+	text-decoration: none;
+	color: #000080;
+	display: inline;
+	outline: none;
+	padding-left: 15px;
+}
+#helpandlogout ul li a:hover
+{
+	color: #6EB1DD;
+	text-decoration: underline;
+}
+
+
+/* MISC  
+----------------------------------------------------------*/
+.clear
+{
+	clear: both;
+}
+
+.error
+{
+	color: Red;
+	font-weight: bold;
+	margin: 5px 5px 5px 5px;
+}
+
+.success
+{
+	color: Red;
+	font-weight: bold;
+}
+
+.requirement
+{
+	color: Red;
+	font-weight: bold;
+	margin: 1px 3px 1px 3px;
+}
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+	color: #ff0000;
+}
+
+.field-validation-valid
+{
+	display: none;
+}
+
+.input-validation-error
+{
+	border: 1px solid #7F9DB9;
+	background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+	font-weight: bold;
+	color: #ff0000;
+}
+
+.validation-summary-errors ul
+{
+	list-style: none;
+	padding: 0px;
+}
+
+.validation-summary-valid
+{
+	display: none;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label, .editor-label, .display-field, .editor-field
+{
+	margin: 0.5em 0;
+	display: inline;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+
+textarea
+{
+	width: 300px;
+	height: 75px;
+}
+
+input[type="text"]
+{
+	border: 1px solid #7F9DB9;
+}
+
+.fileStyle
+{
+	margin-bottom: 1px;
+	display: block;
+	width: 600px;
+}
+.fileInput .standarDiv
+{
+	width: 60%;
+	display: block;
+	margin-bottom: 1px;
+	padding-bottom: 3px;
+}
+
+iframe
+{
+	margin-top: -10px;
+}
+
+input[readonly]
+{
+	background: buttonface;
+}
+
+input[type="password"]
+{
+	border: 1px solid #7F9DB9;
+}
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset
+{
+	margin: 1em 0;
+	padding: 1em;
+	border: 1px solid #CCC;
+}
+
+fieldset p
+{
+	margin: 2px 12px 10px 10px;
+}
+
+legend
+{
+	font-size: 1.1em;
+	font-weight: 600;
+	padding: 2px 4px 8px 4px;
+}
+
+.displayinline
+{
+	margin-top: 0px;
+	display: inline;
+}
+
+form
+{
+	display: inline;
+}
+
+/* Text Align
+----------------------------------------------------------*/
+.textAlignRight
+{
+	text-align: right;
+}
+.textAlignLeft
+{
+	text-align: left;
+}
+
+.textAlignCenter
+{
+	text-align: center;
+}
+
+/* TABLE
+----------------------------------------------------------*/
+table
+{
+	margin-bottom: 5px;
+	margin-top: 5px;
+	padding: 0px;
+}
+
+table.inputForm th
+{
+	height: 22px;
+	text-align: left;
+	border: solid 1px #C9E1EF;
+	color: #000;
+	font-weight: normal;
+	background-color: #C9E1EF;
+}
+
+table.inputForm td
+{
+	height: 22px;
+	text-align: left;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: #F3F3F3;
+}
+
+table.inputForm td.right
+{
+	height: 22px;
+	text-align: right;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: #F3F3F3;
+}
+
+table.inputForm thead th
+{
+	height: 22px;
+	text-align: center;
+	border: solid 1px #C9E1EF;
+	color: #000;
+	font-weight: normal;
+	background-color: #C9E1EF;
+}
+
+table.inputForm th.center
+{
+	height: 22px;
+	text-align: center;
+	border: solid 1px #C9E1EF;
+	color: #000;
+	font-weight: normal;
+	background-color: #C9E1EF;
+}
+
+table.data-table-fill
+{
+	width: 98%;
+}
+
+table.data-table
+{
+	border: 1px solid #85B4E2;
+	border-collapse: collapse;
+}
+
+table.data-table td
+{
+	padding: 2px 5px 2px 5px;
+	border: solid 1px #CFDDEE;
+}
+
+table.data-table th
+{
+	height: 19px;
+	padding: 2px 5px 2px 5px;
+	text-align: center;
+	border: solid 1px #9ABCEF;
+	color: #004080;
+	background: url("../../Content/Images/gridheader.gif");
+	background-repeat: repeat-x;
+}
+
+table.data-table tr.row-alternating
+{
+	background: #E4F1FC;
+}
+
+table.data-table td.Statistical
+{
+	background: #C5C3C3;
+}
+table.data-table td.Nothing
+{
+	background: #808080;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	 
+	 DATA TABLES
+	 	 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.th10
+{
+	width: 10px;
+}
+
+.th20
+{
+	width: 20px;
+}
+.th30
+{
+	width: 30px;
+}
+.th40
+{
+	width: 40px;
+}
+.th50
+{
+	width: 50px;
+}
+.th75
+{
+	width: 75px;
+}
+.th100
+{
+	width: 100px;
+}
+.th125
+{
+	width: 125px;
+}
+.th150
+{
+	width: 150px;
+}
+.th175
+{
+	width: 175px;
+}
+.th200
+{
+	width: 200px;
+	margin-left: 3em;
+}
+.thFill
+{
+	/*Basic is fill*/
+}
+
+td.no-border
+{
+	border: none;
+	z-index: 8;
+}
+
+pre
+{
+	font-size: 10pt;
+	display: inline;
+}
+
+.center
+{
+	text-align: center;
+}
+
+
+/* Style for div   
+----------------------------------------------------------*/
+#duplicateError
+{
+	height: 50px;
+	width: auto;
+	font-weight: bold;
+	color: #ff0000;
+}
+
+div#dialog-content
+{
+	text-align: center;
+}
+div#button
+{
+	text-align: right;
+}
+
+th.thNoneBorder
+{
+	border-top: 0;
+	background-color: red;
+}
+
+#back
+{
+	margin: 0 0.8em 0 0.5em;
+}
+#addRoleButt
+{
+	margin: 0 0.8em 0 0.5em;
+}
+#allCompany
+{
+	margin: 0 0.8em 0 0;
+}
+#ownCompany
+{
+	margin: 0 0.8em 0 0;
+}
+#main div
+{
+	padding: 0px;
+	margin-bottom: 5px;
+	margin-top: 0px;
+}
+
+/* Style for Button
+----------------------------------------------------------*/
+
+input[type="button"][disabled], input[type="submit"][disabled], button[disabled]:active, button[disabled]
+{
+	color: #ACA899;
+}
+
+.btn, .btn50, .btn60, .btn75, .btn100, .btn125, .btn150, btn175, .btn200, input[type="button"], input[type="submit"]
+{
+	background: url("../../Content/Images/bt_01.gif") repeat scroll 0 0 #E4E4E4;
+	border: 1px solid #808080;
+	color: #000;
+	cursor: pointer;
+	font-size: 12px;
+	line-height: 14px;
+	margin: 0px;
+	padding: 2px 4px 2px 4px;
+	vertical-align: middle;
+	height: 24px;
+}
+.btn
+{
+	width: 60px;
+}
+.btn50
+{
+	width: 50px;
+}
+.btn60
+{
+	width: 60px;
+}
+.btn75
+{
+	width: 75px;
+}
+.btn100
+{
+	width: 100px;
+}
+.btn125
+{
+	width: 125px;
+}
+.btn150
+{
+	width: 150px;
+}
+.btn175
+{
+	width: 175px;
+}
+.btn200
+{
+	width: 200px;
+}
+
+/* Style for textbox
+----------------------------------------------------------*/
+.txtAuto
+{
+	/*Just basic*/
+}
+.txt30
+{
+	width: 30px;
+}
+.txt50
+{
+	width: 50px;
+}
+.txt75
+{
+	width: 75px;
+}
+.txt100
+{
+	width: 100px;
+}
+.txt125
+{
+	width: 120px;
+}
+.txt150
+{
+	width: 150px;
+}
+.txt200
+{
+	width: 200px;
+}
+
+.txt600
+{
+	width: 600px;
+}
+/* Style for combo box
+----------------------------------------------------------*/
+.cboAuto
+{
+	/*Just basic*/
+	font-family: Verdana, Tahoma, Arial, Sans-Serif;
+	font-size: 8.5pt;
+}
+
+.cbo100
+{
+	width: 100px;
+}
+.menuGroup
+{
+	background-color: #FFE0C4;
+}
+.menuLi
+{
+	list-style-type: square;
+	width: auto;
+	margin-left: 2em;
+}
+.menuAlign
+{
+	margin-left: 1em;
+}
+.staffImage
+{
+	width: 100px;
+	height: 120px;
+	vertical-align: bottom;
+	text-align: center;
+	padding: 0px 5px 0px 3px;
+}
+
+div#scroll
+{
+	overflow: auto;
+	position: relative;
+	width: 99.9%;
+	height: auto;
+}
+
+/* pager
+----------------------------------------------------------*/
+DIV.pager
+{
+	text-align: left;
+	border-top: 1px solid #CFDDEE;
+	padding: .5em 0 0 0;
+	margin-top: 1em;
+}
+DIV.pager A
+{
+	font-size: 1.1em;
+	color: #666;
+	text-decoration: none;
+	padding: 0 .4em 0 .4em;
+}
+DIV.pager A:hover
+{
+	background-color: #CBE4F6;
+}
+label.current, label.disabled
+{
+	font-size: 1.1em;
+	padding: 0 .4em 0 .4em;
+	color: #ACA899;
+}
+label.current
+{
+	background-color: Silver;
+	color: Black;
+}
+
+.parrentMenu
+{
+	height: 20px;
+	padding-left:5px;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-right:5px;
+	text-align: left;
+	color: #000;
+	font-weight:bold;
+	background: url("../../Content/Images/gridheader.gif");
+	background-repeat: repeat-x;
+	
+}
+/*Align follow data type*/
+.datepicker
+{
+	text-align: center;
+}
+
+.numeric
+{
+	text-align:right;
+	}
+	

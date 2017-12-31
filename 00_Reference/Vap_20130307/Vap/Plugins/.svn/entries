@@ -1,0 +1,43 @@
+10
+
+dir
+96
+https://ryan-pc/svn/Vap-Portal/trunk/03.Source%20code/Vap/Plugins
+https://ryan-pc/svn/Vap-Portal
+
+
+
+2012-10-27T16:25:04.520561Z
+56
+ntlam
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+f5aff925-5f77-5f43-910b-53bdc9bbcecc
+
+Vap.Plugin.Users.MyAccount
+dir
+
+Vap.Plugin.Admin.UserRoles
+dir
+
+Vap.Plugin.HRA.TestAuthor
+dir
+
+Vap.Plugin.Admin.Menu
+dir
+
+Vap.Plugin.HRA.Staff
+dir
+

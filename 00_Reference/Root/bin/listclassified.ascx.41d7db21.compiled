@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Account/DataList/ListClassified.ascx" hash="fffffff3343c8b72" filehash="2fb8ae26805e" flags="110000" assembly="App_Web_4j11pmpl" type="ASP.views_account_datalist_listclassified_ascx">
+    <filedeps>
+        <filedep name="/Views/Account/DataList/ListClassified.ascx" />
+    </filedeps>
+</preserve>

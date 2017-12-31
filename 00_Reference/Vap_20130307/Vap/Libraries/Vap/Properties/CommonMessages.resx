@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Common_Msg_AllFilesUploadSuccess" xml:space="preserve">
+    <value>All files have been successfully uploaded.</value>
+  </data>
+  <data name="Common_Msg_ChooseToDelete" xml:space="preserve">
+    <value>Please select at least one item to delete.</value>
+    <comment>Thông báo không có item nào được chọn để xóa</comment>
+  </data>
+  <data name="Common_Msg_ChooseToUpdate" xml:space="preserve">
+    <value>Please select at least one item to update.</value>
+    <comment>Thông báo không có item nào được chọn để update</comment>
+  </data>
+  <data name="Common_Msg_CompareTwoYear" xml:space="preserve">
+    <value>{0} must be the greater or the equals than {1}.</value>
+  </data>
+  <data name="Common_Msg_DeleteConfirm" xml:space="preserve">
+    <value>Confirm deletion this record?</value>
+    <comment>Xác nhận xóa trước khi xóa.</comment>
+  </data>
+  <data name="Common_Msg_DeleteFail" xml:space="preserve">
+    <value>Data has not been successfully deleted. Please recheck all the data.</value>
+    <comment>Xóa không thành công</comment>
+  </data>
+  <data name="Common_Msg_DeleteSuccess" xml:space="preserve">
+    <value>Data has been successfully deleted.</value>
+    <comment>Xóa thành công</comment>
+  </data>
+  <data name="Common_Msg_ExcelExportFail" xml:space="preserve">
+    <value>Data has not been successfully exported to excel file.</value>
+    <comment>Xuất Excel không thành công</comment>
+  </data>
+  <data name="Common_Msg_ExcelExportSuccess" xml:space="preserve">
+    <value>Data has been successfully exported to excel file.</value>
+    <comment>Xuất Excel thành công</comment>
+  </data>
+  <data name="Common_Msg_Exception" xml:space="preserve">
+    <value>Sorry, an error occurred while processing your request.</value>
+  </data>
+  <data name="Common_Msg_FileDoesNotBelongToCurrentCompany" xml:space="preserve">
+    <value>Selected files do not belong to {0} company.</value>
+    <comment>{0} wil change by current comapany cd.</comment>
+  </data>
+  <data name="Common_Msg_FileDoNotBelongToFunction" xml:space="preserve">
+    <value>Selected files do not belong to this function.</value>
+  </data>
+  <data name="Common_Msg_FileUploadSuccess" xml:space="preserve">
+    <value>The file has been successfully uploaded.</value>
+  </data>
+  <data name="Common_Msg_FullPathFileNameNotExist" xml:space="preserve">
+    <value>Path name is not exist.</value>
+    <comment>Đường dẫn không tồn tại</comment>
+  </data>
+  <data name="Common_Msg_InsertFail" xml:space="preserve">
+    <value>Data is not inserted successfully. Please recheck all the data.</value>
+    <comment>Thêm mới không thành công</comment>
+  </data>
+  <data name="Common_Msg_InsertSuccess" xml:space="preserve">
+    <value>Data has been successfully inserted.</value>
+    <comment>Thêm mới thành công</comment>
+  </data>
+  <data name="Common_Msg_InvalidExcelFileType" xml:space="preserve">
+    <value>Invalid file format. System only support .xls or .xlsx format. Please try again.</value>
+    <comment>(Lam: theo thông báo của E0102_Msg02)</comment>
+  </data>
+  <data name="Common_Msg_InvalidFormat" xml:space="preserve">
+    <value>Please enter a valid value.</value>
+  </data>
+  <data name="Common_Msg_InvalidImageFileFullPath" xml:space="preserve">
+    <value>Path of image file is invalid</value>
+    <comment>Path of image file is invalid</comment>
+  </data>
+  <data name="Common_Msg_InvalidImageFileType" xml:space="preserve">
+    <value>Image type is invalid, supported types are .bmp, .jpg, .png and .jpeg.</value>
+    <comment>Định dạng file image không đúng.</comment>
+  </data>
+  <data name="Common_Msg_InvalidNumeric" xml:space="preserve">
+    <value>Please enter numeric value.</value>
+  </data>
+  <data name="Common_Msg_InvalidYear" xml:space="preserve">
+    <value>Please enter a valid year.</value>
+  </data>
+  <data name="Common_Msg_ManatoryFields" xml:space="preserve">
+    <value>Please fill in mandatory fields.</value>
+  </data>
+  <data name="Common_Msg_NoAnyConditionToSearch" xml:space="preserve">
+    <value>Please fill at least one condition.</value>
+  </data>
+  <data name="Common_Msg_NoRecordsFound" xml:space="preserve">
+    <value>No records found.</value>
+    <comment>Không có dữ liệu hiển thị lên table</comment>
+  </data>
+  <data name="Common_Msg_PasswordIncorrect" xml:space="preserve">
+    <value>Password is incorrect, please input again.</value>
+  </data>
+  <data name="Common_Msg_RequestTimeOut" xml:space="preserve">
+    <value>A session timeout occurred or the login process was skipped.</value>
+  </data>
+  <data name="Common_Msg_TemplateFileNotExist" xml:space="preserve">
+    <value>File template "{0}" is not exist.</value>
+  </data>
+  <data name="Common_Msg_UnAuthorize" xml:space="preserve">
+    <value>You can't access this function. Please contact with your manager for more informations.</value>
+  </data>
+  <data name="Common_Msg_UpdateConfirm" xml:space="preserve">
+    <value>Confirm saving this record?</value>
+    <comment>Xác nhận update</comment>
+  </data>
+  <data name="Common_Msg_UpdateDuplicate" xml:space="preserve">
+    <value>Your changes could not be saved because the data was changed by {0} while you were editing.&lt;br/&gt;Please refresh the page to get the latest data and try again.</value>
+    <comment>Update duplicate</comment>
+  </data>
+  <data name="Common_Msg_UpdateFail" xml:space="preserve">
+    <value>Data has not been successfully updated. Please recheck all the data.</value>
+    <comment>Update không thành công</comment>
+  </data>
+  <data name="Common_Msg_UpdateSuccess" xml:space="preserve">
+    <value>Data has been successfully updated.</value>
+    <comment>Update thành công</comment>
+  </data>
+  <data name="ERR0082" xml:space="preserve">
+    <value>The folder name you have chosen already exists. Please try another name.</value>
+    <comment>Show when user input exited folder name</comment>
+  </data>
+  <data name="L0101_Msg02" xml:space="preserve">
+    <value>Staff ID or Password is incorrect. Please try again.</value>
+  </data>
+  <data name="L0101_Msg03" xml:space="preserve">
+    <value>Your password has not been changed for the past 90 days. Please change your password now.</value>
+  </data>
+  <data name="L0102_Msg02" xml:space="preserve">
+    <value>Old password and new password must not be the same.</value>
+  </data>
+  <data name="L0102_Msg03" xml:space="preserve">
+    <value>Old password does not match. Please try again.</value>
+  </data>
+  <data name="L0102_Msg04" xml:space="preserve">
+    <value>New Password &amp; Retype password do not match. Please try again.</value>
+  </data>
+  <data name="L0102_Msg05" xml:space="preserve">
+    <value>Password must be at least {0} characters. Please try again.</value>
+  </data>
+  <data name="L0102_Msg06" xml:space="preserve">
+    <value>Password has been successfully changed!</value>
+  </data>
+  <data name="M0110_Msg01" xml:space="preserve">
+    <value>Please select User Role.</value>
+  </data>
+  <data name="M0110_Msg02" xml:space="preserve">
+    <value>This User Role is existed.</value>
+  </data>
+  <data name="ERR0012" xml:space="preserve">
+    <value>Repuest timeout.</value>
+  </data>
+  <data name="INF0010" xml:space="preserve">
+    <value>--- Please Select ---</value>
+    <comment>The default null item in combobox</comment>
+  </data>
+  <data name="ERR0003" xml:space="preserve">
+    <value>Data is already existed.</value>
+  </data>
+</root>

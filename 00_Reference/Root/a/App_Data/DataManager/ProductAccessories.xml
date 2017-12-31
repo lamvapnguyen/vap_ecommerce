@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_ProductAccessories" Title="a_menu_product_accessories" R="504" DefaultSort="ProductAccessories_ID" DefaultSortAsc="false">
+  <controls>
+    <field Name="Search" Path="UC/DM_Search.ascx" Pos="4" />
+    <field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+    <field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+    <field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+    <field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+    <field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	
+	<field Name="WCMS_ProductAccessories" Path="Process/ProductAccessories.ascx" Pos="7"/>
+  </controls>
+
+  <list>
+	<field Name="ProductAccessories_ID" Title="f_id" Type="1" Sort="true" Css="width:45px;text-align:left;color:#a00;"/>
+	<field Name="ProductAccessories_Code" Title="f_code" Type="1" Sort="true" Css="width:120px;text-align:left;color:#a00;"/>
+    <field Name="ProductAccessories_Title" Title="f_title" Type="1" Sort="true" Css="font-weight:bold;color:#696969;"/>
+	<field Name="ProductAccessories_Price" Title="f_price2" Sort="true" Css="width:100px;text-align:right;"/>
+	<field Name="ProductAccessories_InStock" Title="f_in_stock" Sort="true" Css="width:55px;text-align:right;"/>
+	<field Name="ProductAccessories_O" Title="f_ordinal" Sort="true" Css="width:60px;text-align:center;"/>
+	<field Name="ProductAccessories_A" Title="f_active" Type="3" Sort="true" Css="width:60px;text-align:center;"/>
+	<field Name="ProductAccessories_ImageLink" Type="5" Sort="true" Css="width:110px;"/>
+  </list>
+
+  <command_plus><![CDATA[]]></command_plus>
+
+  <search>
+	<field Name="ProductAccessories_Title" Title="f_title"/>
+	<field Name="ProductAccessories_ID" Title="f_id"/>
+	<field Name="ProductAccessories_Tags" Title="f_tags"/>
+  </search>
+
+  <edit>
+    <group Title="group_brief" Pos="2" Expand="true">
+		<field Name="ProductAccessories_Code" Title="f_code" Type="1" Property="Require='true' MaxLength='100' Width='200px' Css='color:#096;'"/>
+		<field Name="ProductAccessories_Title" Title="f_title" Type="1" Property="Require='true' MaxLength='300' Width='100%'"/>
+		<field Name="ProductAccessories_ImageLink" Title="f_thumb" Type="15" Property="BrowserType='thumb_image' Width='450px' MediaID='thumbimage'"/>
+		<field Name="ProductAccessories_Price" Title="f_price2" Type="1" Property="Width='90px' Css='text-align:right;color:#c00;'"/>
+		<field Name="ProductAccessories_InStock" Title="f_in_stock" Type="1" Property="Width='100px' Default='100'"/>
+		<field Name="ProductAccessories_Brief" Title="f_brief" Type="3" Property="BriefType='true' Height='100px' InsertFileType='medium_image' InsertFileCount='5'"/>
+    </group>
+	<group Title="group_properties" Pos="3" Expand="true">
+		<field Name="ProductAccessories_O" Title="f_ordinal" Type="1" Property="Default='500' Width='60px'"/>
+		<field Name="ProductAccessories_A" Title="f_active" Type="5" Property="Default='true'"/>
+    </group>
+	<group Title="f_product_list" Pos="3" Expand="true">
+		<field Name="ProductAccessories_Products" Type="6" Property="SqlSP='SP_A_R_001_Tree_Product' Format='{1}' Width='150px'"/>
+	</group>
+  </edit>
+
+  <html><![CDATA[]]></html>
+
+  <SQL_SELECT_LIST>
+    <![CDATA[
+	set nocount on
+	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem =
+	(
+		select count(0) from WCMS_ProductAccessories 
+		where ProductAccessories_SiteID = @siteID AND ProductAccessories_LanguageID = @langID
+		{ AND ProductAccessories_ID	<o> @Search:ProductAccessories_ID }
+		{ AND ProductAccessories_Title	<o> @Search:ProductAccessories_Title }
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage	= ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [ProductAccessories_ID]
+		,[ProductAccessories_Title]
+		,[ProductAccessories_Price]
+		,[ProductAccessories_InStock]
+		,[ProductAccessories_ImageLink]
+		,[ProductAccessories_O]
+		,case when [ProductAccessories_A] = 1 then 'checked' else '' end as [ProductAccessories_A]
+		,[ProductAccessories_Code]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[ProductAccessories_ID]
+			,ProductAccessories_Title
+			,convert(varchar,ProductAccessories_Price,1) as [ProductAccessories_Price]
+			,[ProductAccessories_InStock]
+			,[ProductAccessories_ImageLink]
+			,[ProductAccessories_O]
+			,[ProductAccessories_A]
+			,[ProductAccessories_Code]
+		from WCMS_ProductAccessories
+		where ProductAccessories_SiteID = @siteID AND ProductAccessories_LanguageID = @langID
+		{ AND ProductAccessories_ID	<o> @Search:ProductAccessories_ID }
+		{ AND ProductAccessories_Title	<o> @Search:ProductAccessories_Title }
+	) tb 
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex	
+	]]>
+  </SQL_SELECT_LIST>
+
+  <SQL_LOAD_EDIT>
+    <![CDATA[
+	set nocount on
+	
+	select  [ProductAccessories_ID]
+			,[ProductAccessories_Code]
+		   ,[ProductAccessories_Title]
+		   ,[ProductAccessories_O]
+		   ,[ProductAccessories_A]
+		   ,[ProductAccessories_Brief]
+		   ,[ProductAccessories_ImageLink]
+		   ,convert(varchar,ProductAccessories_Price,1) as [ProductAccessories_Price]
+		   ,[ProductAccessories_InStock]
+		   ,[ProductAccessories_Products]
+	from WCMS_ProductAccessories where ProductAccessories_ID = @editID
+	]]>
+  </SQL_LOAD_EDIT>
+
+  <SQL_NEW><![CDATA[]]></SQL_NEW>
+  
+  <SQL_ADD>
+  <![CDATA[
+	insert wcms_ProductAccessories
+	(
+		[ProductAccessories_LanguageID]
+		,[ProductAccessories_SiteID]
+		,[ProductAccessories_Code]
+		,[ProductAccessories_Title]
+		,[ProductAccessories_O]
+		,[ProductAccessories_A]
+		,[ProductAccessories_Brief]
+		,[ProductAccessories_ImageLink]
+		,[ProductAccessories_Price]
+		,[ProductAccessories_InStock]
+		,[ProductAccessories_Products]
+	) 
+	values
+	(
+		@langID
+		,@siteID
+		,{@Get:ProductAccessories_Code}
+		,{@Get:ProductAccessories_Title}
+		,{@Get:ProductAccessories_O}
+		,{@Get:ProductAccessories_A}
+		,{@Get:ProductAccessories_Brief}
+		,{@Get:ProductAccessories_ImageLink}
+		,{@Get:ProductAccessories_Price}
+		,{@Get:ProductAccessories_InStock}
+		,{@Get:ProductAccessories_Products}
+	)
+	
+	select SCOPE_IDENTITY()
+  ]]>
+  </SQL_ADD>
+
+  <SQL_UPDATE>
+    <![CDATA[
+	set nocount on	
+	declare @id int
+	set @id = @editID
+	
+	update WCMS_ProductAccessories set
+		[ProductAccessories_Title]		= {@Get:ProductAccessories_Title}
+		,[ProductAccessories_Code]		= {@Get:ProductAccessories_Code}
+		,[ProductAccessories_O]			= {@Get:ProductAccessories_O}
+		,[ProductAccessories_A]			= {@Get:ProductAccessories_A}
+		,[ProductAccessories_Brief]		= {@Get:ProductAccessories_Brief}
+		,[ProductAccessories_ImageLink]	= {@Get:ProductAccessories_ImageLink}
+		,[ProductAccessories_Price]		= {@Get:ProductAccessories_Price}
+		,[ProductAccessories_InStock]	= {@Get:ProductAccessories_InStock}
+		,[ProductAccessories_Products]	= {@Get:ProductAccessories_Products}
+	where ProductAccessories_ID = @id
+			
+	select @id
+	]]>
+  </SQL_UPDATE>
+
+  <SQL_UPDATE_ACTIVE>
+    <![CDATA[
+	Update WCMS_ProductAccessories set [ProductAccessories_A] = @active where ProductAccessories_ID = @editID	
+	Select @editID 
+	]]>
+  </SQL_UPDATE_ACTIVE>
+
+  <SQL_COPY><![CDATA[]]></SQL_COPY>
+
+  <SQL_DELETE>
+    <![CDATA[
+	set nocount on
+	Delete WCMS_ProductAccessories where ProductAccessories_ID = @delID
+	Select @@ROWCOUNT
+	]]>
+  </SQL_DELETE>
+</table>

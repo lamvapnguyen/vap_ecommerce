@@ -1,0 +1,22 @@
+﻿<div style="background:#ebf3fd; line-height:1.7em; font-size:small; font-family:tahoma; width:650px; margin:0 auto;">
+  <div style="background:#fff; padding: 6px;border: 1px solid #ccc;">
+    <div style="line-height:1.7em; font-size:small; text-align:justify;">
+		<div style="background-color:#0C5394; color:#fff;padding: 12px 9px;">
+			<div style="float:left; font-family: fantasy,sans-serif; font-size: 29px;">Ma Vach Viet Nam</div>
+			<div style="float:right; font-size: 25px;font-family: sans-serif;">Đặt Nhãn In - Mực In</div>
+			<div style="clear:both;"></div>
+		</div>
+		
+		<div style="padding:10px 10px 0;text-align:right;">{0}</div>
+		
+		<div style="padding:10px 10px 0;">
+			<div style="font-weight:bold;font-size:18px;">Thông Tin Khách Hàng</div><br>
+			<div style="padding:12px;">{1}</div>
+		</div>
+        {2}
+        {3}
+      <br>
+    </div>
+  </div>
+  <div style="background-color:#808080; color:#ffffff; text-align:center; padding:3px 5px; font-family:'Times New Roman'; font-weight:bold; font-size:16px; letter-spacing:5px;"></div>
+</div>

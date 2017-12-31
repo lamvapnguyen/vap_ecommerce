@@ -1,0 +1,39 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 25
+/svn/Vap-Portal/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/Vap-Portal/!svn/ver/92/trunk/03.Source%20code/Vap/Presentation/Vap.Web
+END
+Global.asax.cs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/Vap-Portal/!svn/ver/35/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Global.asax.cs
+END
+Vap.Web.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/Vap-Portal/!svn/ver/85/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Vap.Web.csproj
+END
+Web.config
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Vap-Portal/!svn/ver/82/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Web.config
+END
+Global.asax
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Vap-Portal/!svn/ver/2/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Global.asax
+END
+Vap.Web.csproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/Vap-Portal/!svn/ver/71/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Vap.Web.csproj.user
+END

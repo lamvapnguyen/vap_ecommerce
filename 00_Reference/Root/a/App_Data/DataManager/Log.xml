@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Log" Title="a_menu_log" R="302" AddRole="1" EditRole="1" DefaultSort="Log_ID" DefaultSortAsc="false">
+	<controls>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	</controls>
+	
+	<list>
+		<field Name="Log_DateTime" Title="log_datetime" Sort="true" Css="width:150px;"/>
+		<field Name="Log_Do" Title="log_do" Type="1" Sort="true" />
+		<field Name="Log_Table" Title="log_table" Sort="true" Css="width:150px;"/>
+	</list>
+
+	<command_plus><![CDATA[]]></command_plus>
+
+	<search>
+		<field Name="Log_Table" Title="log_table"/>
+		<field Name="Log_Account" Title="f_log_account"/>
+	</search>
+	
+	<edit>
+		<group Title="a_menu_log" Pos="2" Expand="true">
+			<field Name="Log_DateTime" Title="log_datetime" Type="4"/>
+			<field Name="Log_Account" Title="f_log_account" Type="1"/>
+			<field Name="Log_Table" Title="log_table" Type="1"/>
+			<field Name="Log_ItemID" Title="f_log_item" Type="1"/>
+			<field Name="Log_Action" Title="f_action" Type="1"/>
+			<field Name="Log_Do" Title="log_do" Type="2"/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[
+	set nocount on	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem	= 
+	(
+		select count(0) from wcms_Log  
+		where
+		{ Log_Table <o> @Search:Log_Table and }
+		{ Log_AccountID = (Select Account_ID from wcms_Account where Account_Name = @Search:Log_Account) and }
+		1 = 1
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage	= ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Log_ID]
+		,DATEADD(hour, {@TIMEZONE}, Log_DateTime) as [Log_DateTime]
+		,[Log_Do] 
+		,[Log_Table]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Log_ID]
+			,[Log_DateTime]
+			,[Log_Do]
+			,[Log_Table]
+		from wcms_Log
+		where 
+		{ Log_Table <o> @Search:Log_Table and }
+		{ Log_AccountID = (Select Account_ID from wcms_Account where Account_Name = @Search:Log_Account) and }
+		1 = 1
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 AND @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[ 
+	set nocount on	
+	select [Log_ID]
+		,[Log_DateTime]
+		,[Log_Action]
+		,[Log_Do]
+		,[Log_Table]
+		,[Log_ItemID]
+		,(select Account_Name from wcms_Account where Account_ID = Log_AccountID) as [Log_Account]		
+	from wcms_Log where Log_ID = @editID 
+	]]>
+	</SQL_LOAD_EDIT>
+
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+	<SQL_ADD><![CDATA[]]></SQL_ADD>
+	<SQL_UPDATE><![CDATA[]]></SQL_UPDATE>
+	<SQL_UPDATE_ACTIVE><![CDATA[]]></SQL_UPDATE_ACTIVE>
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+	declare @accID int
+	select @accID = Log_AccountID from wcms_Log where Log_ID = @delID 
+	
+	delete from wcms_Log where Log_AccountID = @accID 
+	select 1
+	]]>
+	</SQL_DELETE>
+</table>

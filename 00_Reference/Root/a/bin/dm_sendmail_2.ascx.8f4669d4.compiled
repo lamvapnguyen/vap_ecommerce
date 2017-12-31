@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/DataManager/UC/DM_SendMail_2.ascx" hash="fffffffaa8934d59" filehash="fffffaad857da454" flags="110000" assembly="App_Web_4kbb4rs4" type="ASP.views_datamanager_uc_dm_sendmail_2_ascx">
+    <filedeps>
+        <filedep name="/Views/DataManager/UC/DM_SendMail_2.ascx" />
+    </filedeps>
+</preserve>

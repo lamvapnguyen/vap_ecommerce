@@ -1,0 +1,7 @@
+﻿<div style=" line-height:1.7em; font-size:small; font-family:Geneva,Verdana,Arial; width:681px; margin:0 auto;">
+  Chào Quý khách, <br/><br/>
+  Tài khoản đăng nhập đã được kích hoạt.<br/>
+  Bạn có thể đăng nhập vào website <b>{website_address}</b> bằng email <b>{u_email}</b><br/><br/>
+  ---------- <br/>
+  Email này được gửi từ website {website_address}
+</div>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/PostCenter/Box/GroupPostBoxEventNews.ascx" hash="fffffff3343c8b72" filehash="f8beed089f82b547" flags="110000" assembly="App_Web_snyxzvup" type="ASP.views_postcenter_box_grouppostboxeventnews_ascx">
+    <filedeps>
+        <filedep name="/Views/PostCenter/Box/EventNews.ascx" />
+        <filedep name="/Views/PostCenter/Box/GroupPostBoxEventNews.ascx" />
+    </filedeps>
+</preserve>

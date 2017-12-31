@@ -1,0 +1,39 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 25
+/svn/Vap-Portal/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Vap-Portal/!svn/ver/43/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.HRA.TestAuthor
+END
+Global.asax.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/Vap-Portal/!svn/ver/3/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.HRA.TestAuthor/Global.asax.cs
+END
+Web.config
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/Vap-Portal/!svn/ver/3/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.HRA.TestAuthor/Web.config
+END
+Vap.Plugin.HRA.TestAuthor.csproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/Vap-Portal/!svn/ver/7/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.HRA.TestAuthor/Vap.Plugin.HRA.TestAuthor.csproj.user
+END
+Global.asax
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/Vap-Portal/!svn/ver/3/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.HRA.TestAuthor/Global.asax
+END
+Vap.Plugin.HRA.TestAuthor.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/Vap-Portal/!svn/ver/43/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.HRA.TestAuthor/Vap.Plugin.HRA.TestAuthor.csproj
+END

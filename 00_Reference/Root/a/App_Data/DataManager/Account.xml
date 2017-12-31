@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Account" Title="a_menu_acc" R="302" EditRole="302" AddRole="302" DeleteRole="302" DefaultSort="Account_Email" DefaultSortAsc="true">
+  <controls>
+    <field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+    <field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+    <field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+    <field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+    <field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+    <field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	
+	<field Name="DataTree" Path="UC/DM_DataTree.ascx" Pos="1" Property="Title='f_group_list' SqlSP='SP_A_R_001_Tree_Group' Active='true' ShowHeader='0' FilterName='Account_GroupID'"/>
+    <field Name="WCMS_Account" Path="Process/Account.ascx" Pos="7"/>
+  </controls>
+  <command_plus><![CDATA[]]></command_plus>
+  <html><![CDATA[]]></html>
+  
+  <list>
+      <field Name="Account_Email" Title="#Email" Type="1" Sort="true" />
+      <field Name="Account_FullName" Title="f_fullname" Type="1" Sort="true" />
+    <field Name="Account_GroupName" Title="f_account_group" Type="0" Sort="false" />
+    <field Name="Account_A" Title="f_active" Type="3" Sort="true" Css="width:60px;text-align:center;"/>
+  </list>
+  
+  <search>
+      <field Name="Account_Email" Title="#Email"/>
+      <field Name="Account_ID" Title="#ID"/>
+      <field Name="Account_Name" Title="acc_username"/>
+  </search>
+
+  <edit>
+    <group Title="group_information" Pos="2" Expand="true" Columns="1">
+		<field Name="Account_GroupID" Title="f_group_list" Type="8" Note="#help_account_grouplist" Property="SqlSP='SP_A_R_001_Tree_Group' R='105' Active='true' EnableHeader='false' ShowLock='true' Default='6' Format='{1}' DisplayNoSelectText='false'"/>
+		<field Name="SendMail" Title="#Email thay đổi Nhóm" Type="39" ShowState="4" Property="StatusControlID='ucDMDataManager5_Edit1_ctl00_Account_GroupID_1_List'"/>
+		<field Name="Account_Email" Title="#Email" Note="#help_account_email" Type="1" Property="Require='true' Width='250' Css='font-weight:bold;'"/>
+		<field Name="Account_Password" Title="acc_password" Type="31" Property="Require='true' MaxLength='20' Width='150'"/>
+		<!--
+		<field Name="Account_TokenNum" Title="#Token" Note="#help_token_core" Type="28" Property="Default='0' Width='150' ValidationExpression='^\\d+$'"/>
+		-->
+    </group>
+    <group Title="#Profiles" Pos="2" Expand="true">
+		<field Name="Account_FirstName" Title="f_fullname" Type="1" Property="Width='250' Css='font-weight:bold;'"/>
+		<field Name="Account_Company" Title="f_account_company" Type="1" Property="Width='250'"/>
+		<field Name="Account_Address" Title="f_address" Type="1" Property="Width='250'"/>
+		<field Name="Account_Phone" Title="f_phone" Type="1" Property="Width='250'"/>
+		<!--
+		<field Name="Account_WebsiteAddress" Title="f_site_address" Type="1" Property="Width='150'"/>
+		<field Name="Account_City" Title="f_city" Type="1" Property="Width='150'"/>
+		<field Name="Account_State" Title="f_state" Type="1" Property="Width='150'"/>
+		<field Name="Account_Country" Title="f_country" Type="1" Property="Width='150'"/>
+		<field Name="Account_CountryCode" Title="f_countrycode" Type="1" Property="Width='50'"/>
+		<field Name="Account_ZipCode" Title="f_zipcode" Type="1" Property="Width='50'"/>
+		<field Name="Account_ChatID" Title="#Chat ID" Type="1" Property="MaxLength='20' Width='150'"/>
+		-->
+		<field Name="Account_ImageLink" Title="f_thumb" Type="15" Property="BrowserType='thumb_image' Width='450px' MediaID='thumbimage' DefaultThumb='/images/user.png'"/>
+		<field Name="Account_Description" Title="introduction" Type="3" Property="Type='simple' Height='200px' InsertFileType='medium_image' InsertFileCount='5'"/>
+	</group>
+    <group Title="group_properties" Pos="3" Expand="true">
+		<field Name="Account_ID" Title="f_id" ShowState="4" Property="Width='80px'"/>
+		<field Name="Account_LastIP" Title="f_last_ip" ShowState="4" Property="Width='145px'"/>
+		<field Name="Account_LastVisit" Title="f_last_visit" ShowState="4" Property="Width='145px'"/>
+		<field Name="Account_A" Title="f_active" Type="5" Property="Default='true'"/>
+    </group>
+  </edit>
+  
+  <SQL_SELECT_LIST>
+    <![CDATA[
+	set nocount on
+	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem	=
+	(
+		select count(0) from WCMS_Account
+		where
+		{ Account_ID		<o> @Search:Account_ID and }
+		{ Account_GroupID	<o> @Search:Account_GroupID and }
+		{ Account_Name		<o> @Search:Account_Name and }
+		{ Account_Email		<o> @Search:Account_Email and }
+		{ Account_GroupID @NotInAG and }
+		{ Account_ID = @AID and }
+		1 = 1
+	)
+	if (@pageSize < 1) set @pageSize = 15
+	set @totalPage	= ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Account_ID]
+		,[Account_Name]
+		,(case when Account_A = 0 then '<span style="color:#C68C2B;">' + Account_FullName + '</span>' else Account_FullName end) as [Account_FullName]
+		,[Account_Email]
+		,[Group_Name] as [Account_GroupName]
+		,case when [Account_A] = 1 then 'checked' else '' end as [Account_A]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Account_ID]
+			,[Account_Name]
+			,isnull(Account_FirstName,'') as [Account_FullName]
+			,[Account_Email]
+			,[Account_GroupID]
+			,[Account_A]
+		from WCMS_Account
+		where
+		{ Account_ID		<o> @Search:Account_ID and }
+		{ Account_GroupID	<o> @Search:Account_GroupID and }
+		{ Account_Name		<o>	@Search:Account_Name and }
+		{ Account_Email		<o> @Search:Account_Email and }
+		{ Account_GroupID @NotInAG and }
+		{ Account_ID = @AID and }
+		1 = 1
+	) tb
+	left join WCMS_Group on Account_GroupID = Group_ID
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex	
+	]]>
+  </SQL_SELECT_LIST>
+
+  <SQL_LOAD_EDIT>
+    <![CDATA[
+	set nocount on
+	select  Account_ID
+		   ,Account_GroupID
+		   ,Account_Name
+		   ,'' as Account_Password
+		   ,Account_Email
+		   ,Account_A
+		   ,Account_LastIP
+		   ,Account_LastVisit		   
+		   ,Account_FirstName
+		   ,Account_Company
+		   ,Account_Address
+		   ,Account_City
+		   ,Account_Country
+		   ,Account_State
+		   ,Account_CountryCode
+		   ,Account_ZipCode
+		   ,Account_Phone
+		   ,Account_WebsiteAddress
+		   ,Account_TokenNum
+		   ,Account_ImageLink
+		   ,Account_Description
+		   ,Account_ChatID
+		   ,isnull(Account_Email,'') + '|' + isnull(Account_FirstName,'') as SendMail
+	from WCMS_Account where Account_ID = @editID	
+	]]>
+  </SQL_LOAD_EDIT>
+
+  <SQL_NEW><![CDATA[]]></SQL_NEW>
+
+  <SQL_ADD>
+    <![CDATA[
+	set nocount on
+	
+	INSERT INTO WCMS_Account
+	(
+		[Account_GroupID]
+	   ,[Account_Name]
+	   ,[Account_Password]
+	   ,[Account_Email]
+	   ,[Account_A]
+	   ,[Account_FirstName]
+	   ,[Account_Company]
+	   ,[Account_Address]
+	   ,[Account_Phone]
+	   ,[Account_TokenNum]
+	   ,[Account_ImageLink]
+	   ,[Account_Description]
+	   ,[Account_ChatID]
+	)
+	VALUES
+	(
+		 {@Get:Account_GroupID}
+		,{@Get:Account_Name}
+		,{@Get:Account_Password}
+		,{@Get:Account_Email}
+		,{@Get:Account_A}
+		,{@Get:Account_FirstName}
+		,{@Get:Account_Company}
+		,{@Get:Account_Address}
+		,{@Get:Account_Phone}
+		,{@Get:Account_TokenNum}
+		,{@Get:Account_ImageLink}
+		,{@Get:Account_Description}
+		,{@Get:Account_ChatID}
+	)
+	
+	declare @id int	
+	select @id = SCOPE_IDENTITY()
+	select @id
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_acc_add', '(' + @logIP + ') Add 1 account [' + {@Get:Account_Name} + '].', 'Account', @id, @logAcc)
+	]]>
+  </SQL_ADD>
+
+  <SQL_UPDATE>
+    <![CDATA[
+	set nocount on	
+	declare @pass1d nvarchar(300), @pass2d nvarchar(300)
+	set @pass1d = {@Get:Account_Password}
+	
+	if ({@Get:Account_GroupID} is null)
+		update WCMS_Account set
+			[Account_Email]			= {@Get:Account_Email}
+			,[Account_A]				= {@Get:Account_A}
+			,[Account_FirstName]		= {@Get:Account_FirstName}
+			,[Account_Company]			= {@Get:Account_Company}
+			,[Account_Address]			= {@Get:Account_Address}
+			,[Account_Phone]			= {@Get:Account_Phone}
+			,[Account_ModifyDate]		= getutcdate()
+			,[Account_ImageLink]		= {@Get:Account_ImageLink}
+			,[Account_Description]		= {@Get:Account_Description}
+		where Account_ID = @editID
+	else
+		update WCMS_Account set
+			 [Account_GroupID]			= {@Get:Account_GroupID}
+			,[Account_Email]			= {@Get:Account_Email}
+			,[Account_A]				= {@Get:Account_A}
+			,[Account_FirstName]		= {@Get:Account_FirstName}
+			,[Account_Company]			= {@Get:Account_Company}
+			,[Account_Address]			= {@Get:Account_Address}
+			,[Account_Phone]			= {@Get:Account_Phone}
+			,[Account_ModifyDate]		= getutcdate()
+			,[Account_ImageLink]		= {@Get:Account_ImageLink}
+			,[Account_Description]		= {@Get:Account_Description}
+		where Account_ID = @editID
+	
+	if (@pass1d <> '')
+	BEGIN
+		update WCMS_Account set [Account_Password] = @pass1d
+		where Account_ID = @editID
+	END
+	
+	select @editID
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_acc_update', '(' + @logIP + ') Updated account [#' + cast(@editID as varchar(10)) + '].', 'Account', @editID, @logAcc)
+	]]>
+  </SQL_UPDATE>
+
+  <SQL_UPDATE_ACTIVE>
+    <![CDATA[
+	update WCMS_Account set [Account_A]= @active
+	where Account_ID = @editID
+	select @editID	
+	]]>
+  </SQL_UPDATE_ACTIVE>
+
+  <SQL_COPY><![CDATA[]]></SQL_COPY>
+
+  <SQL_DELETE>
+    <![CDATA[
+	set nocount on
+declare @id1 int = @delID
+	if (@id1 = 1)
+	BEGIN
+select -1
+return;
+END
+	delete WCMS_PageMod where PageMod_AccountID = @id1
+	set nocount off
+	delete WCMS_Account where Account_ID = @id1
+	select @@ROWCOUNT 
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_delete', '(' + @logIP + ') Deleted 1 account.', 'Account', @id1, @logAcc)
+	]]>
+  </SQL_DELETE>
+</table>

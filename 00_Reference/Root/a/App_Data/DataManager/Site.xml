@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Site" Title="#Sites" R="102" EditRole="102" AddRole="102" DeleteRole="9999" DefaultSort="Site_ID" DefaultSortAsc="true">
+	<controls>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5" />
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+		
+		<field Name="SysReload" Path="UC/DM_Reload.ascx" Pos="7"/>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+	</controls>
+	
+	<list>
+		<field Name="Site_ID" Title="f_id" Type="1" Css="width:60px;text-align:left;color:#a00;"/>
+		<field Name="Site_Name" Title="f_name" Type="1" Css="width:180px;"/>
+		<field Name="Site_Address" Title="f_site_address" Type="1" Css="width:200px;"/>
+		<field Name="Site_AddressAlias" Title="f_site_address_alias"/>
+		<field Name="Site_DefaultLanguage" Title="f_language_default" Css="width:100px;"/>
+		<field Name="Site_A" Title="f_active" Type="3" Css="width:60px;text-align:center;"/>
+	</list>
+
+  <command_plus><![CDATA[]]></command_plus>
+	
+	<search>		
+		<field Name="Site_Address" Title="f_site_address"/>
+		<field Name="Site_AddressAlias" Title="f_site_address_alias"/>
+	</search>
+	
+	<edit>
+		<group Title="group_information" Pos="2" Expand="true">
+			<field Name="Site_Name" Title="f_name" Type="1" Property="Require='true' Width='250px'"/>
+			<field Name="Site_Address" Title="f_site_address" Type="1" Property="Require='true' Width='250px'"/>
+			<field Name="Site_AddressAlias" Title="f_site_address_alias" Type="2" Property="Width='250px' Height='80px'"/>
+			<field Name="Site_AdminEmail" Title="admin_email" Type="1" Property="Require='true' Width='250px'"/>
+			<field Name="Site_DefaultLanguage" Title="f_language_default" Type="8" Property="SqlSP='SP_A_R_001_Tree_Language' EnableHeader='false' ShowLock='true' Format='{1}' Seperator=';'"/>
+			<field Name="Site_DefaultTheme" Title="f_theme_default" Type="8" Property="SqlSP='SP_A_R_001_GetThemesList' ParentID='3300' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Seperator=';'"/>
+		</group>
+		<group Title="group_meta" Pos="2" Expand="true" Note="max_length_1000">
+			<field Name="Site_MetaKeywords" Title="f_meta_key" Type="2" Property="WrapText='true' MaxLength='1000'" />
+			<field Name="Site_MetaDescription" Title="f_meta_description" Type="2" Property="WrapText='true' MaxLength='1000'" />
+		</group>
+		<group Title="group_properties" Pos="3" Expand="true">
+			<field Name="Site_ID" Title="f_id" ShowState="4" Property="Width='80px'"/>
+			<field Name="Site_A" Title="f_active" Type="5" Property="Default='true'"/>
+		</group>
+		<group Title="f_role_permisson" Pos="3" Expand="true">
+			<field Name="Site_R" Note="#help_site_role" Type="8" Property="SqlSP='SP_A_R_001_Tree_Role' ParentID='600' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Seperator=';'"/>			
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[ 
+	set nocount on
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem = 
+	(
+		select count(0) from wcms_Site 
+		where
+		{ Site_Address 		<o> @Search:Site_Address and }
+		{ Site_AddressAlias <o> @Search:Site_AddressAlias and }
+		1 = 1
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Site_ID]
+		,[Site_Name]
+		,[Site_Address]
+		,[Site_AddressAlias]
+		,(select Language_Name from wcms_Language where Language_ID = [Site_DefaultLanguage]) as [Site_DefaultLanguage]
+		,case when [Site_A] = 1 then 'checked' else '' end as [Site_A]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Site_ID]
+			,[Site_Name]
+			,[Site_Address]
+			,[Site_AddressAlias]
+			,[Site_DefaultLanguage]
+			,[Site_A]
+		from wcms_Site
+		where
+		{ Site_Address 		<o> @Search:Site_Address and }
+		{ Site_AddressAlias <o> @Search:Site_AddressAlias and }
+		1 = 1
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex 
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[
+	select [Site_ID]
+		,[Site_Name]
+		,[Site_Address]
+		,[Site_AddressAlias]
+		,[Site_AdminEmail]
+		,[Site_DefaultLanguage]
+		,[Site_DefaultTheme]
+		,[Site_A]
+		,[Site_MetaKeywords]
+		,[Site_MetaDescription]
+		,[Site_R]
+	from wcms_Site where Site_ID = @editID 	
+	]]>
+	</SQL_LOAD_EDIT>
+
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+	
+	<SQL_ADD>
+	<![CDATA[
+	set nocount on
+	insert wcms_Site
+	(
+		 [Site_Name]
+		,[Site_Address]
+		,[Site_AddressAlias]
+		,[Site_AdminEmail]
+		,[Site_DefaultLanguage]
+		,[Site_DefaultTheme]
+		,[Site_A]
+		,[Site_MetaKeywords]
+		,[Site_MetaDescription]
+		,[Site_R]
+	) 
+	values
+	(
+		 {@Get:Site_Name}
+		,{@Get:Site_Address}
+		,{@Get:Site_AddressAlias}
+		,{@Get:Site_AdminEmail}
+		,{@Get:Site_DefaultLanguage}
+		,{@Get:Site_DefaultTheme}
+		,{@Get:Site_A}
+		,{@Get:Site_MetaKeywords}
+		,{@Get:Site_MetaDescription}
+		,{@Get:Site_R}
+	)
+	
+	select SCOPE_IDENTITY()
+	]]>
+	</SQL_ADD>
+		
+	<SQL_UPDATE>
+	<![CDATA[
+	set nocount on
+	update wcms_Site set
+			[Site_Name]				= {@Get:Site_Name}
+			,[Site_Address] 		= {@Get:Site_Address}
+			,[Site_AddressAlias] 	= {@Get:Site_AddressAlias}
+			,[Site_AdminEmail]		= {@Get:Site_AdminEmail}
+			,[Site_DefaultLanguage] = {@Get:Site_DefaultLanguage}
+			,[Site_DefaultTheme] 	= {@Get:Site_DefaultTheme}
+			,[Site_A] 				= {@Get:Site_A}
+			,[Site_MetaKeywords]	= {@Get:Site_MetaKeywords}
+			,[Site_MetaDescription]	= {@Get:Site_MetaDescription}
+			,[Site_R]				= {@Get:Site_R}
+	where Site_ID = @editID
+	
+	select @editID
+	]]>	
+	</SQL_UPDATE>
+
+	<SQL_UPDATE_ACTIVE>
+	<![CDATA[	
+	update wcms_Site set [Site_A]= @active
+	where Site_ID = @editID
+	select @editID
+	]]>
+	</SQL_UPDATE_ACTIVE>
+
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE><![CDATA[]]></SQL_DELETE>
+</table>

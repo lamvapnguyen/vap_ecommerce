@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/Vap-Portal/!svn/ver/28/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Admin.UserRoles/Controllers
+END
+HomeController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/Vap-Portal/!svn/ver/11/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Admin.UserRoles/Controllers/HomeController.cs
+END
+AccountController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/Vap-Portal/!svn/ver/11/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Admin.UserRoles/Controllers/AccountController.cs
+END
+M0110Controller.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Vap-Portal/!svn/ver/28/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Admin.UserRoles/Controllers/M0110Controller.cs
+END

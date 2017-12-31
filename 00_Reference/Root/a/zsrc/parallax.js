@@ -1,0 +1,1 @@
+function parallax(){var n=$(window).scrollTop();$(".main_bkg").css("top",0-n*.2+"px")}$(document).ready(function(){$(window).bind("scroll",function(){parallax()})});

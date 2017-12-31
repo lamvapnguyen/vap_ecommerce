@@ -1,0 +1,1 @@
+function __redrawCaptcha(n){n.src+="0"}var __sendmail={send:function(){var n=!0;return $(":text,textarea").each(function(){var t=this.value;t&&t!=""?$(this).removeClass("ioc_textbox_error"):($(this).addClass("ioc_textbox_error"),n=!1)}),n},close:function(){(window.opener||window.parent).__hideWindow("d_sendmail",!1)}};

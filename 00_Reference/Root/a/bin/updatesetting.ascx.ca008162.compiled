@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Setting/UpdateSetting.ascx" hash="fffffffaa8934d59" filehash="7c747bd34a383f8c" flags="110000" assembly="App_Web_3kko5jd5" type="ASP.views_setting_updatesetting_ascx">
+    <filedeps>
+        <filedep name="/Views/DataManager/UC/DM_Reload.ascx" />
+        <filedep name="/Views/Setting/UpdateSetting.ascx" />
+    </filedeps>
+</preserve>

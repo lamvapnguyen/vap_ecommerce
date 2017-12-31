@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Navigator/SimpleMenuBox.ascx" hash="fffffff3343c8b72" filehash="dfee77fe43159ada" flags="110000" assembly="App_Web_jp0pwo15" type="ASP.views_navigator_simplemenubox_ascx">
+    <filedeps>
+        <filedep name="/Views/Core/Box.ascx" />
+        <filedep name="/Views/Navigator/SimpleMenuBox.ascx" />
+    </filedeps>
+</preserve>

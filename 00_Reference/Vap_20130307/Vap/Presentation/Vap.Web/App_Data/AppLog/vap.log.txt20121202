@@ -1,0 +1,2036 @@
+
+- Level: ERROR 
+
+- Date: 2012-12-02 09:43:04,034 
+ 
+- Timestamp: 13073 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 8152 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-1-129988897646207343 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 09:48:36,714 
+ 
+- Timestamp: 345753 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 2568 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-1-129988897646207343 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 09:56:08,654 
+ 
+- Timestamp: 7429 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 6440 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-2-129988905565750315 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 09:56:59,382 
+ 
+- Timestamp: 4989 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 6440 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-3-129988906133652797 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:00:35,037 
+ 
+- Timestamp: 13174 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 6440 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-4-129988908210421582 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:06:28,068 
+ 
+- Timestamp: 4364 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 6440 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-5-129988911828478523 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:08:29,389 
+ 
+- Timestamp: 6384 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 3500 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-6-129988913021966786 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:09:37,227 
+ 
+- Timestamp: 7132 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 5940 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-7-129988913692155119 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:14:18,405 
+ 
+- Timestamp: 288309 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 5940 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-7-129988913692155119 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:17:13,256 
+ 
+- Timestamp: 4798 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 3500 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-8-129988918275517272 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:26:46,450 
+ 
+- Timestamp: 62564 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 6440 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-9-129988923429262050 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:28:30,856 
+ 
+- Timestamp: 166970 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 5920 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-9-129988923429262050 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:32:15,746 
+ 
+- Timestamp: 5766 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 5940 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-10-129988927288822804 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:33:09,837 
+ 
+- Timestamp: 9502 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7032 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-11-129988927794871748 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:33:32,672 
+ 
+- Timestamp: 32336 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7032 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-11-129988927794871748 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:42:01,162 
+ 
+- Timestamp: 7086 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7032 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-12-129988933129276859 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:43:39,074 
+ 
+- Timestamp: 4767 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7032 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-13-129988934133864318 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:47:02,112 
+ 
+- Timestamp: 4601 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7032 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-14-129988936165510521 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:51:24,089 
+ 
+- Timestamp: 266578 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7032 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-14-129988936165510521 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 10:53:09,893 
+ 
+- Timestamp: 7324 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7032 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-15-129988939817099380 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 11:05:13,651 
+ 
+- Timestamp: 11131 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7032 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-16-129988947014751062 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 11:13:26,231 
+ 
+- Timestamp: 7147 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 3500 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-17-129988951981395138 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 11:28:33,975 
+ 
+- Timestamp: 5235 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 6348 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-18-129988961073675187 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 11:30:26,030 
+ 
+- Timestamp: 12308 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 6348 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-19-129988962126945431 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 11:46:19,567 
+ 
+- Timestamp: 4576 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 6348 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-20-129988971740025267 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 11:49:18,276 
+ 
+- Timestamp: 183284 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 3512 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-20-129988971740025267 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 11:55:21,309 
+ 
+- Timestamp: 546318 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 3512 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-20-129988971740025267 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 12:00:15,217 
+ 
+- Timestamp: 7916 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7704 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-21-129988980062501286 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 12:01:18,711 
+ 
+- Timestamp: 71410 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 3512 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-21-129988980062501286 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 12:02:40,441 
+ 
+- Timestamp: 4829 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7704 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-22-129988981546406160 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 15:06:07,497 
+ 
+- Timestamp: 10321 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 6656 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-1-129989091499892908 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 15:12:08,538 
+ 
+- Timestamp: 371363 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 6788 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-1-129989091499892908 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 15:16:32,387 
+ 
+- Timestamp: 635211 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 4420 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-1-129989091499892908 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 15:21:28,253 
+ 
+- Timestamp: 54796 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 4420 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-2-129989100321987503 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 15:24:21,342 
+ 
+- Timestamp: 6425 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 4420 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-3-129989102535444105 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 15:33:40,911 
+ 
+- Timestamp: 565994 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 6788 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-3-129989102535444105 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 15:45:48,315 
+ 
+- Timestamp: 1293397 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 4420 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-3-129989102535444105 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 15:46:24,106 
+ 
+- Timestamp: 1329189 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7756 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-3-129989102535444105 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 15:58:04,682 
+ 
+- Timestamp: 4827 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 6788 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-4-129989122788582519 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 16:01:45,565 
+ 
+- Timestamp: 225709 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 6788 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-4-129989122788582519 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 16:04:01,380 
+ 
+- Timestamp: 8674 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 6788 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-5-129989126317714373 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 16:22:02,462 
+ 
+- Timestamp: 4142 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 8096 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-6-129989137174275333 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 16:30:54,419 
+ 
+- Timestamp: 5747 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7420 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-7-129989142477538662 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 16:31:52,825 
+ 
+- Timestamp: 4868 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7420 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-8-129989143070802595 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 16:37:55,731 
+ 
+- Timestamp: 6502 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7756 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-9-129989146679809019 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 16:58:40,522 
+ 
+- Timestamp: 5035 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7420 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-10-129989159145592021 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 16:58:50,916 
+ 
+- Timestamp: 15428 milliseconds 
+
+- Message: System.NotSupportedException: Local sequence cannot be used in LINQ to SQL implementation of query operators except the Contains() operator.
+   at Vap.Web.Models.clsM01002Models.Delete(String[] IdList) in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Models\clsM01002Models.cs:line 240
+   at Vap.Web.Controllers.M01002Controller.Index(Nullable`1 page, clsM01002Dto dto, FormCollection formCollection) in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\M01002Controller.cs:line 72
+ 
+- Class: Vap.Web.Controllers.M01002Controller 
+
+- Controler: M01002Controller       
+
+- Method: Index
+
+- Line: 89 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.M01002Controller.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\M01002Controller.cs:89) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7420 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-10-129989159145592021 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 16:59:48,740 
+ 
+- Timestamp: 73253 milliseconds 
+
+- Message: System.NotSupportedException: Local sequence cannot be used in LINQ to SQL implementation of query operators except the Contains() operator.
+   at Vap.Web.Models.clsM01002Models.Delete(String[] IdList) in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Models\clsM01002Models.cs:line 240
+   at Vap.Web.Controllers.M01002Controller.Index(Nullable`1 page, clsM01002Dto dto, FormCollection formCollection) in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\M01002Controller.cs:line 72
+ 
+- Class: Vap.Web.Controllers.M01002Controller 
+
+- Controler: M01002Controller       
+
+- Method: Index
+
+- Line: 89 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.M01002Controller.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\M01002Controller.cs:89) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 2788 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-10-129989159145592021 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 17:01:20,131 
+ 
+- Timestamp: 4577 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7756 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-11-129989160747103622 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 17:09:01,538 
+ 
+- Timestamp: 7403 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7860 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-12-129989165326505549 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 17:17:14,181 
+ 
+- Timestamp: 5531 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7860 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-13-129989170277728742 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 17:21:25,897 
+ 
+- Timestamp: 5904 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7420 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-14-129989172789482406 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 17:22:07,895 
+ 
+- Timestamp: 7480 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 4112 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-15-129989173195955655 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 17:22:59,475 
+ 
+- Timestamp: 5236 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 4112 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-16-129989173730446227 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 17:23:28,753 
+ 
+- Timestamp: 34513 milliseconds 
+
+- Message: System.Data.SqlClient.SqlException: The INSERT statement conflicted with the FOREIGN KEY SAME TABLE constraint "FK_V_CATEGORY_V_CATEGORY". The conflict occurred in database "VAP", table "dbo.V_CATEGORY", column 'CATEGORY_CD'.
+The statement has been terminated.
+   at Vap.Web.Models.clsM01002Models.Add(String parrentCategoryCd, String categoryName, Int32 createPersonCd, Int32 sortOrder, Int32 categoryLevel) in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Models\clsM01002Models.cs:line 88
+   at Vap.Web.Controllers.M01002Controller.Register(clsM01002DetailDto dto) in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\M01002Controller.cs:line 145
+ 
+- Class: Vap.Web.Controllers.M01002Controller 
+
+- Controler: M01002Controller       
+
+- Method: Register
+
+- Line: 160 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.M01002Controller.Register(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\M01002Controller.cs:160) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7420 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-16-129989173730446227 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 17:24:47,961 
+ 
+- Timestamp: 113721 milliseconds 
+
+- Message: System.Data.SqlClient.SqlException: The INSERT statement conflicted with the FOREIGN KEY SAME TABLE constraint "FK_V_CATEGORY_V_CATEGORY". The conflict occurred in database "VAP", table "dbo.V_CATEGORY", column 'CATEGORY_CD'.
+The statement has been terminated.
+   at Vap.Web.Models.clsM01002Models.Add(String parrentCategoryCd, String categoryName, Int32 createPersonCd, Int32 sortOrder, Int32 categoryLevel) in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Models\clsM01002Models.cs:line 88
+   at Vap.Web.Controllers.M01002Controller.Register(clsM01002DetailDto dto) in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\M01002Controller.cs:line 145
+ 
+- Class: Vap.Web.Controllers.M01002Controller 
+
+- Controler: M01002Controller       
+
+- Method: Register
+
+- Line: 160 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.M01002Controller.Register(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\M01002Controller.cs:160) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 4112 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-16-129989173730446227 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 17:25:46,882 
+ 
+- Timestamp: 4336 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7860 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-17-129989175416112641 
+
+====================================================================================================== 
+
+- Level: ERROR 
+
+- Date: 2012-12-02 17:27:12,173 
+ 
+- Timestamp: 6062 milliseconds 
+
+- Message: System.Exception: Data is being used by another user. Please refresh data and try again.
+   at Vap.Web.Controllers.HomeController.Index() in E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:line 24
+ 
+- Class: Vap.Web.Controllers.HomeController 
+
+- Controler: HomeController         
+
+- Method: Index
+
+- Line: 28 
+
+- Exception:  
+
+- Identity: 102001 
+
+- Location: Vap.Web.Controllers.HomeController.Index(E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\Controllers\HomeController.cs:28) 
+
+- Stacktrace: stacktrace{3} 
+
+- Stacktracedetail: stacktracedetail{3} 
+
+- Thread: 7860 
+
+- Username: Ryan-PC\Ryan 
+
+- Appdomain: 127fd035-18-129989176251430419 
+
+====================================================================================================== 

@@ -1,0 +1,36 @@
+﻿<setting name="Template">
+<![CDATA[
+
+<input type="hidden" value="1" name="update_hidden_field" />
+<table cellspacing="0" cellpadding="0" width="100%" class="dm_edit_table">
+	<col width="200px" /><col width="1px" /><col />
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">Email - Active Account</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value">
+			<textarea type="text" class="ioc_textbox" rows="12" style="height:auto;" maxlength="4000" name="email_active_account" />{p:email_active_account}</textarea>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">Email - Forgot Password</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value">
+			<textarea type="text" class="ioc_textbox" rows="12" style="height:auto;" maxlength="4000" name="email_forgot_password" />{p:email_forgot_password}</textarea>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">Email - Changed Password</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value">
+			<textarea type="text" class="ioc_textbox" rows="12" style="height:auto;" maxlength="4000" name="email_change_password" />{p:email_change_password}</textarea>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td colspan="3"><input type="submit" name="update_setting_submit" class="dm_edit_button_1" value="Update" /></td>
+	</tr>
+</table>
+
+]]>
+</setting>

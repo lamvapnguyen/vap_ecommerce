@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/DataManager/Process/Module.ascx" hash="fffffffaa8934d59" filehash="15c430d3462c" flags="110000" assembly="App_Web_gd4fj0em" type="ASP.views_datamanager_process_module_ascx">
+    <filedeps>
+        <filedep name="/Views/DataManager/Process/Module.ascx" />
+    </filedeps>
+</preserve>

@@ -1,0 +1,33 @@
+﻿<setting name="Toolbar">
+<![CDATA[
+
+<input type="hidden" value="1" name="update_hidden_field" />
+<table cellspacing="0" cellpadding="0" width="100%" class="dm_edit_table">
+	<col width="100px" /><col width="1px" /><col />
+	<tr>
+		<td class="dm_ioc_value_t">Enable</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value"><input type="checkbox" value="True" name="toolbar_on" {p:toolbar_on} /></td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">Title</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value"><input type="textbox" name="toolbar_title" value="{p:toolbar_title}" class="ioc_textbox" style="width:96%;"/></td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">Links</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value"><textarea type="text" name="toolbar_links" class="ioc_textbox" style="width:96%;height:100px;">{p:toolbar_links}</textarea></td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">Content</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value"><textarea type="text" name="toolbar_wind" class="ioc_textbox" style="width:96%;height:100px;">{p:toolbar_wind}</textarea></td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td colspan="3"><input type="submit" name="update_setting_submit" class="dm_edit_button_1" value="Update" /></td>
+	</tr>
+</table>
+]]>
+</setting>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Common/Box/ContactBox.ascx" hash="fffffff3343c8b72" filehash="ffffcd9d7ca8a4ad" flags="110000" assembly="App_Web_1mjanyey" type="ASP.views_common_box_contactbox_ascx">
+    <filedeps>
+        <filedep name="/Views/Common/Box/ContactBox.ascx" />
+    </filedeps>
+</preserve>

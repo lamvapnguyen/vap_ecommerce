@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/UploadHandler.ashx" hash="ffffffffd86d5c2d" filehash="4510db808e48" flags="130000" assembly="WCMS.Admin" type="WCMS.Admin.UploadHandler">
+    <filedeps>
+        <filedep name="/UploadHandler.ashx" />
+    </filedeps>
+</preserve>

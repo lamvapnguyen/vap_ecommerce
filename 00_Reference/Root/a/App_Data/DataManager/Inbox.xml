@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_EmailInbox" Title="dm_inbox" R="311" AddRole="1" EditRole="1" DefaultSort="EmailInbox_Date" DefaultSortAsc="false">
+	<controls>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	</controls>
+	
+	<list>
+		<field Name="EmailInbox_Date" Title="f_datetime" Sort="true" Css="width:160px;"/>
+		<field Name="EmailType" Title="f_type" Sort="false" Css="width:50px;"/>
+		<field Name="EmailInbox_From" Title="sendmail_from" Type="1" Sort="true" Css="width:250px;"/>
+		<field Name="EmailInbox_To" Title="sendmail_to" Type="1" Sort="true" Css="width:200px;"/>
+		<field Name="EmailInbox_Subject" Title="sendmail_subject" Type="1"/>
+		<field Name="EmailInbox_Read" Title="f_read" Type="2" Css="width:60px;text-align:center;"/>
+	</list>
+
+	<command_plus><![CDATA[]]></command_plus>
+  
+	<search>
+		<field Name="EmailInbox_Name" Title="sendmail_name"/>
+		<field Name="EmailInbox_From" Title="sendmail_from"/>
+	</search>
+	
+	<edit>
+		<group Title="group_email" Pos="2" Expand="true">
+			<field Name="ReplyAddress" Type="10"/>
+			<field Name="EmailInbox_Date" Title="f_datetime" Property="Width='98%'"/>
+			<field Name="EmailInbox_From" Title="sendmail_from" Property="Width='98%'"/>
+			<field Name="EmailInbox_To" Title="sendmail_to" Property="Width='98%'"/>
+			<field Name="EmailInbox_Subject" Title="sendmail_subject" Property="Width='98%'"/>
+			<field Name="EmailInbox_File" Title="f_attachment_file" Type="18" Property="Width='98%'"/>
+			<field Name="EmailInbox_Message" Title="sendmail_message" Type="3" Property="Type='readonly' Height='300px'"/>
+			<field Name="EmailInbox_Phone" Title="f_phone" Property="Width='98%'"/>
+			<field Name="EmailInbox_Address" Title="f_address" Property="Width='98%'"/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[ 
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem = (
+		select count(0) from wcms_EmailInbox 
+		where EmailInbox_SiteID = @siteID	
+		{ AND EmailInbox_Name <o> @Search:EmailInbox_Name }
+		{ AND EmailInbox_From <o> @Search:EmailInbox_From }
+	)
+	
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [EmailInbox_ID]
+		,[EmailType]
+		,[EmailInbox_From]
+		,[EmailInbox_To]
+		,DATEADD(hour, {@TIMEZONE}, EmailInbox_Date) as [EmailInbox_Date]
+		,[EmailInbox_Subject]
+		,[EmailInbox_Read]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[EmailInbox_ID]
+			,(case EmailInbox_Type when 1 then 'Contact' when 2 then 'Sales' when 3 then 'Booking' when 4 then 'A Require from User' when 5 then 'Appt' when 6 then 'SalesPage' else '' end) as [EmailType]
+			,'<b>' + EmailInbox_Name + '</b> (' + EmailInbox_From + ')' as [EmailInbox_From]
+			,[EmailInbox_To]
+			,[EmailInbox_Date]
+			,[EmailInbox_Subject]
+			,[EmailInbox_Read]
+		from wcms_EmailInbox
+		where EmailInbox_SiteID = @siteID	
+		{ AND EmailInbox_Name <o> @Search:EmailInbox_Name }
+		{ AND EmailInbox_From <o> @Search:EmailInbox_From }
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex 
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[
+	Update wcms_EmailInbox set [EmailInbox_Read] = 1 where EmailInbox_ID = @editID
+	select [EmailInbox_ID]
+		,EmailInbox_Name + '  (' + EmailInbox_From + ')' as [EmailInbox_From]
+		,[EmailInbox_To]
+		,[EmailInbox_Date]
+		,[EmailInbox_Subject]
+		,[EmailInbox_Message]
+		,[EmailInbox_From] as [ReplyAddress]
+		,[EmailInbox_File]
+		,[EmailInbox_Phone]
+		,[EmailInbox_Address]
+	from wcms_EmailInbox where EmailInbox_ID = @editID
+	]]>
+	</SQL_LOAD_EDIT>
+
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+	<SQL_ADD><![CDATA[]]></SQL_ADD>		
+	<SQL_UPDATE><![CDATA[]]></SQL_UPDATE>
+	<SQL_UPDATE_ACTIVE><![CDATA[]]></SQL_UPDATE_ACTIVE>
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+	delete from wcms_EmailInbox where EmailInbox_ID = @delID
+	select 1
+	]]>
+	</SQL_DELETE>
+</table>

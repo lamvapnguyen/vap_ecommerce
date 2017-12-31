@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Language" Title="#Languages" R="103" EditRole="103" AddRole="103" DeleteRole="9999" DefaultSort="Language_ID" DefaultSortAsc="true">
+	<controls>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+		
+		<field Name="SysReload" Path="UC/DM_Reload.ascx" Pos="7"/>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+	</controls>
+	
+	<list>
+		<field Name="Language_ID" Title="f_id" Type="1" Sort="true" Css="width:80px;text-align:left;color:#a00;"/>
+		<field Name="Language_Name" Title="f_name" Type="1" Sort="true"/>
+		<field Name="Language_Code" Title="f_language_code" Css="width:60px;"/>
+		<field Name="Language_Default" Title="f_default" Type="2" Css="width:60px;text-align:center;"/>
+		<field Name="Language_Culture" Title="f_language_culture" Css="width:80px;"/>
+		<field Name="Language_O" Title="f_ordinal" Css="width:80px;text-align:center;"/>
+		<field Name="Language_A" Title="f_active" Type="3" Css="width:60px;text-align:center;"/>
+	</list>
+
+  <command_plus><![CDATA[]]></command_plus>
+	
+	<search>
+		<field Name="Language_ID" Title="f_id"/>
+	</search>
+	
+	<edit>
+		<group Title="group_information" Pos="2" Expand="true">
+			<field Name="Language_Name" Title="f_name" Type="1" Property="Require='true' Width='150px'"/>
+			<field Name="Language_Code" Title="f_language_code" Type="1" Property="Require='true' Width='150px'"/>
+			<field Name="Language_Culture" Title="f_language_culture" Type="1" Property="Require='true' Width='150px'"/>
+			<field Name="Language_Default" Title="f_default" Type="5" Note="help_language_default" Property="Default='false'" />
+			<field Name="Language_O" Title="f_ordinal" Type="1" Property="Default='500' Width='60px'"/>
+		</group>
+		<group Title="group_properties" Pos="3" Expand="true">
+			<field Name="Language_ID" Title="f_id" ShowState="4" Property="Width='80px'"/>
+			<field Name="Language_A" Title="f_active" Type="5" Property="Default='true'"/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[ 
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem = (select count(0) from wcms_Language { where Language_ID <o> @Search:Language_ID })
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Language_ID]
+		,[Language_Name]
+		,[Language_Code]
+		,[Language_Default]
+		,[Language_Culture]
+		,[Language_O]
+		,case when [Language_A] = 1 then 'checked' else '' end as [Language_A]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Language_ID]
+			,[Language_Name]
+			,[Language_Code]
+			,[Language_Default]
+			,[Language_Culture]
+			,[Language_O]
+			,[Language_A]
+		from wcms_Language
+		{ where Language_ID <o> @Search:Language_ID }
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex 
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[
+	select [Language_ID]
+		,[Language_Name]
+		,[Language_Code]
+		,[Language_O]
+		,[Language_A]
+		,[Language_Culture]
+		,[Language_Default]
+	from wcms_Language where Language_ID = @editID 	
+	]]>
+	</SQL_LOAD_EDIT>
+
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+	
+	<SQL_ADD>
+	<![CDATA[
+	set nocount on
+	declare @default bit 
+	set @default = {@Get:Language_Default}
+
+	insert wcms_Language
+	(
+		 [Language_Name]
+		,[Language_Code]
+		,[Language_Default]
+		,[Language_O]
+		,[Language_A]
+		,[Language_Culture]
+	) 
+	values
+	(
+		 {@Get:Language_Name}
+		,{@Get:Language_Code}
+		,@default
+		,{@Get:Language_O}
+		,{@Get:Language_A}
+		,{@Get:Language_Culture}
+	)
+	declare @id int 
+	set @id = SCOPE_IDENTITY()	
+	if (@default = 1) update wcms_Language set [Language_Default] = 0 where Language_ID <> @id 
+	
+	select @id
+	]]>
+	</SQL_ADD>
+		
+	<SQL_UPDATE>
+	<![CDATA[
+	set nocount on
+	declare @default bit 
+	set @default = {@Get:Language_Default}
+	
+	update wcms_Language set
+		   [Language_Name]			= {@Get:Language_Name}
+		  ,[Language_Code]			= {@Get:Language_Code}		  
+		  ,[Language_O]				= {@Get:Language_O}
+		  ,[Language_A]				= {@Get:Language_A}
+		  ,[Language_Culture]		= {@Get:Language_Culture}
+		  ,[Language_Default]		= @default
+	where Language_ID = @editID
+	
+	if (@default = 1) update wcms_Language set [Language_Default] = 0 where Language_ID <> @editID
+	select @editID
+	]]>	
+	</SQL_UPDATE>
+
+	<SQL_UPDATE_ACTIVE>
+	<![CDATA[
+	update wcms_Language set [Language_A]= @active
+	where Language_ID = @editID
+	select @editID
+	]]>
+	</SQL_UPDATE_ACTIVE>
+
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE><![CDATA[]]></SQL_DELETE>
+</table>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/DataManager/Process/Book.ascx" hash="fffffffaa8934d59" filehash="22812b95cdd9" flags="110000" assembly="App_Web_gd4fj0em" type="ASP.views_datamanager_process_book_ascx">
+    <filedeps>
+        <filedep name="/Views/DataManager/Process/Book.ascx" />
+    </filedeps>
+</preserve>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/App_Themes/thammypandora/" hash="fffffff3343c8b72" filehash="d395d249232217e3" flags="110000" assembly="App_Theme_thammypandora" type="ASP.thammypandora">
+    <filedeps>
+        <filedep name="/App_Themes/thammypandora/" />
+    </filedeps>
+</preserve>

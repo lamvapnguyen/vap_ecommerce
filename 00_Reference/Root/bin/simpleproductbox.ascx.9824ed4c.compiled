@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Product/Box/SimpleProductBox.ascx" hash="fffffff3343c8b72" filehash="fffff8c8fe275cab" flags="110000" assembly="App_Web_xntyiyzb" type="ASP.views_product_box_simpleproductbox_ascx">
+    <filedeps>
+        <filedep name="/Views/Product/Box/SimpleProductBox.ascx" />
+    </filedeps>
+</preserve>

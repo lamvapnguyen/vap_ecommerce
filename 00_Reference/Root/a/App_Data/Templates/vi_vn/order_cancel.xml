@@ -1,0 +1,10 @@
+﻿<div style=" line-height:1.7em; font-size:small; font-family:Geneva,Verdana,Arial; width:681px; margin:0 auto;">
+  Chào Quý khách, <br/><br/>
+Cảm ơn Quý khách đã lựa chọn mua hàng tại {website_address}.<br/><br/>
+Đơn hàng {order_code} của Quý khách đã bị hủy. Chúng tôi rất lấy làm tiếc và thật sự xin lỗi vì sự bất tiện này. Mong được phục vụ Quý khách tốt hơn vào lần sau.<br/><br/>
+Quý khách vui lòng nhấn vào đường link bên dưới để kiểm tra lại đơn hàng đã bị hủy:<br/><br/>
+  <a href="{order_tracking}" style="display:block; padding:10px 20px; background:#1AA4EB; color:#fff; text-decoration:initial; float:left;"> Tình trạng đơn hàng</a><br/><br/>
+Trân trọng.<br/>
+  ---------- <br/>
+  Email này được gửi từ website {website_address}
+</div>

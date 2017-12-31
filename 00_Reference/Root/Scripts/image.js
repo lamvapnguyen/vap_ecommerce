@@ -1,0 +1,1 @@
+function __aspx_load_img(n,t){t=80;n="/images/upload/"+n;$("<img/>").attr("src",n).load(function(){var i=this.height;$(this).remove();$("#d0").attr({style:'background:url("'+n+'") no-repeat center top; background-size:'+t+"%;"}).height(i*t/100)})}

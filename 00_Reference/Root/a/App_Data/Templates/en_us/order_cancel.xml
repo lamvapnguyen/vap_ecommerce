@@ -1,0 +1,10 @@
+﻿<div style=" line-height:1.7em; font-size:small; font-family:Geneva,Verdana,Arial; width:681px; margin:0 auto;">
+  Welcome Guest, <br/><br/>
+Thank you for your purchase option at {website_address}.<br/><br/>
+{order_code} has been cancelled. We are sorry and really sorry for the inconvenience. Looking forward to serve you better in the future.<br/><br/>
+Please click the link below to check your orders have been cancelled:<br/><br/>
+  <a href="{order_tracking}" style="display:block; padding:10px 20px; background:#1AA4EB; color:#fff; text-decoration:initial; float:left;"> Order Tracking</a><br/><br/>
+Best regards.<br/>
+  ---------- <br/>
+  This email is sent from the website {website_address}
+</div>

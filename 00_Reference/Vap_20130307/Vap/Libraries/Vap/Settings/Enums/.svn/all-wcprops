@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/Vap-Portal/!svn/ver/81/trunk/03.Source%20code/Vap/Libraries/Vap/Settings/Enums
+END
+EnumMessageType.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/Vap-Portal/!svn/ver/73/trunk/03.Source%20code/Vap/Libraries/Vap/Settings/Enums/EnumMessageType.cs
+END
+EnumMessageStatus.cs
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/Vap-Portal/!svn/ver/73/trunk/03.Source%20code/Vap/Libraries/Vap/Settings/Enums/EnumMessageStatus.cs
+END
+EnumPrivilegeType.cs
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/Vap-Portal/!svn/ver/73/trunk/03.Source%20code/Vap/Libraries/Vap/Settings/Enums/EnumPrivilegeType.cs
+END
+EnumChecking.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/Vap-Portal/!svn/ver/73/trunk/03.Source%20code/Vap/Libraries/Vap/Settings/Enums/EnumChecking.cs
+END
+EnumAction.cs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/Vap-Portal/!svn/ver/81/trunk/03.Source%20code/Vap/Libraries/Vap/Settings/Enums/EnumAction.cs
+END
+EnumLogType.cs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/Vap-Portal/!svn/ver/81/trunk/03.Source%20code/Vap/Libraries/Vap/Settings/Enums/EnumLogType.cs
+END
+EnumScreenMode.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/Vap-Portal/!svn/ver/73/trunk/03.Source%20code/Vap/Libraries/Vap/Settings/Enums/EnumScreenMode.cs
+END

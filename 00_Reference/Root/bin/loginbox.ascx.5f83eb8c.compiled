@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Account/LoginBox.ascx" hash="fffffff3343c8b72" filehash="a5528b72e478849b" flags="110000" assembly="App_Web_4vfqwcvj" type="ASP.views_account_loginbox_ascx">
+    <filedeps>
+        <filedep name="/Views/Account/LoginBox.ascx" />
+        <filedep name="/Views/Account/SubControls/AccountMenu.ascx" />
+    </filedeps>
+</preserve>

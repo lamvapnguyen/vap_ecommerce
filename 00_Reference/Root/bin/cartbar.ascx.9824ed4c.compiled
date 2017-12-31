@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Product/Box/CartBar.ascx" hash="fffffff3343c8b72" filehash="ffffc07bfb5994b1" flags="110000" assembly="App_Web_xntyiyzb" type="ASP.views_product_box_cartbar_ascx">
+    <filedeps>
+        <filedep name="/Views/Product/Box/CartBar.ascx" />
+    </filedeps>
+</preserve>

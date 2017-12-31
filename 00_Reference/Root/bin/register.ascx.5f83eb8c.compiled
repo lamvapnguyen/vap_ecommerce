@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Account/Register.ascx" hash="fffffff3343c8b72" filehash="ffffe6f52ce80e27" flags="110000" assembly="App_Web_4vfqwcvj" type="ASP.views_account_register_ascx">
+    <filedeps>
+        <filedep name="/Views/Account/Register.ascx" />
+    </filedeps>
+</preserve>

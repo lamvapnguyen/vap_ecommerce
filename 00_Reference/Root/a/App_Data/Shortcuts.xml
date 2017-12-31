@@ -1,0 +1,10 @@
+<root>
+  <menu Title="a_menu_post" Link="?PageID=101&amp;Src=Post" Css="cmshomeico-post" Target="" R="401" A="true" />
+  <menu Title="a_menu_photo" Link="?PageID=101&amp;Src=Photo" Css="cmshomeico-photo" Target="" R="403" A="true" />
+  <menu Title="a_menu_audio_video" Link="?PageID=101&amp;Src=Video" Css="cmshomeico-video" Target="" R="402" A="true" />
+  <menu Title="a_menu_product" Link="?PageID=101&amp;Src=Product" Css="cmshomeico-product" Target="" R="504" A="true" />
+  <menu Title="a_menu_order" Link="?PageID=101&amp;Src=Order" Css="cmshomeico-order" Target="" R="502" A="true" />
+  <menu Title="a_menu_mail_inbox" Link="?PageID=101&amp;Src=Inbox" Css="cmshomeico-inbox" Target="" R="311" A="true" />
+  <menu Title="a_menu_comment" Link="?PageID=101&amp;Src=Comment" Css="cmshomeico-comment" Target="" R="404" A="true" />
+	<menu Title="a_menu_help" Link="?PageID=101&amp;Src=Help" Css="cmshomeico-help" Target="_blank" R="329" A="true" />
+</root>

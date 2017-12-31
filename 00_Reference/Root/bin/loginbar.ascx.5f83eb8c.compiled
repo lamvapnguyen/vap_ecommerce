@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Account/LoginBar.ascx" hash="fffffff3343c8b72" filehash="ffffdf504bf245c7" flags="110000" assembly="App_Web_4vfqwcvj" type="ASP.views_account_loginbar_ascx">
+    <filedeps>
+        <filedep name="/Views/Account/LoginBar.ascx" />
+    </filedeps>
+</preserve>

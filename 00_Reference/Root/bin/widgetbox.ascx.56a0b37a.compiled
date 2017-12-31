@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Common/Box/WidgetBox.ascx" hash="fffffff3343c8b72" filehash="bd15d379164fb70d" flags="110000" assembly="App_Web_1mjanyey" type="ASP.views_common_box_widgetbox_ascx">
+    <filedeps>
+        <filedep name="/Views/Common/Box/WidgetBox.ascx" />
+        <filedep name="/Views/Core/Box.ascx" />
+    </filedeps>
+</preserve>

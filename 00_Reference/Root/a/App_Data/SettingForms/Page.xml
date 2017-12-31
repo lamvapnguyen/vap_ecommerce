@@ -1,0 +1,250 @@
+﻿<setting name="Page">
+<![CDATA[
+
+<input type="hidden" value="1" name="update_hidden_field" />
+<script type="text/javascript" src="Scripts/Tools/tiny_mce/jquery.tinymce.js"></script>
+<table cellspacing="0" cellpadding="0" width="100%" class="dm_edit_table">
+	<col width="200px" /><col width="1px" /><col />
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	
+	<tr>
+		<td class="dm_ioc_value_t">Mobile</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<select class="ioc_select" val="{p:mobile_display}" style="width:auto;" name="mobile_display">
+				<option value="0">None</option>
+				<option value="1">Responsive</option>
+                <option value="2">Adaptive</option>
+            </select>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">Font</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<select class="ioc_select" val="{p:fonts}" name="fonts">{p:fonts_list}</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">CSS</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<select class="ioc_select" val="{p:css_ext}" name="css_ext"><option value="">None</option>{p:css_list}</select>
+		</td>
+	</tr>
+	
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:page_width}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" name="page_width" value="{p:page_width}" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 7px 3px 3px;">pixels</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:left_column_width}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" name="left_column" value="{p:left_column}" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 7px 3px 3px;">pixels</span>
+			<input type="text" name="left_column_d" value="{p:left_column_d}" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 7px 3px 3px;">pixels</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:right_column_width}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" name="right_column" value="{p:right_column}" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 7px 3px 3px;">pixels</span>
+			<input type="text" name="right_column_d" value="{p:right_column_d}" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 7px 3px 3px;">pixels</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:ext_column_width}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" name="ext_column" value="{p:ext_column}" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 7px 3px 3px;">pixels</span>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><td></td><td></td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:scroll_items}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" name="scroll_items" value="{p:scroll_items}" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 7px 3px 3px;">item(s)</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:scroll_time}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" name="scroll_time" value="{p:scroll_time}" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 7px 3px 3px;">milliseconds</span>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><td></td><td></td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:logobanner_duration}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" name="logobanner_duration" value="{p:logobanner_duration}" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 7px 3px 3px;">milliseconds</span>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">Facebook Comment</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value">
+			<textarea type="text" class="ioc_textbox" maxlength="4000" rows="4" name="fb_comment_post" style="height:auto;" />{p:fb_comment_post}</textarea>
+		</td>
+	</tr>
+    <tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">Share links</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value">
+			<textarea type="text" class="ioc_textbox" maxlength="4000" rows="4" name="share_network" style="height:auto;" />{p:share_network}</textarea>
+		</td>
+	</tr>
+	
+	
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">Footer 1</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value">
+			<div style="border:1px solid #ccc; padding:3px;">
+				<table border="0" cellspacing="0" cellpadding="0" width="100%">
+					<tr>
+						<td valign="top" align="right" style="padding:10px 5px 0;">Tiếng Việt:</td>
+						<td><div><textarea name="footer_row1_vn" id="footer_row1_vn" style="height:150px;">{p:footer_row1_vn}</textarea></div></td>
+					</tr>
+					<tr>
+						<td valign="top" align="right" style="padding:10px 5px 0;">English:</td>
+						<td style="padding-top:3px;"><div><textarea name="footer_row1_en" id="footer_row1_en" style="height:150px;">{p:footer_row1_en}</textarea></div></td>
+					</tr>
+					<tr>
+						<td valign="top" align="right" style="padding:10px 5px 0;">Japanese:</td>
+						<td style="padding-top:3px;"><div><textarea name="footer_row1_ja" id="footer_row1_ja" style="height:150px;">{p:footer_row1_ja}</textarea></div></td>
+					</tr>
+					<tr>
+						<td valign="top" align="right" style="padding:10px 5px 0;">Korean:</td>
+						<td style="padding-top:3px;"><div><textarea name="footer_row1_ko" id="footer_row1_ko" style="height:150px;">{p:footer_row1_ko}</textarea></div></td>
+					</tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">Footer 2</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value">
+			<div style="border:1px solid #ccc; padding:3px;">
+				<table border="0" cellspacing="0" cellpadding="0" width="100%">
+					<tr>
+						<td valign="top" align="right" style="padding:10px 5px 0;">Tiếng Việt:</td>
+						<td><div><textarea name="footer_row2_vn" id="footer_row2_vn" style="height:150px;">{p:footer_row2_vn}</textarea></div></td>
+					</tr>
+					<tr style="padding-top:3px;">
+						<td valign="top" align="right" style="padding:10px 5px 0;">English:</td>
+						<td style="padding-top:3px;"><div><textarea name="footer_row2_en" id="footer_row2_en" style="height:150px;">{p:footer_row2_en}</textarea></div></td>
+					</tr>
+					<tr style="padding-top:3px;">
+						<td valign="top" align="right" style="padding:10px 5px 0;">Japanese:</td>
+						<td style="padding-top:3px;"><div><textarea name="footer_row2_ja" id="footer_row2_ja" style="height:150px;">{p:footer_row2_ja}</textarea></div></td>
+					</tr>
+					<tr style="padding-top:3px;">
+						<td valign="top" align="right" style="padding:10px 5px 0;">Korean:</td>
+						<td style="padding-top:3px;"><div><textarea name="footer_row2_ko" id="footer_row2_ko" style="height:150px;">{p:footer_row2_ko}</textarea></div></td>
+					</tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+
+<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">Thông tin Liên hệ (trang sản phẩm)</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value">
+			<div style="border:1px solid #ccc; padding:3px;">
+				<table border="0" cellspacing="0" cellpadding="0" width="100%">
+					<tr>
+						<td valign="top" align="right" style="padding:10px 5px 0;">Tiếng Việt:</td>
+						<td><div><textarea name="product_brief_lang1" id="product_brief_lang1" style="height:300px;">{p:product_brief_lang1}</textarea></div></td>
+					</tr>
+					<tr style="padding-top:3px;">
+						<td valign="top" align="right" style="padding:10px 5px 0;">English:</td>
+						<td style="padding-top:3px;"><div><textarea name="product_brief_lang2" id="product_brief_lang2" style="height:300px;">{p:product_brief_lang2}</textarea></div></td>
+					</tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="3"><input type="submit" name="update_setting_submit" class="dm_edit_button_1" value="Update" /></td>
+	</tr>
+</table>
+
+<script type="text/javascript">
+function load_setting_editor(s_id)
+  {
+    $('#' + s_id).tinymce
+		({
+			"script_url": 'Scripts/Tools/tiny_mce/tiny_mce.js',
+			"theme": "advanced",
+			"skin": "cirkuit",
+			"width": "100%",
+			language: 'en',
+			insertType: 'medium_image',
+			insertNumber: 10,
+			isBroswer: true,
+			hasLicensed: false,
+			editor_image_align: 'center',
+			default_image_border: 0,
+			editor_image_vspace: 5,
+			editor_image_hspace: 5,
+			"plugins": 'safari,table,inlinepopups,contextmenu,fullscreen,paste,searchreplace,wpeditimage,media',
+			"height": '150px',
+			theme_advanced_buttons1: 'fullscreen,code,pasteword,|,formatselect,|,removeformat,forecolor,backcolor,bold,italic,underline,strikethrough,justifyleft,justifycenter,justifyright,justifyfull,|,link,unlink,|,image,wpeditimage,table',
+			theme_advanced_buttons2: '',
+			theme_advanced_buttons3: '',
+			theme_advanced_toolbar_location: "top",
+			theme_advanced_toolbar_align: "left",
+			theme_advanced_statusbar_location: "bottom",
+			theme_advanced_resizing: false,
+			mode: "specific_textareas",
+			editor_selector: "htmlEditor",
+			entity_encoding: "raw",
+			relative_urls: false,
+			convert_urls: false,
+			forced_root_block: "",
+			force_p_newlines: false,
+			remove_linebreaks: false,
+			force_br_newlines: true,
+			remove_trailing_nbsp: false,
+			verify_html: false,
+			inline_styles: false
+		});
+  };
+  
+  $(function(){
+	$("#ucUpdateSetting5_d_HtmlContent .ioc_select").each(function(){ $(this).val($(this).attr("val")); });
+	
+    load_setting_editor('footer_row1_vn');
+    load_setting_editor('footer_row2_vn');
+    load_setting_editor('footer_row1_en');
+    load_setting_editor('footer_row2_en');
+	load_setting_editor('footer_row1_ja');
+    load_setting_editor('footer_row2_ja');
+	load_setting_editor('footer_row1_ko');
+    load_setting_editor('footer_row2_ko');
+
+    load_setting_editor('product_brief_lang1');
+    load_setting_editor('product_brief_lang2');
+  });
+</script>
+
+]]>
+</setting>

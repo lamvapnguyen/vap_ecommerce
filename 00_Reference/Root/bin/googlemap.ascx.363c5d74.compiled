@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Core/GoogleMap.ascx" hash="fffffff3343c8b72" filehash="ffffc3c7e124611e" flags="110000" assembly="App_Web_1gp22pdn" type="ASP.views_core_googlemap_ascx">
+    <filedeps>
+        <filedep name="/Views/Core/GoogleMap.ascx" />
+    </filedeps>
+</preserve>

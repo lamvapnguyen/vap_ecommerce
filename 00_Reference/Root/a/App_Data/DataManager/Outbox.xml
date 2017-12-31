@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_EmailSent" Title="dm_outbox" R="312" AddRole="1" EditRole="1" DefaultSort="EmailSent_Date" DefaultSortAsc="false">
+	<controls>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+		
+		<field Name="SendMail_2" Path="UC/DM_SendMail_2.ascx" Pos="8" Property="ShowOptions='false'"/>
+	</controls>
+	
+	<list>
+		<field Name="EmailSent_Date" Title="f_datetime" Sort="true" Css="width:80px;"/>
+		<field Name="EmailType" Title="f_type" Sort="false" Css="width:50px;"/>
+		<field Name="EmailSent_From" Title="sendmail_from" Type="1" Sort="true" Css="width:250px;"/>
+		<field Name="EmailSent_To" Title="sendmail_to" Type="1" Sort="true" Css="width:200px;"/>
+		<field Name="EmailSent_Subject" Title="sendmail_subject" Type="1"/>
+	</list>
+
+	<command_plus><![CDATA[]]></command_plus>
+  
+	<search>
+		<field Name="EmailSent_Name" Title="sendmail_name"/>
+		<field Name="EmailSent_From" Title="sendmail_from"/>
+	</search>
+	
+	<edit>
+		<group Title="group_email" Pos="2" Expand="true">
+			<field Name="EmailSent_Date" Title="f_datetime" Property="Width='98%'"/>
+			<field Name="EmailSent_From" Title="sendmail_from" Property="Width='98%'"/>
+			<field Name="EmailSent_To" Title="sendmail_to" Property="Width='98%'"/>
+			<field Name="EmailSent_Subject" Title="sendmail_subject" Property="Width='98%'"/>
+			<field Name="EmailSent_Message" Title="sendmail_message" Type="3" Property="InsertFileType='medium_image' InsertFileCount='10'"/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[ 
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem = (
+		select count(0) from wcms_EmailSent 
+		where EmailSent_SiteID = @siteID	
+		{ AND EmailSent_Name <o> @Search:EmailSent_Name }
+		{ AND EmailSent_From <o> @Search:EmailSent_From }
+	)
+	
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [EmailSent_ID]
+		,[EmailType]
+		,[EmailSent_From]
+		,[EmailSent_To]
+		,DATEADD(hour, {@TIMEZONE}, EmailSent_Date) as [EmailSent_Date]
+		,[EmailSent_Subject]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[EmailSent_ID]
+			,(case EmailSent_Type when 1 then 'Contact' when 2 then 'Sales' when 3 then 'Booking' when 4 then 'A Require from User' when 6 then 'Happy Birthday' else '' end) as [EmailType]
+			,'<b>' + EmailSent_Name + '</b> (' + EmailSent_From + ')' as [EmailSent_From]
+			,case when len(EmailSent_To) > 51 then SUBSTRING(EmailSent_To, 0, 50) + '...' else EmailSent_To end as [EmailSent_To]
+			,[EmailSent_Date]
+			,[EmailSent_Subject]
+		from wcms_EmailSent
+		where EmailSent_SiteID = @siteID	
+		{ AND EmailSent_Name <o> @Search:EmailSent_Name }
+		{ AND EmailSent_From <o> @Search:EmailSent_From }
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex 
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[
+	select [EmailSent_ID]
+		,EmailSent_Name + '  (' + EmailSent_From + ')' as [EmailSent_From]
+		,[EmailSent_To]
+		,[EmailSent_Date]
+		,[EmailSent_Subject]
+		,[EmailSent_Message]
+	from wcms_EmailSent where EmailSent_ID = @editID
+	]]>
+	</SQL_LOAD_EDIT>
+
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+	<SQL_ADD><![CDATA[]]></SQL_ADD>		
+	<SQL_UPDATE><![CDATA[]]></SQL_UPDATE>
+	<SQL_UPDATE_ACTIVE><![CDATA[]]></SQL_UPDATE_ACTIVE>
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+	delete from wcms_EmailSent where EmailSent_ID = @delID
+	select 1
+	]]></SQL_DELETE>
+</table>

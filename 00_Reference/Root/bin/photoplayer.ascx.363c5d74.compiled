@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Core/PhotoPlayer.ascx" hash="fffffff3343c8b72" filehash="33f6f59e0db0" flags="110000" assembly="App_Web_1gp22pdn" type="ASP.views_core_photoplayer_ascx">
+    <filedeps>
+        <filedep name="/Views/Core/PhotoPlayer.ascx" />
+    </filedeps>
+</preserve>

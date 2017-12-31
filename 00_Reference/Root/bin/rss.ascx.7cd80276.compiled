@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/PostCenter/Rss.ascx" hash="fffffff3343c8b72" filehash="1bcbf9b0e842" flags="110000" assembly="App_Web_q114xmql" type="ASP.views_postcenter_rss_ascx">
+    <filedeps>
+        <filedep name="/Views/PostCenter/Rss.ascx" />
+    </filedeps>
+</preserve>

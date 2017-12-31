@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/Vap-Portal/!svn/ver/82/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Helpers
+END
+Pager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/Vap-Portal/!svn/ver/82/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Helpers/Pager.cs
+END
+PagingInfo.cs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/Vap-Portal/!svn/ver/82/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Helpers/PagingInfo.cs
+END
+AjaxPager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/Vap-Portal/!svn/ver/82/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Helpers/AjaxPager.cs
+END
+IQueryableExtensions.cs
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Vap-Portal/!svn/ver/82/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Helpers/IQueryableExtensions.cs
+END
+IPagedList.cs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/Vap-Portal/!svn/ver/82/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Helpers/IPagedList.cs
+END
+PagingExtensions.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/Vap-Portal/!svn/ver/82/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Helpers/PagingExtensions.cs
+END
+IEnumerableExtensions.cs
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Vap-Portal/!svn/ver/82/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Helpers/IEnumerableExtensions.cs
+END
+PageList.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/Vap-Portal/!svn/ver/82/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Helpers/PageList.cs
+END
+PagingHelpers.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/Vap-Portal/!svn/ver/82/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Helpers/PagingHelpers.cs
+END
+AjaxPagingExtensions.cs
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Vap-Portal/!svn/ver/82/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Helpers/AjaxPagingExtensions.cs
+END
+GlobalVariables.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/Vap-Portal/!svn/ver/82/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Helpers/GlobalVariables.cs
+END

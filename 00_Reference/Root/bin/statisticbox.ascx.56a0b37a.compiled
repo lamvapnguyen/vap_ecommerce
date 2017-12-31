@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Common/Box/StatisticBox.ascx" hash="fffffff3343c8b72" filehash="c7370d3170acd26c" flags="110000" assembly="App_Web_1mjanyey" type="ASP.views_common_box_statisticbox_ascx">
+    <filedeps>
+        <filedep name="/Views/Common/Box/StatisticBox.ascx" />
+        <filedep name="/Views/Core/Box.ascx" />
+    </filedeps>
+</preserve>

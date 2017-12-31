@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Account/SubControls/AccountInfo.ascx" hash="fffffff3343c8b72" filehash="ffffe88d19cbe9c0" flags="110000" assembly="App_Web_3xbhlwan" type="ASP.views_account_subcontrols_accountinfo_ascx">
+    <filedeps>
+        <filedep name="/Views/Account/SubControls/AccountInfo.ascx" />
+    </filedeps>
+</preserve>

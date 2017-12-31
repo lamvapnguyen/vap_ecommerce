@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Account/SubControls/LoginForm.ascx" hash="fffffff3343c8b72" filehash="ffffc3f7e4f34fdf" flags="110000" assembly="App_Web_3xbhlwan" type="ASP.views_account_subcontrols_loginform_ascx">
+    <filedeps>
+        <filedep name="/Views/Account/SubControls/LoginForm.ascx" />
+    </filedeps>
+</preserve>

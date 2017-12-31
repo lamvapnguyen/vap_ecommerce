@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Setting" Title="a_menu_setting" R="102" EditRole="102" AddRole="102" DeleteRole="102" DefaultSort="Setting_Date" DefaultSortAsc="false">
+	<controls>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5" />
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+		
+		<field Name="SysReload" Path="UC/DM_Reload.ascx" Pos="7"/>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+	</controls>
+	
+	<list>
+		<field Name="Setting_Name" Title="f_setting_name" Type="1" Sort="true" Css="width:200px;color:#616161;font-weight:bold;"/>
+		<field Name="Setting_Content" Title="f_setting_content" Sort="true" Css="while-space:normal;"/>
+		<field Name="Setting_IsHtml" Title="#XML" Type="2" Css="width:60px;text-align:center;"/>
+		<field Name="Setting_SiteID" Title="f_site_id" Type="1" Sort="true" Css="width:80px;"/>
+	</list>
+	<command_plus><![CDATA[]]></command_plus>
+
+	<search>
+		<field Name="Setting_Name" Title="f_setting_name"/>
+		<field Name="Setting_Content" Title="f_setting_content"/>
+	</search>
+	
+	<edit>
+		<group Title="group_information" Pos="2" Expand="true" Note="help_setting_content">
+			<field Name="Setting_Name" Title="f_setting_name" Note="#help_setting_name" Type="1" Property="Require='true' Css='color:#616161;font-weight:bold;'"/>
+			<field Name="Setting_SiteID" Title="f_site" Note="#help_setting_site" Type="8" Property="SqlSP='SP_A_R_001_Tree_Site' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Seperator=';' NoSelectText=' --- All Sites --- ' NoSelectValue='0'"/>
+			<field Name="Setting_Content" Title="f_setting_content" Type="2" Property="Height='300px'"/>
+			<field Name="Setting_IsHtml" Title="#Xml" Type="5" Property="Default='false'"/>
+			<field Name="Setting_NoLoadDefault" Title="#Not in cache" Note="#help_no_load_default" Type="5" Property="Default='false'"/>			
+		</group>
+		<group Title="f_role_permisson" Pos="3" Expand="true">
+			<field Name="Setting_R" Note="#help_role" Type="8" Property="SqlSP='SP_A_R_001_Tree_Role' ParentID='100' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Seperator=';'"/>			
+		</group>
+		<group Title="f_note" Pos="3" Expand="true">
+			<field Name="Setting_Note" Type="2" Property="Width='183px' Height='240px' WrapText='true'"/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[ 
+	set nocount on
+	
+	select Setting_ID as [id] into #tbl from wcms_Setting
+	where Setting_R is null OR Setting_R in ( select [Data] from [dbo].[F_001_StringToTable]('{@UserRole}', ',') )
+	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem =
+	(
+		select count(0) 
+		from wcms_Setting
+		left join #tbl on [Setting_ID] = [id]
+		where
+		{ Setting_Name		<o> @Search:Setting_Name and }
+		{ Setting_Content	<o> @Search:Setting_Content and }
+		Setting_SiteID in(0, @siteID)
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select Setting_ID
+		,Setting_Name
+		,Setting_Content
+		,Setting_IsHtml
+		,Setting_SiteID
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Setting_ID]
+			,[Setting_Name]
+			,case when Setting_IsHtml = 1 then '' else Setting_Content end as [Setting_Content]
+			,Setting_IsHtml
+			,[Setting_SiteID]
+		from wcms_Setting
+		right join #tbl on [Setting_ID] = [id]
+		where
+		{ Setting_Name		<o> @Search:Setting_Name and }
+		{ Setting_Content	<o> @Search:Setting_Content and }
+		Setting_SiteID in(0, @siteID)
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex
+	
+	drop table #tbl
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[
+	select [Setting_ID]
+		,[Setting_Name]
+		,[Setting_Content]
+		,[Setting_SiteID]
+		,[Setting_Note]
+		,[Setting_R]
+		,[Setting_IsHtml]
+		,[Setting_NoLoadDefault]
+	from wcms_Setting where Setting_ID = @editID 	
+	]]>
+	</SQL_LOAD_EDIT>
+	
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+
+	<SQL_ADD>
+	<![CDATA[
+	insert wcms_Setting
+	(
+		 [Setting_Name]
+		,[Setting_Content]
+		,[Setting_SiteID]
+		,[Setting_Note]
+		,[Setting_R]
+		,[Setting_IdentityKey]
+		,[Setting_IsHtml]
+		,[Setting_NoLoadDefault]
+		,[Setting_Date]
+	) 
+	values
+	(
+		 {@Get:Setting_Name}
+		,{@Get:Setting_Content}
+		,{@Get:Setting_SiteID}
+		,{@Get:Setting_Note}
+		,{@Get:Setting_R}
+		,{@Get:Setting_SiteID} + '@' + {@Get:Setting_Name}
+		,{@Get:Setting_IsHtml}
+		,{@Get:Setting_NoLoadDefault}
+		,GETDATE()
+	)
+	select SCOPE_IDENTITY()	
+	]]>
+	</SQL_ADD>
+		
+	<SQL_UPDATE>
+	<![CDATA[ 
+	set nocount on 
+	
+	Update wcms_Setting set
+		  [Setting_Content]			= {@Get:Setting_Content}
+		  ,[Setting_SiteID]			= {@Get:Setting_SiteID}
+		  ,[Setting_Note]			= {@Get:Setting_Note}
+		  ,[Setting_R]				= {@Get:Setting_R}
+		  ,[Setting_IdentityKey]	= {@Get:Setting_SiteID} + '@' + [Setting_Name]
+		  ,[Setting_IsHtml]			= {@Get:Setting_IsHtml}
+		  ,[Setting_NoLoadDefault]	= {@Get:Setting_NoLoadDefault}
+		  ,[Setting_Date]			= GETDATE()
+	where Setting_ID = @editID 
+	
+	if ({@Get:Setting_SiteID} = 0) 
+		Delete from wcms_Setting where Setting_ID <> @editID AND Setting_Name = {@Get:Setting_Name} 
+		
+	select @editID 	
+	]]>	
+	</SQL_UPDATE>
+
+	<SQL_UPDATE_ACTIVE><![CDATA[]]></SQL_UPDATE_ACTIVE>
+
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+	delete wcms_Setting where Setting_ID = @delID 
+	select 1 
+	]]>
+	</SQL_DELETE>
+</table>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Common/Box/EmailSubscriber.ascx" hash="fffffff3343c8b72" filehash="9359bb241f9829b9" flags="110000" assembly="App_Web_1mjanyey" type="ASP.views_common_box_emailsubscriber_ascx">
+    <filedeps>
+        <filedep name="/Views/Common/Box/EmailSubscriber.ascx" />
+        <filedep name="/Views/Core/Box.ascx" />
+    </filedeps>
+</preserve>

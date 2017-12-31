@@ -1,0 +1,17 @@
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Admin.UserRoles\obj\Debug\ResolveAssemblyReference.cache
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Admin.UserRoles\bin\Vap.Plugin.Admin.UserRoles.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Admin.UserRoles\bin\Vap.Plugin.Admin.UserRoles.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Admin.UserRoles\bin\Vap.Common.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Admin.UserRoles\bin\Vap.Data.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Admin.UserRoles\bin\Vap.Framework.Authorization.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Admin.UserRoles\bin\Vap.Core.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Admin.UserRoles\bin\Vap.Core.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Admin.UserRoles\bin\Vap.Common.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Admin.UserRoles\bin\Vap.Framework.Authorization.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Admin.UserRoles\bin\Vap.Data.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Admin.UserRoles\obj\Debug\Vap.Plugin.Admin.UserRoles.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Admin.UserRoles\obj\Debug\Vap.Plugin.Admin.UserRoles.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Admin.UserRoles\bin\Vap.Framework.Configuration.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.Admin.UserRoles\bin\Vap.Framework.Configuration.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\bin\Vap.Plugin.Admin.UserRoles.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\bin\Vap.Plugin.Admin.UserRoles.pdb

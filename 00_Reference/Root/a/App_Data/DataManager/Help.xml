@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Help" Title="a_menu_help" R="329" AddRole="1" EditRole="1" DeleteRole="1" DefaultSort="Help_HierarchySort" DefaultSortAsc="true">
+	<controls>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	</controls>
+	
+	<list>
+		<field Name="Help_Title" Title="f_title" Type="1" Css="font-style:normal;" />
+	</list>
+
+	<command_plus><![CDATA[]]></command_plus>
+	
+	<search>
+		<field Name="Help_Content" Title="f_content"/>
+		<field Name="Help_Title" Title="f_title"/>
+	</search>
+	
+	<edit>
+		<group Title="f_content" Pos="2" Expand="true">
+			<field Name="Help_Title" Type="23" Property="FixHeight='false'" />
+			<field Name="Help_Content" Type="23" />
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[ 
+	declare	@totalItem	int,
+			@totalPage	int
+			
+	set @totalItem = (
+		select count(0) from wcms_Help 
+		where Help_LanguageID = @langID AND Help_ParentID is not null
+		{ AND Help_Title 	<o> @Search:Help_Title }
+		{ AND Help_Content 	<o> @Search:Help_Content }
+	)
+	if (@pageSize < 1) set @pageSize = 1000
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Help_ID]
+		,REPLICATE('&middot;&middot;&middot;&middot;&middot;', Help_Level - 1) + ' ' + (case when Help_Level = 1 then '<span style="font-weight:bold;">' + Help_Title + '</span>' else Help_Title end) as [Help_Title]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Help_ID]
+			,[Help_Title]
+			,[Help_Level]
+		from wcms_Help
+		where Help_LanguageID = @langID AND Help_ParentID is not null
+		{ AND Help_Title 	<o> @Search:Help_Title }
+		{ AND Help_Content 	<o> @Search:Help_Content }
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex 
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[
+	set nocount on 
+	select  [Help_ID]
+			,'<div style="font-weight:bold; color:#090;">' + Help_Title + '</div>' as [Help_Title]
+			,[Help_Content] 
+	from WCMS_Help where Help_ID = @editID	
+	]]>
+	</SQL_LOAD_EDIT>
+	
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+	<SQL_ADD><![CDATA[]]></SQL_ADD>
+	<SQL_UPDATE><![CDATA[]]></SQL_UPDATE>
+	<SQL_UPDATE_ACTIVE><![CDATA[]]></SQL_UPDATE_ACTIVE>
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	<SQL_DELETE><![CDATA[]]></SQL_DELETE>
+</table>

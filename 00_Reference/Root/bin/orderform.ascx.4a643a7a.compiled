@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Product/EC/OrderForm.ascx" hash="fffffff3343c8b72" filehash="2201f6ba555a" flags="110000" assembly="App_Web_0ha5trkh" type="ASP.views_product_ec_orderform_ascx">
+    <filedeps>
+        <filedep name="/Views/Product/EC/OrderForm.ascx" />
+    </filedeps>
+</preserve>

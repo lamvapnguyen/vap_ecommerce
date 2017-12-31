@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Account/Customer/CustomerInfo.ascx" hash="fffffff3343c8b72" filehash="b40fd194658" flags="110000" assembly="App_Web_qsyxx2at" type="ASP.views_account_customer_customerinfo_ascx">
+    <filedeps>
+        <filedep name="/Views/Account/Customer/CustomerInfo.ascx" />
+    </filedeps>
+</preserve>

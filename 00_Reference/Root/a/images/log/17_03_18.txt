@@ -1,0 +1,2 @@
+﻿17/03/18 09:36:01 <@> ADD ERROR [DM_DataManager] : Violation of PRIMARY KEY constraint 'PK_wcms_Widget'. Cannot insert duplicate key in object 'dbo.wcms_Widget'.
+The statement has been terminated.

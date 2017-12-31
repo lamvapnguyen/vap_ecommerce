@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Advertisement" Title="a_menu_ad" R="308" DefaultSort="Advertisement_ID" DefaultSortAsc="false">
+  <controls>
+    <field Name="Search" Path="UC/DM_Search.ascx" Pos="4" Property="SqlSP='SP_A_R_001_Tree_Page' Active='true' IsHeader='true' EnableHeader='false' FilterName='FilterPageID' ExpandDepth='3' CheckUserData='false'"/>
+    <field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+    <field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+    <field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+    <field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+    <field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	
+	<field Name="WCMS_Advertisement" Path="Process/Advertisement.ascx" Pos="7"/>
+  </controls>
+
+  <list>	
+    <field Name="Advertisement_Title" Title="f_title" Type="1" Sort="true"/>
+	<field Name="Advertisement_FromDate" Title="f_from" Type="1" Sort="true" Css="width:75px;text-align:center;"/>
+	<field Name="Advertisement_ToDate" Title="f_to" Type="1" Sort="true" Css="width:75px;text-align:center;"/>
+	<field Name="Advertisement_Position" Title="f_position" Type="1" Sort="true" Css="width:75px;text-align:center;"/>
+	<field Name="Advertisement_O" Title="f_ordinal" Type="1" Sort="true" Css="width:75px;text-align:center;"/>
+	<field Name="Advertisement_A" Title="f_active" Type="3" Sort="true" Css="width:60px;text-align:center;"/>
+  </list>
+
+  <command_plus><![CDATA[]]></command_plus>
+
+  <search>
+    <field Name="Advertisement_Title" Title="f_title"/>
+  </search>
+
+  <edit>
+    <group Title="group_ad" Pos="2" Expand="true">
+		<field Name="Advertisement_Title" Title="f_title" Type="1" Property="Require='true' MaxLength='100' Width='300'"/>
+		<field Name="Advertisement_NeverExpired" Title="f_never_expired" Type="5" Property="Default='false'"/>
+		<field Name="Advertisement_FromDate" Title="f_from" Type="4"/>
+		<field Name="Advertisement_ToDate" Title="f_to" Type="4" Property="AddDay='7'"/>
+		<field Name="Advertisement_Content" Title="f_content" Type="3"/>
+    </group>
+	<group Title="group_display" Pos="2" Expand="true">
+		<field Name="Advertisement_O" Title="f_ordinal" Type="1" Property="Width='45px' Default='500'"/>
+		<field Name="Advertisement_DisplayType" Title="f_display_type" Type="8" Property="SqlSP='SP_A_R_001_GetDefinition1Level' ParentID='3100' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Default='3101' DisplayNoSelectText='false'"/>
+		<field Name="Advertisement_Position" Title="f_position" Type="11" />
+	</group>
+	<group Title="group_properties" Pos="3" Expand="true">
+		<field Name="Advertisement_ID" Title="f_id" ShowState="4" Property="Width='80px'"/>
+		<field Name="Advertisement_A" Title="f_active" Type="5" Property="Default='true'"/>
+    </group>
+	<group Title="f_page_list" Pos="3" Expand="true">
+		<field Name="Advertisement_PageList" Note="#help_page_list" Type="9" Property="SqlSP='SP_A_R_001_Tree_Page' Active='true' IsHeader='true' Format='{1}' Seperator=';' Height='550px'"/>
+	</group>
+	<group Title="f_role_permisson" Pos="3" Expand="true">
+		<field Name="Advertisement_R" Type="8" Property="SqlSP='SP_A_R_001_Tree_Role' ParentID='100' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Seperator=';'"/>		
+	</group>
+  </edit>
+
+  <html><![CDATA[]]></html>
+
+  <SQL_SELECT_LIST>
+    <![CDATA[
+	set nocount on
+	select Advertisement_ID as [id] into #tbl from wcms_Advertisement
+	where Advertisement_R is null OR Advertisement_R in ( select [Data] from [dbo].[F_001_StringToTable]('{@UserRole}', ',') )
+	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem	=
+	(
+		select count(0) from WCMS_Advertisement	
+		{ inner join wcms_PageAdvertisement on [PageAdvertisement_AdvertisementID] = Advertisement_ID AND [PageAdvertisement_PageID] = @Search:FilterPageID }
+		where Advertisement_SiteID = @siteID AND Advertisement_LanguageID = @langID
+		{ AND Advertisement_Title <o> @Search:Advertisement_Title }
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage	= ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Advertisement_ID]
+		,'<b>[' + Advertisement_Title + ']</b></span><br/><span><div class="content_view">' + Advertisement_Content + '</div><div class="clear"></div>' as [Advertisement_Title]
+		,DATEADD(hour,{@TIMEZONE},Advertisement_FromDate) as [Advertisement_FromDate]
+		,DATEADD(hour,{@TIMEZONE},Advertisement_ToDate) as [Advertisement_ToDate]
+		,Advertisement_Position
+		,Advertisement_O
+		,case when [Advertisement_A] = 1 then 'checked' else '' end as [Advertisement_A]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Advertisement_ID]
+			,[Advertisement_Title]
+			,case when [Advertisement_Content] is not null then [Advertisement_Content] else '' end as [Advertisement_Content]
+			,[Advertisement_FromDate]
+			,case when Advertisement_NeverExpired = 1 then '9/9/2029' else Advertisement_ToDate end as [Advertisement_ToDate]
+			,Advertisement_Position
+			,[Advertisement_A]
+			,[Advertisement_O]
+		from WCMS_Advertisement
+		right join #tbl on [Advertisement_ID] = [id]
+		{ inner join wcms_PageAdvertisement on [PageAdvertisement_AdvertisementID] = Advertisement_ID AND [PageAdvertisement_PageID] = @Search:FilterPageID }
+		where Advertisement_SiteID = @siteID AND Advertisement_LanguageID = @langID
+		{ AND Advertisement_Title <o> @Search:Advertisement_Title }
+	) tb 
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex
+
+	drop table #tbl
+	]]>
+  </SQL_SELECT_LIST>
+
+  <SQL_LOAD_EDIT>
+    <![CDATA[
+	set nocount on
+	Declare @pageList varchar(max), @id int
+	set @pageList = ''
+	set @id = @editID
+	
+	select @pageList = @pageList + ';' + CAST(PageAdvertisement_PageID as nvarchar(10))
+	from wcms_PageAdvertisement
+	where PageAdvertisement_AdvertisementID = @id
+		
+	select @pageList as [Advertisement_PageList]
+			,[Advertisement_ID]
+			,[Advertisement_Title]
+			,[Advertisement_FromDate]
+			,[Advertisement_ToDate]
+			,[Advertisement_NeverExpired]
+			,[Advertisement_Content]
+			,[Advertisement_DisplayType]
+			,[Advertisement_Position]
+			,[Advertisement_O]
+			,[Advertisement_A]
+			,[Advertisement_R]
+	from WCMS_Advertisement where Advertisement_ID = @id	
+	]]>
+  </SQL_LOAD_EDIT>
+
+  <SQL_NEW><![CDATA[]]></SQL_NEW>
+
+  <SQL_ADD>
+    <![CDATA[
+	set nocount on
+	declare @toDate datetime, @ne bit
+	set @toDate = {@Get:Advertisement_ToDate}
+	set @ne = {@Get:Advertisement_NeverExpired}
+	if (@ne = 1) set @toDate = '9/9/2029'
+		
+	INSERT INTO WCMS_Advertisement
+	(
+		[Advertisement_Title]
+		,[Advertisement_FromDate]
+		,[Advertisement_ToDate]
+		,[Advertisement_NeverExpired]
+		,[Advertisement_Content]
+		,[Advertisement_DisplayType]
+		,[Advertisement_Position]
+		,[Advertisement_O]
+		,[Advertisement_A]		
+		,[Advertisement_R]
+		,[Advertisement_LanguageID]
+		,[Advertisement_SiteID]
+	)
+	VALUES
+	(
+		 {@Get:Advertisement_Title}
+		,{@Get:Advertisement_FromDate}
+		,@toDate
+		,@ne
+		,{@Get:Advertisement_Content}
+		,{@Get:Advertisement_DisplayType}
+		,{@Get:Advertisement_Position}
+		,{@Get:Advertisement_O}
+		,{@Get:Advertisement_A}
+		,{@Get:Advertisement_R}
+		,@langID
+		,@siteID
+	)
+	
+	declare @ad_id int 
+	set @ad_id = SCOPE_IDENTITY()
+	select @ad_id
+	
+	insert wcms_PageAdvertisement(PageAdvertisement_AdvertisementID, PageAdvertisement_PageID)
+	select @ad_id, [Data] from [dbo].[F_001_StringToTable]({@Get:Advertisement_PageList}, ';')
+	]]>
+  </SQL_ADD>
+
+  <SQL_UPDATE>
+    <![CDATA[
+	set nocount on	
+	declare @toDate datetime, @ne bit, @id int
+	set @id = @editID
+	set @toDate = {@Get:Advertisement_ToDate}
+	set @ne = {@Get:Advertisement_NeverExpired}
+	if (@ne = 1) set @toDate = '9/9/2029'
+	
+	update WCMS_Advertisement set
+		 [Advertisement_Title]			= {@Get:Advertisement_Title}
+		,[Advertisement_FromDate]		= {@Get:Advertisement_FromDate}
+		,[Advertisement_ToDate]			= @toDate
+		,[Advertisement_NeverExpired]	= @ne
+		,[Advertisement_Content]		= {@Get:Advertisement_Content}
+		,[Advertisement_DisplayType]	= {@Get:Advertisement_DisplayType}
+		,[Advertisement_Position]		= {@Get:Advertisement_Position}
+		,[Advertisement_O]				= {@Get:Advertisement_O}
+		,[Advertisement_A]				= {@Get:Advertisement_A}
+		,[Advertisement_R]				= {@Get:Advertisement_R}
+	where Advertisement_ID = @id
+	
+	select [Data] into #tbl from [dbo].[F_001_StringToTable]({@Get:Advertisement_PageList}, ';')
+
+	delete wcms_PageAdvertisement where PageAdvertisement_AdvertisementID = @id and PageAdvertisement_PageID not in (select [Data] from #tbl)
+
+	insert wcms_PageAdvertisement(PageAdvertisement_AdvertisementID, PageAdvertisement_PageID)
+	select @id, [Data] from #tbl
+	where [Data] not in (select PageAdvertisement_PageID from wcms_PageAdvertisement where PageAdvertisement_AdvertisementID = @id)
+	
+	drop table #tbl
+	select @id
+	]]>
+  </SQL_UPDATE>
+
+  <SQL_UPDATE_ACTIVE>
+    <![CDATA[
+	update WCMS_Advertisement set [Advertisement_A] = @active
+	where Advertisement_ID = @editID
+	select @editID	
+	]]>
+  </SQL_UPDATE_ACTIVE>
+
+  <SQL_COPY><![CDATA[]]></SQL_COPY>
+
+  <SQL_DELETE>
+    <![CDATA[
+	set nocount on
+	delete wcms_PageAdvertisement where PageAdvertisement_AdvertisementID = @delID
+	set nocount off	
+	delete WCMS_Advertisement where Advertisement_ID = @delID
+	select 1
+	]]>
+  </SQL_DELETE>
+</table>

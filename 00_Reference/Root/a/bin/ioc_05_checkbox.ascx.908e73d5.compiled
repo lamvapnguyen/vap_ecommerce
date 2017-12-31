@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/DataManager/IOControls/IOC_05_CheckBox.ascx" hash="fffffffaa8934d59" filehash="ffffcd5ffab5407d" flags="110000" assembly="App_Web_blthx1em" type="ASP.views_datamanager_iocontrols_ioc_05_checkbox_ascx">
+    <filedeps>
+        <filedep name="/Views/DataManager/IOControls/IOC_05_CheckBox.ascx" />
+    </filedeps>
+</preserve>

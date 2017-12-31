@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Group" Title="a_menu_group" R="104" DefaultSort="Group_O" DefaultSortAsc="true">
+	<controls>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+		
+		<field Name="WCMS_Group" Path="Process/Group.ascx" Pos="7"/>
+	</controls>
+	
+	<list>
+		<field Name="Group_ID" Title="f_id" Type="1" Sort="true" Css="width:80px;text-align:left;color:#a00;"/>
+		<field Name="Group_Name" Title="f_group_name" Type="1" Sort="true"/>
+		<field Name="Group_O" Title="f_ordinal" Sort="true" Css="width:80px;text-align:center;"/>
+		<field Name="Group_A" Title="f_active" Type="2" Sort="true" Css="width:60px;text-align:center;"/>
+	</list>
+
+  <command_plus><![CDATA[]]></command_plus>
+
+	<search>
+		<field Name="Group_ID" Title="f_id"/>
+		<field Name="Group_Name" Title="f_group_name"/>
+	</search>
+	
+	<edit>
+		<group Title="group_information" Columns="1" Pos="2" Expand="true">
+			<field Name="Group_Name" Title="f_group_name" Type="1" Property="Require='true'"/>
+			<field Name="Group_O" Title="f_ordinal" Type="1" Property="Default='500' Width='60px'"/>
+		</group>
+		<group Title="group_properties" Pos="3" Expand="true">
+			<field Name="Group_ID" Title="f_id" ShowState="4" Property="Width='80px'"/>
+			<field Name="Group_A" Title="f_active" Type="5" Property="Default='true'"/>
+		</group>
+		<group Title="f_role_list" Pos="3" Expand="true">
+			<field Name="Group_GroupRole" Type="9" Note="#help_group_rolelist" Property="SqlSP='SP_A_R_001_Tree_Role' EnableHeader='true' Format='{1}' Seperator=';' "/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[
+	set nocount on
+	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem	=
+	(
+		select count(0) from wcms_Group	
+		where 
+		{ Group_R @SA and }
+		{ Group_Name <o> @Search:Group_Name and }
+		1 = 1
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	select [Group_ID]
+		,[Group_Name]
+		,[Group_O]
+		,[Group_A]
+		,[Group_R]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Group_ID]
+			,[Group_Name]
+			,[Group_O]
+			,[Group_A]
+			,[Group_R]
+		from wcms_Group where 
+		{ Group_R is null OR Group_R @SA and }
+		{ Group_Name <o> @Search:Group_Name and }
+		1 = 1
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[
+	set nocount on
+	
+	declare @GroupRole nvarchar(max) 
+	set @GroupRole = ''
+	select @GroupRole = @GroupRole + ';' + convert(nvarchar(10), GroupRole_RoleID) from wcms_GroupRole where GroupRole_GroupID = @editID
+	if (@GroupRole <> '') set @GroupRole = substring(@GroupRole, 2, len(@GroupRole) - 1)
+
+	select [Group_ID]
+		  ,[Group_Name]
+		  ,@GroupRole as [Group_GroupRole]
+		  ,[Group_O]
+		  ,[Group_A]
+		  ,[Group_R]
+	from wcms_Group where Group_ID = @editID { and (Group_R is null OR Group_R @SA) }
+	]]>
+	</SQL_LOAD_EDIT>
+
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+	
+	<SQL_ADD>
+	<![CDATA[
+	set nocount on	
+	insert wcms_Group
+	(
+		 [Group_Name]
+		,[Group_O]
+		,[Group_A]
+		,[Group_CreateDate]
+		,[Group_ModifyDate]
+		,[Group_R]
+	) 
+	values
+	(
+		 {@Get:Group_Name}
+		,{@Get:Group_O}
+		,{@Get:Group_A}
+		,getutcdate()
+		,getutcdate()
+		,{@Get:Group_R}
+	)
+	declare @Group_ID int
+	set @Group_ID = SCOPE_IDENTITY()
+	
+	insert wcms_GroupRole(GroupRole_GroupID, GroupRole_RoleID)
+	select @Group_ID, Data from [dbo].[F_001_StringToTable]({@Get:Group_GroupRole}, ';')
+	
+	select @Group_ID
+	]]>
+	</SQL_ADD>
+	
+	<SQL_UPDATE>
+	<![CDATA[
+	set nocount on
+	declare @id int
+	set @id = @editID
+	
+	update wcms_Group set
+		[Group_Name]		= {@Get:Group_Name}
+		,[Group_O]			= {@Get:Group_O}
+		,[Group_A]			= {@Get:Group_A}
+		,[Group_R]			= {@Get:Group_R}
+		,[Group_ModifyDate] = getutcdate()
+	where Group_ID = @id
+	
+	delete wcms_GroupRole where GroupRole_GroupID = @id and GroupRole_RoleID not in (102,103,104)
+
+	insert wcms_GroupRole(GroupRole_GroupID, GroupRole_RoleID)
+	select @id, [Data] from [dbo].[F_001_StringToTable]({@Get:Group_GroupRole}, ';') where [Data] not in (102,103,104)
+	
+	select @id
+	]]>	
+	</SQL_UPDATE>
+
+	<SQL_UPDATE_ACTIVE><![CDATA[]]></SQL_UPDATE_ACTIVE>
+
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+	declare @id int
+	set @id = @delID
+	
+	if (@id in (1,2,3,6))
+		select 0
+	else
+	BEGIN	
+			set nocount on
+			Update wcms_Account set Account_GroupID = 6 where Account_GroupID = @id
+			Delete wcms_GroupRole where GroupRole_GroupID = @id
+			set nocount off
+			
+			delete wcms_Group where Group_ID = @id
+			select @@ROWCOUNT
+	END
+	]]>
+	</SQL_DELETE>
+</table>

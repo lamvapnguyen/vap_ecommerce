@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="WCMS_Customer" Title="a_menu_customer" R="502" DefaultSort="Customer_ID" DefaultSortAsc="false">
+  <controls>
+    <field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+    <field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+    <field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+    <field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+    <field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+    <field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	
+    <field Name="WCMS_Customer" Path="Process/Customer.ascx" Pos="7"/>
+  </controls>
+
+  <list>
+	<field Name="Customer_Code" Title="f_cust_code" Type="1" Sort="true" Css="width:100px;text-align:center;color:#a00;"/>
+    <field Name="Customer_FullName" Title="f_fullname" Type="1" Sort="true" Css="width:250px;color:#616161;font-weight:bold;"/>
+	<field Name="Customer_Phone" Title="f_phone" Type="1" Sort="true"/>
+	<field Name="Customer_Email" Title="f_email" Type="1" Sort="true"/>
+	<field Name="Customer_Address" Title="f_address" Type="1" Sort="true"/>
+	<field Name="Customer_Level" Title="#Level" Type="1" Sort="true" Css="width:50px;text-align:left;"/>
+    <field Name="Customer_A" Title="f_active" Type="3" Sort="true" Css="width:60px;text-align:center;"/>
+  </list>
+
+  <command_plus><![CDATA[]]></command_plus>
+
+  <search>
+	<field Name="Customer_FullName" Title="f_fullname"/>
+    <field Name="Customer_Email" Title="f_account_email"/>
+	<field Name="Customer_Address" Title="f_address"/>
+    <field Name="Customer_ID" Title="f_cust_id"/>
+  </search>
+
+  <edit>
+    <group Title="group_customer_info" Pos="2" Expand="true">
+		<field Name="Customer_Code" Title="f_cust_code" Type="1" Property="Require='true' MaxLength='50' Width='120px' Css='color:#090'"/>
+		<field Name="Customer_FullName" Title="f_fullname" Type="1" Property="Require='true' MaxLength='150' Width='250px'"/>
+		<field Name="Customer_Email" Title="f_email" Type="1" Property="Require='true' Width='250px'"/>
+		<field Name="Customer_Phone" Title="f_phone" Type="1" Property="MaxLength='50' Width='150px'"/>
+		<field Name="Customer_Address" Title="f_address" Type="1" Property="MaxLength='200' Width='96%'"/>
+		
+		<field Name="Customer_StateID" Title="f_city" Type="8" Property="SqlSP='SP_A_R_001_Tree_State' ParentID='3' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Default='5101' DisplayNoSelectText='false'"/>
+		<field Name="Customer_QuanHuyen" Title="f_quanhuyen" Type="8" Property="SqlSP='SP_A_R_001_Tree_StateCounty' ParentID='3' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Default='5101' DisplayNoSelectText='false'"/>
+    </group>
+	<group Title="other_info" Pos="2" Expand="true">
+		<field Name="Customer_Birthday" Title="acc_dob" Type="1" Property="Width='150px'"/>
+    
+		<field Name="Customer_CMNDNumber" Title="cmnd_number" Type="1" Property="Width='200px'"/>
+		<field Name="Customer_CMNDDate" Title="cmnd_date" Type="1" Property="Width='200px'"/>
+		<field Name="Customer_CMNDPlace" Title="cmnd_place" Type="1" Property="Width='200px'"/>
+		
+		<field Name="Customer_Bank" Title="bank_name" Type="1" Property="Width='200px'"/>
+		<field Name="Customer_BankAccountName" Title="bank_account_acc_name" Type="1" Property="Width='200px'"/>
+		<field Name="Customer_BankAccountNumber" Title="bank_account_acc_number" Type="1" Property="Width='200px'"/>
+	
+		<field Name="Customer_Company" Title="f_account_company" Type="1" Property="MaxLength='200' Width='95%'"/>
+	</group>
+    <group Title="group_properties" Pos="2" Expand="true">
+		<field Name="Customer_Date" Title="f_date_updated" ShowState="4"/>
+		<field Name="Customer_A" Title="f_active" Type="5" Property="Default='true'"/>
+    </group>
+  </edit>
+
+  <html><![CDATA[]]></html>
+
+  <SQL_SELECT_LIST>
+    <![CDATA[
+	set nocount on
+	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem	=
+	(
+		select count(0) from WCMS_Customer
+		where
+		{ Customer_ID		<o> @Search:Customer_ID and }
+		{ Customer_Email	<o> @Search:Customer_Email and }
+		{ Customer_FullName	<o> @Search:Customer_FullName and }
+		{ Customer_Phone	<o> @Search:Customer_Phone and }
+		{ Customer_Address	<o> @Search:Customer_Address and }
+		1 = 1
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select Customer_ID
+		,Customer_Code
+		,(case when Customer_A = 0 then '<span style="color:#C68C2B;font-weight:normal;">' + Customer_FullName + '</span>' else Customer_FullName end) as Customer_FullName
+		,Customer_Phone
+		,Customer_Email
+		,Customer_Address
+		,Customer_Level
+		,case when Customer_A = 1 then 'checked' else '' end as Customer_A
+		,0 as locked
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as num
+			,Customer_ID
+			,Customer_FullName
+			,Customer_Code
+			,Customer_Phone
+			,Customer_Email
+			,Customer_Address
+			,Customer_Level
+			,Customer_A
+		from WCMS_Customer
+		where
+		{ Customer_ID		<o> @Search:Customer_ID and }
+		{ Customer_Email	<o> @Search:Customer_Email and }
+		{ Customer_FullName	<o> @Search:Customer_FullName and }
+		{ Customer_Phone	<o> @Search:Customer_Phone and }
+		{ Customer_Address	<o> @Search:Customer_Address and }
+		1 = 1
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex	
+	]]>
+  </SQL_SELECT_LIST>
+
+  <SQL_LOAD_EDIT>
+    <![CDATA[
+	set nocount on
+	select  Customer_ID
+		   ,Customer_UName
+		   ,Customer_FullName
+		   ,Customer_Email
+		   ,Customer_A
+		   ,Customer_Company
+		   ,Customer_Address
+		   ,Customer_Phone
+		   ,Customer_Date
+		   ,Customer_Code
+		   ,Customer_ParentCode
+		   ,Customer_BankAccountName
+		   ,Customer_BankAccountNumber
+		   ,Customer_Bank
+		   ,Customer_Birthday
+		   ,Customer_CMNDNumber
+		   ,Customer_CMNDDate
+		   ,Customer_CMNDPlace
+		   ,Customer_StateID
+		   ,Customer_QuanHuyen
+	from WCMS_Customer where Customer_ID = @editID	
+	]]>
+  </SQL_LOAD_EDIT>
+
+  <SQL_NEW><![CDATA[]]></SQL_NEW>
+
+  <SQL_ADD>
+    <![CDATA[
+	set nocount on
+	declare @pid int, @ft nvarchar(2000), @fulllName nvarchar(200) = {@Get:Customer_FullName}, @phone varchar(50) = {@Get:Customer_Phone}, @code varchar(20) = {@Get:Customer_Code}
+	Select @ft = dbo.FN_001_ConvertToFullText(ISNULL(@fulllName,'') + ISNULL(' | ' + @phone,'') + ISNULL(' | ' + @code,''))
+	
+	INSERT INTO WCMS_Customer
+	(
+		Customer_FullName
+	   ,Customer_Email
+	   ,Customer_A
+	   ,Customer_Company
+	   ,Customer_Address
+	   ,Customer_Phone
+	   ,Customer_Date
+	   ,Customer_Code
+	   ,Customer_BankAccountName
+	   ,Customer_BankAccountNumber
+	   ,Customer_Bank
+	   ,Customer_Birthday
+	   ,Customer_CMNDNumber
+	   ,Customer_CMNDDate
+	   ,Customer_CMNDPlace
+	   ,Customer_FullText
+	   ,Customer_StateID
+	   ,Customer_QuanHuyen
+	)
+	VALUES
+	(
+		 @fulllName
+		,{@Get:Customer_Email}
+		,{@Get:Customer_A}
+		,{@Get:Customer_Company}
+		,{@Get:Customer_Address}
+		,@phone
+		,getutcdate()
+		,@code
+	   ,{@Get:Customer_BankAccountName}
+	   ,{@Get:Customer_BankAccountNumber}
+	   ,{@Get:Customer_Bank}
+	   ,{@Get:Customer_Birthday}
+	   ,{@Get:Customer_CMNDNumber}
+	   ,{@Get:Customer_CMNDDate}
+	   ,{@Get:Customer_CMNDPlace}
+	   ,@ft
+	   ,{@Get:Customer_StateID}
+	   ,{@Get:Customer_QuanHuyen}
+	)
+	
+	declare @id int	
+	select @id = SCOPE_IDENTITY()
+	
+	select @id
+	]]>
+  </SQL_ADD>
+
+  <SQL_UPDATE>
+    <![CDATA[
+	set nocount on	
+	declare @ft nvarchar(2000), @fulllName nvarchar(200) = {@Get:Customer_FullName}, @phone varchar(50) = {@Get:Customer_Phone}, @code varchar(20) = {@Get:Customer_Code}
+	Select @ft = dbo.FN_001_ConvertToFullText(ISNULL(@fulllName,'') + ISNULL(' | ' + @phone,'') + ISNULL(' | ' + @code,''))
+	
+	update WCMS_Customer set
+		Customer_Email		= {@Get:Customer_Email}
+		,Customer_A			= {@Get:Customer_A}
+		,Customer_FullName	= @fulllName
+		,Customer_Company	= {@Get:Customer_Company}
+		,Customer_Address	= {@Get:Customer_Address}
+		,Customer_Phone		= @phone
+		,Customer_Date		= getutcdate()
+		,Customer_Code 		= @code
+	   ,Customer_BankAccountName	= {@Get:Customer_BankAccountName}
+	   ,Customer_BankAccountNumber	= {@Get:Customer_BankAccountNumber}
+	   ,Customer_Bank			= {@Get:Customer_Bank}
+	   ,Customer_Birthday		= {@Get:Customer_Birthday}
+	   ,Customer_CMNDNumber	= {@Get:Customer_CMNDNumber}
+	   ,Customer_CMNDDate	= {@Get:Customer_CMNDDate}
+	   ,Customer_CMNDPlace	= {@Get:Customer_CMNDPlace}
+	   ,Customer_StateID	= {@Get:Customer_StateID}
+	   ,Customer_QuanHuyen	= {@Get:Customer_QuanHuyen}
+	   ,Customer_FullText	= @ft
+	where Customer_ID = @editID
+	
+	select @editID
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_customer_update', '(' + @logIP + ') Updated customer [' + {@Get:Customer_FullName} + '].', 'Customer', @editID, @logAcc)
+	]]>
+  </SQL_UPDATE>
+
+  <SQL_UPDATE_ACTIVE>
+    <![CDATA[
+	update WCMS_Customer set [Customer_A]= @active, [Customer_Date] = getutcdate()
+	where Customer_ID = @editID
+	select @editID	
+	]]>
+  </SQL_UPDATE_ACTIVE>
+
+  <SQL_COPY><![CDATA[]]></SQL_COPY>
+
+  <SQL_DELETE>
+    <![CDATA[
+	delete WCMS_Customer where Customer_ID = @delID
+	select @@ROWCOUNT 
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_delete', '(' + @logIP + ') Deleted 1 Customer.', 'Customer', @delID, @logAcc)
+	]]>
+  </SQL_DELETE>
+</table>

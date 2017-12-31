@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Setting/DataProcess.ascx" hash="fffffffaa8934d59" filehash="3ad940f53e31" flags="110000" assembly="App_Web_3kko5jd5" type="ASP.views_setting_dataprocess_ascx">
+    <filedeps>
+        <filedep name="/Views/Setting/DataProcess.ascx" />
+    </filedeps>
+</preserve>

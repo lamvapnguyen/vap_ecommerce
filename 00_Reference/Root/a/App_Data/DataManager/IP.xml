@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_IP" Title="a_menu_ip" R="301" DefaultSort="IP_IP" DefaultSortAsc="true">
+	<controls>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	</controls>
+	
+	<list>
+		<field Name="IP_IP" Title="f_ip" Type="1" Sort="true" Css="width:120px;text-align:left;color:#a00;"/>
+		<field Name="IP_Date" Title="f_datetime" Type="1" Css="width:150px;text-align:center;"/>
+		<field Name="IP_Note" Title="f_note" Type="1"/>		
+		<field Name="IP_A" Title="f_active" Type="3" Css="width:60px;text-align:center;"/>
+	</list>
+
+  <command_plus><![CDATA[]]></command_plus>
+	
+	<search>
+		<field Name="IP_IP" Title="f_ip"/>
+	</search>
+	
+	<edit>
+		<group Title="group_information" Pos="2" Expand="true">
+			<field Name="IP_IP" Title="f_ip" Type="1" Note="#help_ip_address" Property="Require='true' Width='200px'"/>
+			<field Name="IP_Date" Title="f_datetime_utc" Type="4"/>
+			<field Name="IP_A" Title="f_active" Type="5" Property="Default='true'"/>
+			<field Name="IP_Note" Title="f_note" Type="2" Property="Height='80px'"/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[ 
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem = (select count(0) from wcms_IP { where IP_IP <o> @Search:IP_IP })
+	if (@pageSize < 1) set @pageSize = 15
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [IP_ID]
+		,[IP_IP]
+		,[IP_Date]
+		,[IP_Note]
+		,case when [IP_A] = 1 then 'checked' else '' end as [IP_A]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[IP_ID]
+			,[IP_IP]
+			,[IP_Date]
+			,[IP_Note]
+			,[IP_A]
+		from wcms_IP
+		{ where IP_IP <o> @Search:IP_IP }
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex 
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[
+	select [IP_ID]
+		,[IP_IP]
+		,[IP_Date]
+		,[IP_Note]
+		,[IP_A]
+	from wcms_IP where IP_ID = @editID 	
+	]]>
+	</SQL_LOAD_EDIT>
+
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+	
+	<SQL_ADD>
+	<![CDATA[
+	set nocount on
+	insert wcms_IP
+	(
+		[IP_IP]
+		,[IP_Date]
+		,[IP_Note]
+		,[IP_A]
+	) 
+	values
+	(
+		 {@Get:IP_IP}
+		,{@Get:IP_Date}
+		,{@Get:IP_Note}
+		,{@Get:IP_A}
+	)
+	
+	select SCOPE_IDENTITY()
+	]]>
+	</SQL_ADD>
+		
+	<SQL_UPDATE>
+	<![CDATA[
+	set nocount on
+	
+	update wcms_IP set
+		   [IP_IP]		= {@Get:IP_IP}
+		  ,[IP_Date]	= {@Get:IP_Date}		  
+		  ,[IP_Note]	= {@Get:IP_Note}
+		  ,[IP_A]		= {@Get:IP_A}
+	where IP_ID = @editID
+	
+	select @editID
+	]]>	
+	</SQL_UPDATE>
+
+	<SQL_UPDATE_ACTIVE>
+	<![CDATA[	
+	update wcms_IP set [IP_A]= @active
+	where IP_ID = @editID
+	select @editID
+	]]>
+	</SQL_UPDATE_ACTIVE>
+
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+	delete from wcms_IP where IP_ID = @delID
+	select 1
+	]]>
+	</SQL_DELETE>
+</table>

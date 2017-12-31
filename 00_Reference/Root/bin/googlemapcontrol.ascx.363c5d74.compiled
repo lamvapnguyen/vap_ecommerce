@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Core/GoogleMapControl.ascx" hash="fffffff3343c8b72" filehash="95d7a1f3eb7" flags="110000" assembly="App_Web_1gp22pdn" type="ASP.views_core_googlemapcontrol_ascx">
+    <filedeps>
+        <filedep name="/Views/Core/GoogleMapControl.ascx" />
+    </filedeps>
+</preserve>

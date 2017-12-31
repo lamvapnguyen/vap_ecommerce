@@ -1,0 +1,24 @@
+﻿<setting name="Script">
+<![CDATA[
+<input type="hidden" value="1" name="update_hidden_field" />
+<table cellspacing="0" cellpadding="0" width="100%" class="dm_edit_table">
+	<tr>
+		<td>
+			<div><textarea type="text" class="ioc_textbox" style="height:500px;" name="site_headerscript" />{p:site_headerscript}</textarea></div>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td><input type="submit" name="update_setting_submit" class="dm_edit_button_1" value="Update" /></td>
+	</tr>
+</table>
+<script>
+$(function(){
+	$(window).resize(function () {
+		var h = $(window).height() - 320;
+		$('.dm_edit_table textarea.ioc_textbox').height(h);
+    }).resize();
+});
+</script>
+]]>
+</setting>

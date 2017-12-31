@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Register" Title="post6_register" R="311" AddRole="1" EditRole="1" DefaultSort="Register_Date" DefaultSortAsc="false">
+	<controls>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	</controls>
+	
+	<list>
+		<field Name="Register_Date" Title="f_datetime" Sort="true" Css="width:80px;"/>
+        <field Name="Register_Name" Title="f_fullname" Type="1" Sort="true" Css="width:150px;"/>
+		<field Name="Register_From" Title="f_email" Type="1" Sort="true" Css="width:150px;"/>
+        <field Name="Register_Phone" Title="f_phone" Type="1" Sort="true" Css="width:150px;"/>
+		<field Name="Register_Subject" Title="sendmail_subject" Type="1"/>
+		<field Name="Register_Read" Title="f_read" Type="2" Css="width:60px;text-align:center;"/>
+	</list>
+
+	<command_plus><![CDATA[]]></command_plus>
+  
+	<search>
+		<field Name="Register_Name" Title="sendmail_name"/>
+		<field Name="Register_From" Title="sendmail_from"/>
+	</search>
+	
+	<edit>
+		<group Title="f_content" Pos="2" Expand="true">
+            <field Name="Register_Name" Title="f_fullname" Type="1" Property="Require='true'"/>
+            <field Name="Register_Sex" Title="f_sex" Type="7" Property="Data='Male:1;Female:0' Default='1' RepeatColumns='2'"/>
+            <field Name="Register_Position" Title="f_position" Type="1" Property="Require='true'"/>
+            <field Name="Register_Company" Title="f_company" Type="1" Property="Require='true'"/>
+
+            <field Name="Register_Address" Title="f_address" Type="1" Property="Width='98%'"/>
+            <field Name="Register_From" Title="f_email" Type="1" Property="Require='true'"/>
+            <field Name="Register_Phone" Title="f_phone" Type="1" Property="Require='true'"/>
+
+            <field Name="Post" Title="#Event" Type="0" Property="Width='100%'"/>
+            <field Name="Register_Message" Title="sendmail_message" Type="2" Property="Height='100px'"/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[ 
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem = (
+		select count(0) from wcms_Register 
+		where ({@PID}=0 OR Register_PostID = {@PID})
+		{ AND Register_Name <o> @Search:Register_Name }
+		{ AND Register_From <o> @Search:Register_From }
+	)
+	
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Register_ID]
+		,[EmailType]
+		,[Register_From]
+		,DATEADD(hour, {@TIMEZONE}, Register_Date) as [Register_Date]
+		,[Register_Subject]
+		,[Register_Read]
+		,0 as [locked]
+        ,Register_Name
+        ,Register_Phone
+        ,case Register_Sex when 1 then 'Male' else 'Female' end as [Register_Sex]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Register_ID]
+			,(case Register_Type when 1 then 'Contact' when 2 then 'Sales' when 3 then 'Booking' when 4 then 'A Require from User' when 5 then 'Appt' else '' end) as [EmailType]
+			,Register_From
+			,[Register_Date]
+			,[Register_Subject]
+			,[Register_Read]
+            ,Register_Name
+            ,Register_Phone
+            ,Register_Sex
+		from wcms_Register
+		where ({@PID}=0 OR Register_PostID = {@PID})
+		{ AND Register_Name <o> @Search:Register_Name }
+		{ AND Register_From <o> @Search:Register_From }
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex 
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[
+	Update wcms_Register set [Register_Read] = 1 where Register_ID = @editID
+	select [Register_ID]
+        ,Register_Name
+		,[Register_From]
+		,[Register_Date]
+		,[Register_Subject]
+		,[Register_Message]
+		,[Register_Phone]
+		,[Register_Address]
+        ,Register_Sex
+        ,Register_Position
+        ,Register_Company
+        ,(Select '#' + cast(Post_ID as varchar(10)) + ' [' + Post_Title + ']' from wcms_Post where Post_ID = Register_PostID) as [Post]
+	from wcms_Register where Register_ID = @editID
+	]]>
+	</SQL_LOAD_EDIT>
+
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+	<SQL_ADD><![CDATA[]]></SQL_ADD>		
+	<SQL_UPDATE><![CDATA[]]></SQL_UPDATE>
+	<SQL_UPDATE_ACTIVE><![CDATA[]]></SQL_UPDATE_ACTIVE>
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+	delete from wcms_Register where Register_ID = @delID
+	select 1
+	]]>
+	</SQL_DELETE>
+</table>

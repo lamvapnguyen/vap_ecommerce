@@ -1,0 +1,58 @@
+﻿<setting name="Image">
+<![CDATA[
+
+<input type="hidden" value="1" name="update_hidden_field" />
+<table cellspacing="0" cellpadding="0" width="100%" class="dm_edit_table">
+	<col width="100px" /><col width="1px" /><col />
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t">Thumbnail size</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" value="{p:image_thumb_width}" name="image_thumb_width" class="ioc_textbox" style="width:50px;text-align:center;" /><span style="padding:3px 0;"> x </span><input type="text" value="{p:image_thumb_height}" name="image_thumb_height" class="ioc_textbox" style="width:50px;text-align:center;" /><span style="padding:3px 0;">&nbsp;(width x height) pixels</span>
+			<div style="padding-top:5px;"><img width="{p:image_thumb_width}px" height="{p:image_thumb_height}px" src="/images/thumb.jpg"></div>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t">Normal size</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" value="{p:image_medium_width}" name="image_medium_width" class="ioc_textbox" style="width:50px;text-align:center;" /><span style="padding:3px 0;"> x </span><input type="text" value="{p:image_medium_height}" name="image_medium_height" class="ioc_textbox" style="width:50px;text-align:center;" /><span style="padding:3px 0;">&nbsp;(width x height) pixels</span>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t">Content image size</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" value="{p:image_large_width}" name="image_large_width" class="ioc_textbox" style="width:50px;text-align:center;" /><span style="padding:3px 0;"> x </span><input type="text" value="{p:image_large_height}" name="image_large_height" class="ioc_textbox" style="width:50px;text-align:center;" /><span style="padding:3px 0;">&nbsp;(width x height) pixels</span>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t">Image quality</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" value="{p:image_quality}" name="image_quality" class="ioc_textbox" style="width:50px;text-align:center;" /><span style="padding:3px 0;">&nbsp;(50 -> 255)</span>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t">Resize image rule</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<div style="padding:5px 0;"><input type="radio" value="True" name="image_resize_rule" {p:image_resize_rule_1} />{lang:image_resize_rule_1}</div>
+			<div style="padding:5px 0;"><input type="radio" value="True" name="image_resize_rule" {p:image_resize_rule_2} />{lang:image_resize_rule_2}</div>
+			<div style="padding:5px 0;"><input type="radio" value="True" name="image_resize_rule" {p:image_resize_rule_3} />{lang:image_resize_rule_3}</div>
+			<div style="padding:5px 0;"><input type="radio" value="True" name="image_resize_rule" {p:image_resize_rule_4} />{lang:image_resize_rule_4}</div>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td colspan="3"><input type="submit" name="update_setting_submit" class="dm_edit_button_1" value="Update" /></td>
+	</tr>
+</table>
+
+]]>
+</setting>

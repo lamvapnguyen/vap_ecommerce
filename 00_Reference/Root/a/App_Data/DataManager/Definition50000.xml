@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Definition" Title="#Thuộc tính Sản phẩm" R="104" DefaultSort="Definition_ModifyDate" DefaultSortAsc="false">
+	<controls>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+		
+		<field Name="DataTree" Path="UC/DM_DataTree.ascx" Pos="1" Property="Title='f_definition_parent' SqlSP='SP_A_R_001_Tree_Definition' ParentID='50000' ShowHeader='true' FilterName='Definition_ParentID'"/>
+	</controls>
+	
+	<list>
+		<field Name="Definition_ID" Title="f_id" Sort="true" Css="width:80px;text-align:left;color:#a00;"/>
+		<field Name="Definition_Name" Title="f_name" Type="1" Sort="true" Css="width:200px;"/>
+		<field Name="Definition_Content" Title="value" Type="1" Sort="true" Css="width:100px;"/>
+		<field Name="Definition_Note" Title="f_note" Type="1" Sort="true"/>
+		<field Name="Definition_ParentID" Title="f_parentid" Type="1" Sort="true" Css="width:80px;text-align:center;"/>
+		<field Name="Definition_O" Title="f_ordinal" Sort="true" Css="width:60px;text-align:center;"/>
+		<field Name="Definition_A" Title="f_active" Type="3" Sort="true" Css="width:60px;text-align:center;"/>
+	</list>
+
+  <command_plus><![CDATA[]]></command_plus>
+
+	<search>
+		<field Name="Definition_ID" Title="f_id"/>
+		<field Name="Definition_Name" Title="f_name"/>
+	</search>
+	
+	<edit>
+		<group Title="group_information" Pos="2" Expand="true" Note="help_definition">
+			<field Name="Definition_ParentID" Title="f_parent" Type="8" Property="SqlSP='SP_A_R_001_Tree_Definition' ParentID='50000' IsHeader='true' ShowHeader='false' EnableHeader='true' Format='{1}'"/>
+			<field Name="Definition_ID" Title="f_id" Type="1" Property="Require='true' Width='80px'"/>
+			<field Name="Definition_Name" Title="f_name" Type="1" Property="Require='true' Css='font-weight:bold;'"/>
+			<field Name="Definition_Content" Title="value" Type="1"/>
+			<field Name="Definition_Note" Title="f_note" Type="2" Property="Height='80px'"/>
+		</group>
+		<group Title="group_properties" Pos="3" Expand="true">
+			<field Name="Definition_CreateDate" Title="f_date_created" ShowState="4"/>
+			<field Name="Definition_ModifyDate" Title="f_date_updated" ShowState="4"/>
+			<field Name="Definition_IsHeader" Title="f_header" Type="5" Property="Default='false'"/>
+			<field Name="Definition_O" Title="f_ordinal" Type="1" Property="Default='500' Width='60px'"/>
+			<field Name="Definition_A" Title="f_active" Type="5" Property="Default='true'"/>
+		</group>
+		<group Title="f_role_permisson" Pos="3" Expand="true">
+			<field Name="Definition_R" Note="#help_role" Type="8" Property="SqlSP='SP_A_R_001_Tree_Role' ParentID='100' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Seperator=';'"/>			
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[
+	set nocount on	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem	= 
+	(
+		select count(0) from wcms_Definition 
+		where Definition_ID between 50001 and 59999 
+		{ and Definition_ID 		<o> @Search:Definition_ID }
+		{ and Definition_Name 		<o> @Search:Definition_Name }
+		{ and Definition_ParentID 	<o> @Search:Definition_ParentID }
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Definition_ID]
+		,[Definition_Name]
+		,[Definition_Note]
+		,[Definition_Content]
+		,[Definition_ParentID]
+		,Definition_O
+		,case when [Definition_A] = 1 then 'checked' else '' end as [Definition_A]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Definition_ID]
+			,[Definition_Name]
+			,[Definition_Note]
+			,[Definition_Content]
+			,[Definition_ParentID]
+			,Definition_O
+			,[Definition_A]
+		from wcms_Definition
+		where Definition_ID between 50001 and 59999 
+		{ and Definition_ID 		<o> @Search:Definition_ID }
+		{ and Definition_Name 		<o> @Search:Definition_Name }
+		{ and Definition_ParentID 	<o> @Search:Definition_ParentID }
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 AND @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[ 
+	set nocount on
+	
+	select [Definition_ID]
+		,[Definition_Name]
+		,[Definition_Note]
+		,[Definition_Content]
+		,[Definition_ParentID]
+		,[Definition_A]
+		,[Definition_CreateDate]
+		,[Definition_ModifyDate]
+		,[Definition_IsHeader]
+		,[Definition_R]
+		,[Definition_O]
+	from wcms_Definition where Definition_ID = @editID 
+	]]>
+	</SQL_LOAD_EDIT>
+
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+
+	<SQL_ADD>
+	<![CDATA[
+	set nocount on
+	
+	declare @Definition_ID int 
+	set @Definition_ID = {@Get:Definition_ID}
+	
+	insert wcms_Definition
+	(
+		[Definition_ID]
+		,[Definition_Name]
+		,[Definition_Note]
+		,[Definition_Content]
+		,[Definition_ParentID]
+		,[Definition_A]
+		,[Definition_CreateDate]
+		,[Definition_ModifyDate]
+		,[Definition_IsHeader]
+		,[Definition_R]
+		,[Definition_O]
+	) 
+	values
+	(
+		 @Definition_ID
+		,{@Get:Definition_Name}
+		,{@Get:Definition_Note}
+		,{@Get:Definition_Content}
+		,{@Get:Definition_ParentID}
+		,{@Get:Definition_A}
+		,getutcdate()
+		,getutcdate()
+		,{@Get:Definition_IsHeader}
+		,{@Get:Definition_R}
+		,{@Get:Definition_O}
+	)
+	
+	select @Definition_ID
+	]]>
+	</SQL_ADD>
+
+	<SQL_UPDATE>
+	<![CDATA[
+	set nocount on
+
+	update wcms_Definition set 
+		[Definition_Name] 			= {@Get:Definition_Name}
+		,[Definition_Note]			= {@Get:Definition_Note}
+		,[Definition_Content]		= {@Get:Definition_Content}
+		,[Definition_ParentID]		= {@Get:Definition_ParentID}
+		,[Definition_A]				= {@Get:Definition_A}
+		,[Definition_ModifyDate]	= getutcdate()
+		,[Definition_IsHeader]		= {@Get:Definition_IsHeader}
+		,[Definition_R]				= {@Get:Definition_R}
+		,[Definition_O]				= {@Get:Definition_O}
+	where Definition_ID = @editID
+	
+	select @editID
+	]]>	
+	</SQL_UPDATE>
+
+	<SQL_UPDATE_ACTIVE>
+	<![CDATA[
+	update wcms_Definition set [Definition_A]= @active
+	where Definition_ID = @editID
+	select @editID 
+	]]>
+	</SQL_UPDATE_ACTIVE>
+
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+if (@delID = 50000 OR @delID = 51000 OR @delID = 52000 OR @delID = 53000) 
+	begin
+		select 0
+	end
+	else
+	begin
+	delete wcms_Definition where Definition_ID = @delID
+	select 1
+end
+	]]>
+	</SQL_DELETE>
+</table>

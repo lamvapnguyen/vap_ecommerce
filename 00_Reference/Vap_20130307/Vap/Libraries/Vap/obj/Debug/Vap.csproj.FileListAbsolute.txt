@@ -1,0 +1,8 @@
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Libraries\Vap\bin\Debug\Vap.dll.config
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Libraries\Vap\bin\Debug\Vap.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Libraries\Vap\bin\Debug\Vap.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Libraries\Vap\obj\Debug\ResolveAssemblyReference.cache
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Libraries\Vap\obj\Debug\Vap.Properties.CommonMessages.resources
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Libraries\Vap\obj\Debug\Vap.csproj.GenerateResource.Cache
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Libraries\Vap\obj\Debug\Vap.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Libraries\Vap\obj\Debug\Vap.pdb

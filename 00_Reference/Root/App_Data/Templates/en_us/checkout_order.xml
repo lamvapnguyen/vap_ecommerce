@@ -1,0 +1,80 @@
+﻿<div style="background:#ebf3fd; line-height:1.7em; font-size:small; font-family:Geneva,Verdana,Arial; width:681px; margin:0 auto;">
+  <div></div>
+  <div style="background:#fff; padding:10px;">
+    <div style="line-height:1.7em; font-size:small; text-align:justify;">
+      <div>Cảm ơn Quý khách đã đặt hàng tại website <a href="{12}" title="{11}">{11}</a>.</div>
+      <br />
+      <div style="font-weight:bold;">Thông tin Người đặt mua:</div>
+      <div style="padding-left:30px;">
+        <table cellpadding="0" cellspacing="3" style="width: 100%;">
+          <tbody>
+            <tr>
+              <td align="left" style="width:95px;">Họ tên</td>
+              <td style="width:10px;">:</td>
+              <td align="left">{0}</td>
+            </tr>
+            <tr>
+              <td align="left">Điện thoại</td>
+              <td>:</td>
+              <td align="left">{1}</td>
+            </tr>
+            <tr>
+              <td align="left">Địa chỉ</td>
+              <td>:</td>
+              <td align="left">{2}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div style="font-weight:bold;">Thông tin Người nhận hàng:</div>
+      <div style="padding-left:30px;">
+        <table cellpadding="0" cellspacing="3" style="width:100%;">
+          <tbody>
+            <tr>
+              <td align="left" style="width:95px;">Họ tên</td>
+              <td style="width:10px;">:</td>
+              <td align="left">{3}</td>
+            </tr>
+            <tr>
+              <td align="left">Điện thoại</td>
+              <td style="width:10px;">:</td>
+              <td align="left">{4}</td>
+            </tr>
+            <tr>
+              <td align="left">Địa chỉ</td>
+              <td style="width:10px;">:</td>
+              <td align="left">{5}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div style="font-weight:bold;">Thông tin xuất hóa đơn:</div>
+      <div style="padding-left:30px;">
+        <table cellpadding="0" cellspacing="3" style="width: 100%;">
+          <tbody>
+            <tr>
+              <td align="left" style="width:160px;"><span>Công ty</span>﻿</td>
+              <td style="width:10px;">:</td>
+              <td align="left">{6}</td>
+            </tr>
+            <tr>
+              <td align="left"><span>Mã số Thuế</span>﻿</td>
+              <td style="width:10px;">:</td>
+              <td align="left">{7}</td>
+            </tr>
+            <tr>
+              <td align="left"><span>Địa chỉ ghi hóa đơn</span>﻿</td>
+              <td style="width:10px;">:</td>
+              <td align="left">{8}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div><strong>Đơn hàng:</strong><br />Ghi chú: {9}<br /><br />{10}<br /></div>
+    </div>
+  </div>
+  <div style="background-color:#808080; color:#ffffff; text-align:center; padding:3px 5px; font-family:'Times New Roman'; font-weight:bold; font-size:16px; letter-spacing:5px;"></div>
+</div>

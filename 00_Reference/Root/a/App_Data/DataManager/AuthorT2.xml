@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Author" Title="ban_to_chuc" R="405" DefaultSort="Author_Name" DefaultSortAsc="true">
+  <controls>
+    <field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+    <field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+    <field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+    <field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+    <field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+    <field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	
+    <field Name="SortByAb" Path="UC/DM_SortByAb.ascx" Pos="4" Property="FilterName='Author_NameFirstChar'"/>
+	<field Name="WCMS_Author" Path="Process/Author.ascx" Pos="7"/>
+  </controls>
+
+  <list>
+    <field Name="Author_Name" Title="ban_to_chuc" Type="1" Sort="true" Css="color:#616161;font-weight:bold;"/>
+    <field Name="Author_SearchCount" Title="f_search_count" Type="0" Sort="true" Css="width:150px;"/>
+    <field Name="Author_A" Title="f_active" Type="3" Sort="true" Css="width:60px;text-align:center;"/>
+  </list>
+
+  <command_plus><![CDATA[]]></command_plus>
+
+  <search>
+    <field Name="Author_Name" Title="ban_to_chuc"/>
+  </search>
+
+  <edit>
+    <group Title="group_information" Pos="2" Expand="true">
+		<field Name="Author_Name" Title="ban_to_chuc" Type="1" Property="Require='true' MaxLength='100' Width='300'"/>		
+		<field Name="Author_A" Title="f_active" Type="5" Property="Default='true'"/>
+    </group>
+  </edit>
+
+  <html><![CDATA[]]></html>
+
+  <SQL_SELECT_LIST>
+    <![CDATA[
+	set nocount on
+	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem	=
+	(
+		select count(0) from WCMS_Author
+		where Author_Type = 2 
+		{ and Author_Name	<o> @Search:Author_Name }
+		{ and CHARINDEX(@Search:Author_NameFirstChar, Author_NameReflex) = 1 }
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage	= ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Author_ID]
+		,[Author_Name]
+		,[Author_SearchCount]
+		,case when [Author_A] = 1 then 'checked' else '' end as [Author_A]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Author_ID]
+			,[Author_Name]
+			,[Author_SearchCount]
+			,[Author_A]
+		from WCMS_Author
+		where Author_Type = 2 
+		{ and Author_Name	<o> @Search:Author_Name }
+		{ and CHARINDEX(@Search:Author_NameFirstChar, Author_NameReflex) = 1 }
+	) tb 
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex	
+	]]>
+  </SQL_SELECT_LIST>
+
+  <SQL_LOAD_EDIT>
+    <![CDATA[
+	set nocount on
+	select  [Author_ID]
+		   ,[Author_Name]
+		   ,[Author_A]
+	from WCMS_Author where Author_ID = @editID	
+	]]>
+  </SQL_LOAD_EDIT>
+
+  <SQL_NEW><![CDATA[]]></SQL_NEW>
+
+  <SQL_ADD>
+    <![CDATA[
+	set nocount on
+	
+	INSERT INTO WCMS_Author
+	(
+		Author_Type
+		,[Author_Name]
+		,[Author_A]
+		,[Author_SearchCount]
+		,[Author_NameReflex]
+	)
+	VALUES
+	(
+		2
+		,{@Get:Author_Name}
+		,{@Get:Author_A}
+		,1
+		,{@Get:Author_NameReflex}
+	)
+	select SCOPE_IDENTITY()
+	]]>
+  </SQL_ADD>
+
+  <SQL_UPDATE>
+    <![CDATA[
+	set nocount on	
+	
+	update WCMS_Author set
+		 [Author_Name]			= {@Get:Author_Name}
+		,[Author_A]				= {@Get:Author_A}
+		,[Author_NameReflex]	= {@Get:Author_NameReflex}
+	where Author_ID = @editID
+	
+	select @editID
+	]]>
+  </SQL_UPDATE>
+
+  <SQL_UPDATE_ACTIVE>
+    <![CDATA[
+	update WCMS_Author set [Author_A]= @active
+	where Author_ID = @editID
+	select @editID	
+	]]>
+  </SQL_UPDATE_ACTIVE>
+
+  <SQL_COPY><![CDATA[]]></SQL_COPY>
+
+  <SQL_DELETE>
+    <![CDATA[
+	set nocount on
+	delete WCMS_Author where Author_ID = @delID
+	select 1
+	]]>
+  </SQL_DELETE>
+</table>

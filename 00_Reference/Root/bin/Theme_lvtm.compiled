@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/App_Themes/lvtm/" hash="fffffff3343c8b72" filehash="486dd2d3bdfbbe8d" flags="110000" assembly="App_Theme_lvtm" type="ASP.lvtm">
+    <filedeps>
+        <filedep name="/App_Themes/lvtm/" />
+    </filedeps>
+</preserve>

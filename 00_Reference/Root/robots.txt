@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /App_Browsers/
+Disallow: /App_Data/
+Disallow: /App_Themes/
+Disallow: /Backup/
+Disallow: /bin/
+Disallow: /Css/
+Disallow: /a/
+Disallow: /Config/
+Disallow: /images/
+Disallow: /Scripts/

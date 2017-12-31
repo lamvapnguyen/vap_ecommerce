@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>lvtm.vn, Làm việc thông minh, Thành lập công ty, Giảm thiểu chi phí hoạt động, Nâng cao năng lực cạnh tranh</title>
+	<style>
+		body { line-height:1.8; color:#111; background:#fff; font-family:arial,Geneva,sans-serif; font-size:13px; width:998px; margin:0 auto; }
+		.no_display { display:none; }
+		.intro_header, .intro_desc { }
+		.intro_header .item { text-align:center; float:left; width:133px; padding-left:16px; padding-right:16px; cursor:pointer; padding-bottom:40px; background:url(images/line.png) repeat-x center bottom; }
+		.intro_header .item:hover, .intro_header .item_active { background:url(images/arrow.png) repeat-x center bottom; }
+		.intro_header .text { font-weight:bold; padding-top:6px; }
+		.intro_header .item:hover .text { color:#FC4E19; }
+		.text a{color: #111111; padding:145px 0 0; text-decoration:none;}
+		.text a:hover{  color:#FC4E19 !important; text-decoration:none; }
+		.intro_header .tip { 
+			display:none; width:200px; height:200px; border-radius:50%; -moz-border-radius:50%; -khtml-border-radius:50%; -webkit-border-radius:50%;
+			background-image:-moz-radial-gradient(45px 45px 45deg,circle cover,yellow 0%,orange 100%,red 95%);
+			background-image:-webkit-radial-gradient(45px 45px,circle cover,yellow,orange);
+			background-image:radial-gradient(45px 45px 45deg,circle cover,yellow 0%,orange 100%,red 95%);
+			font-weight: bold;
+			color: #fff;
+			text-shadow:1px 1px 5px #111;
+			font-size:16px;
+		}
+		.intro_desc .item { display:none; padding-top:10px; }
+		.intro_desc .item_active { display:block; }
+		.intro_header { margin:10px 0 0; }
+		.intro_desc .item .item-title { color:#0054FE; font-weight:bold; font-size:18px; }
+		.intro_desc .item ul { list-style: square url("images/arrow-l.png"); padding-left:15px; }
+	</style>
+	<script type="text/javascript" src="http://www.marketingpro.com.vn/Scripts/Lib/jquery.js"></script>
+	<script type="text/javascript" src="http://www.marketingpro.com.vn/Scripts/Lib/jquery-ext.js"></script>
+	<script>
+		$(function(){
+			$('.intro_header .item').hover(
+				function(){ 
+					$(this).parent().children('.item_active').removeClass('item_active');
+					$(this).addClass('item_active');
+					var i = $(this).attr('idi');
+					$('.intro_desc .item_active').removeClass('item_active');
+					$('.intro_desc .item[idi=c' + i + ']').addClass('item_active');
+					
+					var img = $(this).children('.img'), h = img.height(), w = img.width();
+					img.hide().next().height(h).width('133px').show();
+					$(this).find('td').height(h).width('133px');
+				},
+				function(){
+					$(this).children('.img').show().next().hide();
+				}
+			);
+		});
+	</script>
+</head>
+<body>
+	<h1 class="no_display">lvtm.vn, Làm việc thông minh, Thành lập công ty, Giảm thiểu chi phí hoạt động, Nâng cao năng lực cạnh tranh</h1>
+	<div class="intro_header" >
+		<div idi="1" class="item item_active">
+			<div class="img"><img src="images/doanh-nghiep-so.png" alt="hình" /></div>
+			<div class="tip">
+				<table cellpadding="0" cellspacing="0"><tr><td valign="middle">
+				Cạnh tranh<br>Hiệu quả
+				</td></tr></table>
+			</div>
+			<div class="text"><a target="_blank" href="https://www.google.com.vn">Xây dựng<br>Doanh nghiệp số</a></div>
+		</div>
+		<div idi="2" class="item">
+			<div class="img"><img src="images/web.png" alt="hình" /></div>
+			<div class="tip">
+				<table cellpadding="0" cellspacing="0"><tr><td valign="middle">
+				Biến Web<br>Thành Vàng!
+				</td></tr></table>
+			</div>
+			<div class="text"><a target="_blank" href="https://www.google.com.vn">Website<br>Nội dung website</a></div>
+		</div>
+		<div idi="3" class="item" style="width:150px;padding-left:8px;padding-right:8px;">
+			<div class="img"><img src="images/quang-cao-ga.png" alt="hình" /></div>
+			<div class="tip" style="margin-left:8px;">
+				<table cellpadding="0" cellspacing="0"><tr><td valign="middle">
+				Website<br>Top 10 Google
+				</td></tr></table>
+			</div>
+			<div class="text"><a target="_blank" href="https://www.google.com.vn">Quảng cáo<br>Google Adwords &amp; SEO</a></div>
+		</div>
+		<div idi="4" class="item">
+			<div class="img"><img src="images/toi-uu-cong-cu-tim-kiem.png" alt="hình" /></div>
+			<div class="tip">
+				<table cellpadding="0" cellspacing="0"><tr><td valign="middle">
+				Nhanh nhất<br>Hiệu quả nhất
+				</td></tr></table>
+			</div>
+			<div class="text"><a target="_blank" href="https://www.google.com.vn">Tiếp thị<br>Thư điện tử</a></div>
+		</div>
+		<div idi="5" class="item">
+			<div class="img"><img src="images/thu-dien-tu.png" alt="hình" /></div>
+			<div class="tip">
+				<table cellpadding="0" cellspacing="0"><tr><td valign="middle">
+				Chia sẻ<br>Niềm tin
+				</td></tr></table>
+			</div>
+			<div class="text"><a target="_blank" href="https://www.google.com.vn">Tiếp thị<br>Mạng xã hội</a></div>
+		</div>
+		<div idi="6" class="item" style="width:170px;padding-left:0;padding-right:0;">
+			<div class="img"><img src="images/mang-xa-hoi.png" alt="hình" /></div>
+			<div class="tip" style="margin-left:18px;">
+				<table cellpadding="0" cellspacing="0"><tr><td valign="middle">
+				Chắp cánh<br>Thương hiệu
+				</td></tr></table>
+			</div>
+			<div class="text"><a target="_blank" href="https://www.google.com.vn">PR Doanh nghiệp<br>Giới thiệu & Khuyến mãi</a></div>
+		</div>
+		<div style="clear:both;"></div>
+	</div>
+	<div class="intro_desc">
+		<div idi="c1" class="item item_active">
+			<div style="float:left;max-width:600px;padding-left:50px;">
+				<div class="item-title">Nền tảng kinh doanh thành công bền vững</div>
+				<div>
+<ul>
+<li>Hoạt động không giới hạn không gian và thời gian</li>
+<li>Chủ động tương tác hai chiều với khách hàng và đối tác.</li>
+<li>Quảng bá sản phẩm dịch vụ hiệu quả với chi phí = 0</li>
+<li>Phát triển hệ thống đối tác liên kết trên cộng đồng Doanh nghiệp, tạo dựng nền tảng kinh doanh hiệu quả cho tất cả các bên tham gia.</li>
+</ul>
+				</div>
+			</div>
+			<div style="float:right; margin-top:-50px;"><img src="images/doanh-nghiep-so-2.png" /></div>
+			<div style="clear:both;"></div>
+		</div>
+		
+		<div idi="c2" class="item">
+			<div style="float:left;max-width:600px;padding-left:50px;">
+				<div class="item-title">Định hướng & đáp ứng thị trường mục tiêu</div>
+				<div>
+<ul>
+<li>Định hướng đến từng khách hàng mục tiêu sử dụng website.</li>
+<li>Định hướng từng trang web cho 1 mục đích cụ thể.</li>
+<li>Cung cấp nhiều mẫu website, phù hợp nhiều phong cách theo nhu cầu cá nhân và Doanh nghiệp.</li>
+<li>Cung cấp giải pháp thiết kế website trọn gói từ ý tưởng, đến thiết kế và hoàn chỉnh nội dung phù hợp.</li>
+</ul>
+				</div>
+			</div>
+			<div style="float:right; margin-top:-50px;"><img src="images/doanh-nghiep-so-2.png" /></div>
+			<div style="clear:both;"></div>
+		</div>
+		
+		<div idi="c3" class="item">
+			<div style="float:left;max-width:600px;padding-left:50px;">
+				<div class="item-title">Biến khách lướt web thành khách hàng tiềm năng</div>
+				<div>
+<ul>
+<li>Phân tích nhu cầu thị trường, cạnh tranh. Đánh giá, lựa chọn từ khóa mang lại hiệu quả đầu tư trong ngắn hạn và dài hạn.</li>
+<li>Cài đặt quảng cáo hiện thị theo khu vực, thời gian, nhằm đạt được hiệu quả tối đa với nguồn ngân sách quảng cáo linh động.</li>
+<li>Tối ưu lại website nhằm nâng cao khả năng cạnh tranh về mặt kỹ thuật</li>
+<li>Tối ưu lại nội dung để biến khách lướt web thành khách hàng tiềm năng</li>
+</ul>
+				</div>
+			</div>
+			<div style="float:right; margin-top:-50px;"><img src="images/doanh-nghiep-so-2.png" /></div>
+			<div style="clear:both;"></div>
+		</div>
+		
+		<div idi="c4" class="item">
+			<div style="float:right;max-width:600px;padding-left:50px;">
+				<div class="item-title">Tiếp cận đúng đối tượng, đúng thông điệp</div>
+				<div>
+Khác với việc gửi thư rác, hình thức email marketing tiếp cận đúng khách hàng mục tiêu, và sự thành công hay thất bại của từng chiến dịch sẽ phụ thuộc hoàn toàn vào:<br>
+<ul>
+<li>Nguồn dữ liệu chính xác, phong phú</li>
+<li>Nội dung thông điệp truyền tải được trình bày thu hút, bố cục đẹp mắt.</li>
+<li>Kế hoạch thực thi</li>
+</ul>
+				</div>
+			</div>
+			<div style="float:left; margin-top:-50px;"><img src="images/doanh-nghiep-so-2.png" /></div>
+			<div style="clear:both;"></div>
+		</div>
+		
+		<div idi="c5" class="item">
+			<div style="float:right;max-width:600px;padding-left:50px;">
+				<div class="item-title">Kết nối, chia sẻ và lan tỏa</div>
+				<div>
+Bản chất của Mạng xã hội:<br>
+<ul>
+<li>Được xây dựng dựa trên nền tảng sự liên kết nội dung, </li>
+<li>Diễn ra các đối thoại từ nhiều phía, không phải độc thoại từ nhà sản xuất </li>
+<li>Người dùng chủ yếu muốn kết nối bè bạn, muốn chia sẻ, muốn giải trí,…</li>
+</ul>
+Thấu hiểu suy nghĩ và hành động của cộng đồng Mạng xã hội sẽ là tiền đề giúp Doanh nghiệp và sản phẩm được cộng đồng chấp nhận để từ đó lan tỏa nhanh chóng trên mạng Internet.
+				</div>
+			</div>
+			<div style="float:left; margin-top:-50px;"><img src="images/doanh-nghiep-so-2.png" /></div>
+			<div style="clear:both;"></div>
+		</div>
+		
+		<div idi="c6" class="item">
+			<div style="float:right;max-width:600px;padding-left:50px;">
+				<div class="item-title">Nâng cao hình ảnh. Lan nhanh, lan xa</div>
+				<div>
+Khác với việc đăng tin SPAM trên các website, diễn đàn rao vặt, hình thức viết bài PR tiếp cận đúng khách hàng mục tiêu, và sự thành công hay thất bại của từng chiến dịch sẽ phụ thuộc vào:<br>
+<ul>
+<li>Sự thấu hiểu sản phẩm, nhu cầu thị trường, đối thủ cạnh tranh </li>
+<li>Nội dung thông điệp truyền tải được trình bày thu hút, bố cục đẹp mắt</li>
+<li>Hệ thống website liên kết có đúng khách hàng mục tiêu.</li>
+<li>Kế hoạch thực thi</li>
+</ul>
+				</div>
+			</div>
+			<div style="float:left; margin-top:-50px;"><img src="images/doanh-nghiep-so-2.png" /></div>
+			<div style="clear:both;"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Comment" Title="a_menu_comment" R="404" AddRole="1" DefaultSort="Comment_ID" DefaultSortAsc="false">
+  <controls>
+    <field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+    <field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+    <field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+    <field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+    <field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+    <field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	
+	<field Name="WCMS_Comment" Path="Process/Comment.ascx" Pos="7"/>
+  </controls>
+
+  <list>
+	<field Name="Comment_Date" Title="f_datetime" Type="1" Sort="true" Css="width:150px;"/>
+    <field Name="Comment_Name" Title="f_comment_postedby" Type="1" Sort="true" Css="color:#616161;font-weight:bold;width:150px;"/>
+	<field Name="Comment_Email" Title="f_email" Type="1" Sort="true"/>
+	<field Name="CommentForItem" Title="f_comment_for" Type="1" Sort="false" />
+	<field Name="Comment_Content" Title="f_content" Type="1" Sort="true" />
+	<field Name="Comment_Rating" Title="f_rating" Type="1" Sort="true" Css="width:60px; text-align:center;"/>
+    <field Name="Comment_A" Title="f_approved" Type="3" Sort="true" Css="width:60px;text-align:center;"/>
+	<field Name="Comment_IP" Title="#IP" Type="1" Sort="true" Css="width:150px;text-align:center;"/>
+  </list>
+
+  <command_plus><![CDATA[]]></command_plus>
+
+  <search>
+	<field Name="Comment_Email" Title="f_email"/>
+    <field Name="Comment_Name" Title="f_name"/>
+  </search>
+
+  <edit>
+    <group Title="group_information" Pos="2" Expand="true">
+		<field Name="CommentForItem" Title="f_comment_for" Type="0" Property="Width='100%' Css='font-weight:bold;'"/>
+		<field Name="Comment_Name" Title="f_name" Property="Width='100%'"/>
+		<field Name="Comment_Email" Title="f_email" Property="Width='100%'"/>
+		<field Name="Comment_Date" Title="f_datetime" Type="4"/>
+		<field Name="Comment_Rating" Title="f_rating" Type="1"/>
+		<field Name="Comment_Content" Title="f_content" Type="2" Property="Height='200px' WrapText='true'"/>
+		<field Name="Comment_A" Title="f_approved" Type="5" Property="Default='true'"/>
+    </group>
+  </edit>
+
+  <html><![CDATA[]]></html>
+
+  <SQL_SELECT_LIST>
+    <![CDATA[
+	set nocount on
+	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem	=
+	(
+		select count(0) from WCMS_Comment
+		where 		
+		{ Comment_Name		<o> @Search:Comment_Name AND }
+		{ Comment_Email		<o> @Search:Comment_Email AND }
+		{ Comment_ItemID	<o> @Search:Comment_ItemID AND }
+		1 = 1
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage	= ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Comment_ID]
+		,[Comment_Name]
+		,[Comment_Email]
+		,[Comment_Content]
+		,Comment_Rating
+		,Comment_IP
+		,'[ID:' + cast(Comment_ItemID as nvarchar(10)) + '] ' + (Select Post_Title from wcms_Post where Post_ID = Comment_ItemID) as [CommentForItem]
+		,DATEADD(hour, {@TIMEZONE}, Comment_Date) as [Comment_Date]
+		,case when [Comment_A] = 1 then 'checked' else '' end as [Comment_A]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Comment_ID]
+			,[Comment_Name]
+			,[Comment_Email]
+			,[Comment_Content]
+			,Comment_Rating
+			,[Comment_Date]
+			,Comment_IP
+			,Comment_ItemID
+			,[Comment_A]
+		from WCMS_Comment
+		where 		
+		{ Comment_Name		<o> @Search:Comment_Name AND }
+		{ Comment_Email		<o> @Search:Comment_Email AND }
+		{ Comment_ItemID	<o> @Search:Comment_ItemID AND }
+		1 = 1
+	) tb 
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex	
+	]]>
+  </SQL_SELECT_LIST>
+
+  <SQL_LOAD_EDIT>
+    <![CDATA[
+	set nocount on
+	select  [Comment_ID]
+		   ,[Comment_Name]
+		   ,[Comment_A]
+		   ,[Comment_Email]
+		   ,[Comment_Date]
+		   ,[Comment_Content]
+		   ,'[ID:' + cast(Comment_ItemID as nvarchar(10)) + '] ' + (Select Post_Title from wcms_Post where Post_ID = Comment_ItemID) as [CommentForItem]
+		   ,[Comment_Rating] 
+	from WCMS_Comment where Comment_ID = @editID	
+	]]>
+  </SQL_LOAD_EDIT>
+
+  <SQL_NEW><![CDATA[]]></SQL_NEW>
+  <SQL_ADD><![CDATA[]]></SQL_ADD>
+  <SQL_UPDATE><![CDATA[]]></SQL_UPDATE>
+
+  <SQL_UPDATE_ACTIVE>
+    <![CDATA[
+	declare @commentID int
+	set @commentID = @editID
+	update WCMS_Comment set [Comment_A] = @active where Comment_ID = @commentID
+	
+	/* update rating, count */
+	declare @itemID int, @rating int, @comment int
+	select @itemID = Comment_ItemID from wcms_Comment where Comment_ID = @commentID
+	set @rating = 0
+	set @comment = 0 
+	
+	select @rating = AVG(Comment_Rating), @comment = COUNT(Comment_ID)
+	from wcms_Comment where Comment_ItemID = @itemID and Comment_A = 1 
+	
+	update wcms_Post set Post_Rating = @rating, Post_CommentCount = @comment where Post_ID = @itemID
+	
+	select @commentID 
+	]]>
+  </SQL_UPDATE_ACTIVE>
+
+  <SQL_COPY><![CDATA[]]></SQL_COPY>
+
+  <SQL_DELETE>
+    <![CDATA[
+	set nocount on
+	declare @itemID int, @rating int, @comment int, @commentID int
+	set @rating = 0
+	set @comment = 0 
+	set @commentID = @delID
+	
+	select @itemID = Comment_ItemID from wcms_Comment where Comment_ID = @commentID
+	delete WCMS_Comment where Comment_ID = @commentID
+	
+	/* update rating, count */
+	select @rating = AVG(Comment_Rating), @comment = COUNT(Comment_ID)
+	from wcms_Comment where Comment_ItemID = @itemID and Comment_A = 1 
+	
+	update wcms_Post set Post_Rating = @rating, Post_CommentCount = @comment where Post_ID = @itemID
+	
+	select 1
+	]]>
+  </SQL_DELETE>
+</table>

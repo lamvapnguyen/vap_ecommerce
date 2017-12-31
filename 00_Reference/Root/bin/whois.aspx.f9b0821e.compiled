@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Pages/Whois.aspx" hash="fffffff3343c8b72" filehash="3282b26e3532" flags="110000" assembly="App_Web_1jzrd55w" type="ASP.pages_whois_aspx">
+    <filedeps>
+        <filedep name="/Pages/Whois.aspx" />
+    </filedeps>
+</preserve>

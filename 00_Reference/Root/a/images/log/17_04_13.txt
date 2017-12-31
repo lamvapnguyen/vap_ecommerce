@@ -1,0 +1,4 @@
+﻿17/04/13 12:59:39 <@> ADD ERROR [DM_DataManager] : String or binary data would be truncated.
+The statement has been terminated.
+17/04/13 12:59:53 <@> ADD ERROR [DM_DataManager] : String or binary data would be truncated.
+The statement has been terminated.

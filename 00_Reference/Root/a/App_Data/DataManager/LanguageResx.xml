@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_LangResx" Title="#Language Resx" R="103" EditRole="103" AddRole="102" DeleteRole="102" DefaultSort="LangResx_Name" DefaultSortAsc="true">
+	<controls>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5" />
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+		
+		<field Name="SysReload" Path="UC/DM_Reload.ascx" Pos="7"/>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+	</controls>
+	
+	<list>
+		<field Name="LangResx_Name" Title="#Key" Type="1" Sort="true" Css="width:200px;color:#900;"/>
+		<field Name="LangResx_Value1" Title="#Tiếng Việt" Sort="true" Css="while-space:normal;"/>
+		<field Name="LangResx_Value2" Title="#English" Sort="true" Css="while-space:normal;"/>
+	</list>
+	<command_plus><![CDATA[]]></command_plus>
+
+	<search>
+		<field Name="LangResx_Name" Title="#Key"/>
+		<field Name="LangResx_Value1" Title="#Tiếng Việt"/>
+		<field Name="LangResx_Value2" Title="#English"/>
+		<field Name="LangResx_Value3" Title="#日本語"/>
+		<field Name="LangResx_Value4" Title="#中文"/>
+		<field Name="LangResx_Value5" Title="#Korean"/>
+	</search>
+	
+	<edit>
+		<group Title="#Language Key" Pos="2" Expand="true">
+			<field Name="LangResx_Name" Title="#Key" Type="1" Property="Require='true' Css='color:#900;width:250px;'"/>
+			<field Name="LangResx_Value1" Title="#Tiếng Việt" Type="2" Property="Height='60px' Width='100%' Require='true'"/>
+			<field Name="LangResx_Value2" Title="#English" Type="2" Property="Height='60px' Width='100%'"/>
+			<field Name="LangResx_Value3" Title="#日本語" Type="2" Property="Height='60px' Width='100%'"/>
+			<field Name="LangResx_Value4" Title="#中文" Type="2" Property="Height='60px' Width='100%'"/>
+			<field Name="LangResx_Value5" Title="#Korean" Type="2" Property="Height='60px' Width='100%'"/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[ 
+	set nocount on
+	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem =
+	(
+		select count(0) 
+		from wcms_LangResx
+		where
+		{ LangResx_Name		<o> @Search:LangResx_Name and }
+		{ LangResx_Value1	<o> @Search:LangResx_Value1 and }
+		{ LangResx_Value2	<o> @Search:LangResx_Value2 and }
+		{ LangResx_Value3	<o> @Search:LangResx_Value3 and }
+		{ LangResx_Value4	<o> @Search:LangResx_Value4 and }
+		{ LangResx_Value5	<o> @Search:LangResx_Value5 and }
+		1 = 1
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [LangResx_ID]
+		,[LangResx_Name]
+		,[LangResx_Value1]
+		,[LangResx_Value2]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[LangResx_ID]
+			,[LangResx_Name]
+			,[LangResx_Value1]
+			,[LangResx_Value2]
+		from wcms_LangResx
+		where
+		{ LangResx_Name		<o> @Search:LangResx_Name and }
+		{ LangResx_Value1	<o> @Search:LangResx_Value1 and }
+		{ LangResx_Value2	<o> @Search:LangResx_Value2 and }
+		{ LangResx_Value3	<o> @Search:LangResx_Value3 and }
+		{ LangResx_Value4	<o> @Search:LangResx_Value4 and }
+		{ LangResx_Value5	<o> @Search:LangResx_Value5 and }
+		1 = 1
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[
+	select [LangResx_ID]
+		,[LangResx_Name]
+		,[LangResx_Value1]
+		,[LangResx_Value2]
+		,[LangResx_Value3]
+		,[LangResx_Value4]
+		,[LangResx_Value5]
+	from wcms_LangResx where LangResx_ID = @editID 	
+	]]>
+	</SQL_LOAD_EDIT>
+	
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+
+	<SQL_ADD>
+	<![CDATA[
+	insert wcms_LangResx
+	(
+		 [LangResx_Name]
+		,[LangResx_Value1]
+		,[LangResx_Value2]
+		,[LangResx_Value3]
+		,[LangResx_Value4]
+		,[LangResx_Value5]
+	) 
+	values
+	(
+		 {@Get:LangResx_Name}
+		,{@Get:LangResx_Value1}
+		,{@Get:LangResx_Value2}
+		,{@Get:LangResx_Value3}
+		,{@Get:LangResx_Value4}
+		,{@Get:LangResx_Value5}
+	)
+	select SCOPE_IDENTITY()	
+	]]>
+	</SQL_ADD>
+		
+	<SQL_UPDATE>
+	<![CDATA[ 
+	set nocount on 
+	
+	Update wcms_LangResx set
+		 [LangResx_Value1] = {@Get:LangResx_Value1}
+		,[LangResx_Value2] = {@Get:LangResx_Value2}
+		,[LangResx_Value3] = {@Get:LangResx_Value3}
+		,[LangResx_Value4] = {@Get:LangResx_Value4}
+		,[LangResx_Value5] = {@Get:LangResx_Value5}
+	where LangResx_ID = @editID 
+	
+	if ({@Get:LangResx_SiteID} = 0) 
+		Delete from wcms_LangResx where LangResx_ID <> @editID
+		
+	select @editID 	
+	]]>	
+	</SQL_UPDATE>
+
+	<SQL_UPDATE_ACTIVE><![CDATA[]]></SQL_UPDATE_ACTIVE>
+
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+	delete wcms_LangResx where LangResx_ID = @delID 
+	select 1 
+	]]>
+	</SQL_DELETE>
+</table>

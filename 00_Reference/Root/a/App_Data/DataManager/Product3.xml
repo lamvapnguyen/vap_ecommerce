@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Product" Title="#Mẫu thiết kế" R="503" DefaultSort="Product_Code" DefaultSortAsc="false">
+  <controls>
+    <field Name="Search" Path="UC/DM_Search.ascx" Pos="4" Property="SqlSP='SP_A_R_001_Tree_PageProduct' ParentID='3' Active='true' IsHeader='true' EnableHeader='false' FilterName='Product_PageID' ExpandDepth='3'"/>
+    <field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+    <field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+    <field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+    <field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+    <field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	<field Name="WCMS_Product" Path="Process/Product.ascx" Pos="7"/>
+  </controls>
+  <command_plus><![CDATA[]]></command_plus>
+  <html><![CDATA[]]></html>
+
+  <list>
+	<field Name="Product_ID" Title="f_id" Type="1" Sort="true" Css="width:45px;text-align:left;color:#a00;"/>
+	<field Name="Product_Code" Title="#Code Name" Type="1" Sort="true" Css="width:120px;text-align:left;color:#a00;"/>
+    <field Name="Product_Title" Title="f_title" Type="1" Sort="true" Css="color:#696969;"/>
+    <field Name="Product_Price1" Title="f_price1" Sort="true" Css="width:70px;text-align:right;"/>
+	<field Name="Product_Price2" Title="f_price2" Sort="true" Css="width:70px;text-align:right;"/>
+	<field Name="Product_ID" Title="f_comment" Type="4" Css="width:85px;text-align:center;"/>
+	<field Name="Product_O" Title="f_ordinal" Sort="true" Css="width:55px;text-align:center;"/>
+	<field Name="Product_A" Title="f_active" Type="3" Sort="true" Css="width:60px;text-align:center;"/>
+	<field Name="Product_ImageLink" Type="5" Sort="true" Css="width:110px;"/>
+  </list>
+
+  <search>
+	<field Name="Product_Code" Title="#Code Name"/>
+	<field Name="Product_Title" Title="f_title"/>
+	<field Name="Product_ID" Title="f_id"/>
+	<field Name="Product_Tags" Title="f_tags"/>
+  </search>
+
+  <edit>
+    <group Title="group_brief" Pos="2" Expand="true">
+		<field Name="Product_Title" Title="f_title" Type="1" Property="Require='true' MaxLength='300' Width='100%'"/>
+		<field Name="Product_Code" Title="#Code Name" Type="1" Property="Require='true' Width='200px'"/>
+		<field Name="Product_Link" Title="#Website" Type="1" Property="Width='200px'"/>
+		<field Name="Product_PriceText" Title="#Giá hiển thị (text)" Type="1" Property="Width='200px'"/>
+		<field Name="Product_Price1" Title="f_price1" Type="1" Property="Width='90px' Currency='true' Css='text-align:right;'"/>
+		<field Name="Product_Price2" Title="f_price2" Type="1" Property="Width='90px' Currency='true' Css='text-align:right;color:#c00;'"/>
+		<field Name="Product_ImageLink" Title="f_thumb" Type="15" Property="BrowserType='thumb_image' Width='450px' MediaID='thumbimage'"/>
+		<field Name="Product_File" Title="#Hình lớn" Type="15" Property="BrowserType='all' Width='450px'"/>
+		<field Name="Product_P1" Title="#Giới thiệu" Type="3" Property="BriefType='true' InsertFileType='medium_image' InsertFileCount='5' Height='200'"/>
+		<field Name="Product_P2" Title="#Lợi ích" Type="3" Property="BriefType='true' InsertFileType='medium_image' InsertFileCount='5' Height='200'"/>
+		<field Name="Product_Brief" Title="f_brief" Type="3" Property="BriefType='true' InsertFileType='medium_image' InsertFileCount='5' Height='200'"/>
+    </group>
+	<group Title="group_properties" Pos="3" Expand="true">
+		<field Name="Product_O" Title="f_ordinal" Type="1" Property="Default='500' Width='60px'"/>
+		<field Name="Product_A" Title="f_active" Type="5" Property="Default='true'"/>
+    </group>
+	<group Title="f_product_info" Pos="2" Expand="true">
+		<field Name="Product_Description" Type="3" Property="InsertFileType='medium_image' InsertFileCount='50'"/>
+	</group>
+	<group Title="group_properties" Pos="2" Expand="true" Columns="2">
+		<field Name="Product_Property" Type="20" Property="Root='1' MultiLine='false'"/>
+	</group>
+	<group Title="f_images" Pos="2" Expand="true">
+		<field Name="Product_ImageType" Type="7" Property="Data='Normal:3;Right:4;Bottom:5' Default='3' RepeatColumns='5'"/>
+		<field Name="Product_Images" Type="16"/>
+	</group>
+	<group Title="f_page_list" Pos="3" Expand="true">
+		<field Name="ProductPageList" Note="#help_product_pages" Type="9" Property="SqlSP='SP_A_R_001_Tree_PageProduct' ParentID='3' Active='true' IsHeader='true' EnableHeader='false' Format='{1}' Seperator=';' Height='550px'"/>
+	</group>
+	<group Title="group_meta" Pos="3" Expand="true">
+		<field Name="Product_MetaTitle" Title="f_meta_title" Type="1" Property="Width='99%' MaxLength='200'"/>
+		<field Name="Product_MetaKeywords" Title="f_meta_key" Type="2" Property="Height='100px' WrapText='true' MaxLength='1000'"/>
+		<field Name="Product_MetaDescription" Title="f_meta_description" Type="2" Property="Height='100px' WrapText='true' MaxLength='1000'"/>
+	</group>
+	<group Title="f_post_slave" Pos="2" Expand="true">
+		<field Name="Product_PublishingDate" Title="f_publishing_date" Type="4"/>
+		<field Name="Product_Tags" Title="f_tags" Type="24" Note="#help_tags" Property="Width='450px' SqlSP='SP_U_R_001_List_GetKeywords'"/>
+		<field Name="Product_Viewed" Title="f_viewed" Type="1" Property="Width='60px' Default='1'"/>
+		<field Name="Product_Hot" Title="f_product_hot" Type="5" Property="Default='false'"/>
+	</group>
+  </edit>
+
+  <SQL_SELECT_LIST>
+    <![CDATA[
+	set nocount on
+	
+	declare	@totalItem int, @totalPage int
+	set @totalItem =
+	(
+		select count(0) from WCMS_Product 
+		{ inner join wcms_PageProduct on [PageProduct_ProductID] = Product_ID AND [PageProduct_PageID] = @Search:Product_PageID }
+		where Product_Type = 3 AND Product_SiteID = @siteID AND Product_LanguageID = @langID
+		{ AND Product_ID	<o> @Search:Product_ID }
+		{ AND Product_Code	<o> @Search:Product_Code }
+		{ AND Product_Title	<o> @Search:Product_Title }
+		{ AND exists(select top 1 null from [dbo].[F_001_StringToTable](Product_Tags, ',') where LTRIM(RTRIM(Data)) = @Search:Product_Tags) }
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage	= ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Product_ID]
+		,[Product_Title]
+		,[Product_ImageLink]
+		,[Product_O]
+		,case when [Product_A] = 1 then 'checked' else '' end as [Product_A]
+		,0 as [locked]
+		,case when (Select count(0) from wcms_ProductComment where ProductComment_ItemID = [Product_ID]) > 0 then 'view' else '' end as [Comment_Count]
+		,1 as [Comment_Type]
+		,[Product_Code]
+		,replace(CONVERT(varchar, Product_Price2, 1), '.00', '') + isnull(N'<div style="padding-top:5px;">' + Product_PriceText + N'</div>','') as Product_Price2
+        ,replace(CONVERT(varchar, Product_Price1, 1), '.00', '') as Product_Price1
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Product_ID]
+			,Product_Title + '</span>' + (case when Product_Tags is null then '' else '<div class="small_italic"><span style="text-decoration:underline;">Tags</span>: ' + Product_Tags + '</div>' end) + '<span>' as [Product_Title]
+			,[Product_ImageLink]
+			,[Product_O]
+			,[Product_A]
+			,[Product_Code]
+            ,Product_Price2
+            ,Product_Price1
+			,Product_PriceText
+		from WCMS_Product
+		{ inner join wcms_PageProduct on [PageProduct_ProductID] = Product_ID AND [PageProduct_PageID] = @Search:Product_PageID }
+		where Product_Type = 3 AND Product_SiteID = @siteID AND Product_LanguageID = @langID
+		{ AND Product_ID	<o> @Search:Product_ID }
+		{ AND Product_Code	<o> @Search:Product_Code }
+		{ AND Product_Title	<o> @Search:Product_Title }
+		{ AND exists(select top 1 null from [dbo].[F_001_StringToTable](Product_Tags, ',') where LTRIM(RTRIM(Data)) = @Search:Product_Tags) }
+	) tb 
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex	
+	]]>
+  </SQL_SELECT_LIST>
+
+  <SQL_LOAD_EDIT>
+    <![CDATA[
+	set nocount on
+	declare @pageList nvarchar(max) 
+	set @pageList = ''
+	select @pageList = @pageList + ';' + convert(nvarchar(10), PageProduct_PageID)
+	from wcms_PageProduct where PageProduct_ProductID = @editID
+	if (@pageList <> '') set @pageList = substring(@pageList, 2, len(@pageList) - 1)
+	
+	select  [Product_ID]
+			,[Product_Code]
+		   ,[Product_Title]
+		   ,[Product_O]
+		   ,[Product_A]
+		   ,[Product_Brief]
+		   ,[Product_Description]
+		   ,[Product_ImageLink]
+		   ,[Product_Images]
+		   ,[Product_ImageType]
+		   ,[Product_PublishingDate]
+		   ,[Product_Tags]
+		   ,[Product_Viewed]
+		   ,[Product_Hot]
+		   ,[Product_MetaTitle]
+		   ,[Product_MetaKeywords]
+		   ,[Product_MetaDescription]
+		   ,[Product_File]
+		   ,[Product_Link]
+		   ,[Product_Property]
+		   ,@pageList as [ProductPageList]
+		   ,'' as [Product_TitleUrl]
+		   ,'' as [Product_FullText]
+		   ,[Product_Price2]
+           ,[Product_Price1]
+		   ,Product_P1
+		   ,Product_P2
+		   ,Product_PriceText
+	from WCMS_Product where Product_ID = @editID	
+	]]>
+  </SQL_LOAD_EDIT>
+
+  <SQL_NEW><![CDATA[]]></SQL_NEW>
+  
+  <SQL_ADD>
+  <![CDATA[
+	declare @gid int = {@GID}
+	if (@gid = 25)
+	BEGIN
+		select 0
+		return;
+	END
+	
+	insert wcms_Product
+	(
+		[Product_LanguageID]
+		,[Product_SiteID]
+		,[Product_Type]
+		,[Product_Code]
+		,[Product_Title]
+		,[Product_O]
+		,[Product_A]
+		,[Product_Brief]
+		,[Product_Description]
+		,[Product_ImageLink]
+		,[Product_Images]
+		,[Product_ImageType]
+		,[Product_PublishingDate]
+		,[Product_Tags]
+		,[Product_Viewed]
+		,[Product_Hot]
+		,[Product_CreateDate]
+		,[Product_ModifyDate]
+		,[Product_CommentCount]
+		,[Product_CommentPending]
+		,[Product_TitleUrl]
+		,[Product_FullText]
+		,[Product_Property]
+		,[Product_MetaTitle]
+		,[Product_MetaKeywords]
+		,[Product_MetaDescription]
+		,[Product_File]
+		,[Product_Link]
+		,[Product_Price2]
+        ,[Product_Price1]
+		,Product_P1
+		,Product_P2
+		,Product_PriceText
+	) 
+	values
+	(
+		@langID
+		,@siteID
+		,3
+		,{@Get:Product_Code}
+		,{@Get:Product_Title}
+		,{@Get:Product_O}
+		,{@Get:Product_A}
+		,{@Get:Product_Brief}
+		,{@Get:Product_Description}
+		,{@Get:Product_ImageLink}
+		,{@Get:Product_Images}
+		,{@Get:Product_ImageType}
+		,{@Get:Product_PublishingDate}
+		,{@Get:Product_Tags}
+		,{@Get:Product_Viewed}
+		,{@Get:Product_Hot}	
+		,getutcdate()
+		,getutcdate()
+		,0
+		,0
+		,{@Get:Product_TitleUrl}
+		,{@Get:Product_FullText}
+		,{@Get:Product_Property}
+		,{@Get:Product_MetaTitle}
+		,{@Get:Product_MetaKeywords}
+		,{@Get:Product_MetaDescription}
+		,{@Get:Product_File}
+		,{@Get:Product_Link}
+		,{@Get:Product_Price2}
+        ,{@Get:Product_Price1}
+		,{@Get:Product_P1}
+		,{@Get:Product_P2}
+		,{@Get:Product_PriceText}
+	)
+	
+	declare @id int 
+	set @id = SCOPE_IDENTITY()
+	
+	-- Page list
+	Insert wcms_PageProduct(PageProduct_PageID, PageProduct_ProductID)
+	select Data, @id from [dbo].[F_001_StringToTable]({@Get:ProductPageList}, ';')
+	
+	-- Keyword
+	Select LTRIM(RTRIM(Data)) as Data into #tbl2 from [dbo].[F_001_StringToTable]({@Get:Product_Tags}, ';')
+	Delete from #tbl2 where [Data] = ''
+	
+	Insert into wcms_Keyword510(Keyword510_Name, Keyword510_SearchCount)
+	select Data,1 from #tbl2 where not exists (select top 1 null from wcms_Keyword510 where Keyword510_Name = Data)
+	
+	Insert into wcms_ProductKeyword(ProductKeyword_ProductID, ProductKeyword_KeywordID)
+	select @id, Keyword510_ID from wcms_Keyword510 inner join #tbl2 on Keyword510_Name = Data
+
+	drop table #tbl2
+	
+	select @id
+  ]]>
+  </SQL_ADD>
+
+  <SQL_UPDATE>
+    <![CDATA[
+	set nocount on	
+	declare @id int
+	set @id = @editID
+	
+	declare @gid int = {@GID}
+	if (@gid = 25)
+	BEGIN
+		update WCMS_Product set
+			[Product_MetaTitle]	= {@Get:Product_MetaTitle}
+			,[Product_MetaKeywords]	= {@Get:Product_MetaKeywords}
+			,[Product_MetaDescription]	= {@Get:Product_MetaDescription}
+		where Product_ID = @id
+		
+		select @id
+		return;
+	END
+	
+	update WCMS_Product set
+		[Product_Title]			= {@Get:Product_Title}
+		,[Product_Code]			= {@Get:Product_Code}
+		,[Product_O]			= {@Get:Product_O}
+		,[Product_A]			= {@Get:Product_A}
+		,[Product_Brief]		= {@Get:Product_Brief}
+		,[Product_Description]	= {@Get:Product_Description}
+		,[Product_ImageLink]	= {@Get:Product_ImageLink}
+		,[Product_Images]		= {@Get:Product_Images}
+		,[Product_ImageType]	= {@Get:Product_ImageType}
+		,[Product_PublishingDate]	= {@Get:Product_PublishingDate}
+		,[Product_Tags]			= {@Get:Product_Tags}
+		,[Product_Viewed]		= {@Get:Product_Viewed}
+		,[Product_Hot]			= {@Get:Product_Hot}
+		,[Product_ModifyDate]	= getutcdate()
+		,[Product_TitleUrl]		= {@Get:Product_TitleUrl}
+		,[Product_FullText]		= {@Get:Product_FullText}
+		,[Product_Property]		= {@Get:Product_Property}
+		,[Product_MetaTitle]	= {@Get:Product_MetaTitle}
+		,[Product_MetaKeywords]	= {@Get:Product_MetaKeywords}
+		,[Product_MetaDescription]	= {@Get:Product_MetaDescription}
+		,[Product_File] 				= {@Get:Product_File}
+		,[Product_Link]	= {@Get:Product_Link}
+		,[Product_Price2]	= {@Get:Product_Price2}
+        ,[Product_Price1]	= {@Get:Product_Price1}
+		,Product_P1 = {@Get:Product_P1}
+		,Product_P2 = {@Get:Product_P2}
+		,Product_PriceText = {@Get:Product_PriceText}
+	where Product_ID = @id
+	
+	-- Page list
+	Select Data into #tmpTb from [dbo].[F_001_StringToTable]({@Get:ProductPageList}, ';')
+	
+	Delete wcms_PageProduct where PageProduct_ProductID = @id AND PageProduct_PageID not in (select Data from #tmpTb)
+	
+	Insert wcms_PageProduct(PageProduct_PageID, PageProduct_ProductID)
+	select Data, @id from #tmpTb where Data not in (select PageProduct_PageID from wcms_PageProduct where PageProduct_ProductID = @id)
+	
+	drop table #tmpTb
+	
+	-- Keyword
+	Select LTRIM(RTRIM(Data)) as Data into #tbl2 from [dbo].[F_001_StringToTable]({@Get:Product_Tags}, ';')
+	Delete from #tbl2 where [Data] = ''
+	
+	Insert into wcms_Keyword510(Keyword510_Name, Keyword510_SearchCount)
+	select Data,1 from #tbl2 where not exists (select top 1 null from wcms_Keyword510 where Keyword510_Name = Data)
+	
+	Delete wcms_ProductKeyword where ProductKeyword_ProductID = @id
+	
+	Insert into wcms_ProductKeyword(ProductKeyword_ProductID, ProductKeyword_KeywordID)
+	select @id, Keyword510_ID from wcms_Keyword510 inner join #tbl2 on Keyword510_Name = Data
+
+	drop table #tbl2
+		
+	select @id
+	]]>
+  </SQL_UPDATE>
+
+  <SQL_UPDATE_ACTIVE>
+    <![CDATA[
+	Update WCMS_Product set [Product_A] = @active where Product_ID = @editID	
+	Select @editID 
+	]]>
+  </SQL_UPDATE_ACTIVE>
+
+  <SQL_COPY><![CDATA[]]></SQL_COPY>
+
+  <SQL_DELETE>
+    <![CDATA[
+	set nocount on
+	declare @id int
+	set @id = @delID
+	
+	Delete wcms_ProductKeyword where ProductKeyword_ProductID = @id	
+	Delete wcms_PageProduct	where PageProduct_ProductID = @id
+	Delete wcms_ProductComment where ProductComment_ItemID = @id
+	set nocount off
+	
+	Delete WCMS_Product where Product_ID = @id	
+	Select @@ROWCOUNT
+	]]>
+  </SQL_DELETE>
+</table>

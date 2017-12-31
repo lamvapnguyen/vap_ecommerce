@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/DataManager/UC/DM_ExportEmail.ascx" hash="fffffffaa8934d59" filehash="fffff2d34bd17d0f" flags="110000" assembly="App_Web_4kbb4rs4" type="ASP.views_datamanager_uc_dm_exportemail_ascx">
+    <filedeps>
+        <filedep name="/Views/DataManager/UC/DM_ExportEmail.ascx" />
+    </filedeps>
+</preserve>

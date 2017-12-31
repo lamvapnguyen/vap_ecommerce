@@ -1,0 +1,25 @@
+﻿<root>
+  <header>
+    <![CDATA[
+<div style="float:left;"><img src="http://www.tim30s.com/images/upload/Banner/logo.png" alt="logo" height="70px" style="border:0;" /></div>
+<div style="float:left; color:#333; padding-left:20px;">
+    <div>Làm Việc Thông Minh hoàn toàn có thể giúp bạn:</div>
+    <div>
+        <ul>
+            <li>• Thiết kế 1 website đẹp, giá rẻ</li>
+            <li>• Thiết kế 1 website theo yêu cầu của bạn</li>
+            <li>• Thiết kế 1 website kinh doanh chuyên nghiệp</li>
+        </ul>
+    </div>
+</div>
+<div style="clear:both; color:#3072B2; font-weight:bold; padding-top:10px;">Bạn muốn nhận Email từ Chúng tôi để biết thêm chi tiết dịch vụ?</div>
+<div style="clear:both;"></div>
+    ]]>
+  </header>
+  
+  <footer>
+    <![CDATA[
+<div>Chúng tôi thành thật xin lỗi vì đã làm phiền Bạn.</div>
+    ]]>
+  </footer>
+</root>

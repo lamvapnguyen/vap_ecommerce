@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{AB3A5423-0E78-49F3-9440-14C17B3169CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{3C4B2E83-F6F7-4D23-BFA2-FFECAFCFC6C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{C6498BD4-C7E0-4C3A-AA4A-F9A15F786664}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vap.Web", "Presentation\Vap.Web\Vap.Web.csproj", "{85F806E0-CDC9-4853-B8DF-2D6B08C6563A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vap.Plugin.HRA.Staff", "Plugins\Vap.Plugin.HRA.Staff\Vap.Plugin.HRA.Staff.csproj", "{1AEC9BEB-69F4-42D8-9186-6308BD81BE7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vap.Plugin.HRA.TestAuthor", "Plugins\Vap.Plugin.HRA.TestAuthor\Vap.Plugin.HRA.TestAuthor.csproj", "{601E62D3-55B5-411F-9B2D-B58C5D98CE56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vap.Framework.Configuration", "Libraries\Vap.Framework.Configuration\Vap.Framework.Configuration.csproj", "{76D30D55-5CF9-458F-A502-C646DDCB9045}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vap.Plugin.Admin.UserRoles", "Plugins\Vap.Plugin.Admin.UserRoles\Vap.Plugin.Admin.UserRoles.csproj", "{0AAB94C1-C3AB-4F14-9001-BA0D3F1A4C6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BFFB8D39-3C0C-4A55-9DAB-643F87B052E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vap.Plugin.Users.MyAccount", "Plugins\Vap.Plugin.Users.MyAccount\Vap.Plugin.Users.MyAccount.csproj", "{F5EF19D8-0A42-410C-89CD-46A112CB4CD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vap.Plugin.Admin.Menu", "Plugins\Vap.Plugin.Admin.Menu\Vap.Plugin.Admin.Menu.csproj", "{85BE6E94-958B-4C19-B92F-8561F885C0DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vap", "Libraries\Vap\Vap.csproj", "{FD9B36F9-55F5-456A-9230-33AC6C9B87F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85F806E0-CDC9-4853-B8DF-2D6B08C6563A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85F806E0-CDC9-4853-B8DF-2D6B08C6563A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85F806E0-CDC9-4853-B8DF-2D6B08C6563A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85F806E0-CDC9-4853-B8DF-2D6B08C6563A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AEC9BEB-69F4-42D8-9186-6308BD81BE7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AEC9BEB-69F4-42D8-9186-6308BD81BE7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AEC9BEB-69F4-42D8-9186-6308BD81BE7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AEC9BEB-69F4-42D8-9186-6308BD81BE7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{601E62D3-55B5-411F-9B2D-B58C5D98CE56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{601E62D3-55B5-411F-9B2D-B58C5D98CE56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{601E62D3-55B5-411F-9B2D-B58C5D98CE56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{601E62D3-55B5-411F-9B2D-B58C5D98CE56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D30D55-5CF9-458F-A502-C646DDCB9045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D30D55-5CF9-458F-A502-C646DDCB9045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D30D55-5CF9-458F-A502-C646DDCB9045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D30D55-5CF9-458F-A502-C646DDCB9045}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AAB94C1-C3AB-4F14-9001-BA0D3F1A4C6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AAB94C1-C3AB-4F14-9001-BA0D3F1A4C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AAB94C1-C3AB-4F14-9001-BA0D3F1A4C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AAB94C1-C3AB-4F14-9001-BA0D3F1A4C6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5EF19D8-0A42-410C-89CD-46A112CB4CD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5EF19D8-0A42-410C-89CD-46A112CB4CD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5EF19D8-0A42-410C-89CD-46A112CB4CD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5EF19D8-0A42-410C-89CD-46A112CB4CD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85BE6E94-958B-4C19-B92F-8561F885C0DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85BE6E94-958B-4C19-B92F-8561F885C0DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85BE6E94-958B-4C19-B92F-8561F885C0DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85BE6E94-958B-4C19-B92F-8561F885C0DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD9B36F9-55F5-456A-9230-33AC6C9B87F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD9B36F9-55F5-456A-9230-33AC6C9B87F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD9B36F9-55F5-456A-9230-33AC6C9B87F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD9B36F9-55F5-456A-9230-33AC6C9B87F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1AEC9BEB-69F4-42D8-9186-6308BD81BE7B} = {AB3A5423-0E78-49F3-9440-14C17B3169CC}
+		{601E62D3-55B5-411F-9B2D-B58C5D98CE56} = {AB3A5423-0E78-49F3-9440-14C17B3169CC}
+		{0AAB94C1-C3AB-4F14-9001-BA0D3F1A4C6E} = {AB3A5423-0E78-49F3-9440-14C17B3169CC}
+		{F5EF19D8-0A42-410C-89CD-46A112CB4CD3} = {AB3A5423-0E78-49F3-9440-14C17B3169CC}
+		{85BE6E94-958B-4C19-B92F-8561F885C0DB} = {AB3A5423-0E78-49F3-9440-14C17B3169CC}
+		{85F806E0-CDC9-4853-B8DF-2D6B08C6563A} = {3C4B2E83-F6F7-4D23-BFA2-FFECAFCFC6C5}
+		{76D30D55-5CF9-458F-A502-C646DDCB9045} = {C6498BD4-C7E0-4C3A-AA4A-F9A15F786664}
+		{FD9B36F9-55F5-456A-9230-33AC6C9B87F4} = {C6498BD4-C7E0-4C3A-AA4A-F9A15F786664}
+	EndGlobalSection
+EndGlobal

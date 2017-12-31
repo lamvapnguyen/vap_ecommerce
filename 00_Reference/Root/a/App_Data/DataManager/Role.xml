@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Role" Title="#Roles" R="102" DefaultSort="Role_ID" DefaultSortAsc="true">
+	<controls>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+		
+		<field Name="DataTree" Path="UC/DM_DataTree.ascx" Pos="1" Property="Title='f_role_list' SqlSP='SP_A_R_001_Tree_Role' ShowHeader='1' FilterName='Role_ParentID'"/>
+	</controls>
+	
+	<list>
+		<field Name="Role_ID" Title="f_id" Sort="true" Css="width:80px;text-align:left;color:#a00;"/>
+		<field Name="Role_Name" Title="f_name" Type="1" Sort="true" />
+		<field Name="Role_IsAdmin" Title="f_role_admin" Type="2" Sort="true" Css="width:60px;text-align:center;"/>
+		<field Name="Role_A" Title="f_active" Type="3" Sort="true" Css="width:60px;text-align:center;"/>
+	</list>
+
+  <command_plus><![CDATA[]]></command_plus>
+
+	<search>
+		<field Name="Role_ID" Title="f_id"/>
+		<field Name="Role_Name" Title="f_name"/>
+	</search>
+	
+	<edit>
+		<group Title="group_information" Pos="2" Expand="true">
+			<field Name="Role_ParentID" Title="f_role_parent" Type="8" Property="SqlSP='SP_A_R_001_Tree_Role' Level='1' EnableHeader='true' Format='{1}' Seperator=';'"/>
+			<field Name="Role_ID" Title="f_id" Type="1" Property="Require='true' Width='80px'"/>
+			<field Name="Role_Name" Title="f_name" Type="1" Property="Require='true'"/>			
+			<field Name="Role_IsAdmin" Title="f_role_admin" Type="5" Property="Default='false'"/>
+			<field Name="Role_RoleGroup" Title="f_group_list" Type="6" Property="SqlSP='SP_A_R_001_Tree_Group' EnableHeader='true' Format='{1}' RepeatColumns='2' Seperator=';'"/>
+			<field Name="Role_A" Title="f_active" Type="5" Property="Default='true'"/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[
+	set nocount on
+	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem	= 
+	(
+		select count(0) from wcms_Role 
+		where 
+		{ Role_ID 			<o> @Search:Role_ID and }
+		{ Role_Name 		<o> @Search:Role_Name and }
+		{ Role_ParentID 	<o> @Search:Role_ParentID and }
+		1 = 1
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage	= ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Role_ID]
+		,[Role_Name]
+		,[Role_IsAdmin] 
+		,case when [Role_A] = 1 then 'checked' else '' end as [Role_A]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Role_ID]
+			,[Role_Name]
+			,[Role_IsAdmin]
+			,[Role_A]
+		from wcms_Role
+		where 
+		{ Role_ID 			<o> @Search:Role_ID and }
+		{ Role_Name 		<o> @Search:Role_Name and }
+		{ Role_ParentID 	<o> @Search:Role_ParentID and }
+		1 = 1
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 AND @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[ 
+	set nocount on
+	
+	declare @GroupRole nvarchar(max) 
+	set @GroupRole = ''
+	select @GroupRole = @GroupRole + ';' + convert(nvarchar(10), GroupRole_GroupID)
+	from wcms_GroupRole where GroupRole_RoleID = @editID
+	if (@GroupRole <> '') set @GroupRole = substring(@GroupRole, 2, len(@GroupRole) - 1)
+
+	select [Role_ID]
+		,[Role_Name]
+		,[Role_IsAdmin]
+		,@GroupRole as [Role_RoleGroup]
+		,[Role_ParentID]
+		,[Role_A]
+	from wcms_Role where Role_ID = @editID 
+	]]>
+	</SQL_LOAD_EDIT>
+
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+
+	<SQL_ADD>
+	<![CDATA[
+	set nocount on	
+	declare @Role_ID int 
+	set @Role_ID = {@Get:Role_ID}
+	
+	insert wcms_Role
+	(
+		[Role_ID]
+       ,[Role_Name]
+       ,[Role_IsAdmin]
+	   ,[Role_ParentID]
+	   ,[Role_A]
+	) 
+	values
+	(
+		 @Role_ID
+		,{@Get:Role_Name}
+		,{@Get:Role_IsAdmin}
+		,{@Get:Role_ParentID}
+		,{@Get:Role_A}
+	)
+	
+	insert wcms_GroupRole(GroupRole_GroupID, GroupRole_RoleID)
+	select Data, @Role_ID from [dbo].[F_001_StringToTable]({@Get:Role_RoleGroup}, ';')
+	
+	select @Role_ID
+	]]>
+	</SQL_ADD>
+
+	<SQL_UPDATE>
+	<![CDATA[
+	set nocount on
+
+	update wcms_Role set 
+		[Role_Name] 		= {@Get:Role_Name}
+		,[Role_IsAdmin] 	= {@Get:Role_IsAdmin}
+		,[Role_ParentID] 	= {@Get:Role_ParentID}
+		,[Role_A] 			= {@Get:Role_A}
+	where Role_ID = @editID
+	
+	delete wcms_GroupRole where GroupRole_RoleID = @editID
+	
+	insert wcms_GroupRole(GroupRole_GroupID, GroupRole_RoleID)
+	select Data, @editID from [dbo].[F_001_StringToTable]({@Get:Role_RoleGroup}, ';')
+	
+	select @editID
+	]]>	
+	</SQL_UPDATE>
+
+	<SQL_UPDATE_ACTIVE>
+	<![CDATA[
+	update wcms_Role set [Role_A]= @active
+	where Role_ID = @editID
+	select @editID 
+	]]>
+	</SQL_UPDATE_ACTIVE>
+
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+	delete wcms_GroupRole where GroupRole_RoleID = @delID
+	delete wcms_Role where Role_ID = @delID
+	select 1
+	]]>
+	</SQL_DELETE>
+</table>

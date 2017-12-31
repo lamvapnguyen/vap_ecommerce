@@ -1,0 +1,553 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Page" Title="dm_page_title" R="306" DefaultSort="Page_HierarchySort" DefaultSortAsc="true">
+  <controls>
+    <field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+    <field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+    <field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+    <field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+    <field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+    <field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	<field Name="WCMS_Page" Path="Process/Page.ascx" Pos="7"/>
+  </controls>
+
+  <list>
+    <field Name="Page_ID" Title="f_id" Type="1" Css="width:70px;color:#a00;"/>
+    <field Name="Page_Title" Title="f_title" Type="1"/>
+	<field Name="PageUrl" Type="0" Css="width:30px;"/>
+	<field Name="PageProperty" Type="1" Css="width:35px;color:#a00;text-align:center;"/>
+	<field Name="Page_A" Title="f_active" Type="3" Css="width:60px;text-align:center;"/>
+  </list>
+
+  <command_plus><![CDATA[]]></command_plus>
+
+  <search>
+	<field Name="Page_Title" Title="f_title"/>
+	<field Name="Page_ID" Title="f_id"/>
+  </search>
+
+  <edit>
+    <group Title="group_information" Pos="2" Expand="true">
+		<field Name="Page_ParentID" Title="f_page_parent" Type="22" Property="SqlSP='SP_A_R_001_Tree_Page' ShowHeader='false' Format='{1}' DisplayNoSelectText='false'"/>
+		<field Name="Page_O" Title="f_page_ordinal" Type="12" Property="SqlSP='SP_A_R_001_Tree_PageOrdinal' ShowLock='true' EnableHeader='false' Width='150px'"/>
+		<field Name="Page_Title" Title="f_title" Type="1" Property="Require='true' MaxLength='200' Width='98%'"/>
+		<field Name="Page_TitleAlias" Title="f_title_alias" Note="#help_title_alias" Type="1" Property="MaxLength='200' Width='98%'"/>
+		<field Name="Page_Type" Title="f_page_type" Type="8" Note="#help_page_type" Property="SqlSP='SP_A_R_001_Tree_Definition' ParentID='1000' Active='true' Default='1213' EnableHeader='false' Format='{1}' DisplayNoSelectText='false'"/>
+		<field Name="Page_IsHomepage" Title="f_page_is_home" Type="5" Property="Default='false'"/>
+		<field Name="Page_MediaLink" Title="f_page_sound" Type="15" Property="BrowserType='all' Width='450px' MediaID='videolink'"/>
+		<field Name="Page_Background" Title="f_background" Type="15" Property="BrowserType='all' Width='450px'"/>
+		<field Name="Page_UrlLink" Title="f_page_is_link" Type="1" Property="Width='80%'"/>
+    </group>
+	<group Title="group_layout" Pos="2" Expand="true">
+		<field Name="Page_UC" Type="14" />
+	</group>
+	<group Title="group_option" Pos="2" Columns="2" Expand="false">
+		<field Name="Page_DefaultTheme" Title="f_theme_default" Type="8" Property="SqlSP='SP_A_R_001_GetThemesList' ParentID='3300' Active='true' EnableHeader='false' ShowLock='true' Format='{1}'"/>
+		<field Name="Page_CssClass" Title="f_page_css" Type="1" Property="Width='200px'"/>
+		<field Name="Page_Mark" Title="f_mark" Type="1" Property="Width='300px' Css='color:#f00;'"/>
+	</group>
+	<group Title="group_contact" Pos="2" Expand="true">
+		<field Name="Page_Email" Title="f_email" Type="1" Property="MaxLength='100' Width='250px'"/>
+		<field Name="Page_Ext2" Title="f_map" Type="2" Property="Height='50px'"/>
+		<field Name="Page_Ext1" Title="f_contact_description" Type="3" Property="InsertFileType='medium_image' Height='100px'" />
+	</group>
+	<group Title="group_properties" Pos="3" Expand="true">
+		<field Name="Page_EnabledComment" Title="f_page_can_comment" Type="5" Property="Default='true'"/>
+		<field Name="Page_EnabledRSS" Title="f_page_rss" Type="5" Property="Default='false'"/>
+		<field Name="Page_FixCoverBkg" Title="#Background (Fixed-Cover)" Type="5" Css="width:60px;text-align:center;"/>
+		<field Name="Page_A" Title="f_active" Type="5" Css="width:60px;text-align:center;"/>
+	</group>
+	<group Title="#Quyền truy cập" Pos="3" Expand="true" Note="help_page_role_access">
+		<field Name="Page_Permission" Type="9" Property="SqlSP='SP_A_R_001_Tree_Group' ParentID='100' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Seperator=';'"/>
+	</group>
+	<group Title="group_mod" Pos="3" Expand="true">
+		<field Name="PageMod" Type="6" Property="SqlSP='SP_A_R_001_Tree_Mod' Format='{1}' Width='150px'"/>
+	</group>
+	<group Title="group_meta" Pos="3" Expand="true">
+		<field Name="Page_MetaTitle" Title="f_meta_title" Note="#help_page_metatitle" Type="1" Property="Width='99%' MaxLength='200'"/>
+		<field Name="Page_MetaKeywords" Title="f_meta_key" Type="2" Property="Height='100px' WrapText='true' MaxLength='1000'"/>
+		<field Name="Page_MetaDescription" Title="f_meta_description" Type="2" Property="Height='100px' WrapText='true' MaxLength='1000'"/>
+	</group>
+  </edit>
+
+  <html><![CDATA[]]></html>
+
+  <SQL_SELECT_LIST>
+    <![CDATA[
+	set nocount on
+	declare	@totalItem	int, @totalPage	int, @parentID int
+declare @gid int = {@GID}
+	Select @parentID = Page_ID from wcms_Page where Page_Type = 1221 AND Page_SiteID = @siteID AND Page_LanguageID = @langID
+	set @totalItem	=
+	(
+		select count(0) from WCMS_Page
+		where Page_SiteID = @siteID AND Page_LanguageID = @langID AND Page_Level > 1 AND Page_ID <> @parentID AND Page_ParentID <> @parentID
+		{ AND Page_ID <o> @Search:Page_ID }
+		{ AND Page_Title <o> @Search:Page_Title }
+		AND (@gid <>25 OR (@gid = 25 AND Page_ID in (922,938,1372,963,987)))
+	)
+	if (@pageSize < 1) set @pageSize = 15
+	set @totalPage	= ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Page_ID]
+		,[Page_Title]
+		,case when [Page_A] = 1 then 'checked' else '' end as [Page_A]
+		,[PageProperty]
+		,[PageUrl]
+		,Page_Type
+		,(case when CountPage > 0 then 0 else { @IsMod } end) as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Page_ID]
+			,'<span style="color:#D7D7D7;">' + REPLICATE('|—', Page_Level - 2) + '</span> ' + (case Page_Level when 2 then '<span style="font-weight:bold;font-style:italic;color:#369">' + [Page_Title] + '</span>' 
+																				when 3 then '<span style="font-weight:bold">' + [Page_Title] + '</span>'
+																				else [Page_Title] end) as [Page_Title]
+			,[Page_Level]
+			,(case when [Page_Mark] is null OR [Page_Mark] = '' then '' else '*' end) + (case when [Page_IsHomePage] = 1 then 'H' else '' end) + (case [Page_Type] when 1214 then 'L' when 1219 then '-' else '' end) + (case when [Page_SSL] = 1 then 'S' else '' end) + (case when [Page_EnabledRSS] = 1 then 'R' else '' end) + (case when [Page_AdvSearchList] = 1 then 'S' else '' end) as [PageProperty]
+			,Page_Type
+			,[Page_A]
+			,(select count(0) from wcms_PageMod where PageMod_PageID = [Page_ID] { AND PageMod_AccountID = @ModID }) as [CountPage]
+			,(case when Page_Type <> 1214 AND Page_Type <> 1219 then '<a target="_blank" class="o-link" href="/' + Page_TitleUrl + '_c1_1-' + cast(Page_SiteID as varchar(10)) + '_2-' + cast(Page_LanguageID as varchar(10)) + '_3-' + cast(Page_ID as varchar(10)) + '.html"></a>' else '' end) as [PageUrl]
+		from WCMS_Page
+		where Page_SiteID = @siteID AND Page_LanguageID = @langID AND Page_Level > 1 AND Page_ID <> @parentID AND Page_ParentID <> @parentID
+		{ AND Page_ID <o> @Search:Page_ID }
+		{ AND Page_Title <o> @Search:Page_Title }
+AND (@gid <>25 OR (@gid = 25 AND Page_ID in (922,938,1372,963,987)))
+	) tb 
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex
+	]]>
+  </SQL_SELECT_LIST>
+
+  <SQL_LOAD_EDIT>
+    <![CDATA[
+	set nocount on	
+	declare @mod nvarchar(max)
+	set @mod = ''
+	
+	select @mod = @mod + ';' + convert(nvarchar(10), PageMod_AccountID)
+	from wcms_PageMod where PageMod_PageID = @editID
+	if (@mod <> '') set @mod = substring(@mod, 2, len(@mod) - 1)
+	
+	select  [Page_ID]
+			,[Page_ParentID]
+			,[Page_Title]
+			,[Page_TitleAlias]
+			,[Page_IsHomepage]
+			,[Page_UrlLink]
+			,[Page_MetaTitle]
+			,[Page_MetaKeywords]
+			,[Page_MetaDescription]
+			,[Page_DefaultTheme]
+			,[Page_CssClass]
+			,[Page_O]
+			,[Page_A]
+			,[Page_EnabledComment]
+			,[Page_SSL]
+			,[Page_EnabledRSS]
+			,[Page_Permission]
+			,[Page_Email]
+			,[Page_Ext1]
+			,[Page_Ext2]
+			,@mod as [PageMod]			
+			
+			,[Page_Type]
+			,[Page_Layout]
+			,'' as [Page_UC]
+			,[Page_UC] as [Module]
+			,[Page_ID] as [PageID]
+			,'' as [Page_TitleUrl]
+			,[Page_MediaLink]
+			,[Page_Mark]
+			,[Page_AdvSearchList]
+			,[Page_Background]
+			
+			,Page_FixCoverBkg
+	from WCMS_Page where Page_ID = @editID	
+	]]>
+  </SQL_LOAD_EDIT>
+
+  <SQL_NEW><![CDATA[]]></SQL_NEW>
+
+  <SQL_ADD>
+    <![CDATA[
+	set nocount on
+	declare @gid int = {@GID}
+	if (@gid = 25)
+	BEGIN
+		select 0
+		return;
+	END
+	
+	declare @isHome bit, @parentID int 
+	set @isHome = {@Get:Page_IsHomepage}
+	set @parentID = {@Get:Page_ParentID}
+	
+	INSERT INTO WCMS_Page
+	(
+		[Page_Title]
+		,[Page_TitleAlias]
+		,[Page_ParentID]
+		,[Page_Type]
+		,[Page_IsHomepage]
+		,[Page_ForAdmin]
+		,[Page_UrlLink]
+		,[Page_MetaTitle]
+		,[Page_MetaKeywords]
+		,[Page_MetaDescription]
+		,[Page_DefaultTheme]
+		,[Page_CssClass]
+		,[Page_O]
+		,[Page_A]
+		,[Page_EnabledComment]
+		,[Page_SSL]
+		,[Page_EnabledRSS]
+		,[Page_Permission]
+		,[Page_Layout]
+		,[Page_HtmlPattern]
+		,[Page_Html]
+		,[Page_UC]
+		,[Page_SiteID]
+		,[Page_LanguageID]
+		,[Page_Email]
+		,[Page_Ext1]
+		,[Page_Ext2]
+		,[Page_TitleUrl]
+		,[Page_MediaLink]
+		,[Page_Mark]
+		,[Page_Background]
+		,[Page_FixCoverBkg]
+	)
+	VALUES
+	(
+		 {@Get:Page_Title}
+		,{@Get:Page_TitleAlias}
+		,@parentID
+		,{@Get:Page_Type}
+		,@isHome
+		,0
+		,{@Get:Page_UrlLink}
+		,{@Get:Page_MetaTitle}
+		,{@Get:Page_MetaKeywords}
+		,{@Get:Page_MetaDescription}
+		,{@Get:Page_DefaultTheme}
+		,{@Get:Page_CssClass}
+		,{@Get:Page_O}
+		,{@Get:Page_A}
+		,{@Get:Page_EnabledComment}
+		,0
+		,{@Get:Page_EnabledRSS}
+		,{@Get:Page_Permission}
+		,{@Get:Page_Layout}
+		,{@Get:Page_HtmlPattern}
+		,''
+		,{@Get:Module}
+		,@siteID
+		,@langID
+		,{@Get:Page_Email}
+		,{@Get:Page_Ext1}
+		,{@Get:Page_Ext2}
+		,{@Get:Page_TitleUrl}
+		,{@Get:Page_MediaLink}
+		,{@Get:Page_Mark}
+		,{@Get:Page_Background}
+		,{@Get:Page_FixCoverBkg}
+	)
+	declare @id int 
+	set @id = SCOPE_IDENTITY()
+	
+	-- Moderator
+	Insert wcms_PageMod(PageMod_PageID, PageMod_AccountID)
+	select @id, [Data] from [dbo].[F_001_StringToTable]({@Get:PageMod}, ';')
+	
+	-- load from TemplatePage
+	exec [SP_A_W_001_CreatePageFromTemplatePage] @id, {@Get:Page_Type}
+	
+	-- Update HierarchySort
+	exec [SP_A_W_001_UpdatePageHierarchySort] @parentID
+		
+	-- Update Homepage flag
+	if (@isHome = 1) update wcms_Page set Page_IsHomepage = 0 where Page_SiteID = @siteID AND Page_LanguageID = @langID AND Page_ID <> @id 
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_page_add', '(' + @logIP + ') Add 1 page [' + {@Get:Page_Title} + '].', 'Page', @id, @logAcc)
+	
+	select @id
+	]]>
+  </SQL_ADD>
+
+  <SQL_UPDATE>
+    <![CDATA[
+	set nocount on	
+	declare @id 			int,
+			@old_parentID	int,
+			@old_ordinal	int,
+			@old_pageType	int,
+			@parentID		int,
+			@ordinal		int,
+			@pageType		int,
+			@isHome			bit
+	set @id 		= @editID
+	set @parentID 	= {@Get:Page_ParentID}
+	set @ordinal 	= {@Get:Page_O}
+	set @pageType 	= {@Get:Page_Type}
+	set @isHome 	= {@Get:Page_IsHomepage}
+	
+	declare @gid int = {@GID}
+	if (@gid = 25)
+	BEGIN
+		update WCMS_Page set
+			[Page_MetaTitle]		= {@Get:Page_MetaTitle}
+			,[Page_MetaKeywords]	= {@Get:Page_MetaKeywords}
+			,[Page_MetaDescription]	= {@Get:Page_MetaDescription}
+		where Page_ID = @id
+		
+		select @id
+		return;
+	END
+	
+	select @old_pageType = Page_Type, @old_parentID = Page_ParentID, @old_ordinal = Page_O
+	from WCMS_Page where Page_ID = @id
+	
+	if (@gid = 1 OR @gid = 2)
+	BEGIN
+	update WCMS_Page set
+		Page_Html			= ''
+		,Page_Layout		= {@Get:Page_Layout}		
+		,Page_HtmlPattern	= {@Get:Page_HtmlPattern}
+		,Page_UC			= {@Get:Module}
+		,Page_Title			= {@Get:Page_Title}
+		,Page_TitleAlias	= {@Get:Page_TitleAlias}
+		,Page_ParentID		= @parentID
+		,Page_Type			= @pageType
+		,Page_IsHomepage	= @isHome
+		,Page_UrlLink		= {@Get:Page_UrlLink}
+		,Page_MetaTitle		= {@Get:Page_MetaTitle}
+		,Page_MetaKeywords	= {@Get:Page_MetaKeywords}
+		,Page_MetaDescription	= {@Get:Page_MetaDescription}
+		,Page_DefaultTheme	= {@Get:Page_DefaultTheme}
+		,Page_CssClass		= {@Get:Page_CssClass}
+		,Page_O				= @ordinal
+		,Page_A				= {@Get:Page_A}
+		,Page_EnabledComment	= {@Get:Page_EnabledComment}
+		,Page_EnabledRSS		= {@Get:Page_EnabledRSS}
+		,Page_Permission		= {@Get:Page_Permission}
+		,Page_Email			= {@Get:Page_Email}
+		,Page_Ext1			= {@Get:Page_Ext1}
+		,Page_Ext2			= {@Get:Page_Ext2}
+		,Page_TitleUrl		= {@Get:Page_TitleUrl}
+		,Page_MediaLink		= {@Get:Page_MediaLink}
+		,Page_Mark			= {@Get:Page_Mark}
+		,Page_Background	= {@Get:Page_Background}
+		,Page_FixCoverBkg	= {@Get:Page_FixCoverBkg}
+	where Page_ID = @id
+	END
+	else
+	BEGIN
+	update WCMS_Page set
+		Page_Title			= {@Get:Page_Title}
+		,Page_TitleAlias	= {@Get:Page_TitleAlias}
+		,Page_ParentID		= @parentID
+		,Page_Type			= @pageType
+		,Page_IsHomepage	= @isHome
+		,Page_UrlLink		= {@Get:Page_UrlLink}
+		,Page_MetaTitle		= {@Get:Page_MetaTitle}
+		,Page_MetaKeywords	= {@Get:Page_MetaKeywords}
+		,Page_MetaDescription	= {@Get:Page_MetaDescription}
+		,Page_DefaultTheme	= {@Get:Page_DefaultTheme}
+		,Page_CssClass		= {@Get:Page_CssClass}
+		,Page_O				= @ordinal
+		,Page_A				= {@Get:Page_A}
+		,Page_EnabledComment	= {@Get:Page_EnabledComment}
+		,Page_EnabledRSS		= {@Get:Page_EnabledRSS}
+		,Page_Permission		= {@Get:Page_Permission}
+		,Page_Email			= {@Get:Page_Email}
+		,Page_Ext1			= {@Get:Page_Ext1}
+		,Page_Ext2			= {@Get:Page_Ext2}
+		,Page_TitleUrl		= {@Get:Page_TitleUrl}
+		,Page_MediaLink		= {@Get:Page_MediaLink}
+		,Page_Mark			= {@Get:Page_Mark}
+		,Page_Background	= {@Get:Page_Background}
+		,Page_FixCoverBkg	= {@Get:Page_FixCoverBkg}
+	where Page_ID = @id
+	END
+	
+	-- Update  Moderator
+	Select Data into #tbl from [dbo].[F_001_StringToTable]({@Get:PageMod}, ';')
+	Delete wcms_PageMod where PageMod_PageID = @id and PageMod_PageID not in (select [Data] from #tbl)
+
+	Insert wcms_PageMod(PageMod_PageID, PageMod_AccountID)
+	select @id, [Data] from #tbl
+	where [Data] not in (select PageMod_AccountID from wcms_PageMod where PageMod_PageID = @id)
+	
+	drop table #tbl
+	
+	-- Reload from TemplatePage
+	if (@old_pageType is null or @pageType <> @old_pageType)
+		exec [SP_A_W_001_CreatePageFromTemplatePage] @id, @pageType
+	
+	-- Update HierarchySort
+	if (@old_parentID <> @parentID)
+		exec [SP_A_W_001_UpdatePageHierarchySort]
+	else if (@old_ordinal <> @ordinal)
+		exec [SP_A_W_001_UpdatePageHierarchySort] @parentID
+		
+	-- Update Homepage flag
+	if (@isHome = 1) update wcms_Page set Page_IsHomepage = 0 where Page_SiteID = @siteID AND Page_LanguageID = @langID AND Page_ID <> @id 
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_page_update', '(' + @logIP + ') Updated 1 page [' + {@Get:Page_Title} + '].', 'Page', @id, @logAcc)
+		
+	select @id
+	]]>
+  </SQL_UPDATE>
+
+  <SQL_UPDATE_ACTIVE>
+  <![CDATA[
+	declare @id int
+	set @id = @editID
+	
+	update wcms_Page set [Page_A]= @active
+	where Page_ID = @id
+	select @id
+  ]]>
+  </SQL_UPDATE_ACTIVE>
+  
+  <SQL_COPY>
+  <![CDATA[
+	set nocount on
+	declare @gid int = {@GID}
+	if (@gid = 25)
+	BEGIN
+		select 0
+		return;
+	END
+	
+	if ({@Get:Page_Type} not in (1112, 1113, 1114, 1119))
+	BEGIN
+		declare @isHome bit, @parentID int 
+		set @isHome = {@Get:Page_IsHomepage}
+		set @parentID = {@Get:Page_ParentID}
+		
+		INSERT INTO WCMS_Page
+		(
+			[Page_Title]
+			,[Page_TitleAlias]
+			,[Page_ParentID]
+			,[Page_Type]
+			,[Page_IsHomepage]
+			,[Page_ForAdmin]
+			,[Page_UrlLink]
+			,[Page_MetaTitle]
+			,[Page_MetaKeywords]
+			,[Page_MetaDescription]
+			,[Page_DefaultTheme]
+			,[Page_CssClass]
+			,[Page_O]
+			,[Page_A]
+			,[Page_EnabledComment]
+			,[Page_SSL]
+			,[Page_EnabledRSS]
+			,[Page_Permission]
+			,[Page_Layout]
+			,[Page_HtmlPattern]
+			,[Page_Html]
+			,[Page_UC]
+			,[Page_SiteID]
+			,[Page_LanguageID]
+			,[Page_Email]
+			,[Page_Ext1]
+			,[Page_Ext2]
+			,[Page_TitleUrl]
+			,[Page_MediaLink]
+			,[Page_Mark]
+			,[Page_Background]
+			,[Page_FixCoverBkg]
+		)
+		VALUES
+		(
+			 {@Get:Page_Title}
+			,{@Get:Page_TitleAlias}
+			,@parentID
+			,{@Get:Page_Type}
+			,@isHome
+			,0
+			,{@Get:Page_UrlLink}
+			,{@Get:Page_MetaTitle}
+			,{@Get:Page_MetaKeywords}
+			,{@Get:Page_MetaDescription}
+			,{@Get:Page_DefaultTheme}
+			,{@Get:Page_CssClass}
+			,{@Get:Page_O}
+			,{@Get:Page_A}
+			,{@Get:Page_EnabledComment}
+			,0
+			,{@Get:Page_EnabledRSS}
+			,{@Get:Page_Permission}
+			,{@Get:Page_Layout}
+			,{@Get:Page_HtmlPattern}
+			,''
+			,{@Get:Module}
+			,@siteID
+			,@langID
+			,{@Get:Page_Email}
+			,{@Get:Page_Ext1}
+			,{@Get:Page_Ext2}
+			,{@Get:Page_TitleUrl}
+			,{@Get:Page_MediaLink}
+			,{@Get:Page_Mark}
+			,{@Get:Page_Background}
+			,{@Get:Page_FixCoverBkg}
+		)
+		declare @id int 
+		set @id = SCOPE_IDENTITY()
+		
+		-- Moderator
+		Insert wcms_PageMod(PageMod_PageID, PageMod_AccountID)
+		select @id, [Data] from [dbo].[F_001_StringToTable]({@Get:PageMod}, ';')
+		
+		-- Update HierarchySort
+		exec [SP_A_W_001_UpdatePageHierarchySort] @parentID
+			
+		-- Update Homepage flag
+		if (@isHome = 1) update wcms_Page set Page_IsHomepage = 0 where Page_SiteID = @siteID AND Page_LanguageID = @langID AND Page_ID <> @id 
+		
+		if (@logAcc > 0)
+			Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+			values(getutcdate(), 'log_page_update', '(' + @logIP + ') Updated 1 page [' + {@Get:Page_Title} + '].', 'Page', @id, @logAcc)
+		
+		select @id
+	END
+	else select 0
+  ]]>
+  </SQL_COPY>
+
+  <SQL_DELETE>
+    <![CDATA[
+	set nocount on	
+	declare @id int
+	set @id = @delID
+	
+	delete wcms_PageAdvertisement where PageAdvertisement_PageID = @id
+	delete wcms_PageBanner where PageBanner_PageID = @id
+	delete wcms_PageMod where PageMod_PageID = @id
+	delete wcms_PagePoll where PagePoll_PageID = @id
+	delete wcms_PagePost where PagePost_PageID = @id
+	delete wcms_PageProduct where PageProduct_PageID = @id
+	
+	set nocount off
+	
+	delete wcms_Page where Page_ID = @id
+	select @@ROWCOUNT
+	exec [SP_A_W_001_UpdatePageHierarchySort]
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_page_delete', '(' + @logIP + ') Deleted 1 page.', 'Page', @id, @logAcc)
+	]]>
+  </SQL_DELETE>
+</table>

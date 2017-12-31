@@ -1,0 +1,129 @@
+﻿<setting name="Site">
+<![CDATA[
+
+<input type="hidden" value="1" name="update_hidden_field" />
+<table cellspacing="0" cellpadding="0" width="100%" class="dm_edit_table">
+	<col width="200px" /><col width="1px" /><col />
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:f_site_name}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" class="ioc_textbox" maxlength="400" value="{p:site_name}" name="site_name" />
+			<div class="dm_edit_help_div">{lang:help_site_name}</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:f_site_address}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" class="ioc_textbox" maxlength="400" value="{p:site_address}" name="site_address" style="color:#090;" />
+			<div class="dm_edit_help_div">{lang:help_site_address}</div>
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="dm_ioc_value_t">{lang:f_theme_default}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<select class="ioc_select" val="{p:site_default_theme}" name="site_default_theme">{p:theme_list}</select>
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="dm_ioc_value_t">{lang:f_language_default}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<select class="ioc_select" val="{p:site_default_language}" name="site_default_language">{p:language_list}</select>			
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:f_timezone}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<select class="ioc_select" val="{p:basic_timezone}" style="width:auto;" name="basic_timezone">
+				<option value="-12">(GMT -12:00) Eniwetok, Kwajalein</option>
+				<option value="-11">(GMT -11:00) Midway Island, Samoa</option>
+				<option value="-10">(GMT -10:00) Hawaii</option>
+				<option value="-9">(GMT -9:00) Alaska</option>
+				<option value="-8">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+				<option value="-7">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+				<option value="-6">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+				<option value="-5">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+				<option value="-4.5">(GMT -4:30) Caracas</option>
+				<option value="-4">(GMT -4:00) Atlantic Time (Canada), La Paz, Santiago</option>
+				<option value="-3.5">(GMT -3:30) Newfoundland</option>
+				<option value="-3">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+				<option value="-2">(GMT -2:00) Mid-Atlantic</option>
+				<option value="-1">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
+				<option value="0">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+				<option value="1">(GMT +1:00) Brussels, Copenhagen, Madrid, Paris</option>
+				<option value="2">(GMT +2:00) Kaliningrad, South Africa</option>
+				<option value="3">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+				<option value="3.5">(GMT +3:30) Tehran</option>
+				<option value="4">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+				<option value="4.5">(GMT +4:30) Kabul</option>
+				<option value="5">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+				<option value="5.5">(GMT +5:30) Mumbai, Kolkata, Chennai, New Delhi</option>
+				<option value="5.75">(GMT +5:45) Kathmandu</option>
+				<option value="6">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+				<option value="6.5">(GMT +6:30) Yangon, Cocos Islands</option>
+				<option value="7">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+				<option value="8">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+				<option value="9">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+				<option value="9.5">(GMT +9:30) Adelaide, Darwin</option>
+				<option value="10">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+				<option value="11">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+				<option value="12">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:format_date}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">			
+			<input type="text" name="format_date" value="{p:format_date}" class="ioc_textbox" style="width:100px" />
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:format_time}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" name="format_time" value="{p:format_time}" class="ioc_textbox" style="width:100px" />
+		</td>
+	</tr>	
+	<tr>
+		<td class="dm_ioc_value_t">{lang:website_visitor}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" name="site_visitor" value="{p:site_visitor}" class="ioc_textbox" style="width:100px" />
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">{lang:f_meta_key}</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value">
+			<textarea type="text" class="ioc_textbox" maxlength="4000" rows="3" name="site_meta_keywords" style="height:auto;">{p:site_meta_keywords}</textarea>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t" style="vertical-align:top">{lang:f_meta_description}</td>
+		<td class="dm_ioc_value_s" style="vertical-align:top">:</td>
+		<td class="dm_ioc_value">
+			<textarea type="text" class="ioc_textbox" maxlength="4000" rows="4" name="site_meta_description" style="height:auto;" />{p:site_meta_description}</textarea>
+		</td>
+	</tr>
+    
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr><td colspan="3"><input type="submit" name="update_setting_submit" class="dm_edit_button_1" value="Update" /></td></tr>
+</table>
+
+<script type="text/javascript">
+$(function(){ 
+	$("#ucUpdateSetting5_d_HtmlContent .ioc_select").each(function(){ $(this).val($(this).attr("val")); });
+});
+</script>
+
+]]>
+</setting>

@@ -1,0 +1,1 @@
+tinyMCE.addI18n("vi.paste_dlg",{word_title:"Sử dụng CTRL+V trên bàn phím để dán văn bản vào cửa sổ.",text_linebreaks:"Giữ ngắt dòng",text_title:"Sử dụng CTRL+V trên bàn phím để dán văn bản vào cửa sổ."});

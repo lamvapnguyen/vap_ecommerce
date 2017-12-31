@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/DataManager/IOControls/IOC_39_SendEmail_Acc.ascx" hash="fffffffaa8934d59" filehash="ffffed7eac08c918" flags="110000" assembly="App_Web_blthx1em" type="ASP.views_datamanager_iocontrols_ioc_39_sendemail_acc_ascx">
+    <filedeps>
+        <filedep name="/Views/DataManager/IOControls/IOC_39_SendEmail_Acc.ascx" />
+    </filedeps>
+</preserve>

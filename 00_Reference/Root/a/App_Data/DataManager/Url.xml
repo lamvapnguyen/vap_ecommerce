@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Url" Title="a_menu_url" R="328" DefaultSort="Url_Date" DefaultSortAsc="false">
+	<controls>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+		
+		<field Name="SysReload" Path="UC/DM_Reload.ascx" Pos="7"/>
+		<field Name="WCMS_Url" Path="Process/Url.ascx" Pos="7"/>
+	</controls>
+	
+	<list>
+		<field Name="Url_PageID" Title="f_page_id" Type="1" Sort="true" Css="width:50px;text-align:left;color:#a00;"/>
+		<field Name="Url_Source" Title="f_source" Type="1" Sort="true" />
+		<field Name="Url_Destination" Title="f_destination" Type="1" Sort="true" />
+		<field Name="Url_A" Title="f_active" Type="3" Sort="true" Css="width:60px;text-align:center;"/>
+	</list>
+
+	<command_plus><![CDATA[]]></command_plus>
+	
+	<search>
+		<field Name="Url_Source" Title="f_source"/>
+		<field Name="Url_Destination" Title="f_destination"/>
+		<field Name="Url_PageID" Title="f_page_id"/>
+	</search>
+	
+	<edit>
+		<group Title="group_information" Pos="2" Expand="true" Note="help_url_manager">
+			<field Name="Url_Source" Title="f_source" Type="1" Property="Require='true' Width='98%'"/>
+			<field Name="Url_Destination" Title="f_destination" Type="1" Property="Require='true' Width='98%'"/>
+			<field Name="Url_A" Title="f_active" Type="5" Property="Default='true'"/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[ 
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem = (
+		select count(0) from wcms_Url 
+		where 1 = 1
+		{ AND Url_Source 		<o> @Search:Url_Source }
+		{ AND Url_Destination 	<o> @Search:Url_Destination }
+		{ AND Url_PageID 		<o> @Search:Url_PageID }
+	)
+	if (@pageSize < 1) set @pageSize = 15
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Url_ID]
+		,[Url_Source]
+		,[Url_Destination]
+		,[Url_PageID]
+		,[Url_SiteID]
+		,case when [Url_A] = 1 then 'checked' else '' end as [Url_A]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Url_ID]
+			,[Url_Source]
+			,[Url_Destination]
+			,[Url_PageID]
+			,[Url_SiteID]
+			,[Url_A]
+		from wcms_Url
+		where 1 = 1
+		{ AND Url_Source 		<o> @Search:Url_Source }
+		{ AND Url_Destination 	<o> @Search:Url_Destination }
+		{ AND Url_PageID 		<o> @Search:Url_PageID }
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex 
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[
+	select [Url_ID]
+		,Url_Source
+		,Url_Destination
+		,Url_PageID
+		,Url_SiteID
+		,Url_ItemID
+		,Url_A
+	from wcms_Url where Url_ID = @editID 	
+	]]>
+	</SQL_LOAD_EDIT>
+
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+	
+	<SQL_ADD>
+	<![CDATA[
+	set nocount on
+	insert wcms_Url
+	(
+		Url_Source
+		,Url_Destination
+		,Url_PageID
+		,Url_SiteID
+		,Url_ItemID
+		,Url_Date
+		,Url_A
+	) 
+	values
+	(
+		 {@Get:Url_Source}
+		,{@Get:Url_Destination}
+		,{@Get:Url_PageID}
+		,{@Get:Url_SiteID}
+		,{@Get:Url_ItemID}
+		,getutcdate()
+		,{@Get:Url_A}
+	)
+	
+	select SCOPE_IDENTITY()
+	]]>
+	</SQL_ADD>
+		
+	<SQL_UPDATE>
+	<![CDATA[
+	set nocount on
+	
+	update wcms_Url set
+		[Url_Source]		= {@Get:Url_Source}
+		,[Url_Destination]	= {@Get:Url_Destination}
+		,[Url_PageID]		= {@Get:Url_PageID}
+		,[Url_SiteID]		= {@Get:Url_SiteID}
+		,[Url_ItemID]		= {@Get:Url_ItemID}
+		,[Url_Date]			= getutcdate()
+		,[Url_A]			= {@Get:Url_A}
+	where Url_ID = @editID
+	
+	Delete from wcms_Url where Url_PageID is not null AND Url_PageID not in (Select Page_ID from wcms_Page) 
+	
+	select @editID
+	]]>	
+	</SQL_UPDATE>
+
+	<SQL_UPDATE_ACTIVE>
+	<![CDATA[	
+	update wcms_Url set [Url_A]= @active where Url_ID = @editID
+	select @editID
+	]]>
+	</SQL_UPDATE_ACTIVE>
+
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+	delete from wcms_Url where Url_ID = @delID
+	select 1
+	]]>
+	</SQL_DELETE>
+</table>

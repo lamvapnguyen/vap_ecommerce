@@ -1,0 +1,823 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="VAP" Class="DBHelpDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=VAP;Persist Security Info=True;User ID=sa" SettingsObjectName="Vap.Properties.Settings" SettingsPropertyName="VAPConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.M_ASSESSMENT_YEAR" Member="M_ASSESSMENT_YEARs">
+    <Type Name="M_ASSESSMENT_YEAR">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ASSESSMENT_YEAR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_PRODUCT" Member="V_PRODUCTs">
+    <Type Name="V_PRODUCT">
+      <Column Name="PRODUCT_CD" Type="System.String" DbType="NVarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CATEGORY_CD" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="PRODUCT_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PRODUCT_KEYWORD" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PRODUCT_DESCRIPTION" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SORT_ORDER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRODUCT_STATUS_CD" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="DISPLAY_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="V_PRODUCT_V_EXTENSION_ATTRIBUTE" Member="V_EXTENSION_ATTRIBUTEs" ThisKey="PRODUCT_CD" OtherKey="PRODUCT_CD" Type="V_EXTENSION_ATTRIBUTE" />
+      <Association Name="V_CATEGORY_V_PRODUCT" Member="V_CATEGORY" ThisKey="CATEGORY_CD" OtherKey="CATEGORY_CD" Type="V_CATEGORY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_BONUS_SALARY_BASEUP" Member="M_BONUS_SALARY_BASEUPs">
+    <Type Name="M_BONUS_SALARY_BASEUP">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ASSESSMENT_YEAR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="COUNTRY_EXPECTED_RATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BASEUP_RATE" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="GAP_RATE" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="COMMENT" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="BAND_I_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIC_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIB_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIA_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIIC_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIIB_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIIA_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IV_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_I_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIC_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIB_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIA_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIIC_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIIB_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIIA_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IV_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_BONUS_SALARY_PI" Member="M_BONUS_SALARY_PIs">
+    <Type Name="M_BONUS_SALARY_PI">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ASSESSMENT_YEAR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AVG_RATIO_SALARY" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="AVG_RATIO_BONUS_MONTH" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_C1_VARIATION_SALARY" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B3_VARIATION_SALARY" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B2_VARIATION_SALARY" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B1_VARIATION_SALARY" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_A2_VARIATION_SALARY" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_A1_VARIATION_SALARY" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_C1_VARIATION_BONUS" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B3_VARIATION_BONUS" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B2_VARIATION_BONUS" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B1_VARIATION_BONUS" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_A2_VARIATION_BONUS" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_A1_VARIATION_BONUS" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_C1_FINALRATIO_SALARY" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B3_FINALRATIO_SALARY" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B2_FINALRATIO_SALARY" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B1_FINALRATIO_SALARY" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_A2_FINALRATIO_SALARY" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_A1_FINALRATIO_SALARY" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_C1_FINALRATIO_BONUS" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B3_FINALRATIO_BONUS" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B2_FINALRATIO_BONUS" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B1_FINALRATIO_BONUS" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_A2_FINALRATIO_BONUS" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_A1_FINALRATIO_BONUS" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_BONUS_SALARY_PROMOTION" Member="M_BONUS_SALARY_PROMOTIONs">
+    <Type Name="M_BONUS_SALARY_PROMOTION">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ASSESSMENT_YEAR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BASIC_AMOUNT" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_I_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIC_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIB_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIA_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIIC_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIIB_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIIA_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IV_VARIATION" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_I_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIC_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIB_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIA_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIIC_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIIB_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IIIA_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_IV_FINALRATIO" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_BONUS_SALARY_SA" Member="M_BONUS_SALARY_SAs">
+    <Type Name="M_BONUS_SALARY_SA">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ASSESSMENT_YEAR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CURRENT_AVG_AMOUNT" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="CURRENT_AVG_PERCENT" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="INCREMENT_AVG_AMOUNT" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="INCREMENT_AVG_PERCENT" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="NEW_AMOUNT_AVG" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="NEW_AMOUNT_PERCENT" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B3_NOPROMO_IIB_FIX" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B2_NOPROMO_IIC_FIX" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B2_I_IIC_FIX" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B1_IIC_IIB_FIX" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B1_IIA_IIIC_FIX" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_A2_NOPROMO_IIA_FIX" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B3_NOPROMO_IIB_PERCENT" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B2_NOPROMO_IIC_PERCENT" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B2_I_IIC_PERCENT" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B1_IIC_IIB_PERCENT" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_B1_IIA_IIIC_PERCENT" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="BAND_A2_NOPROMO_IIA_PERCENT" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_COMPANY" Member="M_COMPANies">
+    <Type Name="M_COMPANY">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="COMPANY_NAME" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="GM_STAFF_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="COMPANY_ADDR1" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="COMPANY_ADDR2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="COMPANY_PHONE" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COMPANY_FAX" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COUNTRY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CURRENCY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CURRENCY_UNIT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LAST_STAFF_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_COUNTRY_M_COMPANY" Member="M_COUNTRY" ThisKey="COUNTRY_CD" OtherKey="COUNTRY_CD" Type="M_COUNTRY" IsForeignKey="true" />
+      <Association Name="M_CURRENCY_M_COMPANY" Member="M_CURRENCY" ThisKey="CURRENCY_CD" OtherKey="CURRENCY_CD" Type="M_CURRENCY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_COUNTRY" Member="M_COUNTRies">
+    <Type Name="M_COUNTRY">
+      <Column Name="COUNTRY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="COUNTRY_NAME" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_COUNTRY_M_COMPANY" Member="M_COMPANies" ThisKey="COUNTRY_CD" OtherKey="COUNTRY_CD" Type="M_COMPANY" />
+      <Association Name="M_COUNTRY_M_STATE_PROVINCE" Member="M_STATE_PROVINCEs" ThisKey="COUNTRY_CD" OtherKey="COUNTRY_CD" Type="M_STATE_PROVINCE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_CURRENCY" Member="M_CURRENCies">
+    <Type Name="M_CURRENCY">
+      <Column Name="CURRENCY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CURRENCY" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+      <Column Name="SORT_ORDER" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_CURRENCY_M_COMPANY" Member="M_COMPANies" ThisKey="CURRENCY_CD" OtherKey="CURRENCY_CD" Type="M_COMPANY" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_DIVISION" Member="M_DIVISIONs">
+    <Type Name="M_DIVISION">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DIVISION_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DIVISION_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SORT_ORDER" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PARENT_DIVISION_CD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_DIVISION_M_ORGCHART" Member="M_ORGCHARTs" ThisKey="COMPANY_CD,DIVISION_CD" OtherKey="COMPANY_CD,DIVISION_CD" Type="M_ORGCHART" />
+      <Association Name="M_DIVISION_M_STAFF" Member="M_STAFFs" ThisKey="COMPANY_CD,DIVISION_CD" OtherKey="COMPANY_CD,DIVISION_CD" Type="M_STAFF" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_EDUCATION_QUALIFICATION" Member="M_EDUCATION_QUALIFICATIONs">
+    <Type Name="M_EDUCATION_QUALIFICATION">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QUALIFICATION_CD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QUALIFICATION_DESC" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_EDUCATION_QUALIFICATION_T_STAFF_EDUCATION" Member="T_STAFF_EDUCATIONs" ThisKey="COMPANY_CD,QUALIFICATION_CD" OtherKey="COMPANY_CD,QUALIFICATION_CD" Type="T_STAFF_EDUCATION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_EVALUATION_RATIO" Member="M_EVALUATION_RATIOs">
+    <Type Name="M_EVALUATION_RATIO">
+      <Column Name="ASSESSMENT_YEAR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAFF_BAND_CATEGORY" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAFF_BAND" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="INDIVIDUAL_RATIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TEAM_RATIO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_GROUP" Member="M_GROUPs">
+    <Type Name="M_GROUP">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GROUP_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GROUP_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SORT_ORDER" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_GROUP_M_ORGCHART" Member="M_ORGCHARTs" ThisKey="COMPANY_CD,GROUP_CD" OtherKey="COMPANY_CD,GROUP_CD" Type="M_ORGCHART" />
+      <Association Name="M_GROUP_M_STAFF" Member="M_STAFFs" ThisKey="COMPANY_CD,GROUP_CD" OtherKey="COMPANY_CD,GROUP_CD" Type="M_STAFF" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_MENU" Member="M_MENUs">
+    <Type Name="M_MENU">
+      <Column Name="MENU_CD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MENU_NAME" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="SORT_ORDER" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MENU_LEVEL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MENU_TYPE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PARENT_MENU_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_MENU_M_MENU" Member="M_MENUs" ThisKey="MENU_CD" OtherKey="PARENT_MENU_CD" Type="M_MENU" />
+      <Association Name="M_MENU_T_ROLE_MENU" Member="T_ROLE_MENUs" ThisKey="MENU_CD" OtherKey="MENU_CD" Type="T_ROLE_MENU" />
+      <Association Name="M_MENU_M_MENU" Member="M_MENU1" ThisKey="PARENT_MENU_CD" OtherKey="MENU_CD" Type="M_MENU" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_ORGCHART" Member="M_ORGCHARTs">
+    <Type Name="M_ORGCHART">
+      <Column Name="ORGCHART_CD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PRESIDENT_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GM_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPUTY_GM_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GROUP_CD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DIVISION_CD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SECTION_CD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SORT_ORDER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_DIVISION_M_ORGCHART" Member="M_DIVISION" ThisKey="COMPANY_CD,DIVISION_CD" OtherKey="COMPANY_CD,DIVISION_CD" Type="M_DIVISION" IsForeignKey="true" />
+      <Association Name="M_GROUP_M_ORGCHART" Member="M_GROUP" ThisKey="COMPANY_CD,GROUP_CD" OtherKey="COMPANY_CD,GROUP_CD" Type="M_GROUP" IsForeignKey="true" />
+      <Association Name="M_SECTION_M_ORGCHART" Member="M_SECTION" ThisKey="COMPANY_CD,SECTION_CD" OtherKey="COMPANY_CD,SECTION_CD" Type="M_SECTION" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_ORIGIN" Member="M_ORIGINs">
+    <Type Name="M_ORIGIN">
+      <Column Name="ORIGIN_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ORIGIN_NAME" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="M_ORIGIN_M_QUESTION" Member="M_QUESTIONs" ThisKey="ORIGIN_ID" OtherKey="ORIGIN_ID" Type="M_QUESTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_PERSON" Member="M_PERSONs">
+    <Type Name="M_PERSON">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PERSON_CD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="STAFF_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ROLE_CD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USER_ID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PASSWORD_SALT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LAST_CHANGE_PWD_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RESET_FLG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_ROLE_M_PERSON" Member="M_ROLE" ThisKey="ROLE_CD" OtherKey="ROLE_CD" Type="M_ROLE" IsForeignKey="true" />
+      <Association Name="M_STAFF_M_PERSON" Member="M_STAFF" ThisKey="COMPANY_CD,STAFF_ID" OtherKey="COMPANY_CD,STAFF_ID" Type="M_STAFF" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_QUESTION" Member="M_QUESTIONs">
+    <Type Name="M_QUESTION">
+      <Column Name="QUES_ID" Type="System.String" DbType="Char(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QUES_CONTENT" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ANS_RIGHT" Type="System.String" DbType="Char(12)" CanBeNull="true" />
+      <Column Name="ANS_A" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ANS_B" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ANS_C" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ANS_D" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ANS_E" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ANS_F" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RANK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QUES_CATEGORY_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QUES_TYPE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QUES_LEVEL_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ORIGIN_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HINT" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="MORE_DETAIL" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
+      <Column Name="QUES_MARK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QUES_PARENT_ID" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="COUNTRY_CD" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="FILE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_ORIGIN_M_QUESTION" Member="M_ORIGIN" ThisKey="ORIGIN_ID" OtherKey="ORIGIN_ID" Type="M_ORIGIN" IsForeignKey="true" />
+      <Association Name="M_QUESTION_CATEGORY_M_QUESTION" Member="M_QUESTION_CATEGORY" ThisKey="QUES_CATEGORY_ID" OtherKey="CATEGORY_ID" Type="M_QUESTION_CATEGORY" IsForeignKey="true" />
+      <Association Name="M_QUESTION_LEVEL_M_QUESTION" Member="M_QUESTION_LEVEL" ThisKey="QUES_LEVEL_ID" OtherKey="QUES_LEVEL_ID" Type="M_QUESTION_LEVEL" IsForeignKey="true" />
+      <Association Name="M_QUESTION_TYPE_M_QUESTION" Member="M_QUESTION_TYPE" ThisKey="QUES_TYPE_ID" OtherKey="QUES_TYPE_ID" Type="M_QUESTION_TYPE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_QUESTION_CATEGORY" Member="M_QUESTION_CATEGORies">
+    <Type Name="M_QUESTION_CATEGORY">
+      <Column Name="CATEGORY_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CATEGORY_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PARENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Association Name="M_QUESTION_CATEGORY_M_QUESTION" Member="M_QUESTIONs" ThisKey="CATEGORY_ID" OtherKey="QUES_CATEGORY_ID" Type="M_QUESTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_QUESTION_LEVEL" Member="M_QUESTION_LEVELs">
+    <Type Name="M_QUESTION_LEVEL">
+      <Column Name="QUES_LEVEL_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QUES_LEVEL_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="M_QUESTION_LEVEL_M_QUESTION" Member="M_QUESTIONs" ThisKey="QUES_LEVEL_ID" OtherKey="QUES_LEVEL_ID" Type="M_QUESTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_QUESTION_TYPE" Member="M_QUESTION_TYPEs">
+    <Type Name="M_QUESTION_TYPE">
+      <Column Name="QUES_TYPE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QUES_TYPE_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_QUESTION_TYPE_M_QUESTION" Member="M_QUESTIONs" ThisKey="QUES_TYPE_ID" OtherKey="QUES_TYPE_ID" Type="M_QUESTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_ROLE" Member="M_ROLEs">
+    <Type Name="M_ROLE">
+      <Column Name="ROLE_CD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ROLE_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SORT_ORDER" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ALL_COMPANY_FLAG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_ROLE_M_PERSON" Member="M_PERSONs" ThisKey="ROLE_CD" OtherKey="ROLE_CD" Type="M_PERSON" />
+      <Association Name="M_ROLE_T_ROLE_MENU" Member="T_ROLE_MENUs" ThisKey="ROLE_CD" OtherKey="ROLE_CD" Type="T_ROLE_MENU" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_SECTION" Member="M_SECTIONs">
+    <Type Name="M_SECTION">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SECTION_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SECTION_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SORT_ORDER" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_SECTION_M_ORGCHART" Member="M_ORGCHARTs" ThisKey="COMPANY_CD,SECTION_CD" OtherKey="COMPANY_CD,SECTION_CD" Type="M_ORGCHART" />
+      <Association Name="M_SECTION_M_STAFF" Member="M_STAFFs" ThisKey="COMPANY_CD,SECTION_CD" OtherKey="COMPANY_CD,SECTION_CD" Type="M_STAFF" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_STAFF" Member="M_STAFFs">
+    <Type Name="M_STAFF">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAFF_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FIRST_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MIDDLE_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LAST_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NICKNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GENDER" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="JOINED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STAFF_CATEGORY" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="GROUP_CD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DIVISION_CD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SECTION_CD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="JOBTITLE_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PHOTOID_URL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="HOME_TOWN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PHOTOID_UPLOAD_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="INSTRUCTOR_ID" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RESIGNATION_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RESIGNATION_REASON" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_STAFF_M_PERSON" Member="M_PERSONs" ThisKey="COMPANY_CD,STAFF_ID" OtherKey="COMPANY_CD,STAFF_ID" Type="M_PERSON" />
+      <Association Name="M_STAFF_M_STAFF_BAND_SALARY" Member="M_STAFF_BAND_SALARY" ThisKey="COMPANY_CD,STAFF_ID" OtherKey="COMPANY_CD,STAFF_ID" Type="M_STAFF_BAND_SALARY" Cardinality="One" />
+      <Association Name="M_STAFF_T_STAFF_CONTACT" Member="T_STAFF_CONTACT" ThisKey="COMPANY_CD,STAFF_ID" OtherKey="COMPANY_CD,STAFF_CD" Type="T_STAFF_CONTACT" Cardinality="One" />
+      <Association Name="M_STAFF_T_STAFF_EDUCATION" Member="T_STAFF_EDUCATIONs" ThisKey="COMPANY_CD,STAFF_ID" OtherKey="COMPANY_CD,STAFF_ID" Type="T_STAFF_EDUCATION" />
+      <Association Name="M_STAFF_T_STAFF_EMPLOYMENT_HISTORY" Member="T_STAFF_EMPLOYMENT_HISTORies" ThisKey="COMPANY_CD,STAFF_ID" OtherKey="COMPANY_CD,STAFF_ID" Type="T_STAFF_EMPLOYMENT_HISTORY" />
+      <Association Name="M_DIVISION_M_STAFF" Member="M_DIVISION" ThisKey="COMPANY_CD,DIVISION_CD" OtherKey="COMPANY_CD,DIVISION_CD" Type="M_DIVISION" IsForeignKey="true" />
+      <Association Name="M_GROUP_M_STAFF" Member="M_GROUP" ThisKey="COMPANY_CD,GROUP_CD" OtherKey="COMPANY_CD,GROUP_CD" Type="M_GROUP" IsForeignKey="true" />
+      <Association Name="M_SECTION_M_STAFF" Member="M_SECTION" ThisKey="COMPANY_CD,SECTION_CD" OtherKey="COMPANY_CD,SECTION_CD" Type="M_SECTION" IsForeignKey="true" />
+      <Association Name="M_STAFF_JOBTITLE_M_STAFF" Member="M_STAFF_JOBTITLE" ThisKey="COMPANY_CD,JOBTITLE_CD" OtherKey="COMPANY_CD,JOBTITLE_CD" Type="M_STAFF_JOBTITLE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_STAFF_BAND_SALARY" Member="M_STAFF_BAND_SALARies">
+    <Type Name="M_STAFF_BAND_SALARY">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAFF_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EFFECTIVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STAFF_BAND" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="BASIC_SALARY" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="ALLOWANCE" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="BONUS" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_STAFF_M_STAFF_BAND_SALARY" Member="M_STAFF" ThisKey="COMPANY_CD,STAFF_ID" OtherKey="COMPANY_CD,STAFF_ID" Type="M_STAFF" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_STAFF_JOBTITLE" Member="M_STAFF_JOBTITLEs">
+    <Type Name="M_STAFF_JOBTITLE">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="JOBTITLE_CD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="JOBTITLE_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="JOBTITLE_DESC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PRESIDENT_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="GM_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DEPUTY_GM_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="GROUP_LEADER_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DIV_LEADER_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SEC_LEADER_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_STAFF_JOBTITLE_M_STAFF" Member="M_STAFFs" ThisKey="COMPANY_CD,JOBTITLE_CD" OtherKey="COMPANY_CD,JOBTITLE_CD" Type="M_STAFF" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_STATE_PROVINCE" Member="M_STATE_PROVINCEs">
+    <Type Name="M_STATE_PROVINCE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="COUNTRY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ABBREVIATION" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DISPLAY_ORDER" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="M_COUNTRY_M_STATE_PROVINCE" Member="M_COUNTRY" ThisKey="COUNTRY_CD" OtherKey="COUNTRY_CD" Type="M_COUNTRY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MSG_ATTACHMENT" Member="MSG_ATTACHMENTs">
+    <Type Name="MSG_ATTACHMENT">
+      <Column Name="ATTACH_ID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MESSAGE_ID" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="MSG_MESSAGE_MSG_ATTACHMENT" Member="MSG_MESSAGE" ThisKey="MESSAGE_ID" OtherKey="MESSAGE_ID" Type="MSG_MESSAGE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MSG_FOLDER" Member="MSG_FOLDERs">
+    <Type Name="MSG_FOLDER">
+      <Column Name="FOLDER_CD" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FOLDER_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FOLDER_TYPE" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_USER_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_USER_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="MSG_FOLDER_MSG_SUBJECT_FOLDER" Member="MSG_SUBJECT_FOLDERs" ThisKey="FOLDER_CD" OtherKey="FOLDER_CD" Type="MSG_SUBJECT_FOLDER" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MSG_GROUPS" Member="MSG_GROUPs">
+    <Type Name="MSG_GROUP">
+      <Column Name="GROUP_CD" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GROUP_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_USER_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MSG_GROUP_MSG_USERS_IN_GROUP" Member="MSG_USERS_IN_GROUPs" ThisKey="GROUP_CD" OtherKey="GROUP_CD" Type="MSG_USERS_IN_GROUP" />
+      <Association Name="MSG_GROUP_MSG_USERS_IN_GROUP1" Member="MSG_USERS_IN_GROUPs1" ThisKey="GROUP_CD" OtherKey="GROUP_CD" Type="MSG_USERS_IN_GROUP" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MSG_MESAGES_USERS" Member="MSG_MESAGES_USERs">
+    <Type Name="MSG_MESAGES_USER">
+      <Column Name="MESSAGE_ID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="USER_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="READ_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IS_READ" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="MSG_MESSAGE_MSG_MESAGES_USER" Member="MSG_MESSAGE" ThisKey="MESSAGE_ID" OtherKey="MESSAGE_ID" Type="MSG_MESSAGE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MSG_MESSAGE" Member="MSG_MESSAGEs">
+    <Type Name="MSG_MESSAGE">
+      <Column Name="MESSAGE_ID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SUBJECT_ID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CONTENTS" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SENT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SENDING_USER_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MSG_MESSAGE_MSG_ATTACHMENT" Member="MSG_ATTACHMENTs" ThisKey="MESSAGE_ID" OtherKey="MESSAGE_ID" Type="MSG_ATTACHMENT" />
+      <Association Name="MSG_MESSAGE_MSG_MESAGES_USER" Member="MSG_MESAGES_USERs" ThisKey="MESSAGE_ID" OtherKey="MESSAGE_ID" Type="MSG_MESAGES_USER" />
+      <Association Name="MSG_SUBJECT_MSG_MESSAGE" Member="MSG_SUBJECT" ThisKey="SUBJECT_ID" OtherKey="SUBJECT_ID" Type="MSG_SUBJECT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MSG_SUBJECT" Member="MSG_SUBJECTs">
+    <Type Name="MSG_SUBJECT">
+      <Column Name="SUBJECT_ID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SUBJECT" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="IS_PRIVATE_MESSAGE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_USER_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MSG_SUBJECT_MSG_MESSAGE" Member="MSG_MESSAGEs" ThisKey="SUBJECT_ID" OtherKey="SUBJECT_ID" Type="MSG_MESSAGE" />
+      <Association Name="MSG_SUBJECT_MSG_SUBJECT_PARTICIPANT" Member="MSG_SUBJECT_PARTICIPANTs" ThisKey="SUBJECT_ID" OtherKey="SUBJECT_ID" Type="MSG_SUBJECT_PARTICIPANT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MSG_SUBJECT_FOLDER" Member="MSG_SUBJECT_FOLDERs">
+    <Type Name="MSG_SUBJECT_FOLDER">
+      <Column Name="SUBJECT_ID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="USER_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FOLDER_CD" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="MSG_FOLDER_MSG_SUBJECT_FOLDER" Member="MSG_FOLDER" ThisKey="FOLDER_CD" OtherKey="FOLDER_CD" Type="MSG_FOLDER" IsForeignKey="true" />
+      <Association Name="MSG_SUBJECT_PARTICIPANT_MSG_SUBJECT_FOLDER" Member="MSG_SUBJECT_PARTICIPANT" ThisKey="SUBJECT_ID,USER_ID" OtherKey="SUBJECT_ID,USER_ID" Type="MSG_SUBJECT_PARTICIPANT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MSG_SUBJECT_PARTICIPANT" Member="MSG_SUBJECT_PARTICIPANTs">
+    <Type Name="MSG_SUBJECT_PARTICIPANT">
+      <Column Name="SUBJECT_ID" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="USER_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="MSG_SUBJECT_PARTICIPANT_MSG_SUBJECT_FOLDER" Member="MSG_SUBJECT_FOLDERs" ThisKey="SUBJECT_ID,USER_ID" OtherKey="SUBJECT_ID,USER_ID" Type="MSG_SUBJECT_FOLDER" />
+      <Association Name="MSG_SUBJECT_MSG_SUBJECT_PARTICIPANT" Member="MSG_SUBJECT" ThisKey="SUBJECT_ID" OtherKey="SUBJECT_ID" Type="MSG_SUBJECT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MSG_USERS_CONTACTS" Member="MSG_USERS_CONTACTs">
+    <Type Name="MSG_USERS_CONTACT">
+      <Column Name="USER_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FRIEND_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TOBE_FRIEND_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="MSG_USERS_CONTACT_MSG_USERS_IN_GROUP" Member="MSG_USERS_IN_GROUPs" ThisKey="USER_ID,FRIEND_ID" OtherKey="USER_ID,FRIEND_ID" Type="MSG_USERS_IN_GROUP" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MSG_USERS_IN_GROUPS" Member="MSG_USERS_IN_GROUPs">
+    <Type Name="MSG_USERS_IN_GROUP">
+      <Column Name="GROUP_CD" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="USER_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FRIEND_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="MSG_GROUP_MSG_USERS_IN_GROUP" Member="MSG_GROUP" ThisKey="GROUP_CD" OtherKey="GROUP_CD" Type="MSG_GROUP" IsForeignKey="true" />
+      <Association Name="MSG_GROUP_MSG_USERS_IN_GROUP1" Member="MSG_GROUP1" ThisKey="GROUP_CD" OtherKey="GROUP_CD" Type="MSG_GROUP" IsForeignKey="true" />
+      <Association Name="MSG_USERS_CONTACT_MSG_USERS_IN_GROUP" Member="MSG_USERS_CONTACT" ThisKey="USER_ID,FRIEND_ID" OtherKey="USER_ID,FRIEND_ID" Type="MSG_USERS_CONTACT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_ASSESSMENT_GOAL" Member="T_ASSESSMENT_GOALs">
+    <Type Name="T_ASSESSMENT_GOAL">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ASSESSMENT_YEAR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GOAL1" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GOAL2" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GOAL3" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GOAL4" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_BAND_PROMOTION" Member="T_BAND_PROMOTIONs">
+    <Type Name="T_BAND_PROMOTION">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ASSESSMENT_YEAR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FILE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAFF_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CURRENT_BAND" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NEW_BAND" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PROMOTION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_BONUS_CALCULATION" Member="T_BONUS_CALCULATIONs">
+    <Type Name="T_BONUS_CALCULATION">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ASSESSMENT_YEAR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FILE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAFF_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NEW_BONUS" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="NEW_BONUS_ADJ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NEW_BONUS_FIANL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_BONUS_SALARY_PASSCODE" Member="T_BONUS_SALARY_PASSCODEs">
+    <Type Name="T_BONUS_SALARY_PASSCODE">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ASSESSMENT_YEAR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FINAL_FLG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_EVALUATION" Member="T_EVALUATIONs">
+    <Type Name="T_EVALUATION">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ASSESSMENT_YEAR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ASSESSMENT_TYPE" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ASSESSMENT_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FILE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="YEARLY_GOAL" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EVALUATION_POINT_T1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EVALUATION_POINT_T2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EVALUATION_POINT_FINAL" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="COMMENTS_T1" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="COMMENTS_T2" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="COMMENTS_FINAL" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="FINAL_FLG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EVALUATION_RESULT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_FILETRACKING_T_EVALUATION" Member="T_FILETRACKING" ThisKey="COMPANY_CD,FILE_ID" OtherKey="COMPANY_CD,FILE_ID" Type="T_FILETRACKING" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_FILETRACKING" Member="T_FILETRACKINGs">
+    <Type Name="T_FILETRACKING">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FILE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FILENAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FILE_CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DIRECTION" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="BATCH_NO" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="BATCH_TYPE" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FILE_URL" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STATUS" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_FILETRACKING_T_EVALUATION" Member="T_EVALUATIONs" ThisKey="COMPANY_CD,FILE_ID" OtherKey="COMPANY_CD,FILE_ID" Type="T_EVALUATION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_LOG" Member="T_LOGs">
+    <Type Name="T_LOG">
+      <Column Name="LOG_CD" Type="System.String" DbType="NVarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LOG_TYPE" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="SCREEN_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ACTION_TYPE" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="LOG_DATA" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LOG_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_ROLE_MENU" Member="T_ROLE_MENUs">
+    <Type Name="T_ROLE_MENU">
+      <Column Name="ROLE_MENU_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ROLE_CD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MENU_CD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="READONLY" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="M_MENU_T_ROLE_MENU" Member="M_MENU" ThisKey="MENU_CD" OtherKey="MENU_CD" Type="M_MENU" IsForeignKey="true" />
+      <Association Name="M_ROLE_T_ROLE_MENU" Member="M_ROLE" ThisKey="ROLE_CD" OtherKey="ROLE_CD" Type="M_ROLE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_SALARY_CALCULATION" Member="T_SALARY_CALCULATIONs">
+    <Type Name="T_SALARY_CALCULATION">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ASSESSMENT_YEAR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FILE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAFF_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NEW_BASE_AD" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="NEW_BASE_FIANL" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="NEW_ALLOWANCE" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_SALARY_CALCULATION_FINAL" Member="T_SALARY_CALCULATION_FINALs">
+    <Type Name="T_SALARY_CALCULATION_FINAL">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ASSESSMENT_YEAR" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FINAL_FLG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_STAFF_CONTACT" Member="T_STAFF_CONTACTs">
+    <Type Name="T_STAFF_CONTACT">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAFF_CD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="COMPANY_PHONE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COMPANY_MOBILE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COMPANY_FAX" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COMPANY_EMAIL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="HOME_STREET" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="HOME_DISTRICT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HOME_AREA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HOME_CITY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HOME_STATE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HOME_ZIP" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="HOME_COUNTRY_CD" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="M_STAFF_T_STAFF_CONTACT" Member="M_STAFF" ThisKey="COMPANY_CD,STAFF_CD" OtherKey="COMPANY_CD,STAFF_ID" Type="M_STAFF" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_STAFF_EDUCATION" Member="T_STAFF_EDUCATIONs">
+    <Type Name="T_STAFF_EDUCATION">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAFF_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QUALIFICATION_CD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="INSTITUTION" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MAJOR" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="YEAR_FROM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YEAR_TO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="M_EDUCATION_QUALIFICATION_T_STAFF_EDUCATION" Member="M_EDUCATION_QUALIFICATION" ThisKey="COMPANY_CD,QUALIFICATION_CD" OtherKey="COMPANY_CD,QUALIFICATION_CD" Type="M_EDUCATION_QUALIFICATION" IsForeignKey="true" />
+      <Association Name="M_STAFF_T_STAFF_EDUCATION" Member="M_STAFF" ThisKey="COMPANY_CD,STAFF_ID" OtherKey="COMPANY_CD,STAFF_ID" Type="M_STAFF" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_STAFF_EMPLOYMENT_HISTORY" Member="T_STAFF_EMPLOYMENT_HISTORies">
+    <Type Name="T_STAFF_EMPLOYMENT_HISTORY">
+      <Column Name="COMPANY_CD" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAFF_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAFF_EMPLOYMENT_HISTORY_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EFFECTIVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STAFF_BAND" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="JOBTITLE_CD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SECTION_CD" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DIVISION_CD" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="BASIC_SALARY" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="ALLOWANCE" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="BONUS" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="EVALUATION_INDIVIDUAL" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="EVALUATION_TEAM" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="EVALUATION_RESULT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="M_STAFF_T_STAFF_EMPLOYMENT_HISTORY" Member="M_STAFF" ThisKey="COMPANY_CD,STAFF_ID" OtherKey="COMPANY_CD,STAFF_ID" Type="M_STAFF" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_CATEGORY" Member="V_CATEGORies">
+    <Type Name="V_CATEGORY">
+      <Column Name="CATEGORY_CD" Type="System.String" DbType="NVarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CATEGORY_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SORT_ORDER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CATEGORY_LEVEL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PARENT_CATEGORY_CD" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DEL_FLG" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATE_PERSON_CD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="V_CATEGORY_V_PRODUCT" Member="V_PRODUCTs" ThisKey="CATEGORY_CD" OtherKey="CATEGORY_CD" Type="V_PRODUCT" />
+      <Association Name="V_CATEGORY_V_CATEGORY" Member="V_CATEGORies" ThisKey="CATEGORY_CD" OtherKey="PARENT_CATEGORY_CD" Type="V_CATEGORY" />
+      <Association Name="V_CATEGORY_V_CATEGORY" Member="V_CATEGORY1" ThisKey="PARENT_CATEGORY_CD" OtherKey="CATEGORY_CD" Type="V_CATEGORY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_EXTENSION_ATTRIBUTE" Member="V_EXTENSION_ATTRIBUTEs">
+    <Type Name="V_EXTENSION_ATTRIBUTE">
+      <Column Name="ATTRIBUTE_CD" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PRODUCT_CD" Type="System.String" DbType="NVarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ATTRIBUTE_KEY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ATRRIBUTE_VALUE" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="V_PRODUCT_V_EXTENSION_ATTRIBUTE" Member="V_PRODUCT" ThisKey="PRODUCT_CD" OtherKey="PRODUCT_CD" Type="V_PRODUCT" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

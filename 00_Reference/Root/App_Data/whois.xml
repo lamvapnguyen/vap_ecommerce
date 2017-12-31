@@ -1,0 +1,14 @@
+﻿<root>
+	<item domain="com" server="whois.crsnic.net" findText="no match for" findIndex="190" />
+	<item domain="net" server="whois.crsnic.net" findText="no match for" findIndex="190" />
+	<item domain="org" server="whois.publicinterestregistry.net" findText="not found" findIndex="0" />
+	<item domain="biz" server="whois.nic.biz" findText="not found" findIndex="0" />
+	<item domain="info" server="whois.afilias.info" findText="not found" findIndex="0" />
+	<item domain="vn" server="" findText="no-register-vn" findIndex="0" />
+	<item domain="com.vn" server="" findText="no-register-vn" findIndex="0" />
+	<item domain="net.vn" server="" findText="no-register-vn" findIndex="0" />
+	<item domain="org.vn" server="" findText="no-register-vn" findIndex="0" />
+	<item domain="edu.vn" server="" findText="no-register-vn" findIndex="0" />
+	<item domain="biz.vn" server="" findText="no-register-vn" findIndex="0" />
+	<item domain="info.vn" server="" findText="no-register-vn" findIndex="0" />
+</root>

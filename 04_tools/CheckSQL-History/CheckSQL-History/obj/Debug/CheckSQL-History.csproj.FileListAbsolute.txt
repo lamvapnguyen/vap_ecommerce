@@ -1,0 +1,18 @@
+C:\Users\ivs\Documents\Visual Studio 2015\Projects\CheckSQL\CheckSQL-History\bin\Debug\CheckSQL-History.exe.config
+C:\Users\ivs\Documents\Visual Studio 2015\Projects\CheckSQL\CheckSQL-History\bin\Debug\CheckSQL-History.exe
+C:\Users\ivs\Documents\Visual Studio 2015\Projects\CheckSQL\CheckSQL-History\bin\Debug\CheckSQL-History.pdb
+C:\Users\ivs\Documents\Visual Studio 2015\Projects\CheckSQL\CheckSQL-History\obj\Debug\CheckSQL-History.csprojResolveAssemblyReference.cache
+C:\Users\ivs\Documents\Visual Studio 2015\Projects\CheckSQL\CheckSQL-History\obj\Debug\CheckSQL_History.frmCheckSQL.resources
+C:\Users\ivs\Documents\Visual Studio 2015\Projects\CheckSQL\CheckSQL-History\obj\Debug\CheckSQL_History.Properties.Resources.resources
+C:\Users\ivs\Documents\Visual Studio 2015\Projects\CheckSQL\CheckSQL-History\obj\Debug\CheckSQL-History.csproj.GenerateResource.Cache
+C:\Users\ivs\Documents\Visual Studio 2015\Projects\CheckSQL\CheckSQL-History\obj\Debug\CheckSQL-History.exe
+C:\Users\ivs\Documents\Visual Studio 2015\Projects\CheckSQL\CheckSQL-History\obj\Debug\CheckSQL-History.pdb
+D:\Projects\CheckSQL\CheckSQL-History\bin\Debug\CheckSQL-History.exe.config
+D:\Projects\CheckSQL\CheckSQL-History\obj\Debug\CheckSQL-History.exe
+D:\Projects\CheckSQL\CheckSQL-History\obj\Debug\CheckSQL-History.pdb
+D:\Projects\CheckSQL\CheckSQL-History\bin\Debug\CheckSQL-History.exe
+D:\Projects\CheckSQL\CheckSQL-History\bin\Debug\CheckSQL-History.pdb
+D:\Projects\CheckSQL\CheckSQL-History\obj\Debug\CheckSQL-History.csprojResolveAssemblyReference.cache
+D:\Projects\CheckSQL\CheckSQL-History\obj\Debug\CheckSQL_History.frmCheckSQL.resources
+D:\Projects\CheckSQL\CheckSQL-History\obj\Debug\CheckSQL_History.Properties.Resources.resources
+D:\Projects\CheckSQL\CheckSQL-History\obj\Debug\CheckSQL-History.csproj.GenerateResource.Cache

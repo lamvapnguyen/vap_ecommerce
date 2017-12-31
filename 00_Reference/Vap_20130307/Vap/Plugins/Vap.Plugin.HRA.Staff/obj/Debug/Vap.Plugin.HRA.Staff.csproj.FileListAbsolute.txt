@@ -1,0 +1,31 @@
+E:\Projects\Examples\Vap\Plugins\Vap.Plugin.HRA.Staff\bin\Vap.Plugin.HRA.Staff.dll
+E:\Projects\Examples\Vap\Plugins\Vap.Plugin.HRA.Staff\bin\Vap.Plugin.HRA.Staff.pdb
+E:\Projects\Examples\Vap\Plugins\Vap.Plugin.HRA.Staff\bin\Vap.Data.dll
+E:\Projects\Examples\Vap\Plugins\Vap.Plugin.HRA.Staff\bin\Vap.Data.pdb
+E:\Projects\Examples\Vap\Plugins\Vap.Plugin.HRA.Staff\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\Examples\Vap\Plugins\Vap.Plugin.HRA.Staff\obj\Debug\Vap.Plugin.HRA.Staff.dll
+E:\Projects\Examples\Vap\Plugins\Vap.Plugin.HRA.Staff\obj\Debug\Vap.Plugin.HRA.Staff.pdb
+E:\Projects\Examples\Vap\Plugins\Vap.Plugin.HRA.Staff\bin\Vap.Framework.Configuration.dll
+E:\Projects\Examples\Vap\Plugins\Vap.Plugin.HRA.Staff\bin\Vap.Framework.Configuration.pdb
+E:\Projects\Examples\Vap\Presentation\Vap.Web\bin\Vap.Plugin.HRA.Staff.dll
+E:\Projects\Examples\Vap\Presentation\Vap.Web\bin\Vap.Plugin.HRA.Staff.pdb
+E:\Projects\Examples\Vap_2\Vap\Presentation\Vap.Web\bin\Vap.Plugin.HRA.Staff.dll
+E:\Projects\Examples\Vap_2\Vap\Presentation\Vap.Web\bin\Vap.Plugin.HRA.Staff.pdb
+E:\Projects\Examples\Vap_2\Vap\Plugins\Vap.Plugin.HRA.Staff\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\Examples\Vap_2\Vap\Plugins\Vap.Plugin.HRA.Staff\obj\Debug\Vap.Plugin.HRA.Staff.dll
+E:\Projects\Examples\Vap_2\Vap\Plugins\Vap.Plugin.HRA.Staff\obj\Debug\Vap.Plugin.HRA.Staff.pdb
+E:\Projects\Examples\Vap_3\Vap_2\Vap\Presentation\Vap.Web\bin\Vap.Plugin.HRA.Staff.dll
+E:\Projects\Examples\Vap_3\Vap_2\Vap\Presentation\Vap.Web\bin\Vap.Plugin.HRA.Staff.pdb
+E:\Projects\Examples\Vap_3\Vap_2\Vap\Plugins\Vap.Plugin.HRA.Staff\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\Examples\Vap_3\Vap_2\Vap\Plugins\Vap.Plugin.HRA.Staff\obj\Debug\Vap.Plugin.HRA.Staff.dll
+E:\Projects\Examples\Vap_3\Vap_2\Vap\Plugins\Vap.Plugin.HRA.Staff\obj\Debug\Vap.Plugin.HRA.Staff.pdb
+E:\Projects\Examples\Vap_0815\Vap\Presentation\Vap.Web\bin\Vap.Plugin.HRA.Staff.dll
+E:\Projects\Examples\Vap_0815\Vap\Presentation\Vap.Web\bin\Vap.Plugin.HRA.Staff.pdb
+E:\Projects\Examples\Vap_0815\Vap\Plugins\Vap.Plugin.HRA.Staff\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\Examples\Vap_0815\Vap\Plugins\Vap.Plugin.HRA.Staff\obj\Debug\Vap.Plugin.HRA.Staff.dll
+E:\Projects\Examples\Vap_0815\Vap\Plugins\Vap.Plugin.HRA.Staff\obj\Debug\Vap.Plugin.HRA.Staff.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\bin\Vap.Plugin.HRA.Staff.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\bin\Vap.Plugin.HRA.Staff.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.HRA.Staff\obj\Debug\ResolveAssemblyReference.cache
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.HRA.Staff\obj\Debug\Vap.Plugin.HRA.Staff.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.HRA.Staff\obj\Debug\Vap.Plugin.HRA.Staff.pdb

@@ -1,0 +1,44 @@
+/*=== view 99 ===*/
+@font-face { 
+	font-family:'FontAwesome';
+	src:url('fonts/FontAwesome.eot');
+	src:url('fonts/FontAwesome?#iefix') format('embedded-opentype'),
+		url('fonts/FontAwesome.woff') format('woff'),
+		url('fonts/FontAwesome.ttf') format('truetype'),
+		url('fonts/FontAwesome.svg#FontAwesome') format('svg');
+	font-weight:normal;
+	font-style:normal;
+}
+
+.psec_1_2  { height:100px; padding:20px 0; background:url(img/menu99.png) repeat-x center center; border:0; }
+
+/* social netw */
+.socialnw > .i { float:left; }
+.socialnw a { color:#E46305; font-family:'FontAwesome'; font-size:22px; margin:0 5px; transition:all 0.4s ease 0s; -webkit-transition:all 0.4s ease 0s; }
+.socialnw a:hover { color:#FC9319; }
+
+/*menu*/
+#psec_2 .b_menu_c_left { padding:35px 0; }
+#psec_2 .b_menu div.center > a, #psec_2 .b_menu div.center > span { color:#fff; }
+#psec_2 .b_menu_active .center, #psec_2 .b_menu_item:hover .center { border-color:transparent; background:none; }
+.b_menu > ul > li { position:relative; }
+.b_menu > ul > li ul { background-color:rgba(83,120,165,.6); }
+.b_menu > ul > li ul li { background:none; }
+.b_menu > ul > li ul li a, .b_menu > ul > li ul li span { color:#fff; }
+.b_menu > ul > li > ul::before { border-bottom-color:rgba(83,120,165,.6); }
+.b_menu > ul > li > ul::after { display:none; }
+.b_menu .sub-menu-c > div > div > div::after { font-family:'FontAwesome'; content:'\f107'; color:#fff; position:absolute; top:5px; right:3px; text-align:right; }
+
+/*login bar*/
+.lgb_a { color:#fff; }
+.lgb_c > a { color:#fff; text-transform:uppercase; font-size:16px; font-weight:normal;}
+.lgb_c > a:first-child, .lgb_welcome { background:url(img/bkg86.png) no-repeat 0 2px; padding-left:35px; font-size:16px; color:#fff; font-weight:normal;}
+.lgb_c > a:nth-child(2) { background:url(img/bkg86.png) no-repeat 20px -35px; padding-left:55px; }
+/*search bar*/
+.search_c0 { margin-top:0; clear:none; }
+.search_c, .prc_search_c, .cls_search_c { background:none; width:auto; }
+.search_text { padding:3px; background:transparent !important; color:#fff !important; text-align:right; }
+.search_button { background:url(img/bkg86.png) no-repeat 0 -78px; height:28px; vertical-align:0; width:32px; }
+.searchbar_dropdown { display:none; }
+.fb_icon { background:url(img/bkg86.png) no-repeat 0 -118px; width:32px; height:28px; float:right; }
+.fb_icon > a { display:block; }

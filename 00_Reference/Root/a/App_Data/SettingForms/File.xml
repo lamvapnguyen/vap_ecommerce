@@ -1,0 +1,80 @@
+﻿<setting name="File">
+<![CDATA[
+
+<input type="hidden" value="1" name="update_hidden_field" />
+<table cellspacing="0" cellpadding="0" width="100%" class="dm_edit_table">
+	<col width="300px" /><col width="1px" /><col />
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:upload_max_space}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" value="{p:upload_max_space}" name="upload_max_space" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 0;">&nbsp;MB</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:upload_trash}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="checkbox" value="True" name="upload_trash" {p:upload_trash} />
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><td></td><td></td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:upload_image_ext}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" name="upload_image_ext" value="{p:upload_image_ext}" class="ioc_textbox" style="width:420px;" />&nbsp;
+			<input type="text" name="upload_image_size" value="{p:upload_image_size}" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 0;">&nbsp;MB</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">Audio</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" name="upload_audio_ext" value="{p:upload_audio_ext}" class="ioc_textbox" style="width:420px;" />&nbsp;
+			<input type="text" name="upload_audio_size" value="{p:upload_audio_size}" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 0;">&nbsp;MB</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">Video</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" name="upload_video_ext" value="{p:upload_video_ext}" class="ioc_textbox" style="width:420px;" />&nbsp;
+			<input type="text" name="upload_video_size" value="{p:upload_video_size}" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 0;">&nbsp;MB</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:upload_other_ext}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" name="upload_other_ext" value="{p:upload_other_ext}" class="ioc_textbox" style="width:420px;" />&nbsp;
+			<input type="text" name="upload_other_size" value="{p:upload_other_size}" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 0;">&nbsp;MB</span>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td><td></td><td></td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:upload_max_upfile}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<input type="text" value="{p:upload_max_upfile}" name="upload_max_upfile" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 0;">&nbsp;file(s)</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">File Size </td>
+		<td class="dm_ioc_value_s">&lt;</td>
+		<td class="dm_ioc_value">
+			<input type="text" value="{p:upload_max_upsize}" name="upload_max_upsize" class="ioc_textbox" style="width:50px;text-align:right;" /><span style="padding:3px 0;">&nbsp;MB</span>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3"><input type="submit" name="update_setting_submit" class="dm_edit_button_1" value="Update" /></td>
+	</tr>
+</table>
+
+]]>
+</setting>

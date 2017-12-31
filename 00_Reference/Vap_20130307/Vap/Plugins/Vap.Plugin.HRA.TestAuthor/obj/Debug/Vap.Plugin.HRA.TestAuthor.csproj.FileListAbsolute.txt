@@ -1,0 +1,5 @@
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\bin\Vap.Plugin.HRA.TestAuthor.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Presentation\Vap.Web\bin\Vap.Plugin.HRA.TestAuthor.pdb
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.HRA.TestAuthor\obj\Debug\ResolveAssemblyReference.cache
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.HRA.TestAuthor\obj\Debug\Vap.Plugin.HRA.TestAuthor.dll
+E:\Bin\Projects\MVCSolution\Dream Project\03.Source code\Vap\Plugins\Vap.Plugin.HRA.TestAuthor\obj\Debug\Vap.Plugin.HRA.TestAuthor.pdb

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Pages/SendMail.aspx" hash="fffffff3343c8b72" filehash="3cf5a2de40cc" flags="110000" assembly="App_Web_1jzrd55w" type="ASP.pages_sendmail_aspx">
+    <filedeps>
+        <filedep name="/Pages/SendMail.aspx" />
+    </filedeps>
+</preserve>

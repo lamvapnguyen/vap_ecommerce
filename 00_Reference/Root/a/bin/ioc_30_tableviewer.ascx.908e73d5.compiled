@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/DataManager/IOControls/IOC_30_TableViewer.ascx" hash="fffffffaa8934d59" filehash="ffffe033893f7561" flags="110000" assembly="App_Web_blthx1em" type="ASP.views_datamanager_iocontrols_ioc_30_tableviewer_ascx">
+    <filedeps>
+        <filedep name="/Views/DataManager/IOControls/IOC_30_TableViewer.ascx" />
+    </filedeps>
+</preserve>

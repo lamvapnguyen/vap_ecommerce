@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<layout Id="2101" Name="Full">
+	<edit>
+<![CDATA[
+	<table width="100%" cellpadding="0" cellspacing="0">
+	<tr>
+		<td valign="top" width="10%">
+			<fieldset class="m_container">
+				<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (21)</legend>
+				<ul class="m_group" pos="21"></ul>
+				<div class="m_button_add">+</div>
+			</fieldset>
+		</td>
+		<td valign="top" width="79%" style="border:1px dashed #009;border-top:0;border-bottom:0;">
+	<table width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+			<td valign="top" width="50%">
+				<fieldset class="m_container">
+					<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (1)</legend>
+					<ul class="m_group" pos="1"></ul>
+					<div class="m_button_add">+</div>
+				</fieldset>
+			</td>
+			<td valign="top" width="50%">
+				<fieldset class="m_container">
+					<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (2)</legend>
+					<ul class="m_group" pos="2"></ul>
+					<div class="m_button_add">+</div>
+				</fieldset>
+			</td>
+		</tr>
+	</table>
+	<fieldset class="m_container">
+		<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (3)</legend>
+		<ul class="m_group" pos="3"></ul>
+		<div class="m_button_add">+</div>
+	</fieldset>
+	<table width="100%" cellpadding="0" cellspacing="0" style="padding-bottom:10px; margin:10px 0; background:#fafafa; border-top:1px dashed #009; border-bottom:1px dashed #009;">
+		<tr>
+			<td colspan="2">
+			<fieldset class="m_container">
+				<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (18)</legend>
+				<ul class="m_group" pos="18"></ul>
+				<div class="m_button_add">+</div>
+			</fieldset>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" width="25%">
+				<fieldset class="m_container" style="border-color:#B3C3D5;background:#F6F9FE;">
+					<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (4) Left-Side</legend>
+					<ul class="m_group" pos="4"></ul>
+					<div class="m_button_add">+</div>
+				</fieldset>
+			</td>
+			<td valign="top" width="75%">
+				<fieldset class="m_container">
+					<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (5)</legend>
+					<ul class="m_group" pos="5"></ul>
+					<div class="m_button_add">+</div>
+				</fieldset>
+				<table width="100%" cellpadding="0" cellspacing="0">
+					<tr>
+						<td valign="top" width="75%">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr>
+									<td valign="top" width="50%">
+										<fieldset class="m_container">
+											<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (6)</legend>
+											<ul class="m_group" pos="6"></ul>
+											<div class="m_button_add">+</div>
+										</fieldset>
+									</td>
+									<td valign="top" width="50%">
+										<fieldset class="m_container">
+											<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (7)</legend>
+											<ul class="m_group" pos="7"></ul>
+											<div class="m_button_add">+</div>
+										</fieldset>
+									</td>
+								</tr>
+							</table>
+							<fieldset class="m_container" style="border-color:#0f9d58;">
+								<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (8)</legend>
+								<ul class="m_group" pos="8"></ul>
+								<div class="m_button_add">+</div>
+							</fieldset>
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tr>
+									<td valign="top" width="50%">
+										<fieldset class="m_container">
+											<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (9)</legend>
+											<ul class="m_group" pos="9"></ul>
+											<div class="m_button_add">+</div>
+										</fieldset>
+									</td>
+									<td valign="top" width="50%">
+										<fieldset class="m_container">
+											<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (10)</legend>
+											<ul class="m_group" pos="10"></ul>
+											<div class="m_button_add">+</div>
+										</fieldset>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td valign="top" width="25%">
+							<fieldset class="m_container" style="border-color:#B3C3D5;background:#F6F9FE;">
+								<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (11) Right-Side</legend>
+								<ul class="m_group" pos="11"></ul>
+								<div class="m_button_add">+</div>
+							</fieldset>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<fieldset class="m_container" style="border-color:#0f9d58;">
+		<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (25)</legend>
+		<ul class="m_group" pos="25"></ul>
+		<div class="m_button_add">+</div>
+	</fieldset>
+	<table width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+			<td valign="top" width="50%">
+				<fieldset class="m_container">
+					<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (13)</legend>
+					<ul class="m_group" pos="13"></ul>
+					<div class="m_button_add">+</div>
+				</fieldset>
+			</td>
+			<td valign="top" width="50%">
+				<fieldset class="m_container">
+					<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (14)</legend>
+					<ul class="m_group" pos="14"></ul>
+					<div class="m_button_add">+</div>
+				</fieldset>
+			</td>
+		</tr>
+	</table>
+	<fieldset class="m_container">
+		<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (15)</legend>
+		<ul class="m_group" pos="15"></ul>
+		<div class="m_button_add">+</div>
+	</fieldset>
+	<table width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+			<td valign="top" width="50%">
+				<fieldset class="m_container">
+					<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (16)</legend>
+					<ul class="m_group" pos="16"></ul>
+					<div class="m_button_add">+</div>
+				</fieldset>
+			</td>
+			<td valign="top" width="50%">
+				<fieldset class="m_container">
+					<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (17)</legend>
+					<ul class="m_group" pos="17"></ul>
+					<div class="m_button_add">+</div>
+				</fieldset>
+			</td>
+		</tr>
+	</table>
+	<fieldset class="m_container">
+		<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (12)</legend>
+		<ul class="m_group" pos="12"></ul>
+		<div class="m_button_add">+</div>
+	</fieldset>
+	</td>
+		<td valign="top" width="10%">
+			<fieldset class="m_container">
+				<legend><input type="checkbox" value="[active]" c="0" class="m_btn_checkall" /> (22)</legend>
+				<ul class="m_group" pos="22"></ul>
+				<div class="m_button_add">+</div>
+			</fieldset>
+		</td>
+	</tr>
+</table>
+]]>
+	</edit>
+	
+	<real>
+<![CDATA[
+<div class="pws0-s1">
+	<div class="pws0-c">
+		<div class="psec_head">
+			<div class="psec_1_2"><div>
+				[<div id="psec_1"><div>{1}<div class="clear"></div></div></div>]
+				[<div id="psec_2"><div>{2}<div class="clear"></div></div></div>]
+				<div class="clear"></div></div>
+			</div>
+			[<div id="psec_3"><div>{3}<div class="clear"></div></div></div>]
+			<div class="clear"></div>
+		</div>
+		<div class="psec_main three_cols">
+			[<div id="psec_18"><div>{18}<div class="clear"></div></div></div>]
+			<div class="psec_main_c">
+				[<div id="psec_4">{4}<div class="clear"></div></div>]
+				<div id="psec3c_5_11">
+					[<div id="psec_5"><div>{5}<div class="clear"></div></div></div>]
+					<div id="psec3c_6_11">
+						[<div id="psec_11">{11}<div class="clear"></div></div>]
+						<div id="psec3c_6_10">
+							<div id="psec_6_7">
+								[<div id="psec_6">{6}<div class="clear"></div></div>]
+								[<div id="psec_7">{7}<div class="clear"></div></div>]
+								<div class="clear"></div>
+							</div>
+							[<div id="psec_8">{8}<div class="clear"></div></div>]
+							<div id="psec_9_10">
+								[<div id="psec_9">{9}<div class="clear"></div></div>]
+								[<div id="psec_10">{10}<div class="clear"></div></div>]
+								<div class="clear"></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="psec_foot">
+			[<div id="psec_25">{25}<div class="clear"></div></div>]
+			<div id="psec_13_14">
+				<div>
+					[<div id="psec_13">{13}<div class="clear"></div></div>]
+					[<div id="psec_14">{14}<div class="clear"></div></div>]
+					<div class="clear"></div>
+				</div>
+			</div>
+			[<div id="psec_15"><div>{15}<div class="clear"></div></div></div>]
+			<div id="psec_16_17">
+				<div>
+					[<div id="psec_16">{16}<div class="clear"></div></div>]
+					[<div id="psec_17">{17}<div class="clear"></div></div>]
+					<div class="clear"></div>
+				</div>
+			</div>
+			[<div id="psec_12"><div>{12}<div class="clear"></div></div></div>]
+			<div class="clear"></div>
+		</div>
+		[<div id="psec_21"><div>{21}<div class="clear"></div></div></div>]
+		[<div id="psec_22"><div>{22}<div class="clear"></div></div></div>]
+	</div>
+</div>
+]]>
+	</real>
+</layout>

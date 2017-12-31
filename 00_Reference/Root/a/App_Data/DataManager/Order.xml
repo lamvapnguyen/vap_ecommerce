@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Order" Title="a_menu_order" R="502" DeleteRole="105" DefaultSort="Order_ID" DefaultSortAsc="false">
+	<controls>
+		<field Name="DM_ExportOrder" Path="UC/DM_ExportOrder.ascx" Pos="9"/>
+	
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+		
+		<field Name="WCMS_Order" Path="Process/Order.ascx" Pos="7"/>
+	</controls>
+	
+	<list>
+		<field Name="Order_Code" Title="order_code" Sort="true" Type="1" Css="width:100px;text-align:center;color:#090;"/>
+		<field Name="Order_OrderDate" Title="log_datetime" Css="width:80px;"/>
+		<field Name="CustomerName" Title="customer_name" />
+		<field Name="Order_Phone" Title="f_phone" Sort="true" Css="width:100px;"/>
+		<field Name="OrderSubTotal" Title="f_sub_total" Sort="true" Css="width:80px;text-align:right;"/>
+		<field Name="Order_ShipFee" Title="shipping_fee" Sort="true" Css="width:80px;text-align:right;"/>
+		<field Name="Order_Money" Title="total_amount" Sort="true" Css="width:80px;text-align:right;font-weight:bold;"/>
+		<field Name="OrderPaymentGateway" Title="payment_method" Css="width:120px;text-align:center;"/>
+		<field Name="Order_RESULT" Title="status2" Css="width:120px;text-align:center;"/>
+		<field Name="Order_AdminNotes" Title="f_note"/>
+	</list>
+
+	<command_plus><![CDATA[]]></command_plus>
+
+	<search>
+		<field Name="Order_Code" Title="order_code"/>
+		<field Name="Order_ID" Title="order_id"/>
+		<field Name="CustomerName" Title="customer_name"/>
+		<field Name="Order_Phone" Title="f_phone"/>
+		<field Name="Order_Email" Title="#Email"/>
+	</search>
+	
+	<edit>
+		<group Title="customer" Pos="2" Expand="true">
+			<field Name="Customer" Type="37" Property="Width='300px'"/>
+		</group>
+		<group Title="a_menu_order" Pos="2" Expand="true">
+			<field Name="Order_Code" Title="order_code" ShowState="4" Property="Width='120px' Css='color:#090;'"/>
+			<field Name="Order_RESULT" Title="status2" Type="8" Property="SqlSP='SP_A_R_001_GetDefinition1Level' ParentID='5400' Default='5401' Format='{1}' DisplayNoSelectText='false'"/>
+			<field Name="SendMail" Title="#Email thông báo tình trạng" Type="36" ShowState="4" Property="StatusControlID='ucDMDataManager5_Edit1_ctl01_Order_RESULT_1_List'"/>
+			
+			<field Name="OrderSubTotal" Title="f_sub_total" Type="1" Property="Currency='true' Default='0' Width='120px' Css='text-align:right;color:#000;'"/>
+			<field Name="Order_ShipFee" Title="shipping_fee" Type="1" Property="Currency='true' Default='0' Width='120px' Css='text-align:right;color:#000;'"/>
+			<field Name="Order_CouponValue" Title="coupon_value" Type="1" Property="Currency='true' Default='0' Width='120px' Css='text-align:right;'"/>
+			<field Name="Order_Money" Title="total_amount" Type="1" Property="Currency='true' Default='0' Width='120px' Css='text-align:right;color:#c00;'"/>
+			
+			<!--<field Name="Order_Tax" Title="tax" Type="1" Property="Currency='true' Default='0' Width='120px' Css='text-align:right;color:#096;'"/>-->
+			
+			<field Name="Order_CouponNumber" Title="coupon_code" Type="1" Property="Width='250px' Css='text-align:center;'"/>			
+			<field Name="Order_OrderDate" Title="f_date_created" ShowState="4"/>
+		</group>
+		<group Title="a_menu_product" Pos="2" Expand="true">
+			<field Name="Order_Xml" Type="38" />
+		</group>
+		<group Title="checkout" Pos="2" Expand="true">
+			<field Name="Order_PaymentGateway" Title="payment_method" Type="8" Property="SqlSP='SP_A_R_001_GetDefinition1Level' ParentID='5100' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Default='5101' DisplayNoSelectText='false'"/>
+			<field Name="Order_Name" Title="f_fullname" Type="1" Property="Width='350px'"/>
+			<field Name="Order_Phone" Title="f_phone" Type="1" Property="Width='175px'"/>
+			<field Name="Order_Email" Title="#Email" Type="1" Property="Width='350px'"/>
+			<field Name="Order_PaymentStateID" Title="f_city" Type="8" Property="SqlSP='SP_A_R_001_Tree_State' ParentID='3' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Default='5101' DisplayNoSelectText='false'"/>
+			<field Name="Order_PaymentQuanHuyenID" Title="f_quanhuyen" Type="8" Property="SqlSP='SP_A_R_001_Tree_StateCounty' ParentID='3' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Default='5101' DisplayNoSelectText='false'"/>
+			<field Name="Order_Address" Title="f_address" Type="1" Property="Width='96%'"/>
+		</group>
+		
+		<group Title="shipping" Pos="2" Expand="true">
+			<field Name="Order_ShipGateway" Title="shipping_method" Type="8" Property="SqlSP='SP_A_R_001_GetDefinition1Level' ParentID='5300' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Default='5101' DisplayNoSelectText='false'"/>
+			<field Name="Order_ShipDate" Title="shipping_date" Type="4" Property="AddDate='1'"/>
+			<field Name="Order_ShipState" Title="f_city" Type="8" Property="SqlSP='SP_A_R_001_Tree_State' ParentID='3' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Default='5101' DisplayNoSelectText='false'"/>
+			<field Name="Order_ShipQuanHuyen" Title="f_quanhuyen" Type="8" Property="SqlSP='SP_A_R_001_Tree_StateCounty' ParentID='3' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' Default='5101' DisplayNoSelectText='false'"/>
+			<field Name="Order_ShipAddress" Title="f_address" Type="1" Property="Width='96%'"/>
+			
+			<field Name="Order_ShipName" Title="f_fullname" Type="1" Property="Require='true' Width='350px' Css='font-weight:bold;'"/>
+			<field Name="Order_ShipPhone" Title="f_phone" Type="1" Property="Require='true' Width='175px'"/>
+			
+			<field Name="Order_TrackUrl" Title="#Tracking Url" Type="1" Property="Width='350px'"/>
+			<field Name="Order_TrackCode" Title="#Tracking Code" Type="1" Property="Width='350px'"/>
+			<field Name="Order_TrackDate" Title="#Tracking Date" Type="4" />
+		</group>
+		<group Title="#Thông tin ghi hóa đơn" Pos="2" Expand="true">
+			<field Name="Order_Company" Title="#Công ty" Type="1" Property="Width='350px'"/>
+			<field Name="Order_TaxCode" Title="#Mã số thuế" Type="1" Property="Width='200px'"/>
+			<field Name="Order_TaxAddress" Title="#Địa chỉ" Type="1" Property="Width='96%'"/>
+			<field Name="Order_Note" Title="f_note" Type="2"/>
+		</group>
+		
+		<group Title="order_notes" Pos="2" Expand="true" Columns="2">
+			<field Name="Order_AdminNotes" Type="2"/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[
+	set nocount on	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem	= 
+	(
+		select count(0) from wcms_Order  
+		{ inner join wcms_Customer on Customer_ID = Order_CustomerID and Customer_FullName = @Search:CustomerName }
+		where
+		{ Order_ID 		<o> @Search:Order_ID and }
+		{ Order_Phone 	<o> @Search:Order_Phone and }
+		{ Order_Email 	<o> @Search:Order_Email and }
+		{ Order_Code 	<o> @Search:Order_Code and }
+		1 = 1
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Order_ID]
+		,DATEADD(hour, {@TIMEZONE}, Order_OrderDate) as [Order_OrderDate]
+		,[CustomerName]
+		,Order_Phone
+		,Order_Email
+		,dbo.F_001_FormatCurrency(Order_Money) as Order_Money
+		,dbo.F_001_FormatCurrency(Order_ShipFee) as Order_ShipFee
+		,Order_AdminNotes
+		,(Select Definition_Name from wcms_Definition where Definition_ID = Order_PaymentGateway) as [OrderPaymentGateway]
+		,(select Definition_Name from wcms_Definition where Definition_ID = Order_RESULT) as [Order_RESULT]
+		,Order_Code
+,dbo.F_001_FormatCurrency(isnull(Order_Money,0) - isnull(Order_ShipFee,0)) as OrderSubTotal
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,Order_ID
+			,Order_OrderDate
+			,(Select '<b>' + Customer_FullName + '</b>' + isnull('<br>' + Customer_Email,'') from wcms_Customer where Customer_ID = [Order_CustomerID]) as [CustomerName]
+			,Order_Phone
+			,Order_Email
+			,Order_Money
+			,Order_ShipFee
+			,Order_AdminNotes
+			,Order_PaymentGateway
+			,Order_RESULT
+			,Order_Code
+		from wcms_Order
+		{ inner join wcms_Customer on Customer_ID = Order_CustomerID and Customer_FullName = @Search:CustomerName }
+		where 
+		{ Order_ID 		<o> @Search:Order_ID and }
+		{ Order_Phone 	<o> @Search:Order_Phone and }
+		{ Order_Email 	<o> @Search:Order_Email and }
+		{ Order_Code 	<o> @Search:Order_Code and }
+		1 = 1
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 AND @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[ 
+	set nocount on	
+	SELECT [Order_ID]
+		,Order_CustomerID
+		,Order_PaymentGateway
+		,Order_RESULT
+		,Order_ClientIP
+		,Order_Note
+		,Order_AdminNotes
+		,Order_OrderDate
+		,Order_Name
+		,Order_Email
+		,Order_Phone
+		,Order_Address
+		
+		,Order_PaymentStateID
+		,Order_PaymentQuanHuyenID
+		
+		,Order_TaxAddress
+		,Order_TaxCode
+		,Order_Company
+		
+		,Order_CouponNumber
+		,convert(varchar,Order_CouponValue,1) as Order_CouponValue
+		
+		,isnull(Order_Money,0) - isnull(Order_ShipFee,0) as OrderSubTotal
+		,Order_ShipFee
+		,Order_Money
+		,Order_Tax
+		
+		,Order_ShipGateway
+		,Order_ShipAddress
+		,Order_ShipState
+		,Order_ShipQuanHuyen
+		,Order_ShipCountry
+		,Order_ShipZipcode
+		,Order_ShipDate
+		,Order_ShipName
+		,Order_ShipPhone
+		,Order_TrackUrl
+		,Order_TrackDate
+		,Order_TrackCode
+		,Order_Code
+		,isnull(Order_Email,'') + '|' + isnull(Order_Code,'') as SendMail
+		
+		,(select cast(Customer_ID as varchar(10)) + '<@>' + isnull(Customer_FullName,'') from wcms_Customer where Customer_ID = Order_CustomerID) as Customer
+		,Order_Xml
+		
+	from wcms_Order where Order_ID = @editID 
+	]]>
+	</SQL_LOAD_EDIT>
+
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+	
+	<SQL_ADD>
+	<![CDATA[
+	set nocount on
+	declare @date datetime, @orderID int, @shipID int, @orderCode varchar(20), @d datetime, @addNewCustomer bit = 0, @xml nvarchar(max) = ''
+	set @date = getutcdate()
+	set @shipID = 0
+	set @d = getdate()
+	
+	--gen code
+	Select top 1 @orderCode = CAST(right(Order_Code,3) as int) + 1 
+	from wcms_Order where datediff(day,@d,Order_Date) >= 0 order by Order_Date desc
+	
+	if (@orderCode is null) set @orderCode = '1'
+	
+	select @orderCode = Setting_Content + replace(CONVERT(varchar(8),@d,3),'/','') + RIGHT('000' + right(@orderCode,3), 3)
+	from wcms_Setting 
+	where Setting_SiteID = 1 AND Setting_Name = 'order_code_pre'
+	
+	--customer
+	declare @cus nvarchar(100) = {@Get:Customer}, @cusID int = NULL
+	if (@cus is not null AND @cus <> '') 
+	begin
+		select @cusID = cast(data as int) from dbo.F_001_StringToTable(@cus,'<@>') where id = 1
+	end
+	if (@cusID = 0) set @cusID = NULL
+	
+	--insert
+	INSERT INTO wcms_Order
+           (Order_CustomerID
+           ,Order_RESULT
+           ,Order_OrderDate
+           ,Order_Email
+           ,Order_CouponNumber
+           ,Order_CouponValue
+           ,Order_Phone
+           ,Order_Date
+           ,Order_Money
+           ,Order_MoneyType
+           ,Order_PaymentGateway
+           ,Order_Company
+           ,Order_Tax
+           ,Order_Note
+           ,Order_TaxCode
+           ,Order_TaxAddress
+           ,Order_Address
+           ,Order_ShipName
+           ,Order_ShipAddress
+           ,Order_ShipCountry
+           ,Order_ShipState
+           ,Order_ShipPhone
+           ,Order_ShipDate
+           ,Order_TrackUrl
+           ,Order_TrackCode
+           ,Order_TrackDate
+           ,Order_ShipGateway
+           ,Order_Name
+		   
+		   ,Order_PaymentStateID
+		   ,Order_PaymentQuanHuyenID
+		
+           ,Order_ShipQuanHuyen
+           ,Order_ShipFee
+           ,Order_Code
+           ,Order_Xml )
+     VALUES (@cusID
+           ,{@Get:Order_RESULT}
+           ,@date
+           ,{@Get:Order_Email}
+           ,{@Get:Order_CouponNumber}
+           ,{@Get:Order_CouponValue}
+           ,{@Get:Order_Phone}
+           ,@date
+           ,{@Get:Order_Money}
+           ,'VND'
+           ,{@Get:Order_PaymentGateway}
+           ,{@Get:Order_Company}
+           ,{@Get:Order_Tax}
+           ,{@Get:Order_Note}
+           ,{@Get:Order_TaxCode}
+           ,{@Get:Order_TaxAddress}
+           ,{@Get:Order_Address}
+           ,{@Get:Order_ShipName}
+           ,{@Get:Order_ShipAddress}
+           ,3
+           ,{@Get:Order_ShipState}
+           ,{@Get:Order_ShipPhone}
+           ,{@Get:Order_ShipDate}
+           ,{@Get:Order_TrackUrl}
+           ,{@Get:Order_TrackCode}
+           ,{@Get:Order_TrackDate}
+           ,{@Get:Order_ShipGateway}
+           ,{@Get:Order_Name}
+		   
+		   ,{@Get:Order_PaymentStateID}
+		   ,{@Get:Order_PaymentQuanHuyenID}
+		   
+           ,{@Get:Order_ShipQuanHuyen}
+           ,{@Get:Order_ShipFee}
+           ,@orderCode
+           ,{@Get:Order_Xml} )
+
+	set @orderID = @@IDENTITY 
+
+	--order detail
+	if (@orderID > 0)
+		exec dbo.SP_U_W_001_UpdateOrderDetail @orderID
+	
+	select @orderID
+	]]>
+	</SQL_ADD>
+	
+	<SQL_UPDATE>
+	<![CDATA[
+		set nocount on 
+		declare @id int = @editID, @result int, @now datetime
+		set @result = {@Get:Order_RESULT}
+		set @now = getutcdate()
+		
+		declare @cus nvarchar(100) = {@Get:Customer}, @cusID int = NULL
+		if (@cus is not null AND @cus <> '') 
+		begin
+			select @cusID = cast(data as int) from dbo.F_001_StringToTable(@cus,'<@>') where id = 1
+		end
+		if (@cusID = 0) set @cusID = NULL
+		
+		update WCMS_Order set  Order_CustomerID = @cusID
+			,Order_Xml = {@Get:Order_Xml}
+			,Order_RESULT = @result 
+			,Order_UpdateDate = @now 
+			,Order_UpdateAccID = {@AccID}
+			
+			,Order_Money = {@Get:Order_Money}
+			,Order_ShipFee = {@Get:Order_ShipFee}
+			,Order_Tax = {@Get:Order_Tax}
+			,Order_CouponValue = {@Get:Order_CouponValue}
+			,Order_CouponNumber = {@Get:Order_CouponNumber}
+			
+			,Order_PaymentGateway = {@Get:Order_PaymentGateway}
+			,Order_Name = {@Get:Order_Name}
+			,Order_Phone = {@Get:Order_Phone}
+			,Order_Email = {@Get:Order_Email}
+			,Order_Address = {@Get:Order_Address}
+			
+			,Order_ShipGateway = {@Get:Order_ShipGateway}
+			,Order_ShipDate = {@Get:Order_ShipDate}
+			,Order_ShipName = {@Get:Order_ShipName}
+			,Order_ShipPhone = {@Get:Order_ShipPhone}
+			,Order_ShipAddress = {@Get:Order_ShipAddress}
+			,Order_ShipState = {@Get:Order_ShipState}
+			,Order_ShipQuanHuyen = {@Get:Order_ShipQuanHuyen}
+			,Order_TrackUrl = {@Get:Order_TrackUrl}
+			,Order_TrackCode = {@Get:Order_TrackCode}
+			,Order_TrackDate = {@Get:Order_TrackDate}
+			
+			,Order_PaymentStateID = {@Get:Order_PaymentStateID}
+			,Order_PaymentQuanHuyenID = {@Get:Order_PaymentQuanHuyenID}
+			,Order_Company = {@Get:Order_Company}
+			,Order_TaxCode = {@Get:Order_TaxCode}
+			,Order_TaxAddress = {@Get:Order_TaxAddress}
+			,Order_Note = {@Get:Order_Note}
+			,Order_AdminNotes = {@Get:Order_AdminNotes}
+			
+		where Order_ID = @id
+		
+		exec dbo.SP_U_W_001_UpdateOrderDetail @id,1
+		select @id
+	]]>
+	</SQL_UPDATE>
+	<SQL_UPDATE_ACTIVE><![CDATA[]]></SQL_UPDATE_ACTIVE>
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+	declare @orderId int, @shippingID int
+	set @orderId = @delID 
+	
+	Update wcms_Product set Product_Instock = isnull(Product_Instock,0) + OrderDetail_ProductQuantity
+		from wcms_Product
+		inner join wcms_OrderDetail on OrderDetail_ProductID = Product_ID
+		where OrderDetail_OrderID = @orderId
+			
+	delete from wcms_OrderDetail where OrderDetail_OrderID = @orderId 
+	delete from wcms_Order where Order_ID = @orderId
+	select 1
+	]]>
+	</SQL_DELETE>
+</table>

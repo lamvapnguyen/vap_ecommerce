@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<db>
+	<table Name="wcms_Banner">
+		<col Name="Banner_Content" />
+	</table>
+	<table Name="wcms_Advertisement">
+		<col Name="Advertisement_Content" />
+	</table>
+	<table Name="wcms_Post">
+		<col Name="Post_ImageLink" />
+		<col Name="Post_MediaLink" />
+		<col Name="Post_Brief" />
+		<col Name="Post_Description" />
+		<col Name="Post_HeaderLight" />
+		<col Name="Post_File" />
+	</table>
+	<table Name="wcms_Product">
+		<col Name="Product_Images" />
+		<col Name="Product_ImageLink" />
+		<col Name="Product_Brief" />
+		<col Name="Product_Description" />
+		<col Name="Product_File" />
+		<col Name="Product_RotateImages" />
+		<col Name="Product_P1" />
+		<col Name="Product_P2" />
+		<col Name="Product_P3" />
+		<col Name="Product_P4" />
+	</table>
+</db>

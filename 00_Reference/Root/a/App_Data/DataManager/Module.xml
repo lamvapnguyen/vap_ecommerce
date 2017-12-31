@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Module" Title="#Modules" R="103" EditRole="103" AddRole="102" DeleteRole="102" DefaultSort="Module_Name" DefaultSortAsc="true">
+	<controls>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4" Property="SqlSP='SP_A_R_001_Tree_Module' Active='true' Level='1' IsHeader='true' EnableHeader='true' FilterName='Module_ParentID' ExpandDepth='1' CheckUserData='false'"/>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+		<field Name="WCMS_Module" Path="Process/Module.ascx" Pos="7"/>
+	</controls>
+	
+	<list>
+		<field Name="Module_ID" Title="f_id" Type="1" Sort="true" Css="width:80px;text-align:left;color:#a00;"/>
+		<field Name="Module_Name" Title="f_name" Sort="true" Type="1"/>
+		<field Name="Module_ParentID" Title="f_parentid" Sort="true" Css="width:80px;"/>
+		<field Name="Module_IsHeader" Title="f_header" Type="2" Sort="true" Css="width:60px;text-align:center;"/>
+		<field Name="Module_A" Title="f_active" Type="3" Sort="true" Css="width:60px;text-align:center;"/>
+	</list>
+
+  <command_plus><![CDATA[]]></command_plus>
+	
+	<search>
+		<field Name="Module_ID" Title="f_id"/>
+		<field Name="Module_Name" Title="f_name"/>
+	</search>
+	
+	<edit>
+		<group Title="group_information" Pos="2" Expand="true">
+			<field Name="Module_ID" Title="#ID" Type="1" Property="Require='true' Width='70px' Css='color:#900'"/>
+			<field Name="Module_ParentID" Title="f_parent" Type="8" Property="SqlSP='SP_A_R_001_Tree_Module' Level='1' Active='true' EnableHeader='true' Format='{1}' Seperator=';'"/>
+			<field Name="Module_Name" Title="f_name" Type="1" Property="Require='true' Width='169px'"/>
+			<field Name="Module_Path" Title="f_module_path" Type="1" Note="#help_Module_path" Property="Require='true' Width='90%'"/>
+		</group>
+		<group Title="help_module_html" Pos="2" Expand="true">
+			<field Name="Module_EditHtml" Type="2" Property="Height='480px'"/>
+		</group>
+		<group Title="group_properties" Pos="3" Expand="true">
+			<field Name="Module_IsHeader" Title="f_header" Type="5" Property="Default='false'"/>
+			<field Name="Module_ForAdmin" Title="f_for_admin" Type="5" Property="Default='false'"/>
+			<field Name="Module_A" Title="f_active" Type="5" Property="Default='true'"/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[ 
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem = 
+	(
+		select count(0) from wcms_Module 
+		where
+		{ Module_ID 		<o> @Search:Module_ID and }
+		{ Module_Name 		<o> @Search:Module_Name and }
+		{ Module_ParentID 	<o> @Search:Module_ParentID and }
+		1 = 1
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Module_ID]
+		,[Module_ParentID]
+		,[Module_Name]
+		,[Module_IsHeader]
+		,case when [Module_A] = 1 then 'checked' else '' end as [Module_A]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Module_ID]
+			,[Module_ParentID]
+			,[Module_Name]
+			,[Module_IsHeader]
+			,[Module_A]
+		from wcms_Module
+		where
+		{ Module_ID 		<o> @Search:Module_ID and }
+		{ Module_Name 		<o> @Search:Module_Name and }
+		{ Module_ParentID 	<o> @Search:Module_ParentID and }
+		1 = 1
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex 
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[
+	select [Module_ID]
+		,[Module_ParentID]
+		,[Module_Name]
+		,[Module_Path]
+		,[Module_ForAdmin]
+		,[Module_EditHtml]
+		,[Module_IsHeader]
+		,[Module_A]
+	from wcms_Module where Module_ID = @editID 	
+	]]>
+	</SQL_LOAD_EDIT>
+
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+	
+	<SQL_ADD>
+	<![CDATA[
+	set nocount on
+	declare @id int
+	set @id = {@Get:Module_ID}
+	
+	insert wcms_Module
+	(
+		[Module_ID]
+		,[Module_ParentID]
+		,[Module_Name]
+		,[Module_Path]
+		,[Module_ForAdmin]
+		,[Module_EditHtml]
+		,[Module_IsHeader]
+		,[Module_A]
+	) 
+	values
+	(
+		@id
+		,{@Get:Module_ParentID}
+		,{@Get:Module_Name}
+		,{@Get:Module_Path}
+		,{@Get:Module_ForAdmin}
+		,{@Get:Module_EditHtml}
+		,{@Get:Module_IsHeader}
+		,{@Get:Module_A}
+	)
+	
+	select @id
+	]]>
+	</SQL_ADD>
+		
+	<SQL_UPDATE>
+	<![CDATA[
+	set nocount on
+	declare @gid int = {@GID}
+	if (@gid <> 1)
+	BEGIN
+		select 0
+		return;
+	END
+	
+	update wcms_Module set
+			[Module_ParentID]	= {@Get:Module_ParentID}
+			,[Module_Name]		= {@Get:Module_Name}
+			,[Module_Path]		= {@Get:Module_Path}
+			,[Module_ForAdmin]	= {@Get:Module_ForAdmin}
+			,[Module_EditHtml]	= {@Get:Module_EditHtml}
+			,[Module_IsHeader]	= {@Get:Module_IsHeader}
+			,[Module_A]			= {@Get:Module_A}
+	where Module_ID = @editID
+	
+	select @editID
+	]]>	
+	</SQL_UPDATE>
+
+	<SQL_UPDATE_ACTIVE>
+	<![CDATA[	
+	update wcms_Module set [Module_A]= @active
+	where Module_ID = @editID
+	select @editID
+	]]>
+	</SQL_UPDATE_ACTIVE>
+
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+	delete from wcms_Module where Module_ID = @delID
+	select 1
+	]]>
+	</SQL_DELETE>
+</table>

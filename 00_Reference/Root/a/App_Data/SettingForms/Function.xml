@@ -1,0 +1,54 @@
+﻿<setting name="Function">
+<![CDATA[
+<input type="hidden" value="1" name="update_hidden_field" />
+<table cellspacing="0" cellpadding="0" width="100%" class="dm_edit_table">
+	<tr>
+		<td class="dm_ioc_value multi_div">
+			<div style="float:left;width:49%;">
+				<fieldset>
+					<label><input type="checkbox" value="True" name="enabled_register" {p:enabled_register} />Đăng ký Thành viên</label><br/>
+					<label><input type="checkbox" value="True" name="use_special_rewrite" {p:use_special_rewrite} />Rewrite URL ngoại lệ</label><br/>
+					<label><input type="checkbox" value="True" name="enabled_front_edit" {p:enabled_front_edit} />Hiện nút [Edit] trên website để cập nhập nhanh</label><br/>
+					<label><input type="checkbox" value="True" name="animation" {p:animation} />Hiệu ứng animation</label><br/>
+				</fieldset><br/>
+				<fieldset>
+					<legend>SSL (https)</legend>
+					<label><input type="checkbox" value="True" name="enabled_ssl_login" {p:enabled_ssl_login} />Áp dụng cho trang Login (Trang Thành viên)</label><br/>
+					<label><input type="checkbox" value="True" name="enabled_ssl_admin" {p:enabled_ssl_admin} />Áp dụng cho AdminSite</label><br/>
+				</fieldset><br/>
+				<fieldset>
+					<legend>Histoy logs</legend>
+					<label><input type="checkbox" value="True" name="log_account" {p:log_account} />Account</label><br/>
+					<label><input type="checkbox" value="True" name="log_add" {p:log_add} />Add New</label><br/>
+					<label><input type="checkbox" value="True" name="log_update" {p:log_update} />Update</label><br/>
+					<label><input type="checkbox" value="True" name="log_delete" {p:log_delete} />Delete</label><br/>
+				</fieldset><br/>
+			</div>
+			<div style="float:left;width:48%;padding-left:3px;">
+				<fieldset>
+					<legend>Chức năng Bán hàng</legend>
+					<label><input type="checkbox" value="True" name="enabled_mod_product" {p:enabled_mod_product} />Sản phẩm</label><br/>
+					<label><input type="checkbox" value="True" name="enabled_mod_product_web" {p:enabled_mod_product_web} />Mẫu thiết kế</label><br/>
+					<hr/>
+					<label><input type="checkbox" value="True" name="show_compare" {p:show_compare} />Nút [So sánh]</label><br/>
+					<label><input type="checkbox" value="True" name="show_buy" {p:show_buy} />Nút [Đặt mua]</label><br/>
+					<label><input type="checkbox" value="True" name="show_price" {p:show_price} />Hiển thị Giá bán</label><br/>
+					<hr/>
+					<label><input type="checkbox" value="True" name="payment_online" {p:payment_online} />Thanh toán trực tuyến</label><br/>
+					<label><input type="checkbox" value="True" name="checkout_testing" {p:checkout_testing} />Thanh toán ở môi trường Sandbox</label><br/>
+				</fieldset>
+			</div>
+			<div style="clear:both;"></div>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr><td><input type="submit" name="update_setting_submit" class="dm_edit_button_1" value="Update" /></td></tr>
+</table>
+
+<script type="text/javascript">
+  $(function(){
+    $("#ucUpdateSetting5_d_HtmlContent .ioc_select").each(function(){ $(this).val($(this).attr("val")); });
+  });
+</script>
+]]>
+</setting>

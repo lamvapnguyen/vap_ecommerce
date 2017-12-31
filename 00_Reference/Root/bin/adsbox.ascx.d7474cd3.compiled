@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Advertisement/AdsBox.ascx" hash="fffffff3343c8b72" filehash="43af17f6239e" flags="110000" assembly="App_Web_bwve3dcz" type="ASP.views_advertisement_adsbox_ascx">
+    <filedeps>
+        <filedep name="/Views/Advertisement/AdsBox.ascx" />
+    </filedeps>
+</preserve>

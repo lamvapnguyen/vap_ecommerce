@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Help" Title="a_menu_help" R="411" DefaultSort="Help_HierarchySort" DefaultSortAsc="true">
+	<controls>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	</controls>
+	
+	<list>
+		<field Name="Help_ID" Title="f_id" Type="1" Sort="true" Css="width:50px;text-align:left;color:#a00;"/>
+		<field Name="Help_Title" Title="f_title" Type="1" />
+		<field Name="Help_O" Title="f_ordinal" Sort="true" Css="width:50px;text-align:center;"/>
+		<field Name="Help_A" Title="f_active" Type="3" Sort="true" Css="width:50px;text-align:center;"/>
+	</list>
+
+	<command_plus><![CDATA[]]></command_plus>
+	
+	<search>
+		<field Name="Help_Content" Title="f_content"/>
+		<field Name="Help_Title" Title="f_title"/>
+	</search>
+	
+	<edit>
+		<group Title="group_information" Pos="2" Expand="true">
+			<field Name="Help_Title" Title="f_title" Type="1" Property="Require='true' MaxLength='200' Width='100%'"/>
+			<field Name="Help_ParentID" Title="f_parent" Type="22" Property="SqlSP='SP_A_R_001_Tree_Help' ShowHeader='false' Format='{1}' DisplayNoSelectText='false'"/>
+			<field Name="Help_O" Title="f_ordinal" Type="1" Property="Default='500' Width='60px'"/>
+			<field Name="Help_A" Title="f_active" Type="5" Property="Default='true'"/>
+		</group>
+		<group Title="f_content" Pos="2" Expand="true">
+			<field Name="Help_Content" Type="3" Property="InsertFileType='medium_image' InsertFileCount='50' Height='300'"/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[ 
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem = (
+		select count(0) from wcms_Help 
+		where Help_LanguageID = @langID AND Help_ParentID is not null
+		{ AND Help_Title 	<o> @Search:Help_Title }
+		{ AND Help_Content 	<o> @Search:Help_Content }
+	)
+	if (@pageSize < 1) set @pageSize = 15
+	set @totalPage = ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Help_ID]
+		,REPLICATE('&middot;&middot;&middot;&middot;&middot;', Help_Level - 1) + ' ' + (case when Help_Level = 1 then '<span style="font-weight:bold;">' + Help_Title + '</span>' else Help_Title end) as [Help_Title]
+		,[Help_O]
+		,case when [Help_A] = 1 then 'checked' else '' end as [Help_A]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Help_ID]
+			,[Help_Title]
+			,[Help_Level]
+			,[Help_O]
+			,[Help_A]
+		from wcms_Help
+		where Help_LanguageID = @langID AND Help_ParentID is not null
+		{ AND Help_Title 	<o> @Search:Help_Title }
+		{ AND Help_Content 	<o> @Search:Help_Content }
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex 
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[
+	set nocount on 
+	select  [Help_ID]
+			,[Help_ParentID]
+			,[Help_Title]
+			,[Help_Content]
+			,[Help_O]
+			,[Help_A]
+	from WCMS_Help where Help_ID = @editID	
+	]]>
+	</SQL_LOAD_EDIT>
+	
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+	
+	<SQL_ADD>
+	<![CDATA[
+	set nocount on
+	declare @parentID int 
+	set @parentID = {@Get:Help_ParentID}
+	
+	INSERT INTO WCMS_Help
+	(
+		[Help_LanguageID]
+		,[Help_Title]
+		,[Help_Content]
+		,[Help_ParentID]
+		,[Help_O]
+		,[Help_A]
+		,[Help_Date]
+	)
+	VALUES
+	(
+		@langID
+		,{@Get:Help_Title}
+		,{@Get:Help_Content}
+		,{@Get:Help_ParentID}
+		,{@Get:Help_O}
+		,{@Get:Help_A}
+		,GETUTCDATE()
+	)
+	declare @id int 
+	set @id = SCOPE_IDENTITY()
+	
+	-- Update HierarchySort
+	exec [SP_A_W_001_UpdateHelpHierarchySort] @parentID
+		
+	select @id
+	]]>
+	</SQL_ADD>
+	
+	<SQL_UPDATE>
+	<![CDATA[
+	set nocount on	
+	declare @id 			int,
+			@old_parentID	int,
+			@old_ordinal	int,
+			@parentID		int,
+			@ordinal		int
+	set @id 		= @editID
+	set @parentID 	= {@Get:Help_ParentID}
+	set @ordinal 	= {@Get:Help_O}
+	
+	select @old_parentID = Help_ParentID, @old_ordinal = Help_O
+	from WCMS_Help where Help_ID = @id
+	
+	update WCMS_Help set
+		[Help_Title]		= {@Get:Help_Title}
+		,[Help_Content]		= {@Get:Help_Content}
+		,[Help_ParentID]	= @parentID
+		,[Help_O]			= @ordinal
+		,[Help_A]			= {@Get:Help_A}
+		,[Help_Date]		= GETUTCDATE()
+	where Help_ID = @id
+	
+	-- Update HierarchySort
+	if (@old_parentID <> @parentID)
+		exec [SP_A_W_001_UpdateHelpHierarchySort]
+	else if (@old_ordinal <> @ordinal)
+		exec [SP_A_W_001_UpdateHelpHierarchySort] @parentID
+		
+	select @id
+	]]>
+	</SQL_UPDATE>
+	
+	<SQL_UPDATE_ACTIVE>
+	<![CDATA[
+	declare @id int
+	set @id = @editID
+	
+	update wcms_Help set [Help_A]= @active
+	where Help_ID = @id
+	select @id
+	]]>
+	</SQL_UPDATE_ACTIVE>
+	
+	<SQL_COPY>
+	<![CDATA[
+	set nocount on
+	declare @parentID int 
+	set @parentID = {@Get:Help_ParentID}
+	
+	INSERT INTO WCMS_Help
+	(
+		[Help_LanguageID]
+		,[Help_Title]
+		,[Help_Content]
+		,[Help_ParentID]
+		,[Help_O]
+		,[Help_A]
+		,[Help_Date]
+	)
+	VALUES
+	(
+		@langID
+		,{@Get:Help_Title}
+		,{@Get:Help_Content}
+		,@parentID
+		,{@Get:Help_O}
+		,{@Get:Help_A}
+		,GETUTCDATE()
+	)
+	declare @id int 
+	set @id = SCOPE_IDENTITY()
+	
+	-- Update HierarchySort
+	exec [SP_A_W_001_UpdateHelpHierarchySort] @parentID
+	
+	select @id
+	]]>
+	</SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+	set nocount on 	
+	delete wcms_Help where Help_ID = @delID
+	select @@ROWCOUNT
+	exec [SP_A_W_001_UpdateHelpHierarchySort]
+	]]>
+	</SQL_DELETE>
+</table>

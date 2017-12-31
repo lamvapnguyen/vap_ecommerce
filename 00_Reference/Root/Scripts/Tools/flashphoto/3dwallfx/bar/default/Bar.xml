@@ -1,0 +1,3 @@
+<bars>
+	<bar leftButton = "Scripts/tools/flashphoto/3dwallfx/bar/default/l_btn.png" rightButton = "Scripts/tools/flashphoto/3dwallfx/bar/default/r_btn.png" track = "Scripts/tools/flashphoto/3dwallfx/bar/default/track.png" scrollButton = "Scripts/tools/flashphoto/3dwallfx/bar/default/btn_track.png"></bar>
+</bars>

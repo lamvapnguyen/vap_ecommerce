@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/PostCenter/Box/HomePostBox.ascx" hash="fffffff3343c8b72" filehash="ffffe107254878c0" flags="110000" assembly="App_Web_nf3z1nhx" type="ASP.views_postcenter_box_homepostbox_ascx">
+    <filedeps>
+        <filedep name="/Views/PostCenter/Box/HomePostBox.ascx" />
+    </filedeps>
+</preserve>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Navigator/Banner.ascx" hash="fffffff3343c8b72" filehash="15c5bc5f8b2e" flags="110000" assembly="App_Web_jp0pwo15" type="ASP.views_navigator_banner_ascx">
+    <filedeps>
+        <filedep name="/Views/Navigator/Banner.ascx" />
+    </filedeps>
+</preserve>

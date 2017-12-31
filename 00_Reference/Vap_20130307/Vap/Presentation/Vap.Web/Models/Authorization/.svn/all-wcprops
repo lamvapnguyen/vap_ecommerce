@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/Vap-Portal/!svn/ver/68/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Models/Authorization
+END
+AccountModels.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Vap-Portal/!svn/ver/68/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Models/Authorization/AccountModels.cs
+END
+M_ROLE_MODELS.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Vap-Portal/!svn/ver/68/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Models/Authorization/M_ROLE_MODELS.cs
+END
+CustomMembershipProvider.cs
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/Vap-Portal/!svn/ver/68/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Models/Authorization/CustomMembershipProvider.cs
+END
+M_MENU_MODELS.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Vap-Portal/!svn/ver/68/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Models/Authorization/M_MENU_MODELS.cs
+END
+CustomAuthorizModels.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Vap-Portal/!svn/ver/68/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Models/Authorization/CustomAuthorizModels.cs
+END
+M_COMPANY_MODELS.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/Vap-Portal/!svn/ver/68/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Models/Authorization/M_COMPANY_MODELS.cs
+END
+M_PERSON_MODELS.cs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Vap-Portal/!svn/ver/68/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Models/Authorization/M_PERSON_MODELS.cs
+END
+CustomAuthorizeAttribute.cs
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/Vap-Portal/!svn/ver/68/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Models/Authorization/CustomAuthorizeAttribute.cs
+END
+PrivilegeAttribute.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Vap-Portal/!svn/ver/68/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Models/Authorization/PrivilegeAttribute.cs
+END

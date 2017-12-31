@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Post" Title="a_menu_audio_video" R="401" DefaultSort="Post_ID" DefaultSortAsc="false">
+  <controls>
+    <field Name="Search" Path="UC/DM_Search.ascx" Pos="4" Property="SqlSP='SP_A_R_001_Tree_PagePost' ParentID='3' Active='true' IsHeader='true' EnableHeader='false' FilterName='Post_PageID' ExpandDepth='3'"/>
+    <field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+    <field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+    <field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+    <field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+    <field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	
+	<field Name="WCMS_Post" Path="Process/Post.ascx" Pos="7"/>
+  </controls>
+
+  <list>
+	<field Name="Post_ID" Title="f_id" Type="1" Sort="true" Css="width:60px;text-align:left;color:#a00;"/>	
+    <field Name="Post_Title" Title="f_title" Type="1" Sort="true"/>
+	<field Name="Post_Present" Title="f_media_present" Type="1" Sort="true" Css="width:150px;"/>
+	<field Name="Post_PostedBy" Title="f_posted_by" Sort="true" Css="width:100px;"/>
+	<field Name="Post_Date" Title="f_post_date" Sort="true" Css="width:80px;"/>
+	<field Name="Post_ID" Title="f_comment" Type="4" Css="width:80px;text-align:center;"/>
+	<field Name="Post_O" Title="f_ordinal" Sort="true" Css="width:60px;text-align:center;"/>
+	<field Name="Post_A" Title="f_active" Type="3" Sort="true" Css="width:60px;text-align:center;"/>
+  </list>
+
+  <command_plus><![CDATA[]]></command_plus>
+
+  <search>
+	<field Name="Post_Title" Title="f_title"/>
+	<field Name="Post_ID" Title="f_id"/>
+	<field Name="PostAuthor" Title="f_author"/>
+	<field Name="Post_PostedBy" Title="f_posted_by"/>
+	<field Name="Post_Tags" Title="f_tags"/>
+  </search>
+
+  <edit>
+    <group Title="group_brief" Pos="2" Expand="true">
+		<field Name="Post_Title" Title="f_title" Type="1" Property="Require='true' MaxLength='200' Width='100%'"/>
+		<field Name="Post_ImageLink" Title="f_thumb" Type="15" Property="BrowserType='thumb_image' Width='450px' MediaID='thumbimage'"/>
+		<field Name="Post_MediaLink" Title="f_media_link" Type="15" Property="BrowserType='media' Width='450px' MediaID='videolink'"/>
+		<field Name="Post_Brief" Title="f_brief" Type="3" Property="BriefType='true' Height='100px' InsertFileType='medium_image' InsertFileCount='5'"/>
+    </group>
+	<group Title="group_properties" Pos="3" Expand="true">
+		<field Name="Post_O" Title="f_ordinal" Type="1" Property="Default='500' Width='60px'"/>
+		<field Name="Post_A" Title="f_active" Type="5" Property="Default='true'"/>
+    </group>
+	<group Title="f_page_list" Pos="3" Expand="true">
+		<field Name="PostPageList" Type="9" Property="SqlSP='SP_A_R_001_Tree_PagePost' ParentID='3' Active='true' IsHeader='true' EnableHeader='false' Format='{1}' Seperator=';' Height='550px'"/>
+	</group>
+	<group Title="f_content" Pos="2" Expand="true">
+		<field Name="Post_Description" Type="3" Property="InsertFileType='medium_image' InsertFileCount='50'"/>
+	</group>
+	<group Title="group_meta" Pos="3" Expand="true">
+		<field Name="Post_MetaTitle" Title="f_meta_title" Type="1" Property="Width='99%' MaxLength='200'"/>
+		<field Name="Post_MetaKeywords" Title="f_meta_key" Type="2" Property="Height='100px' WrapText='true' MaxLength='1000'"/>
+		<field Name="Post_MetaDescription" Title="f_meta_description" Type="2" Property="Height='100px' WrapText='true' MaxLength='1000'"/>
+	</group>
+	<group Title="f_post_slave" Pos="2" Expand="true">
+		<field Name="Post_Date" Title="f_post_date" Type="4"/>
+		<field Name="Post_PostedBy" Title="f_posted_by" Type="1" Property="Width='450px'"/>
+		<field Name="Post_Present" Title="f_media_present" Type="1" Note="#help_authors" Property="Width='450px'"/>
+		<field Name="Post_Authors" Title="f_author" Type="1" Note="#help_authors" Property="Width='450px'"/>
+		<field Name="Post_Tags" Title="f_tags" Type="24" Note="#help_tags" Property="Width='450px' SqlSP='SP_U_R_001_List_GetKeywords'"/>
+		<field Name="Post_Viewed" Title="f_viewed" Type="1" Property="Width='60px' Default='1'"/>
+		<field Name="Post_Hot" Title="f_post_hot" Type="5" Property="Default='false'"/>
+	</group>
+  </edit>
+
+  <html><![CDATA[]]></html>
+
+  <SQL_SELECT_LIST>
+    <![CDATA[
+	set nocount on
+	
+	declare	@totalItem	int, @totalPage	int, @acc nvarchar(50)
+	set @acc = N'{@UserName}'
+	set @totalItem =
+	(
+		select count(0) from WCMS_Post 
+		{ 
+			inner join Post_PostAuthor on PostAuthor_PostID = Post_ID
+			inner join wcms_Author on PostAuthor_AuthorID = Author_ID and Author_Name = @Search:PostAuthor
+		}
+		{
+			inner join wcms_PagePost c on c.[PagePost_PostID] = Post_ID
+			inner join wcms_PageMod on PageMod_PageID = c.PagePost_PageID and PageMod_AccountID = @ModID
+		}
+		{ inner join wcms_PagePost on [PagePost_PostID] = Post_ID AND [PagePost_PageID] = @Search:Post_PageID }
+		where Post_Type = 3 AND Post_SiteID = @siteID AND Post_LanguageID = @langID
+		{ AND Post_ID		<o> @Search:Post_ID }
+		{ AND Post_Title	<o> @Search:Post_Title }
+		{ AND Post_Authors	<o> @Search:Post_Authors }
+		{ AND Post_PostedBy	<o> @Search:Post_PostedBy }
+		{ AND exists(select top 1 null from [dbo].[F_001_StringToTable](Post_Tags, ',') where LTRIM(RTRIM(Data)) = @Search:Post_Tags) }
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage	= ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Post_ID]
+		,[Post_Title]
+		,DATEADD(hour, {@TIMEZONE}, Post_Date) as [Post_Date]
+		,[Post_PostedBy]
+		,[Post_Present]
+		,[Post_O]
+		,case when (Select count(0) from wcms_Comment where Comment_ItemID = [Post_ID]) > 0 then 'view' else '' end as [Comment_Count]
+		,0 as [Comment_Type]
+		,case when [Post_A] = 1 then 'checked' else '' end as [Post_A]
+		,(case when {@GID} = 1 OR {@GID} = 2 OR {@GID} = 3 OR {@GID} = 4 OR {@GID} = 25 OR [Post_PostedBy] = @acc then 0 else 1 end) as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Post_ID]
+			,Post_Title + '</span><div class="small_italic">' + (case when Post_Authors is null then '' else Post_Authors end) + (case when Post_Tags is null then '' else '<br/>Tags: ' + Post_Tags end) +'</div><span>' as [Post_Title]
+			,[Post_Date]
+			,[Post_PostedBy]
+			,[Post_Present]
+			,[Post_O]
+			,[Post_A]
+		from WCMS_Post
+		{ 
+			inner join Post_PostAuthor on PostAuthor_PostID = Post_ID
+			inner join wcms_Author on PostAuthor_AuthorID = Author_ID and Author_Name = @Search:PostAuthor
+		}
+		{
+			inner join wcms_PagePost c on c.[PagePost_PostID] = Post_ID
+			inner join wcms_PageMod on PageMod_PageID = c.PagePost_PageID and PageMod_AccountID = @ModID
+		}
+		{ inner join wcms_PagePost on [PagePost_PostID] = Post_ID AND [PagePost_PageID] = @Search:Post_PageID }
+		where Post_Type = 3 AND Post_SiteID = @siteID AND Post_LanguageID = @langID
+		{ AND Post_ID		<o> @Search:Post_ID }
+		{ AND Post_Title	<o> @Search:Post_Title }
+		{ AND Post_Authors	<o> @Search:Post_Authors }
+		{ AND Post_PostedBy	<o> @Search:Post_PostedBy }
+		{ AND exists(select top 1 null from [dbo].[F_001_StringToTable](Post_Tags, ',') where LTRIM(RTRIM(Data)) = @Search:Post_Tags) }
+	) tb 
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex	
+	]]>
+  </SQL_SELECT_LIST>
+
+  <SQL_LOAD_EDIT>
+    <![CDATA[
+	set nocount on
+	declare @pageList nvarchar(max) 
+	set @pageList = ''
+	select @pageList = @pageList + ';' + convert(nvarchar(10), PagePost_PageID)
+	from wcms_PagePost where PagePost_PostID = @editID
+	if (@pageList <> '') set @pageList = substring(@pageList, 2, len(@pageList) - 1)
+	
+	select  [Post_ID]
+		   ,[Post_Title]
+		   ,[Post_O]
+		   ,[Post_A]
+		   ,[Post_ImageLink]
+		   ,[Post_MediaLink]
+		   ,[Post_Brief]
+		   ,[Post_Description]
+		   ,[Post_Date]
+		   ,[Post_PostedBy]
+		   ,[Post_Authors]
+		   ,[Post_Tags]
+		   ,[Post_Viewed]
+		   ,[Post_Hot]
+		   ,[Post_MetaTitle]
+		   ,[Post_MetaKeywords]
+		   ,[Post_MetaDescription]
+		   ,@pageList as [PostPageList]
+		   ,[Post_Present]
+		   ,'' as [Post_TitleUrl]
+		   ,'' as [Post_FullText]
+	from WCMS_Post where Post_ID = @editID	
+	]]>
+  </SQL_LOAD_EDIT>
+
+  <SQL_NEW><![CDATA[]]></SQL_NEW>
+  
+  <SQL_ADD>
+  <![CDATA[
+	declare @gid int = {@GID}
+	if (@gid = 25)
+	BEGIN
+		select 0
+		return;
+	END
+	
+	insert wcms_Post
+	(
+		[Post_LanguageID]
+		,[Post_SiteID]
+		,[Post_Type]
+		,[Post_Title]
+		,[Post_O]
+		,[Post_A]
+		,[Post_ImageLink]
+		,[Post_MediaLink]
+		,[Post_Brief]
+		,[Post_CreateDate]
+		,[Post_ModifyDate]
+		,[Post_Description]
+		,[Post_Date]
+		,[Post_PostedBy]
+		,[Post_Authors]
+		,[Post_Tags]
+		,[Post_Viewed]
+		,[Post_Hot]
+		,[Post_MetaTitle]
+		,[Post_MetaKeywords]
+		,[Post_MetaDescription]
+		,[Post_Rating]
+		,[Post_CommentCount]
+		,[Post_Present]
+		,[Post_TitleUrl]
+		,[Post_FullText]
+	) 
+	values
+	(
+		@langID
+		,@siteID
+		,3
+		,{@Get:Post_Title}
+		,{@Get:Post_O}
+		,{@Get:Post_A}
+		,{@Get:Post_ImageLink}
+		,{@Get:Post_MediaLink}
+		,{@Get:Post_Brief}
+		,getutcdate()
+		,getutcdate()
+		,{@Get:Post_Description}
+		,{@Get:Post_Date}
+		,{@Get:Post_PostedBy}
+		,{@Get:Post_Authors}
+		,{@Get:Post_Tags}
+		,{@Get:Post_Viewed}
+		,{@Get:Post_Hot}
+		,{@Get:Post_MetaTitle}
+		,{@Get:Post_MetaKeywords}
+		,{@Get:Post_MetaDescription}
+		,0
+		,0
+		,{@Get:Post_Present}
+		,{@Get:Post_TitleUrl}
+		,{@Get:Post_FullText}
+	)
+	
+	declare @id int 
+	set @id = SCOPE_IDENTITY() 
+	
+	-- Page list
+	Insert wcms_PagePost(PagePost_PageID, PagePost_PostID)
+	select Data, @id from [dbo].[F_001_StringToTable]({@Get:PostPageList}, ';')
+	
+	-- Authors
+	Select LTRIM(RTRIM(Data)) as [Data] into #tbl1 from [dbo].[F_001_StringToTable]({@Get:Post_Authors}, ';')
+	Delete from #tbl1 where [Data] = ''
+	
+	Insert into wcms_Author(Author_Name)
+	select Data from #tbl1 where not exists (select top 1 null from wcms_Author where Author_Name = Data)
+	
+	Insert into wcms_PostAuthor(PostAuthor_PostID, PostAuthor_AuthorID)
+	select @id, Author_ID from wcms_Author inner join #tbl1 on Author_Name = Data
+
+	drop table #tbl1 
+
+	-- Keyword
+	Select LTRIM(RTRIM(Data)) as Data into #tbl2 from [dbo].[F_001_StringToTable]({@Get:Post_Tags}, ';')
+	Delete from #tbl2 where [Data] = ''
+	
+	Insert into wcms_Keyword(Keyword_Name, Keyword_SearchCount)
+	select Data,1 from #tbl2 where not exists (select top 1 null from wcms_Keyword where Keyword_Name = Data)
+	
+	Insert into wcms_PostKeyword(PostKeyword_PostID, PostKeyword_KeywordID)
+	select @id, Keyword_ID from wcms_Keyword inner join #tbl2 on Keyword_Name = Data
+
+	drop table #tbl2
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_video_add', '(' + @logIP + ') Add 1 audio/video [' + {@Get:Post_Title} + '].', 'Post - Audio/Video', @id, @logAcc)
+		
+	select @id
+  ]]>
+  </SQL_ADD>
+
+  <SQL_UPDATE>
+    <![CDATA[
+	set nocount on	
+	declare @id int
+	set @id = @editID
+	
+	declare @gid int = {@GID}
+	if (@gid = 25)
+	BEGIN
+		update WCMS_Post set
+			[Post_MetaTitle]		= {@Get:Post_MetaTitle}
+			,[Post_MetaKeywords]	= {@Get:Post_MetaKeywords}
+			,[Post_MetaDescription]	= {@Get:Post_MetaDescription}
+            ,[Post_Brief]			= {@Get:Post_Brief}
+            ,[Post_Description]		= {@Get:Post_Description}
+            ,[Post_FullText]		= {@Get:Post_FullText}
+		where Post_ID = @id
+		
+		select @id
+		return;
+	END
+	
+	update WCMS_Post set
+		[Post_Title]			= {@Get:Post_Title}
+		,[Post_O]				= {@Get:Post_O}
+		,[Post_A]				= {@Get:Post_A}
+		,[Post_ImageLink]		= {@Get:Post_ImageLink}
+		,[Post_MediaLink]		= {@Get:Post_MediaLink}
+		,[Post_Brief]			= {@Get:Post_Brief}
+		,[Post_ModifyDate]		= getutcdate()
+		,[Post_Description]		= {@Get:Post_Description}
+		,[Post_Date]			= {@Get:Post_Date}
+		,[Post_PostedBy]		= {@Get:Post_PostedBy}
+		,[Post_Authors]			= {@Get:Post_Authors}
+		,[Post_Tags]			= {@Get:Post_Tags}
+		,[Post_Viewed]			= {@Get:Post_Viewed}
+		,[Post_Hot]				= {@Get:Post_Hot}
+		,[Post_MetaTitle]		= {@Get:Post_MetaTitle}
+		,[Post_MetaKeywords]	= {@Get:Post_MetaKeywords}
+		,[Post_MetaDescription]	= {@Get:Post_MetaDescription}
+		,[Post_Present]			= {@Get:Post_Present}
+		,[Post_TitleUrl]		= {@Get:Post_TitleUrl}
+		,[Post_FullText]		= {@Get:Post_FullText}
+	where Post_ID = @id
+	
+	-- Page list
+	Select Data into #tmpTb from [dbo].[F_001_StringToTable]({@Get:PostPageList}, ';')
+	
+	Delete wcms_PagePost where PagePost_PostID = @id AND PagePost_PageID not in (select Data from #tmpTb)
+	
+	Insert wcms_PagePost(PagePost_PageID, PagePost_PostID)
+	select Data, @id from #tmpTb where Data not in (select PagePost_PageID from wcms_PagePost where PagePost_PostID = @id)
+	
+	drop table #tmpTb
+	
+	-- Authors
+	Select LTRIM(RTRIM(Data)) as [Data] into #tbl1 from [dbo].[F_001_StringToTable]({@Get:Post_Authors}, ';')
+	Delete from #tbl1 where [Data] = ''
+	
+	Insert into wcms_Author(Author_Name)
+	select Data from #tbl1 where not exists (select top 1 null from wcms_Author where Author_Name = Data)
+	
+	Delete wcms_PostAuthor where PostAuthor_PostID = @id
+	
+	Insert into wcms_PostAuthor(PostAuthor_PostID, PostAuthor_AuthorID)
+	select @id, Author_ID from wcms_Author inner join #tbl1 on Author_Name = Data
+
+	drop table #tbl1 
+
+	-- Keyword
+	Select LTRIM(RTRIM(Data)) as Data into #tbl2 from [dbo].[F_001_StringToTable]({@Get:Post_Tags}, ';')
+	Delete from #tbl2 where [Data] = ''
+	
+	Insert into wcms_Keyword(Keyword_Name, Keyword_SearchCount)
+	select Data,1 from #tbl2 where not exists (select top 1 null from wcms_Keyword where Keyword_Name = Data)
+	
+	Delete wcms_PostKeyword where PostKeyword_PostID = @id
+	
+	Insert into wcms_PostKeyword(PostKeyword_PostID, PostKeyword_KeywordID)
+	select @id, Keyword_ID from wcms_Keyword inner join #tbl2 on Keyword_Name = Data
+
+	drop table #tbl2
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_video_update', '(' + @logIP + ') Updated 1 audio/video [' + {@Get:Post_Title} + '].', 'Post - Audio/Video', @id, @logAcc)
+		
+	select @id
+	]]>
+  </SQL_UPDATE>
+
+  <SQL_UPDATE_ACTIVE>
+    <![CDATA[
+	Update WCMS_Post set [Post_A] = @active where Post_ID = @editID	
+	Select @editID 
+	]]>
+  </SQL_UPDATE_ACTIVE>
+
+  <SQL_COPY><![CDATA[]]></SQL_COPY>
+
+  <SQL_DELETE>
+    <![CDATA[
+	set nocount on
+	declare @id int
+	set @id = @delID
+	
+	Delete wcms_PostAuthor where PostAuthor_PostID = @id
+	Delete wcms_PostKeyword where PostKeyword_PostID = @id	
+	Delete wcms_PagePost	where PagePost_PostID = @id
+	Delete wcms_Comment where Comment_ItemID = @id
+	set nocount off
+	
+	Delete WCMS_Post where Post_ID = @id	
+	Select @@ROWCOUNT
+	
+	if (@logAcc > 0)
+		Insert into wcms_Log(Log_DateTime, Log_Action, Log_Do, Log_Table, Log_ItemID, Log_AccountID)	
+		values(getutcdate(), 'log_video_delete', '(' + @logIP + ') Deleted 1 audio/video.', 'Post - Audio/Video', @id, @logAcc)
+	]]>
+  </SQL_DELETE>
+</table>

@@ -1,0 +1,7 @@
+﻿﻿<div style=" line-height:1.7em; font-size:small; font-family:Geneva,Verdana,Arial; width:681px; margin:0 auto;">
+  Welcome Guest, <br/><br/>
+  The login account has been activated.<br/>
+  You can log on to the website <b>{website_address}</b> by email <b>{u_email}</b><br/><br/>
+  ---------- <br/>
+  This email is sent from the website {website_address}
+</div>

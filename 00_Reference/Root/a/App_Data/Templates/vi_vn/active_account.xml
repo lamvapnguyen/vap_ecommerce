@@ -1,0 +1,10 @@
+﻿<div style=" line-height:1.7em; font-size:small; font-family:Geneva,Verdana,Arial; width:681px; margin:0 auto;">
+  Chào Quý khách, <br/><br/>
+  Cảm ơn bạn đã đăng ký thành viên tại website {website_address}. <br/>
+  Bạn vui lòng kích hoạt tài khoản bằng cách nhấn vào đường link sau: <br/><br/>
+  {link} <br/><br/>
+  để hoàn tất đăng ký và chính thức là thành viên của {website_name}. <br/>
+  Bạn cũng có thể copy đường dẫn trên vào trình duyệt web để kích hoạt tài khoản. <br/>
+  ---------- <br/>
+  Email này được gửi từ website {website_address}
+</div>

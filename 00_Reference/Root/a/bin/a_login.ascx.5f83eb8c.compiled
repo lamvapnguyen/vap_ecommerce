@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Account/A_Login.ascx" hash="fffffffaa8934d59" filehash="1a7718a15c45" flags="110000" assembly="App_Web_mjsynbgf" type="ASP.views_account_a_login_ascx">
+    <filedeps>
+        <filedep name="/Views/Account/A_Login.ascx" />
+    </filedeps>
+</preserve>

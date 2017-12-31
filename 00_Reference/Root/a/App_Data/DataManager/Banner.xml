@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="wcms_Banner" Title="a_menu_banner" R="307" DefaultSort="Banner_ID" DefaultSortAsc="true">
+	<controls>
+		<field Name="Search" Path="UC/DM_Search.ascx" Pos="4" Property="SqlSP='SP_A_R_001_Tree_Page' Active='true' IsHeader='true' EnableHeader='false' FilterName='FilterPageID' ExpandDepth='3' CheckUserData='false'"/>
+		<field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+		<field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+		<field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+		<field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+		<field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+	</controls>
+	
+	<list>
+		<field Name="Banner_ID" Title="f_id" Type="1" Sort="true" Css="width:30px;"/>
+		<field Name="Banner_Type" Title="f_type" Type="1" Sort="true" Css="width:50px;"/>
+		<field Name="Banner_Title" Title="f_title" Type="1" Sort="true"/>
+		<field Name="Banner_O" Title="f_ordinal" Type="1" Sort="true" Css="width:70px;text-align:center;"/>
+		<field Name="Banner_A" Title="f_active" Type="3" Sort="true" Css="width:60px;text-align:center;"/>
+	</list>
+
+	<command_plus><![CDATA[]]></command_plus>
+
+	<search>
+		<field Name="Banner_Title" Title="f_name"/>		
+	</search>
+	
+	<edit>
+		<group Title="group_information" Pos="2" Expand="true">
+			<field Name="Banner_Title" Title="f_title" Type="1" Property="Require='true' Width='100%'"/>
+			<field Name="Banner_Type" Title="f_type" Type="8" Property="Data='Banner:1;Logo:0;Background Banner (đầu trang):100' Default='1' DisplayNoSelectText='false' BackgroundColor='#DCF7F7'"/>
+			<field Name="Banner_Theme" Title="f_theme" Type="8" Property="SqlSP='SP_A_R_001_GetDefinition1Level' ParentID='3300' Active='true' EnableHeader='false' ShowLock='true' Format='{1}' NoSelectText=' --- All Themes --- ' NoSelectValue='0' Seperator=';'"/>
+			<field Name="Banner_O" Title="f_ordinal" Type="1" Property="Default='500' Width='60px'"/>
+		</group>
+<group Title="f_content" Pos="2" Expand="true">
+<field Name="Banner_Content" Title="" Type="3"/>
+</group>
+<group Title="f_brief" Pos="2" Expand="true">
+<field Name="Banner_Brief" Type="3" Property="Type='tiny' Height='100px'"/>
+</group>
+		<group Title="group_properties" Pos="3" Expand="true">
+			<field Name="Banner_ID" Title="f_id" ShowState="4" Property="Width='80px'"/>
+			<field Name="Banner_A" Title="f_active" Type="5" Property="Default='true'"/>
+		</group>
+		<group Title="f_page_list" Pos="3" Expand="true">
+			<field Name="BannerPageList" Note="#help_page_list" Type="9" Property="SqlSP='SP_A_R_001_Tree_Page' Active='true' IsHeader='true' Format='{1}' Seperator=';' Height='550px'"/>
+		</group>
+	</edit>
+	
+	<html><![CDATA[]]></html>
+	
+	<SQL_SELECT_LIST>
+	<![CDATA[
+	set nocount on
+	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem	= 
+	(
+		select count(0) from wcms_Banner 
+		{ inner join wcms_PageBanner on [PageBanner_BannerID] = Banner_ID AND [PageBanner_PageID] = @Search:FilterPageID }
+		where Banner_SiteID = @siteID AND Banner_LanguageID = @langID 
+		{ AND Banner_Title <o> @Search:Banner_Title }
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage	= ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Banner_ID]
+		,case [Banner_Type] when 1 then 'Banner' when 100 then '<span style="color:#00c">Background Banner</span>' else '<span style="color:#090">Logo</span>' end as [Banner_Type]
+		,'[' + Banner_Title + ']</span><br/><span><div class="content_view">' + Banner_Content + '</div><div class="clear"></div>' as [Banner_Title]
+		,[Banner_O]
+		,case when [Banner_A] = 1 then 'checked' else '' end as [Banner_A]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Banner_ID]
+			,[Banner_Type]
+			,[Banner_Title]
+			,case when [Banner_Content] is not null then [Banner_Content] else '' end as [Banner_Content]
+			,[Banner_O]
+			,[Banner_A]
+		from wcms_Banner
+		{ inner join wcms_PageBanner on [PageBanner_BannerID] = Banner_ID AND [PageBanner_PageID] = @Search:FilterPageID }
+		where Banner_SiteID = @siteID AND Banner_LanguageID = @langID 
+		{ AND Banner_Title <o> @Search:Banner_Title }
+	) tb
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 AND @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex
+	]]>
+	</SQL_SELECT_LIST>
+	
+	<SQL_LOAD_EDIT>
+	<![CDATA[ 
+	set nocount on
+	
+	declare @pageList nvarchar(max) 
+	set @pageList = ''
+	select @pageList = @pageList + ';' + convert(nvarchar(10), PageBanner_PageID)
+	from wcms_PageBanner where PageBanner_BannerID = @editID
+	if (@pageList <> '') set @pageList = substring(@pageList, 2, len(@pageList) - 1)
+
+	select [Banner_ID]
+		,[Banner_Type]
+		,[Banner_Title]
+		,[Banner_Theme]
+		,[Banner_Content]
+		,[Banner_O]
+		,[Banner_A]
+		,@pageList as [BannerPageList]
+		,[Banner_Brief]
+	from wcms_Banner where Banner_ID = @editID 
+	]]>
+	</SQL_LOAD_EDIT>
+
+	<SQL_NEW><![CDATA[]]></SQL_NEW>
+
+	<SQL_ADD>
+	<![CDATA[
+	set nocount on
+	insert wcms_Banner
+	(
+		[Banner_LanguageID]
+		,[Banner_SiteID]
+		,[Banner_Type]
+		,[Banner_Title]
+		,[Banner_Theme]
+		,[Banner_Content]
+		,[Banner_O]
+		,[Banner_A]
+		,[Banner_Brief]
+	) 
+	values
+	(
+		@langID
+		,@siteID
+		,{@Get:Banner_Type}
+		,{@Get:Banner_Title}
+		,{@Get:Banner_Theme}
+		,{@Get:Banner_Content}
+		,{@Get:Banner_O}
+		,{@Get:Banner_A}
+		,{@Get:Banner_Brief}
+	)
+	
+	declare @Banner_ID int 
+	set @Banner_ID = SCOPE_IDENTITY() 
+	insert wcms_PageBanner(PageBanner_PageID, PageBanner_BannerID)
+	select Data, @Banner_ID from [dbo].[F_001_StringToTable]({@Get:BannerPageList}, ';')
+	
+	select @Banner_ID
+	]]>
+	</SQL_ADD>
+
+	<SQL_UPDATE>
+	<![CDATA[
+	set nocount on
+
+	update wcms_Banner set 
+		[Banner_Type]		= {@Get:Banner_Type}
+		,[Banner_Title]		= {@Get:Banner_Title}
+		,[Banner_Theme]		= {@Get:Banner_Theme}
+		,[Banner_Content]	= {@Get:Banner_Content}
+		,[Banner_O]			= {@Get:Banner_O}
+		,[Banner_A]			= {@Get:Banner_A}
+		,[Banner_Brief]		= {@Get:Banner_Brief}
+	where Banner_ID = @editID
+	
+	delete wcms_PageBanner where PageBanner_BannerID = @editID
+	
+	insert wcms_PageBanner(PageBanner_PageID, PageBanner_BannerID)
+	select Data, @editID from [dbo].[F_001_StringToTable]({@Get:BannerPageList}, ';')
+	
+	select @editID
+	]]>	
+	</SQL_UPDATE>
+
+	<SQL_UPDATE_ACTIVE>
+	<![CDATA[
+	update wcms_Banner set [Banner_A]= @active
+	where Banner_ID = @editID
+	select @editID 
+	]]>
+	</SQL_UPDATE_ACTIVE>
+
+	<SQL_COPY><![CDATA[]]></SQL_COPY>
+	
+	<SQL_DELETE>
+	<![CDATA[
+	delete wcms_PageBanner where PageBanner_BannerID = @delID
+	delete wcms_Banner where Banner_ID = @delID
+	select 1
+	]]>
+	</SQL_DELETE>
+</table>

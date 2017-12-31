@@ -1,0 +1,64 @@
+/*=== view 92 ===*/
+.pwrap-h { display:none; }
+.psec_1_2 { background-color:#F8F8F8; color:#111; }
+#psec_2 { padding-top:10px; }
+#psec_2 > div > .html_c0 { clear:both; float:right; }
+#psec_3 { padding:0; height:auto; background-color:#F8F8F8; }
+#psec_3 > div { width:auto; }
+#psec_3 .banner_c { clear:both; }
+
+/*menu*/
+.b_menu_c_left { float:none; margin:0; padding:0 0 10px; }
+.b_menu { float:none; width:1000px; margin:0 auto; }
+.b_menu > ul { float:right; }
+.b_menu div.center { padding:12px 24px; position:relative; border:0; border-right:1px solid #F3F2F2; border-radius:0; -moz-border-radius:0; -webkit-border-radius:0; }
+.b_menu div.center > a, .b_menu div.center > span { color:#fff; text-transform:uppercase; height:24px;}
+.b_menu div.center::before { display:none; content:'\2022'; font-family:verdana; color:#61D225; position:absolute; }
+.b_menu > ul > li { border-top:0 !important; margin-left:0; margin-right:0; }
+.b_menu > ul > li:first-child > div > div > div::before { display:none; }
+.b_menu_item_last div.center > a, .b_menu_item_last div.center > span { padding-right:0; }
+.b_menu .sub-menu-c div.center::after { content:' '; position:absolute; left:50%; bottom:0; margin-left:-8px; width:0; height:0; border-style:solid; border-width:0 8px 10px 8px; border-color:transparent transparent rgba(255,255,255,.9) transparent; background-position:0 -162px; }
+.b_menu .sub-menu-c:hover::after { content:' '; position:absolute; left:50%; bottom:0; margin-left:-8px; width:0;  height:0; border-style:solid; border-width:0 8px 10px 8px; border-color:transparent transparent rgba(255,255,255,.9) transparent; background-position:0 -162px; }
+.b_menu > ul > li > ul > li { background-color:transparent; }
+.b_menu > ul > li ul { background-color:rgba(255,255,255,.9); box-shadow:1px 1px 2px #ccc,-1px 1px 2px #ccc; }
+.b_menu > ul > li > ul::before, .b_menu > ul > li > ul::after { display:none; }
+.b_menu_active .center, .b_menu_item:hover .center { border:0; border-right:1px solid #F3F2F2; border-radius:0; -moz-border-radius:0; -webkit-border-radius:0;}
+.b_menu_item_last > div > div > div.center { margin-right:0; border-right:0; }
+
+/*menu color*/
+.b_menu > ul > li:nth-child(1) > div > div > div { background-color:#E6605D; }
+.b_menu > ul > li:nth-child(2) > div > div > div { background-color:#EC875D; }
+.b_menu > ul > li:nth-child(3) > div > div > div { background-color:#E7BA5D; }
+.b_menu > ul > li:nth-child(4) > div > div > div { background-color:#89B45B; }
+.b_menu > ul > li:nth-child(5) > div > div > div { background-color:#50B1D1; }
+.b_menu > ul > li:nth-child(6) > div > div > div { background-color:#797BE8; }
+
+/*login bar*/
+.lgb_a { color:#111; }
+.lgb_c { float:right; }
+.lgb_c > a, .lgb_welcome a { color:#111; text-transform:uppercase; font-size:inherit; font-weight:normal; }
+.lgb_c > a:first-child, .lgb_welcome { color:#111; font-weight:normal;}
+.lgb_c > a:nth-child(2) {}
+
+/*search bar*/
+.search_c0 { margin-top:10px; clear:none; }
+.search_c, .prc_search_c, .cls_search_c { background:none; width:auto; position:relative; }
+.search_text { padding:3px; background:transparent !important; text-align:right; }
+.search_button { background:url(img/bkg86.png) no-repeat 0 -78px; height:28px; vertical-align:0; width:32px; }
+.searchbar_dropdown { display:none; }
+.fb_icon { background:url(img/bkg88.png) no-repeat 0 -118px; width:32px; height:28px; float:right; }
+.fb_icon > a { display:block; }
+.logo_c { text-align:center; }
+
+.cartbar_c0 { padding-left:30px; }
+.cartbar_c .info { padding-right:5px; }
+.cartbar_c .info > a { color:#111; }
+
+/* shortcut buttons - widget#3000 */
+ul.shortcut_wg3000 { margin:0; }
+ul.shortcut_wg3000 li { line-height:1.6; background:#fff; width:114px; height:35px; border:1px solid #E7BA5D; margin-left:-1px; list-style-type:none; text-align:center; padding:1px 5px 1px 1px; float:left; }
+ul.shortcut_wg3000 li:hover { border-color:#50B1D1; z-index:3; position:relative }
+ul.shortcut_wg3000 img { width:55px; float:left; }
+ul.shortcut_wg3000 a { display:block }
+ul.shortcut_wg3000 span { box-sizing:border-box; color:#676767; display:block; font-size:10px; font-weight:bold; padding:0 0 0 1px; width:100%; }
+

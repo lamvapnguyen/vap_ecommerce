@@ -1,0 +1,122 @@
+﻿﻿<meta charset="utf-8"/>
+<div style=" line-height:1.7em; font-size:14px; font-family:Arial,Helvetica,'sans-serif'; width:681px; margin:0 auto; background-color: #f2f2f7; color:#333;">
+    <div style="width: 100%;padding-top: 20px; border-bottom: solid 2px #ccc;">        
+        {19}
+        <div style="clear: both;"></div>
+    </div>
+    <div style="padding:15px;">
+        <div style="line-height:1.7em; font-size:14px; text-align:justify;">
+          <div>
+              Thank you for your order at the website 
+              <a href="{12}" title="{11}">{11}</a>.
+              We has just received orders {13}.
+              With the form of payment is a <span style="color:#1aa4eb;">{17}</span> ({18}). 
+			  We will send notice to you through an email immediately when the product is delivered to the shipping unit.
+          </div>
+		  <div style="padding:20px 0;">
+		  <a href="{16}" style="display:block; padding:10px 20px; background:#1AA4EB; color:#fff; text-decoration:initial; float:left;"> Order Tracking</a>
+		  <div style="clear:both;"> </div>
+			</div>
+            <div style="clear:both; color:#1aa4eb; font-weight: bold;">Order information:</div>
+            <div style="padding:5px 5px 5px 30px; font-size: 14px; background-color: #FFF;font-family:Arial,Helvetica,'sans-serif'; margin-top: 5px;">
+                <table cellpadding="0" cellspacing="3" style="width: 100%;">
+                    <tbody>
+                      <tr>
+                        <td align="left" style="width:95px;">Order code</td>
+                        <td style="width:10px;">:</td>
+                        <td align="left">{13}</td>
+                      </tr>
+                      <tr>
+                        <td align="left">Date added</td>
+                        <td>:</td>
+                        <td align="left"><span style="color:#666; font-size: 12px;">{14}</span></td>
+                      </tr>
+                      <tr>
+                        <td align="left">Note</td>
+                        <td>:</td>
+                        <td align="left">{9}</td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>             
+          <br />
+          <div style="color:#1aa4eb; font-weight: bold;">Subscriber information:</div>
+          <div style="padding:5px 5px 5px 30px; font-size: 14px; background-color: #FFF;font-family:Arial,Helvetica,'sans-serif'; margin-top: 5px;">
+            <table cellpadding="0" cellspacing="3" style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td align="left" style="width:95px;">Full name</td>
+                  <td style="width:10px;">:</td>
+                  <td align="left">{0}</td>
+                </tr>
+                <tr>
+                  <td align="left">Phone</td>
+                  <td>:</td>
+                  <td align="left">{1}</td>
+                </tr>
+                <tr>
+                  <td align="left">Address</td>
+                  <td>:</td>
+                  <td align="left">{2}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br />
+          <div style="color:#1aa4eb; font-weight: bold;"> Consignee information:</div>
+          <div style="padding:10px 10px 10px 30px; font-size: 14px; background-color: #FFF;font-family:Arial,Helvetica,'sans-serif'; margin-top: 5px;">
+            <table cellpadding="0" cellspacing="3" style="width:100%;">
+              <tbody>
+                <tr>
+                  <td align="left" style="width:95px;">Full name</td>
+                  <td style="width:10px;">:</td>
+                  <td align="left">{3}</td>
+                </tr>
+                <tr>
+                  <td align="left">Phone</td>
+                  <td style="width:10px;">:</td>
+                  <td align="left">{4}</td>
+                </tr>
+                <tr>
+                  <td align="left">Address</td>
+                  <td style="width:10px;">:</td>
+                  <td align="left">{5}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>          
+          <br />
+          <div style="color:#1aa4eb; font-weight: bold;">Invoice information:</div>
+          <div style="padding:10px 10px 10px 30px; font-size: 14px; background-color: #FFF;font-family:Arial,Helvetica,'sans-serif'; margin-top: 5px;">
+            <table cellpadding="0" cellspacing="3" style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td align="left" style="width:160px;"><span>Company</span>﻿</td>
+                  <td style="width:10px;">:</td>
+                  <td align="left">{6}</td>
+                </tr>
+                <tr>
+                  <td align="left"><span>Tax code</span>﻿</td>
+                  <td style="width:10px;">:</td>
+                  <td align="left">{7}</td>
+                </tr>
+                <tr>
+                  <td align="left"><span>Invoice address</span>﻿</td>
+                  <td style="width:10px;">:</td>
+                  <td align="left">{8}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <br />
+          <div style="color:#1aa4eb; font-weight: bold;">Product information:</div>
+          <div style="padding:10px; font-size: 14px; background-color: #FFF;font-family:Arial,Helvetica,'sans-serif'; margin-top: 5px;">
+          {10}
+		  <div style="clear:both;">&nbsp;</div>
+          </div>
+		  <div style="clear:both;">&nbsp;</div>
+          <br /> 
+        </div>
+    </div>
+    <div style="clear:both;">&nbsp;</div>
+</div>

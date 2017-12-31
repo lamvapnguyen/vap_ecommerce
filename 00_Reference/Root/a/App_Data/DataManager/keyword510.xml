@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<table Name="WCMS_Keyword510" Title="#Từ khóa (Sản phẩm / Dịch vụ)" R="510" DefaultSort="Keyword510_Name" DefaultSortAsc="true">
+  <controls>
+    <field Name="Search" Path="UC/DM_Search.ascx" Pos="4"/>
+    <field Name="MessageBox" Path="UC/DM_MessageBox.ascx" Pos="8"/>
+    <field Name="Paging1" Path="UC/DM_Paging.ascx" Pos="5"/>
+    <field Name="Paging2" Path="UC/DM_Paging.ascx" Pos="7"/>
+    <field Name="List" Path="UC/DM_List.ascx" Pos="6"/>
+    <field Name="Edit" Path="UC/DM_Edit.ascx" Pos="8"/>
+  </controls>
+
+  <list>
+    <field Name="Keyword510_Name" Title="f_Keyword" Type="1" Sort="true" Css="color:#616161;font-weight:bold;"/>
+    <field Name="Keyword510_SearchCount" Title="f_search_count" Type="0" Sort="true" Css="width:150px;"/>
+  </list>
+
+  <command_plus><![CDATA[]]></command_plus>
+
+  <search>
+    <field Name="Keyword510_Name" Title="f_Keyword"/>
+  </search>
+
+  <edit>
+    <group Title="group_information" Pos="2" Expand="true">
+		<field Name="Keyword510_Name" Title="f_Keyword" Type="1" Property="Require='true' MaxLength='250' Width='300'"/>
+    </group>
+  </edit>
+
+  <html><![CDATA[]]></html>
+
+  <SQL_SELECT_LIST>
+    <![CDATA[
+	set nocount on
+	
+	declare	@totalItem	int,
+			@totalPage	int
+	set @totalItem	=
+	(
+		select count(0) from WCMS_Keyword510
+		{ where Keyword510_Name <o> @Search:Keyword510_Name }
+	)
+	if (@pageSize < 1) set @pageSize = 10
+	set @totalPage	= ceiling(@totalItem * 1.0 / @pageSize)
+	if (@pageIndex < 1) set @pageIndex = 1
+	if (@pageIndex > @totalPage) set @pageIndex = @totalPage
+	
+	select [Keyword510_ID]
+		,[Keyword510_Name]
+		,[Keyword510_SearchCount]
+		,0 as [locked]
+	from
+	(
+		select top (@pageIndex * @pageSize) ROW_NUMBER() OVER(ORDER BY {@Sort} {@Asc}) as [num]
+			,[Keyword510_ID]
+			,[Keyword510_Name]
+			,[Keyword510_SearchCount]
+		from WCMS_Keyword510
+		{ where Keyword510_Name <o> @Search:Keyword510_Name }
+	) tb 
+	where [num] between (@pageIndex - 1 ) * @pageSize + 1 and @pageIndex * @pageSize
+	select @totalItem, @pageSize, @pageIndex	
+	]]>
+  </SQL_SELECT_LIST>
+
+  <SQL_LOAD_EDIT>
+    <![CDATA[
+	set nocount on
+	select  [Keyword510_ID]
+		   ,[Keyword510_Name]
+	from WCMS_Keyword510 where Keyword510_ID = @editID	
+	]]>
+  </SQL_LOAD_EDIT>
+
+  <SQL_NEW><![CDATA[]]></SQL_NEW>
+
+  <SQL_ADD>
+    <![CDATA[
+	set nocount on
+	
+	INSERT INTO WCMS_Keyword510
+	(
+		[Keyword510_Name]
+		,[Keyword510_SearchCount]
+	)
+	VALUES
+	(
+		 {@Get:Keyword510_Name}
+		,1
+	)
+	select SCOPE_IDENTITY()
+	]]>
+  </SQL_ADD>
+
+  <SQL_UPDATE>
+    <![CDATA[
+	set nocount on		
+	update WCMS_Keyword510 set [Keyword510_Name] = {@Get:Keyword510_Name}
+	where Keyword510_ID = @editID	
+	select @editID
+	]]>
+  </SQL_UPDATE>
+
+  <SQL_UPDATE_ACTIVE><![CDATA[]]></SQL_UPDATE_ACTIVE>
+  <SQL_COPY><![CDATA[]]></SQL_COPY>
+
+  <SQL_DELETE>
+    <![CDATA[
+	set nocount on 
+	declare @id int 
+	set @id = @delID 
+	delete WCMS_ProductKeyword where ProductKeyword_KeywordID = @id 
+	delete WCMS_Keyword510 where Keyword510_ID = @id 
+	select 1 
+	]]>
+  </SQL_DELETE>
+</table>

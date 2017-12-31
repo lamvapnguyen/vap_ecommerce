@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/PostCenter/Box/GroupPostBox.ascx" hash="fffffff3343c8b72" filehash="94fc3430f839daff" flags="110000" assembly="App_Web_nf3z1nhx" type="ASP.views_postcenter_box_grouppostbox_ascx">
+    <filedeps>
+        <filedep name="/Views/Core/Box.ascx" />
+        <filedep name="/Views/Core/PhotoPlayer.ascx" />
+        <filedep name="/Views/PostCenter/Box/GroupPostBox.ascx" />
+        <filedep name="/Views/PostCenter/SubControls/PostContent.ascx" />
+        <filedep name="/Views/PostCenter/SubControls/PostList.ascx" />
+        <filedep name="/Views/PostCenter/SubControls/Register.ascx" />
+    </filedeps>
+</preserve>

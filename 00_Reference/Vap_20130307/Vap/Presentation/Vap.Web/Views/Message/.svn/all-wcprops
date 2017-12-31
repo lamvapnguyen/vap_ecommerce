@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Vap-Portal/!svn/ver/60/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Message
+END
+Compose.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/Vap-Portal/!svn/ver/56/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Message/Compose.aspx
+END
+Index.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/Vap-Portal/!svn/ver/60/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Message/Index.aspx
+END
+Reply.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/Vap-Portal/!svn/ver/56/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Message/Reply.aspx
+END
+UCMessageList.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Vap-Portal/!svn/ver/60/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Message/UCMessageList.ascx
+END
+CreateFolder.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Vap-Portal/!svn/ver/56/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Message/CreateFolder.ascx
+END
+Detail.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/Vap-Portal/!svn/ver/56/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Message/Detail.aspx
+END
+UCFolderList.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Vap-Portal/!svn/ver/60/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Message/UCFolderList.ascx
+END

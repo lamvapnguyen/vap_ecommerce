@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/Views/Product/Search/SearchListWTem.ascx" hash="fffffff3343c8b72" filehash="4768d690c51936c2" flags="110000" assembly="App_Web_samlirgf" type="ASP.views_product_search_searchlistwtem_ascx">
+    <filedeps>
+        <filedep name="/Views/Core/PagingControl.ascx" />
+        <filedep name="/Views/Product/Search/SearchListWTem.ascx" />
+        <filedep name="/Views/Product/SubControls/ProductDetail.ascx" />
+        <filedep name="/Views/Product/SubControls/ProductList.ascx" />
+    </filedeps>
+</preserve>

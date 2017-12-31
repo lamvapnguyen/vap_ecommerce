@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Vap-Portal/!svn/ver/92/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Shared
+END
+MenuArchiveList.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Vap-Portal/!svn/ver/63/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Shared/MenuArchiveList.ascx
+END
+MenuUserControl.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Vap-Portal/!svn/ver/85/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Shared/MenuUserControl.ascx
+END
+Error.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/Vap-Portal/!svn/ver/12/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Shared/Error.aspx
+END
+WelcomUserControl.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Vap-Portal/!svn/ver/85/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Shared/WelcomUserControl.ascx
+END
+NavigationList.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Vap-Portal/!svn/ver/36/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Shared/NavigationList.ascx
+END
+ucAjaxLoaderContent.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Vap-Portal/!svn/ver/82/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Shared/ucAjaxLoaderContent.ascx
+END
+LogOnUserControl.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Vap-Portal/!svn/ver/68/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Shared/LogOnUserControl.ascx
+END
+LogOnSite.Master
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/Vap-Portal/!svn/ver/53/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Shared/LogOnSite.Master
+END
+Site.Master
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/Vap-Portal/!svn/ver/92/trunk/03.Source%20code/Vap/Presentation/Vap.Web/Views/Shared/Site.Master
+END

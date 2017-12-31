@@ -1,0 +1,79 @@
+﻿<setting name="System">
+<![CDATA[
+
+<input type="hidden" value="1" name="update_hidden_field" />
+<table cellspacing="0" cellpadding="0" width="100%" class="dm_edit_table">
+	<col width="100px" /><col width="1px" /><col />
+  <tr>
+		<td class="dm_ioc_value_t">Database</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value"><div style="padding:5px;">{p:db_name}</div></td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">Domain</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value"><div style="padding:5px;">{p:site_domain}</div></td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">Licence key</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<div><input type="text" name="license" value="{p:license}" class="ioc_textbox" style="width:90%;color:#a00;" /></div>
+		</td>
+	</tr>
+	<tr>
+		<td class="dm_ioc_value_t">Hiển thị "Powered by LVTM"</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value">
+			<div><input type="checkbox" value="True" name="show_powerby" {p:show_powerby} /></div>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t">{lang:limit}</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value multi_div">
+			<div>
+				<input type="checkbox" value="True" name="page_counter_enable" {p:page_counter_enable} /><span class="span_label">{lang:sum_page}</span>
+				<input type="text" name="page_max" value="{p:page_max}" class="ioc_textbox" style="width:50px;" />,&nbsp;&nbsp;
+				{lang:used}:<input type="text" name="page_counter" value="{p:page_counter}" class="ioc_textbox" style="width:50px;" />
+			</div>
+			<div>
+				<input type="checkbox" value="True" name="post_counter_enable" {p:post_counter_enable} /><span class="span_label">{lang:sum_post}</span>
+				<input type="text" name="post_max" value="{p:post_max}" class="ioc_textbox" style="width:50px;" />,&nbsp;&nbsp;
+				{lang:used}:<input type="text" name="post_counter" value="{p:post_counter}" class="ioc_textbox" style="width:50px;" />
+			</div>
+			<div>
+				<input type="checkbox" value="True" name="adv_counter_enable" {p:adv_counter_enable} /><span class="span_label">{lang:sum_adv}</span>
+				<input type="text" name="adv_max" value="{p:adv_max}" class="ioc_textbox" style="width:50px;" />,&nbsp;&nbsp;
+				{lang:used}:<input type="text" name="adv_counter" value="{p:adv_counter}" class="ioc_textbox" style="width:50px;" />
+			</div>
+			<div>
+				<input type="checkbox" value="True" name="url_counter_enable" {p:url_counter_enable} /><span class="span_label">{lang:sum_url}</span>
+				<input type="text" name="url_max" value="{p:url_max}" class="ioc_textbox" style="width:50px;" />,&nbsp;&nbsp;
+				{lang:used}:<input type="text" name="url_counter" value="{p:url_counter}" class="ioc_textbox" style="width:50px;" />
+			</div>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td class="dm_ioc_value_t">Affiliate Code</td>
+		<td class="dm_ioc_value_s">:</td>
+		<td class="dm_ioc_value multi_div">
+			<div>
+				<span style="width:165px;display:inline-block;padding:0 5px;">Ngân Lượng (nganluong.vn):</span>
+				<input type="text" name="nganluong_affiliate_code" value="{p:nganluong_affiliate_code}" class="ioc_textbox" />
+			</div>
+			<div>
+				<span style="width:165px;display:inline-block;padding:0 5px;">Bảo Kim (baokim.vn):</span>
+				<input type="text" name="baokim_affiliate_code" value="{p:baokim_affiliate_code}" class="ioc_textbox" />
+			</div>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td><td></td><td></td></tr>
+	<tr>
+		<td colspan="3"><input type="submit" name="update_setting_submit" class="dm_edit_button_1" value="Update" /></td>
+	</tr>
+</table>
+]]>
+</setting>

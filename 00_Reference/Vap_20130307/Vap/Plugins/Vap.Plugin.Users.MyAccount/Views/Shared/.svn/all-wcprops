@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/Vap-Portal/!svn/ver/53/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Users.MyAccount/Views/Shared
+END
+Error.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Vap-Portal/!svn/ver/33/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Users.MyAccount/Views/Shared/Error.aspx
+END
+MessageSite.Master
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/Vap-Portal/!svn/ver/48/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Users.MyAccount/Views/Shared/MessageSite.Master
+END
+FolderList.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Vap-Portal/!svn/ver/48/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Users.MyAccount/Views/Shared/FolderList.ascx
+END
+$RSU150L.Master
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Vap-Portal/!svn/ver/53/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Users.MyAccount/Views/Shared/$RSU150L.Master
+END
+LogOnUserControl.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/Vap-Portal/!svn/ver/33/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Users.MyAccount/Views/Shared/LogOnUserControl.ascx
+END
+LogOnSite.Master
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/Vap-Portal/!svn/ver/53/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Users.MyAccount/Views/Shared/LogOnSite.Master
+END
+LogOnUserControl2.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/Vap-Portal/!svn/ver/53/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Users.MyAccount/Views/Shared/LogOnUserControl2.ascx
+END
+Site.Master
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/Vap-Portal/!svn/ver/35/trunk/03.Source%20code/Vap/Plugins/Vap.Plugin.Users.MyAccount/Views/Shared/Site.Master
+END
