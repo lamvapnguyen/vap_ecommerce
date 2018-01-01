@@ -1,0 +1,854 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VapCoreModelsStoreContainer" CdmEntityContainer="DBHelpDataContext">
+    <EntitySetMapping Name="M_ASSESSMENT_YEAR">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_ASSESSMENT_YEAR">
+        <MappingFragment StoreEntitySet="M_ASSESSMENT_YEAR">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="ASSESSMENT_YEAR" ColumnName="ASSESSMENT_YEAR" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_BONUS_SALARY_BASEUP">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_BONUS_SALARY_BASEUP">
+        <MappingFragment StoreEntitySet="M_BONUS_SALARY_BASEUP">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="ASSESSMENT_YEAR" ColumnName="ASSESSMENT_YEAR" />
+          <ScalarProperty Name="COUNTRY_EXPECTED_RATIO" ColumnName="COUNTRY_EXPECTED_RATIO" />
+          <ScalarProperty Name="BASEUP_RATE" ColumnName="BASEUP_RATE" />
+          <ScalarProperty Name="GAP_RATE" ColumnName="GAP_RATE" />
+          <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+          <ScalarProperty Name="BAND_I_VARIATION" ColumnName="BAND_I_VARIATION" />
+          <ScalarProperty Name="BAND_IIC_VARIATION" ColumnName="BAND_IIC_VARIATION" />
+          <ScalarProperty Name="BAND_IIB_VARIATION" ColumnName="BAND_IIB_VARIATION" />
+          <ScalarProperty Name="BAND_IIA_VARIATION" ColumnName="BAND_IIA_VARIATION" />
+          <ScalarProperty Name="BAND_IIIC_VARIATION" ColumnName="BAND_IIIC_VARIATION" />
+          <ScalarProperty Name="BAND_IIIB_VARIATION" ColumnName="BAND_IIIB_VARIATION" />
+          <ScalarProperty Name="BAND_IIIA_VARIATION" ColumnName="BAND_IIIA_VARIATION" />
+          <ScalarProperty Name="BAND_IV_VARIATION" ColumnName="BAND_IV_VARIATION" />
+          <ScalarProperty Name="BAND_I_FINALRATIO" ColumnName="BAND_I_FINALRATIO" />
+          <ScalarProperty Name="BAND_IIC_FINALRATIO" ColumnName="BAND_IIC_FINALRATIO" />
+          <ScalarProperty Name="BAND_IIB_FINALRATIO" ColumnName="BAND_IIB_FINALRATIO" />
+          <ScalarProperty Name="BAND_IIA_FINALRATIO" ColumnName="BAND_IIA_FINALRATIO" />
+          <ScalarProperty Name="BAND_IIIC_FINALRATIO" ColumnName="BAND_IIIC_FINALRATIO" />
+          <ScalarProperty Name="BAND_IIIB_FINALRATIO" ColumnName="BAND_IIIB_FINALRATIO" />
+          <ScalarProperty Name="BAND_IIIA_FINALRATIO" ColumnName="BAND_IIIA_FINALRATIO" />
+          <ScalarProperty Name="BAND_IV_FINALRATIO" ColumnName="BAND_IV_FINALRATIO" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_BONUS_SALARY_PI">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_BONUS_SALARY_PI">
+        <MappingFragment StoreEntitySet="M_BONUS_SALARY_PI">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="ASSESSMENT_YEAR" ColumnName="ASSESSMENT_YEAR" />
+          <ScalarProperty Name="AVG_RATIO_SALARY" ColumnName="AVG_RATIO_SALARY" />
+          <ScalarProperty Name="AVG_RATIO_BONUS_MONTH" ColumnName="AVG_RATIO_BONUS_MONTH" />
+          <ScalarProperty Name="BAND_C1_VARIATION_SALARY" ColumnName="BAND_C1_VARIATION_SALARY" />
+          <ScalarProperty Name="BAND_B3_VARIATION_SALARY" ColumnName="BAND_B3_VARIATION_SALARY" />
+          <ScalarProperty Name="BAND_B2_VARIATION_SALARY" ColumnName="BAND_B2_VARIATION_SALARY" />
+          <ScalarProperty Name="BAND_B1_VARIATION_SALARY" ColumnName="BAND_B1_VARIATION_SALARY" />
+          <ScalarProperty Name="BAND_A2_VARIATION_SALARY" ColumnName="BAND_A2_VARIATION_SALARY" />
+          <ScalarProperty Name="BAND_A1_VARIATION_SALARY" ColumnName="BAND_A1_VARIATION_SALARY" />
+          <ScalarProperty Name="BAND_C1_VARIATION_BONUS" ColumnName="BAND_C1_VARIATION_BONUS" />
+          <ScalarProperty Name="BAND_B3_VARIATION_BONUS" ColumnName="BAND_B3_VARIATION_BONUS" />
+          <ScalarProperty Name="BAND_B2_VARIATION_BONUS" ColumnName="BAND_B2_VARIATION_BONUS" />
+          <ScalarProperty Name="BAND_B1_VARIATION_BONUS" ColumnName="BAND_B1_VARIATION_BONUS" />
+          <ScalarProperty Name="BAND_A2_VARIATION_BONUS" ColumnName="BAND_A2_VARIATION_BONUS" />
+          <ScalarProperty Name="BAND_A1_VARIATION_BONUS" ColumnName="BAND_A1_VARIATION_BONUS" />
+          <ScalarProperty Name="BAND_C1_FINALRATIO_SALARY" ColumnName="BAND_C1_FINALRATIO_SALARY" />
+          <ScalarProperty Name="BAND_B3_FINALRATIO_SALARY" ColumnName="BAND_B3_FINALRATIO_SALARY" />
+          <ScalarProperty Name="BAND_B2_FINALRATIO_SALARY" ColumnName="BAND_B2_FINALRATIO_SALARY" />
+          <ScalarProperty Name="BAND_B1_FINALRATIO_SALARY" ColumnName="BAND_B1_FINALRATIO_SALARY" />
+          <ScalarProperty Name="BAND_A2_FINALRATIO_SALARY" ColumnName="BAND_A2_FINALRATIO_SALARY" />
+          <ScalarProperty Name="BAND_A1_FINALRATIO_SALARY" ColumnName="BAND_A1_FINALRATIO_SALARY" />
+          <ScalarProperty Name="BAND_C1_FINALRATIO_BONUS" ColumnName="BAND_C1_FINALRATIO_BONUS" />
+          <ScalarProperty Name="BAND_B3_FINALRATIO_BONUS" ColumnName="BAND_B3_FINALRATIO_BONUS" />
+          <ScalarProperty Name="BAND_B2_FINALRATIO_BONUS" ColumnName="BAND_B2_FINALRATIO_BONUS" />
+          <ScalarProperty Name="BAND_B1_FINALRATIO_BONUS" ColumnName="BAND_B1_FINALRATIO_BONUS" />
+          <ScalarProperty Name="BAND_A2_FINALRATIO_BONUS" ColumnName="BAND_A2_FINALRATIO_BONUS" />
+          <ScalarProperty Name="BAND_A1_FINALRATIO_BONUS" ColumnName="BAND_A1_FINALRATIO_BONUS" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_BONUS_SALARY_PROMOTION">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_BONUS_SALARY_PROMOTION">
+        <MappingFragment StoreEntitySet="M_BONUS_SALARY_PROMOTION">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="ASSESSMENT_YEAR" ColumnName="ASSESSMENT_YEAR" />
+          <ScalarProperty Name="BASIC_AMOUNT" ColumnName="BASIC_AMOUNT" />
+          <ScalarProperty Name="BAND_I_VARIATION" ColumnName="BAND_I_VARIATION" />
+          <ScalarProperty Name="BAND_IIC_VARIATION" ColumnName="BAND_IIC_VARIATION" />
+          <ScalarProperty Name="BAND_IIB_VARIATION" ColumnName="BAND_IIB_VARIATION" />
+          <ScalarProperty Name="BAND_IIA_VARIATION" ColumnName="BAND_IIA_VARIATION" />
+          <ScalarProperty Name="BAND_IIIC_VARIATION" ColumnName="BAND_IIIC_VARIATION" />
+          <ScalarProperty Name="BAND_IIIB_VARIATION" ColumnName="BAND_IIIB_VARIATION" />
+          <ScalarProperty Name="BAND_IIIA_VARIATION" ColumnName="BAND_IIIA_VARIATION" />
+          <ScalarProperty Name="BAND_IV_VARIATION" ColumnName="BAND_IV_VARIATION" />
+          <ScalarProperty Name="BAND_I_FINALRATIO" ColumnName="BAND_I_FINALRATIO" />
+          <ScalarProperty Name="BAND_IIC_FINALRATIO" ColumnName="BAND_IIC_FINALRATIO" />
+          <ScalarProperty Name="BAND_IIB_FINALRATIO" ColumnName="BAND_IIB_FINALRATIO" />
+          <ScalarProperty Name="BAND_IIA_FINALRATIO" ColumnName="BAND_IIA_FINALRATIO" />
+          <ScalarProperty Name="BAND_IIIC_FINALRATIO" ColumnName="BAND_IIIC_FINALRATIO" />
+          <ScalarProperty Name="BAND_IIIB_FINALRATIO" ColumnName="BAND_IIIB_FINALRATIO" />
+          <ScalarProperty Name="BAND_IIIA_FINALRATIO" ColumnName="BAND_IIIA_FINALRATIO" />
+          <ScalarProperty Name="BAND_IV_FINALRATIO" ColumnName="BAND_IV_FINALRATIO" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_BONUS_SALARY_SA">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_BONUS_SALARY_SA">
+        <MappingFragment StoreEntitySet="M_BONUS_SALARY_SA">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="ASSESSMENT_YEAR" ColumnName="ASSESSMENT_YEAR" />
+          <ScalarProperty Name="CURRENT_AVG_AMOUNT" ColumnName="CURRENT_AVG_AMOUNT" />
+          <ScalarProperty Name="CURRENT_AVG_PERCENT" ColumnName="CURRENT_AVG_PERCENT" />
+          <ScalarProperty Name="INCREMENT_AVG_AMOUNT" ColumnName="INCREMENT_AVG_AMOUNT" />
+          <ScalarProperty Name="INCREMENT_AVG_PERCENT" ColumnName="INCREMENT_AVG_PERCENT" />
+          <ScalarProperty Name="NEW_AMOUNT_AVG" ColumnName="NEW_AMOUNT_AVG" />
+          <ScalarProperty Name="NEW_AMOUNT_PERCENT" ColumnName="NEW_AMOUNT_PERCENT" />
+          <ScalarProperty Name="BAND_B3_NOPROMO_IIB_FIX" ColumnName="BAND_B3_NOPROMO_IIB_FIX" />
+          <ScalarProperty Name="BAND_B2_NOPROMO_IIC_FIX" ColumnName="BAND_B2_NOPROMO_IIC_FIX" />
+          <ScalarProperty Name="BAND_B2_I_IIC_FIX" ColumnName="BAND_B2_I_IIC_FIX" />
+          <ScalarProperty Name="BAND_B1_IIC_IIB_FIX" ColumnName="BAND_B1_IIC_IIB_FIX" />
+          <ScalarProperty Name="BAND_B1_IIA_IIIC_FIX" ColumnName="BAND_B1_IIA_IIIC_FIX" />
+          <ScalarProperty Name="BAND_A2_NOPROMO_IIA_FIX" ColumnName="BAND_A2_NOPROMO_IIA_FIX" />
+          <ScalarProperty Name="BAND_B3_NOPROMO_IIB_PERCENT" ColumnName="BAND_B3_NOPROMO_IIB_PERCENT" />
+          <ScalarProperty Name="BAND_B2_NOPROMO_IIC_PERCENT" ColumnName="BAND_B2_NOPROMO_IIC_PERCENT" />
+          <ScalarProperty Name="BAND_B2_I_IIC_PERCENT" ColumnName="BAND_B2_I_IIC_PERCENT" />
+          <ScalarProperty Name="BAND_B1_IIC_IIB_PERCENT" ColumnName="BAND_B1_IIC_IIB_PERCENT" />
+          <ScalarProperty Name="BAND_B1_IIA_IIIC_PERCENT" ColumnName="BAND_B1_IIA_IIIC_PERCENT" />
+          <ScalarProperty Name="BAND_A2_NOPROMO_IIA_PERCENT" ColumnName="BAND_A2_NOPROMO_IIA_PERCENT" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_COMPANY">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_COMPANY">
+        <MappingFragment StoreEntitySet="M_COMPANY">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="COMPANY_NAME" ColumnName="COMPANY_NAME" />
+          <ScalarProperty Name="GM_STAFF_CD" ColumnName="GM_STAFF_CD" />
+          <ScalarProperty Name="COMPANY_ADDR1" ColumnName="COMPANY_ADDR1" />
+          <ScalarProperty Name="COMPANY_ADDR2" ColumnName="COMPANY_ADDR2" />
+          <ScalarProperty Name="COMPANY_PHONE" ColumnName="COMPANY_PHONE" />
+          <ScalarProperty Name="COMPANY_FAX" ColumnName="COMPANY_FAX" />
+          <ScalarProperty Name="COUNTRY_CD" ColumnName="COUNTRY_CD" />
+          <ScalarProperty Name="CURRENCY_CD" ColumnName="CURRENCY_CD" />
+          <ScalarProperty Name="CURRENCY_UNIT" ColumnName="CURRENCY_UNIT" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+          <ScalarProperty Name="LAST_STAFF_ID" ColumnName="LAST_STAFF_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_COUNTRY">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_COUNTRY">
+        <MappingFragment StoreEntitySet="M_COUNTRY">
+          <ScalarProperty Name="COUNTRY_CD" ColumnName="COUNTRY_CD" />
+          <ScalarProperty Name="COUNTRY_NAME" ColumnName="COUNTRY_NAME" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_CURRENCY">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_CURRENCY">
+        <MappingFragment StoreEntitySet="M_CURRENCY">
+          <ScalarProperty Name="CURRENCY_CD" ColumnName="CURRENCY_CD" />
+          <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_DIVISION">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_DIVISION">
+        <MappingFragment StoreEntitySet="M_DIVISION">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="DIVISION_CD" ColumnName="DIVISION_CD" />
+          <ScalarProperty Name="DIVISION_NAME" ColumnName="DIVISION_NAME" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="PARENT_DIVISION_CD" ColumnName="PARENT_DIVISION_CD" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_EDUCATION_QUALIFICATION">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_EDUCATION_QUALIFICATION">
+        <MappingFragment StoreEntitySet="M_EDUCATION_QUALIFICATION">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="QUALIFICATION_CD" ColumnName="QUALIFICATION_CD" />
+          <ScalarProperty Name="QUALIFICATION_DESC" ColumnName="QUALIFICATION_DESC" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_EVALUATION_RATIO">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_EVALUATION_RATIO">
+        <MappingFragment StoreEntitySet="M_EVALUATION_RATIO">
+          <ScalarProperty Name="ASSESSMENT_YEAR" ColumnName="ASSESSMENT_YEAR" />
+          <ScalarProperty Name="STAFF_BAND_CATEGORY" ColumnName="STAFF_BAND_CATEGORY" />
+          <ScalarProperty Name="STAFF_BAND" ColumnName="STAFF_BAND" />
+          <ScalarProperty Name="INDIVIDUAL_RATIO" ColumnName="INDIVIDUAL_RATIO" />
+          <ScalarProperty Name="TEAM_RATIO" ColumnName="TEAM_RATIO" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_GROUP">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_GROUP">
+        <MappingFragment StoreEntitySet="M_GROUP">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="GROUP_CD" ColumnName="GROUP_CD" />
+          <ScalarProperty Name="GROUP_NAME" ColumnName="GROUP_NAME" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_MENU">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_MENU">
+        <MappingFragment StoreEntitySet="M_MENU">
+          <ScalarProperty Name="MENU_CD" ColumnName="MENU_CD" />
+          <ScalarProperty Name="MENU_NAME" ColumnName="MENU_NAME" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="MENU_LEVEL" ColumnName="MENU_LEVEL" />
+          <ScalarProperty Name="MENU_TYPE" ColumnName="MENU_TYPE" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="PARENT_MENU_CD" ColumnName="PARENT_MENU_CD" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_ORGCHART">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_ORGCHART">
+        <MappingFragment StoreEntitySet="M_ORGCHART">
+          <ScalarProperty Name="ORGCHART_CD" ColumnName="ORGCHART_CD" />
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="PRESIDENT_CD" ColumnName="PRESIDENT_CD" />
+          <ScalarProperty Name="GM_CD" ColumnName="GM_CD" />
+          <ScalarProperty Name="DEPUTY_GM_CD" ColumnName="DEPUTY_GM_CD" />
+          <ScalarProperty Name="GROUP_CD" ColumnName="GROUP_CD" />
+          <ScalarProperty Name="DIVISION_CD" ColumnName="DIVISION_CD" />
+          <ScalarProperty Name="SECTION_CD" ColumnName="SECTION_CD" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_ORIGIN">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_ORIGIN">
+        <MappingFragment StoreEntitySet="M_ORIGIN">
+          <ScalarProperty Name="ORIGIN_ID" ColumnName="ORIGIN_ID" />
+          <ScalarProperty Name="ORIGIN_NAME" ColumnName="ORIGIN_NAME" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_PERSON">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_PERSON">
+        <MappingFragment StoreEntitySet="M_PERSON">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="PERSON_CD" ColumnName="PERSON_CD" />
+          <ScalarProperty Name="STAFF_ID" ColumnName="STAFF_ID" />
+          <ScalarProperty Name="ROLE_CD" ColumnName="ROLE_CD" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="PASSWORD_SALT" ColumnName="PASSWORD_SALT" />
+          <ScalarProperty Name="LAST_CHANGE_PWD_DATE" ColumnName="LAST_CHANGE_PWD_DATE" />
+          <ScalarProperty Name="RESET_FLG" ColumnName="RESET_FLG" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_QUESTION">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_QUESTION">
+        <MappingFragment StoreEntitySet="M_QUESTION">
+          <ScalarProperty Name="QUES_ID" ColumnName="QUES_ID" />
+          <ScalarProperty Name="QUES_CONTENT" ColumnName="QUES_CONTENT" />
+          <ScalarProperty Name="ANS_RIGHT" ColumnName="ANS_RIGHT" />
+          <ScalarProperty Name="ANS_A" ColumnName="ANS_A" />
+          <ScalarProperty Name="ANS_B" ColumnName="ANS_B" />
+          <ScalarProperty Name="ANS_C" ColumnName="ANS_C" />
+          <ScalarProperty Name="ANS_D" ColumnName="ANS_D" />
+          <ScalarProperty Name="ANS_E" ColumnName="ANS_E" />
+          <ScalarProperty Name="ANS_F" ColumnName="ANS_F" />
+          <ScalarProperty Name="RANK" ColumnName="RANK" />
+          <ScalarProperty Name="QUES_CATEGORY_ID" ColumnName="QUES_CATEGORY_ID" />
+          <ScalarProperty Name="QUES_TYPE_ID" ColumnName="QUES_TYPE_ID" />
+          <ScalarProperty Name="QUES_LEVEL_ID" ColumnName="QUES_LEVEL_ID" />
+          <ScalarProperty Name="ORIGIN_ID" ColumnName="ORIGIN_ID" />
+          <ScalarProperty Name="HINT" ColumnName="HINT" />
+          <ScalarProperty Name="MORE_DETAIL" ColumnName="MORE_DETAIL" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="QUES_MARK" ColumnName="QUES_MARK" />
+          <ScalarProperty Name="QUES_PARENT_ID" ColumnName="QUES_PARENT_ID" />
+          <ScalarProperty Name="COUNTRY_CD" ColumnName="COUNTRY_CD" />
+          <ScalarProperty Name="FILE_ID" ColumnName="FILE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_QUESTION_CATEGORY">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_QUESTION_CATEGORY">
+        <MappingFragment StoreEntitySet="M_QUESTION_CATEGORY">
+          <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+          <ScalarProperty Name="CATEGORY_NAME" ColumnName="CATEGORY_NAME" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_ID" ColumnName="CREATE_PERSON_ID" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_ID" ColumnName="UPDATE_PERSON_ID" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_QUESTION_LEVEL">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_QUESTION_LEVEL">
+        <MappingFragment StoreEntitySet="M_QUESTION_LEVEL">
+          <ScalarProperty Name="QUES_LEVEL_ID" ColumnName="QUES_LEVEL_ID" />
+          <ScalarProperty Name="QUES_LEVEL_NAME" ColumnName="QUES_LEVEL_NAME" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_ID" ColumnName="CREATE_PERSON_ID" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_ID" ColumnName="UPDATE_PERSON_ID" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_QUESTION_TYPE">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_QUESTION_TYPE">
+        <MappingFragment StoreEntitySet="M_QUESTION_TYPE">
+          <ScalarProperty Name="QUES_TYPE_ID" ColumnName="QUES_TYPE_ID" />
+          <ScalarProperty Name="QUES_TYPE_NAME" ColumnName="QUES_TYPE_NAME" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_ID" ColumnName="CREATE_PERSON_ID" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_ID" ColumnName="UPDATE_PERSON_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_ROLE">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_ROLE">
+        <MappingFragment StoreEntitySet="M_ROLE">
+          <ScalarProperty Name="ROLE_CD" ColumnName="ROLE_CD" />
+          <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="ALL_COMPANY_FLAG" ColumnName="ALL_COMPANY_FLAG" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_SECTION">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_SECTION">
+        <MappingFragment StoreEntitySet="M_SECTION">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="SECTION_CD" ColumnName="SECTION_CD" />
+          <ScalarProperty Name="SECTION_NAME" ColumnName="SECTION_NAME" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_STAFF">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_STAFF">
+        <MappingFragment StoreEntitySet="M_STAFF">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="STAFF_ID" ColumnName="STAFF_ID" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="MIDDLE_NAME" ColumnName="MIDDLE_NAME" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="NICKNAME" ColumnName="NICKNAME" />
+          <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="JOINED_DATE" ColumnName="JOINED_DATE" />
+          <ScalarProperty Name="STAFF_CATEGORY" ColumnName="STAFF_CATEGORY" />
+          <ScalarProperty Name="GROUP_CD" ColumnName="GROUP_CD" />
+          <ScalarProperty Name="DIVISION_CD" ColumnName="DIVISION_CD" />
+          <ScalarProperty Name="SECTION_CD" ColumnName="SECTION_CD" />
+          <ScalarProperty Name="JOBTITLE_CD" ColumnName="JOBTITLE_CD" />
+          <ScalarProperty Name="PHOTOID_URL" ColumnName="PHOTOID_URL" />
+          <ScalarProperty Name="HOME_TOWN" ColumnName="HOME_TOWN" />
+          <ScalarProperty Name="PHOTOID_UPLOAD_DATE" ColumnName="PHOTOID_UPLOAD_DATE" />
+          <ScalarProperty Name="INSTRUCTOR_ID" ColumnName="INSTRUCTOR_ID" />
+          <ScalarProperty Name="RESIGNATION_DATE" ColumnName="RESIGNATION_DATE" />
+          <ScalarProperty Name="RESIGNATION_REASON" ColumnName="RESIGNATION_REASON" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_STAFF_BAND_SALARY">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_STAFF_BAND_SALARY">
+        <MappingFragment StoreEntitySet="M_STAFF_BAND_SALARY">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="STAFF_ID" ColumnName="STAFF_ID" />
+          <ScalarProperty Name="EFFECTIVE_DATE" ColumnName="EFFECTIVE_DATE" />
+          <ScalarProperty Name="STAFF_BAND" ColumnName="STAFF_BAND" />
+          <ScalarProperty Name="BASIC_SALARY" ColumnName="BASIC_SALARY" />
+          <ScalarProperty Name="ALLOWANCE" ColumnName="ALLOWANCE" />
+          <ScalarProperty Name="BONUS" ColumnName="BONUS" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_STAFF_JOBTITLE">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_STAFF_JOBTITLE">
+        <MappingFragment StoreEntitySet="M_STAFF_JOBTITLE">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="JOBTITLE_CD" ColumnName="JOBTITLE_CD" />
+          <ScalarProperty Name="JOBTITLE_NAME" ColumnName="JOBTITLE_NAME" />
+          <ScalarProperty Name="JOBTITLE_DESC" ColumnName="JOBTITLE_DESC" />
+          <ScalarProperty Name="PRESIDENT_FLG" ColumnName="PRESIDENT_FLG" />
+          <ScalarProperty Name="GM_FLG" ColumnName="GM_FLG" />
+          <ScalarProperty Name="DEPUTY_GM_FLG" ColumnName="DEPUTY_GM_FLG" />
+          <ScalarProperty Name="GROUP_LEADER_FLG" ColumnName="GROUP_LEADER_FLG" />
+          <ScalarProperty Name="DIV_LEADER_FLG" ColumnName="DIV_LEADER_FLG" />
+          <ScalarProperty Name="SEC_LEADER_FLG" ColumnName="SEC_LEADER_FLG" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_STATE_PROVINCE">
+      <EntityTypeMapping TypeName="Vap.Core.Models.M_STATE_PROVINCE">
+        <MappingFragment StoreEntitySet="M_STATE_PROVINCE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="COUNTRY_CD" ColumnName="COUNTRY_CD" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ABBREVIATION" ColumnName="ABBREVIATION" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="DISPLAY_ORDER" ColumnName="DISPLAY_ORDER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSG_ATTACHMENT">
+      <EntityTypeMapping TypeName="Vap.Core.Models.MSG_ATTACHMENT">
+        <MappingFragment StoreEntitySet="MSG_ATTACHMENT">
+          <ScalarProperty Name="ATTACH_ID" ColumnName="ATTACH_ID" />
+          <ScalarProperty Name="MESSAGE_ID" ColumnName="MESSAGE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSG_FOLDER">
+      <EntityTypeMapping TypeName="Vap.Core.Models.MSG_FOLDER">
+        <MappingFragment StoreEntitySet="MSG_FOLDER">
+          <ScalarProperty Name="FOLDER_CD" ColumnName="FOLDER_CD" />
+          <ScalarProperty Name="FOLDER_NAME" ColumnName="FOLDER_NAME" />
+          <ScalarProperty Name="FOLDER_TYPE" ColumnName="FOLDER_TYPE" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_USER_ID" ColumnName="CREATE_USER_ID" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_USER_ID" ColumnName="UPDATE_USER_ID" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSG_GROUPS">
+      <EntityTypeMapping TypeName="Vap.Core.Models.MSG_GROUPS">
+        <MappingFragment StoreEntitySet="MSG_GROUPS">
+          <ScalarProperty Name="GROUP_CD" ColumnName="GROUP_CD" />
+          <ScalarProperty Name="GROUP_NAME" ColumnName="GROUP_NAME" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_USER_ID" ColumnName="CREATE_USER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSG_MESAGES_USERS">
+      <EntityTypeMapping TypeName="Vap.Core.Models.MSG_MESAGES_USERS">
+        <MappingFragment StoreEntitySet="MSG_MESAGES_USERS">
+          <ScalarProperty Name="MESSAGE_ID" ColumnName="MESSAGE_ID" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="READ_DATE" ColumnName="READ_DATE" />
+          <ScalarProperty Name="IS_READ" ColumnName="IS_READ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSG_MESSAGE">
+      <EntityTypeMapping TypeName="Vap.Core.Models.MSG_MESSAGE">
+        <MappingFragment StoreEntitySet="MSG_MESSAGE">
+          <ScalarProperty Name="MESSAGE_ID" ColumnName="MESSAGE_ID" />
+          <ScalarProperty Name="SUBJECT_ID" ColumnName="SUBJECT_ID" />
+          <ScalarProperty Name="CONTENTS" ColumnName="CONTENTS" />
+          <ScalarProperty Name="SENT_DATE" ColumnName="SENT_DATE" />
+          <ScalarProperty Name="SENDING_USER_ID" ColumnName="SENDING_USER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSG_SUBJECT">
+      <EntityTypeMapping TypeName="Vap.Core.Models.MSG_SUBJECT">
+        <MappingFragment StoreEntitySet="MSG_SUBJECT">
+          <ScalarProperty Name="SUBJECT_ID" ColumnName="SUBJECT_ID" />
+          <ScalarProperty Name="SUBJECT" ColumnName="SUBJECT" />
+          <ScalarProperty Name="IS_PRIVATE_MESSAGE" ColumnName="IS_PRIVATE_MESSAGE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_USER_ID" ColumnName="CREATE_USER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSG_SUBJECT_PARTICIPANT">
+      <EntityTypeMapping TypeName="Vap.Core.Models.MSG_SUBJECT_PARTICIPANT">
+        <MappingFragment StoreEntitySet="MSG_SUBJECT_PARTICIPANT">
+          <ScalarProperty Name="SUBJECT_ID" ColumnName="SUBJECT_ID" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSG_USERS_CONTACTS">
+      <EntityTypeMapping TypeName="Vap.Core.Models.MSG_USERS_CONTACTS">
+        <MappingFragment StoreEntitySet="MSG_USERS_CONTACTS">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="FRIEND_ID" ColumnName="FRIEND_ID" />
+          <ScalarProperty Name="TOBE_FRIEND_DATE" ColumnName="TOBE_FRIEND_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSG_USERS_IN_GROUPS">
+      <EntityTypeMapping TypeName="Vap.Core.Models.MSG_USERS_IN_GROUPS">
+        <MappingFragment StoreEntitySet="MSG_USERS_IN_GROUPS">
+          <ScalarProperty Name="GROUP_CD" ColumnName="GROUP_CD" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="FRIEND_ID" ColumnName="FRIEND_ID" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ASSESSMENT_GOAL">
+      <EntityTypeMapping TypeName="Vap.Core.Models.T_ASSESSMENT_GOAL">
+        <MappingFragment StoreEntitySet="T_ASSESSMENT_GOAL">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="ASSESSMENT_YEAR" ColumnName="ASSESSMENT_YEAR" />
+          <ScalarProperty Name="GOAL1" ColumnName="GOAL1" />
+          <ScalarProperty Name="GOAL2" ColumnName="GOAL2" />
+          <ScalarProperty Name="GOAL3" ColumnName="GOAL3" />
+          <ScalarProperty Name="GOAL4" ColumnName="GOAL4" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_BAND_PROMOTION">
+      <EntityTypeMapping TypeName="Vap.Core.Models.T_BAND_PROMOTION">
+        <MappingFragment StoreEntitySet="T_BAND_PROMOTION">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="ASSESSMENT_YEAR" ColumnName="ASSESSMENT_YEAR" />
+          <ScalarProperty Name="FILE_ID" ColumnName="FILE_ID" />
+          <ScalarProperty Name="STAFF_ID" ColumnName="STAFF_ID" />
+          <ScalarProperty Name="CURRENT_BAND" ColumnName="CURRENT_BAND" />
+          <ScalarProperty Name="NEW_BAND" ColumnName="NEW_BAND" />
+          <ScalarProperty Name="PROMOTION" ColumnName="PROMOTION" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_BONUS_CALCULATION">
+      <EntityTypeMapping TypeName="Vap.Core.Models.T_BONUS_CALCULATION">
+        <MappingFragment StoreEntitySet="T_BONUS_CALCULATION">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="ASSESSMENT_YEAR" ColumnName="ASSESSMENT_YEAR" />
+          <ScalarProperty Name="FILE_ID" ColumnName="FILE_ID" />
+          <ScalarProperty Name="STAFF_ID" ColumnName="STAFF_ID" />
+          <ScalarProperty Name="NEW_BONUS" ColumnName="NEW_BONUS" />
+          <ScalarProperty Name="NEW_BONUS_ADJ" ColumnName="NEW_BONUS_ADJ" />
+          <ScalarProperty Name="NEW_BONUS_FIANL" ColumnName="NEW_BONUS_FIANL" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_BONUS_SALARY_PASSCODE">
+      <EntityTypeMapping TypeName="Vap.Core.Models.T_BONUS_SALARY_PASSCODE">
+        <MappingFragment StoreEntitySet="T_BONUS_SALARY_PASSCODE">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="ASSESSMENT_YEAR" ColumnName="ASSESSMENT_YEAR" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="FINAL_FLG" ColumnName="FINAL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_EVALUATION">
+      <EntityTypeMapping TypeName="Vap.Core.Models.T_EVALUATION">
+        <MappingFragment StoreEntitySet="T_EVALUATION">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="ASSESSMENT_YEAR" ColumnName="ASSESSMENT_YEAR" />
+          <ScalarProperty Name="ASSESSMENT_TYPE" ColumnName="ASSESSMENT_TYPE" />
+          <ScalarProperty Name="ASSESSMENT_CD" ColumnName="ASSESSMENT_CD" />
+          <ScalarProperty Name="FILE_ID" ColumnName="FILE_ID" />
+          <ScalarProperty Name="YEARLY_GOAL" ColumnName="YEARLY_GOAL" />
+          <ScalarProperty Name="EVALUATION_POINT_T1" ColumnName="EVALUATION_POINT_T1" />
+          <ScalarProperty Name="EVALUATION_POINT_T2" ColumnName="EVALUATION_POINT_T2" />
+          <ScalarProperty Name="EVALUATION_POINT_FINAL" ColumnName="EVALUATION_POINT_FINAL" />
+          <ScalarProperty Name="COMMENTS_T1" ColumnName="COMMENTS_T1" />
+          <ScalarProperty Name="COMMENTS_T2" ColumnName="COMMENTS_T2" />
+          <ScalarProperty Name="COMMENTS_FINAL" ColumnName="COMMENTS_FINAL" />
+          <ScalarProperty Name="FINAL_FLG" ColumnName="FINAL_FLG" />
+          <ScalarProperty Name="EVALUATION_RESULT" ColumnName="EVALUATION_RESULT" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_FILETRACKING">
+      <EntityTypeMapping TypeName="Vap.Core.Models.T_FILETRACKING">
+        <MappingFragment StoreEntitySet="T_FILETRACKING">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="FILE_ID" ColumnName="FILE_ID" />
+          <ScalarProperty Name="FILENAME" ColumnName="FILENAME" />
+          <ScalarProperty Name="FILE_CREATE_DATE" ColumnName="FILE_CREATE_DATE" />
+          <ScalarProperty Name="DIRECTION" ColumnName="DIRECTION" />
+          <ScalarProperty Name="BATCH_NO" ColumnName="BATCH_NO" />
+          <ScalarProperty Name="BATCH_TYPE" ColumnName="BATCH_TYPE" />
+          <ScalarProperty Name="FILE_URL" ColumnName="FILE_URL" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_LOG">
+      <EntityTypeMapping TypeName="Vap.Core.Models.T_LOG">
+        <MappingFragment StoreEntitySet="T_LOG">
+          <ScalarProperty Name="LOG_CD" ColumnName="LOG_CD" />
+          <ScalarProperty Name="LOG_TYPE" ColumnName="LOG_TYPE" />
+          <ScalarProperty Name="SCREEN_NAME" ColumnName="SCREEN_NAME" />
+          <ScalarProperty Name="ACTION_TYPE" ColumnName="ACTION_TYPE" />
+          <ScalarProperty Name="LOG_DATA" ColumnName="LOG_DATA" />
+          <ScalarProperty Name="LOG_DATE" ColumnName="LOG_DATE" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="PERSON_CD" ColumnName="PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ROLE_MENU">
+      <EntityTypeMapping TypeName="Vap.Core.Models.T_ROLE_MENU">
+        <MappingFragment StoreEntitySet="T_ROLE_MENU">
+          <ScalarProperty Name="ROLE_MENU_ID" ColumnName="ROLE_MENU_ID" />
+          <ScalarProperty Name="ROLE_CD" ColumnName="ROLE_CD" />
+          <ScalarProperty Name="MENU_CD" ColumnName="MENU_CD" />
+          <ScalarProperty Name="READONLY" ColumnName="READONLY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SALARY_CALCULATION">
+      <EntityTypeMapping TypeName="Vap.Core.Models.T_SALARY_CALCULATION">
+        <MappingFragment StoreEntitySet="T_SALARY_CALCULATION">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="ASSESSMENT_YEAR" ColumnName="ASSESSMENT_YEAR" />
+          <ScalarProperty Name="FILE_ID" ColumnName="FILE_ID" />
+          <ScalarProperty Name="STAFF_ID" ColumnName="STAFF_ID" />
+          <ScalarProperty Name="NEW_BASE_AD" ColumnName="NEW_BASE_AD" />
+          <ScalarProperty Name="NEW_BASE_FIANL" ColumnName="NEW_BASE_FIANL" />
+          <ScalarProperty Name="NEW_ALLOWANCE" ColumnName="NEW_ALLOWANCE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SALARY_CALCULATION_FINAL">
+      <EntityTypeMapping TypeName="Vap.Core.Models.T_SALARY_CALCULATION_FINAL">
+        <MappingFragment StoreEntitySet="T_SALARY_CALCULATION_FINAL">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="ASSESSMENT_YEAR" ColumnName="ASSESSMENT_YEAR" />
+          <ScalarProperty Name="FINAL_FLG" ColumnName="FINAL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_STAFF_CONTACT">
+      <EntityTypeMapping TypeName="Vap.Core.Models.T_STAFF_CONTACT">
+        <MappingFragment StoreEntitySet="T_STAFF_CONTACT">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="STAFF_CD" ColumnName="STAFF_CD" />
+          <ScalarProperty Name="COMPANY_PHONE" ColumnName="COMPANY_PHONE" />
+          <ScalarProperty Name="COMPANY_MOBILE" ColumnName="COMPANY_MOBILE" />
+          <ScalarProperty Name="COMPANY_FAX" ColumnName="COMPANY_FAX" />
+          <ScalarProperty Name="COMPANY_EMAIL" ColumnName="COMPANY_EMAIL" />
+          <ScalarProperty Name="HOME_STREET" ColumnName="HOME_STREET" />
+          <ScalarProperty Name="HOME_DISTRICT" ColumnName="HOME_DISTRICT" />
+          <ScalarProperty Name="HOME_AREA" ColumnName="HOME_AREA" />
+          <ScalarProperty Name="HOME_CITY" ColumnName="HOME_CITY" />
+          <ScalarProperty Name="HOME_STATE" ColumnName="HOME_STATE" />
+          <ScalarProperty Name="HOME_ZIP" ColumnName="HOME_ZIP" />
+          <ScalarProperty Name="HOME_COUNTRY_CD" ColumnName="HOME_COUNTRY_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_STAFF_EDUCATION">
+      <EntityTypeMapping TypeName="Vap.Core.Models.T_STAFF_EDUCATION">
+        <MappingFragment StoreEntitySet="T_STAFF_EDUCATION">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="STAFF_ID" ColumnName="STAFF_ID" />
+          <ScalarProperty Name="QUALIFICATION_CD" ColumnName="QUALIFICATION_CD" />
+          <ScalarProperty Name="INSTITUTION" ColumnName="INSTITUTION" />
+          <ScalarProperty Name="MAJOR" ColumnName="MAJOR" />
+          <ScalarProperty Name="YEAR_FROM" ColumnName="YEAR_FROM" />
+          <ScalarProperty Name="YEAR_TO" ColumnName="YEAR_TO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_STAFF_EMPLOYMENT_HISTORY">
+      <EntityTypeMapping TypeName="Vap.Core.Models.T_STAFF_EMPLOYMENT_HISTORY">
+        <MappingFragment StoreEntitySet="T_STAFF_EMPLOYMENT_HISTORY">
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="STAFF_ID" ColumnName="STAFF_ID" />
+          <ScalarProperty Name="STAFF_EMPLOYMENT_HISTORY_ID" ColumnName="STAFF_EMPLOYMENT_HISTORY_ID" />
+          <ScalarProperty Name="EFFECTIVE_DATE" ColumnName="EFFECTIVE_DATE" />
+          <ScalarProperty Name="STAFF_BAND" ColumnName="STAFF_BAND" />
+          <ScalarProperty Name="JOBTITLE_CD" ColumnName="JOBTITLE_CD" />
+          <ScalarProperty Name="SECTION_CD" ColumnName="SECTION_CD" />
+          <ScalarProperty Name="DIVISION_CD" ColumnName="DIVISION_CD" />
+          <ScalarProperty Name="BASIC_SALARY" ColumnName="BASIC_SALARY" />
+          <ScalarProperty Name="ALLOWANCE" ColumnName="ALLOWANCE" />
+          <ScalarProperty Name="BONUS" ColumnName="BONUS" />
+          <ScalarProperty Name="EVALUATION_INDIVIDUAL" ColumnName="EVALUATION_INDIVIDUAL" />
+          <ScalarProperty Name="EVALUATION_TEAM" ColumnName="EVALUATION_TEAM" />
+          <ScalarProperty Name="EVALUATION_RESULT" ColumnName="EVALUATION_RESULT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_CATEGORY">
+      <EntityTypeMapping TypeName="Vap.Core.Models.V_CATEGORY">
+        <MappingFragment StoreEntitySet="V_CATEGORY">
+          <ScalarProperty Name="CATEGORY_CD" ColumnName="CATEGORY_CD" />
+          <ScalarProperty Name="CATEGORY_NAME" ColumnName="CATEGORY_NAME" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="CATEGORY_LEVEL" ColumnName="CATEGORY_LEVEL" />
+          <ScalarProperty Name="PARENT_CATEGORY_CD" ColumnName="PARENT_CATEGORY_CD" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_EXTENSION_ATTRIBUTE">
+      <EntityTypeMapping TypeName="Vap.Core.Models.V_EXTENSION_ATTRIBUTE">
+        <MappingFragment StoreEntitySet="V_EXTENSION_ATTRIBUTE">
+          <ScalarProperty Name="ATTRIBUTE_CD" ColumnName="ATTRIBUTE_CD" />
+          <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+          <ScalarProperty Name="ATTRIBUTE_KEY" ColumnName="ATTRIBUTE_KEY" />
+          <ScalarProperty Name="ATRRIBUTE_VALUE" ColumnName="ATRRIBUTE_VALUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_PRODUCT">
+      <EntityTypeMapping TypeName="Vap.Core.Models.V_PRODUCT">
+        <MappingFragment StoreEntitySet="V_PRODUCT">
+          <ScalarProperty Name="PRODUCT_CD" ColumnName="PRODUCT_CD" />
+          <ScalarProperty Name="CATEGORY_CD" ColumnName="CATEGORY_CD" />
+          <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
+          <ScalarProperty Name="PRODUCT_KEYWORD" ColumnName="PRODUCT_KEYWORD" />
+          <ScalarProperty Name="PRODUCT_DESCRIPTION" ColumnName="PRODUCT_DESCRIPTION" />
+          <ScalarProperty Name="SORT_ORDER" ColumnName="SORT_ORDER" />
+          <ScalarProperty Name="PRODUCT_STATUS_CD" ColumnName="PRODUCT_STATUS_CD" />
+          <ScalarProperty Name="DISPLAY_FLG" ColumnName="DISPLAY_FLG" />
+          <ScalarProperty Name="DEL_FLG" ColumnName="DEL_FLG" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_PERSON_CD" ColumnName="CREATE_PERSON_CD" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_PERSON_CD" ColumnName="UPDATE_PERSON_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MSG_SUBJECT_FOLDER" TypeName="Vap.Core.Models.MSG_SUBJECT_FOLDER" StoreEntitySet="MSG_SUBJECT_FOLDER">
+      <EndProperty Name="MSG_SUBJECT_PARTICIPANT">
+        <ScalarProperty Name="SUBJECT_ID" ColumnName="SUBJECT_ID" />
+        <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+      </EndProperty>
+      <EndProperty Name="MSG_FOLDER">
+        <ScalarProperty Name="FOLDER_CD" ColumnName="FOLDER_CD" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

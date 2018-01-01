@@ -1,10 +1,10 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
- }
+}
 
 font-face {
-  font-family: 'Glyphicons Halflings';
+    font-family: 'Glyphicons Halflings';
 }
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -27,18 +27,63 @@ textarea {
     max-width: 280px;
 }
 
-
-
-.navbar .navbar-collapse{
-    height:35px;
-    min-height:35px;
-}
-.navbar-brand 
-{
-     padding-top:10px;
-}
-.navbar-nav > li > a
-{
-     padding-top:10px;
+.navbar .navbar-collapse {
+    height: 35px;
+    min-height: 35px;
 }
 
+.navbar-brand {
+    padding-top: 10px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 10px;
+}
+
+.page_title {
+    float: left;
+    color: #23282d;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.panel_tool {
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+/*Search form*/
+input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
+}
+
+/*Table*/
+table {
+    border: 1px solid #d2d6d9;
+    width: 100%;
+}
+table .th1:hover {
+    text-decoration: underline;
+}
+table .th1, .dm_table .th2 {
+    background: #fff;
+    color: #0073aa;
+    font-weight: normal;
+    border-left: 1px solid #e5e5e5;
+    border-collapse: collapse;
+    text-align: center;
+    height: 30px;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 0 5px;
+}

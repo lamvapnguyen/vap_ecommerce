@@ -85,3 +85,7 @@ E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Debug\EAdmin.csprojResolv
 E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\bin\en\EAdmin.resources.dll
 E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Debug\EAdmin.Resources.MenuText.en.resources
 E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Debug\en\EAdmin.resources.dll
+E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\bin\Vap.Core.dll
+E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\bin\Vap.Core.pdb
+E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Debug\EAdmin.Resources.UIText.resources
+E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Debug\EAdmin.Resources.UIText.en.resources

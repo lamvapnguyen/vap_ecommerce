@@ -1,0 +1,102 @@
+﻿<!-- Sidebar Holder -->
+<nav id="sidebar">
+    <ul class="list-unstyled components">
+
+        <li class="active">
+            <a href="#systemSubmenu" data-toggle="collapse" aria-expanded="false">
+                <i class="glyphicon glyphicon-cog"></i>
+                @EAdmin.Resources.MenuText.System
+            </a>
+            <ul class="collapse list-unstyled" id="systemSubmenu">
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.FullSettings, "", "System", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.Definitions, "", "System", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.Roles, "", "System", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.Modules, "", "System", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.Languages, "", "System", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.LanguagesResx, "", "System", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.TemplatePages, "", "System", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.ProductProperties, "", "System", new { href = "#" })</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#ContentManagerSubmenu" data-toggle="collapse" aria-expanded="false">
+                <i class="glyphicon glyphicon-pushpin"></i>
+                @EAdmin.Resources.MenuText.ContentManager
+            </a>
+            <ul class="collapse list-unstyled" id="ContentManagerSubmenu">
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.PagesCategories, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.PostsArticles, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.PostTemplates, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.PhotoGallery, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.Video, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.LogoBanner, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.Advertisement, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.AuthorsWritter, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.Keywords, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.Comments, "", "", new { href = "#" })</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#ProductsServicesSubmenu" data-toggle="collapse" aria-expanded="false">
+                <i class="glyphicon glyphicon-list-alt"></i>
+                @EAdmin.Resources.MenuText.ProductsServices
+            </a>
+            <ul class="collapse list-unstyled" id="ProductsServicesSubmenu">
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.ProductsServices, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.ShippingFee, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.ProductProperties, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.ProductKeywords, "", "", new { href = "#" })</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#SalesSubmenu" data-toggle="collapse" aria-expanded="false">
+                <i class="glyphicon glyphicon-flag"></i>
+                @EAdmin.Resources.MenuText.Sales
+            </a>
+            <ul class="collapse list-unstyled" id="SalesSubmenu">
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.Oders, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.Customers, "", "", new { href = "#" })</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#StorageSubmenu" data-toggle="collapse" aria-expanded="false">
+                <i class="glyphicon glyphicon-folder-open"></i>
+                @EAdmin.Resources.MenuText.Storage
+            </a>
+            <ul class="collapse list-unstyled" id="StorageSubmenu">
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.FilesManager, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.Inbox, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.Outbox, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.EmailList, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.Polls, "", "", new { href = "#" })</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#SettingsSubmenu" data-toggle="collapse" aria-expanded="false">
+                <i class="glyphicon glyphicon-wrench"></i>
+                @EAdmin.Resources.MenuText.Settings
+            </a>
+            <ul class="collapse list-unstyled" id="SettingsSubmenu">
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.GeneralSettings, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.UserAccount, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.AccountGroups, "Index", "M0110")</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.SystemPages, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.URLManagement, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.Widget, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.IPManagement, "", "", new { href = "#" })</li>
+                <li>@Html.ActionLink(EAdmin.Resources.MenuText.Logs, "", "", new { href = "#" })</li>
+            </ul>
+        </li>
+    </ul>
+
+    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" title=@EAdmin.Resources.MenuText.Collapse>
+        <i class="glyphicon glyphicon-align-left"></i>
+        <span></span>
+    </button>
+
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - LTDuyen</p>
+    </footer>
+</nav>
+
