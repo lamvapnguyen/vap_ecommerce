@@ -80,3 +80,8 @@ E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\bin\Microsoft.Owin.Security.M
 E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Release\EAdmin.csprojResolveAssemblyReference.cache
 E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Release\EAdmin.dll
 E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Release\EAdmin.pdb
+E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\bin\en\EAdmin.resources.dll
+E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Release\EAdmin.Resources.MenuText.resources
+E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Release\EAdmin.Resources.MenuText.en.resources
+E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Release\EAdmin.csproj.GenerateResource.Cache
+E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Release\en\EAdmin.resources.dll

@@ -77,6 +77,11 @@ E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\bin\Microsoft.Owin.Security.O
 E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\bin\Microsoft.Owin.Security.Google.xml
 E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Debug\EAdmin.csprojResolveAssemblyReference.cache
 E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Debug\EAdmin.dll
 E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Debug\EAdmin.pdb
+E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Debug\EAdmin.Resources.MenuText.resources
+E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Debug\EAdmin.csproj.GenerateResource.Cache
+E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Debug\EAdmin.csprojResolveAssemblyReference.cache
+E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\bin\en\EAdmin.resources.dll
+E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Debug\EAdmin.Resources.MenuText.en.resources
+E:\Bin\Projects\vap_ecommerce\05_Source\Vap\EAdmin\obj\Debug\en\EAdmin.resources.dll
