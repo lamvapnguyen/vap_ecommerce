@@ -27,19 +27,6 @@ textarea {
     max-width: 280px;
 }
 
-.navbar .navbar-collapse {
-    height: 35px;
-    min-height: 35px;
-}
-
-.navbar-brand {
-    padding-top: 10px;
-}
-
-.navbar-nav > li > a {
-    padding-top: 10px;
-}
-
 .page_title {
     float: left;
     color: #23282d;
@@ -62,28 +49,104 @@ input[type=text] {
     transition: width 0.4s ease-in-out;
 }
 
-/* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
+    /* When the input field gets focus, change its width to 100% */
+    input[type=text]:focus {
+        width: 100%;
+    }
+
+.container {
     width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
 }
 
+.content {
+    padding-left: 10px;
+    padding-right: 10px;
+}
 /*Table*/
-table {
-    border: 1px solid #d2d6d9;
-    width: 100%;
+.th10
+{
+	width: 10px;
 }
-table .th1:hover {
-    text-decoration: underline;
+
+.th20
+{
+	width: 20px;
 }
-table .th1, .dm_table .th2 {
-    background: #fff;
-    color: #0073aa;
-    font-weight: normal;
-    border-left: 1px solid #e5e5e5;
-    border-collapse: collapse;
+.th30
+{
+	width: 30px;
+}
+.th40
+{
+	width: 40px;
+}
+.th50
+{
+	width: 50px;
+}
+.th75
+{
+	width: 75px;
+}
+.th100
+{
+	width: 100px;
+}
+.th125
+{
+	width: 125px;
+}
+.th150
+{
+	width: 150px;
+}
+.th175
+{
+	width: 175px;
+}
+.th200
+{
+	width: 200px;
+	margin-left: 3em;
+}
+.thFill
+{
+	/*Basic is fill*/
+}
+
+td.no-border
+{
+	border: none;
+	z-index: 8;
+}
+
+pre
+{
+	font-size: 10pt;
+	display: inline;
+}
+
+.center
+{
+	text-align: center;
+}
+/*--*/
+
+table caption {
+    padding: .5em 0;
+}
+
+@media screen and (max-width: 767px) {
+    table caption {
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+.p {
     text-align: center;
-    height: 30px;
-    cursor: pointer;
-    white-space: nowrap;
-    padding: 0 5px;
+    padding-top: 140px;
+    font-size: 14px;
 }
