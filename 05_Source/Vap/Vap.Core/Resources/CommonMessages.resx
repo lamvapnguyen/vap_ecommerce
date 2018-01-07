@@ -132,7 +132,7 @@
     <value>{0} must be the greater or the equals than {1}.</value>
   </data>
   <data name="Common_Msg_DeleteConfirm" xml:space="preserve">
-    <value>Confirm deletion this record?</value>
+    <value>Bạn có mốn xóa dòng dữ liệu đang chọn không?</value>
     <comment>Xác nhận xóa trước khi xóa.</comment>
   </data>
   <data name="Common_Msg_DeleteFail" xml:space="preserve">

@@ -97,7 +97,7 @@ namespace Vap.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Confirm deletion this record?.
+        ///   Looks up a localized string similar to Bạn có mốn xóa dòng dữ liệu đang chọn không?.
         /// </summary>
         public static string Common_Msg_DeleteConfirm {
             get {

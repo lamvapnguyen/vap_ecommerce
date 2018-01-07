@@ -10,3 +10,17 @@ E:\Bin\Projects\vap_ecommerce\05_Source\Vap\Vap.Core\obj\Debug\Vap.Core.pdb
 E:\Bin\Projects\vap_ecommerce\05_Source\Vap\Vap.Core\obj\Debug\Vap.Core.Resources.CommonMessages.resources
 E:\Bin\Projects\vap_ecommerce\05_Source\Vap\Vap.Core\obj\Debug\Vap.Core.csproj.GenerateResource.Cache
 E:\Bin\Projects\vap_ecommerce\05_Source\Vap\Vap.Core\obj\Debug\Vap.Core.csprojResolveAssemblyReference.cache
+E:\Bin\Projects\vap_ecommerce\vap_ecommerce\05_Source\VAP\Vap.Core\bin\Debug\Vap.Core.dll.config
+E:\Bin\Projects\vap_ecommerce\vap_ecommerce\05_Source\VAP\Vap.Core\bin\Debug\Vap.Core.dll
+E:\Bin\Projects\vap_ecommerce\vap_ecommerce\05_Source\VAP\Vap.Core\bin\Debug\Vap.Core.pdb
+E:\Bin\Projects\vap_ecommerce\vap_ecommerce\05_Source\VAP\Vap.Core\bin\Debug\EntityFramework.dll
+E:\Bin\Projects\vap_ecommerce\vap_ecommerce\05_Source\VAP\Vap.Core\bin\Debug\EntityFramework.SqlServer.dll
+E:\Bin\Projects\vap_ecommerce\vap_ecommerce\05_Source\VAP\Vap.Core\bin\Debug\EntityFramework.xml
+E:\Bin\Projects\vap_ecommerce\vap_ecommerce\05_Source\VAP\Vap.Core\bin\Debug\EntityFramework.SqlServer.xml
+E:\Bin\Projects\vap_ecommerce\vap_ecommerce\05_Source\VAP\Vap.Core\obj\Debug\Vap.Core.Resources.CommonMessages.resources
+E:\Bin\Projects\vap_ecommerce\vap_ecommerce\05_Source\VAP\Vap.Core\obj\Debug\Vap.Core.csproj.GenerateResource.Cache
+E:\Bin\Projects\vap_ecommerce\vap_ecommerce\05_Source\VAP\Vap.Core\obj\Debug\Vap.Core.dll
+E:\Bin\Projects\vap_ecommerce\vap_ecommerce\05_Source\VAP\Vap.Core\obj\Debug\Vap.Core.pdb
+E:\Bin\Projects\vap_ecommerce\vap_ecommerce\05_Source\VAP\Vap.Core\bin\Debug\en\Vap.Core.resources.dll
+E:\Bin\Projects\vap_ecommerce\vap_ecommerce\05_Source\VAP\Vap.Core\obj\Debug\Vap.Core.Resources.CommonMessages.en.resources
+E:\Bin\Projects\vap_ecommerce\vap_ecommerce\05_Source\VAP\Vap.Core\obj\Debug\en\Vap.Core.resources.dll
