@@ -1,30 +1,31 @@
-﻿@model IEnumerable<Vap.Core.Models.M_ROLE>
+﻿@model IEnumerable<Vap.EAdmin.Models.M_ROLE>
+@using Vap.EAdmin.Resources
 
 @{
-    ViewBag.Title = EAdmin.Resources.MenuText.AccountGroups;
+    ViewBag.Title = MenuText.AccountGroups;
 }
-<h2 class="page_title">@EAdmin.Resources.MenuText.AccountGroups</h2>
+<h2 class="page_title">@MenuText.AccountGroups</h2>
 
 <a href="@Url.Action("Create")" class = "btn btn-default panel_tool">
     <i class="glyphicon glyphicon-plus"></i> 
-    @EAdmin.Resources.UIText.CreateNew
+    @UIText.CreateNew
 </a>
 <a href="@Url.Action("Delete")" class="btn btn-default panel_tool">
     <i class="glyphicon glyphicon-remove"></i>
-    @EAdmin.Resources.UIText.Delete
+    @UIText.Delete
 </a>
 <a href="@Url.Action("Edit")" class="btn btn-default panel_tool">
     <i class="glyphicon glyphicon-edit"></i>
-    @EAdmin.Resources.UIText.Edit
+    @UIText.Edit
 </a>
 <a href="@Url.Action("Index")" class="btn btn-default panel_tool">
     <i class="glyphicon glyphicon-search"></i>
-    @EAdmin.Resources.UIText.Filter
+    @UIText.Filter
 </a>
 @*Form input*@
 <p  class="panel_tool" style="float:right">
-    <input type="text" name="search" placeholder=@EAdmin.Resources.UIText.SeachPlaceholder>
-    @*<a href="@Url.Action("Index")" class="btn btn-default" title=@EAdmin.Resources.UIText.Filter>
+    <input type="text" name="search" placeholder=@UIText.SeachPlaceholder>
+    @*<a href="@Url.Action("Index")" class="btn btn-default" title=@UIText.Filter>
         <i class="glyphicon glyphicon-search"></i>
     </a>*@
 </p>
@@ -39,23 +40,9 @@
         <th>
             @Html.DisplayNameFor(model => model.SORT_ORDER)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ALL_COMPANY_FLAG)
-        </th>
+      
         <th>
             @Html.DisplayNameFor(model => model.DEL_FLG)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CREATE_DATE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CREATE_PERSON_CD)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UPDATE_DATE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UPDATE_PERSON_CD)
         </th>
         <th></th>
     </tr>
@@ -73,27 +60,19 @@
                 @Html.DisplayFor(modelItem => item.SORT_ORDER)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ALL_COMPANY_FLAG)
+                @if (item.DEL_FLG != true)
+                {
+
+                    <div class="icon_ckb icon_checkbox_True"></div>
+                }else { 
+                    <div class="icon_ckb icon_checkbox_False"></div>
+                }
             </td>
+            
             <td>
-                @Html.DisplayFor(modelItem => item.DEL_FLG)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CREATE_DATE)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CREATE_PERSON_CD)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UPDATE_DATE)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UPDATE_PERSON_CD)
-            </td>
-            <td>
-                @Html.ActionLink(EAdmin.Resources.UIText.Edit, "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink(EAdmin.Resources.UIText.Details, "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink(EAdmin.Resources.UIText.Delete, "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink(Vap.EAdmin.Resources.UIText.Edit, "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink(Vap.EAdmin.Resources.UIText.Details, "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink(Vap.EAdmin.Resources.UIText.Delete, "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
     }

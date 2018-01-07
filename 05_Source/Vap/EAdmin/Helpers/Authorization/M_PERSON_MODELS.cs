@@ -5,13 +5,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Data.Common;
-using System.Web.Mvc;
 using Vap.Core.Com;
-using Vap.Core.Models;
+using Vap.EAdmin.Dto;
+using Vap.EAdmin.Models;
 
-namespace EAdmin.Helpers.Authorization
+namespace Vap.EAdmin.Helpers.Authorization
 {
     public class M_PERSON_MODELS
     {

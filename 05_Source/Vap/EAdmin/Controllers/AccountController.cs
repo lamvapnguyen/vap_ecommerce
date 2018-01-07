@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using EAdmin.Models;
+using Vap.EAdmin.Models;
 
-namespace EAdmin.Controllers
+namespace Vap.EAdmin.Controllers
 {
     [Authorize]
     public class AccountController : Controller

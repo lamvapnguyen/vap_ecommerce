@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace EAdmin
+namespace Vap.EAdmin
 {
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -19,6 +19,8 @@ namespace EAdmin
         }
         protected void Application_BeginRequest(Object sender, EventArgs e)
         {
+            /*---Start setting cookies language ---
+             * -> allow enduser change UI language*/
             HttpCookie cookie = HttpContext.Current.Request.Cookies["Language"];
             if(cookie!=null && cookie.Value!=null)
             {
@@ -31,6 +33,7 @@ namespace EAdmin
                 System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("vi");
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("vi");
             }
+              /*---End setting cookies language ---*/
         }
     }
 

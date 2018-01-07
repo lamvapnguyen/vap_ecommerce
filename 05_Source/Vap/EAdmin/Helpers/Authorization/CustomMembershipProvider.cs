@@ -2,15 +2,12 @@
 //Date created: 27/Aug/2011
 //Description: 
 
+using Vap.EAdmin.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Security;
 using Vap.Settings;
-using Vap.Core.Models;
 
-namespace EAdmin.Helpers.Authorization
+namespace Vap.EAdmin.Helpers.Authorization
 {
     public class CustomMembershipProvider : MembershipProvider
     {

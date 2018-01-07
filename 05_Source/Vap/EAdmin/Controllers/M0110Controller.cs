@@ -1,15 +1,11 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Vap.Core.Models;
-using EAdmin.Helpers.Authorization;
-using EAdmin.Models;
-using EAdmins.Dto;
+using Vap.EAdmin.Helpers.Authorization;
+using Vap.EAdmin.Models;
 using Vap.Core.Com;
-using Vap.Core.Resources;
+using Vap.EAdmin.Resources;
+using Vap.EAdmin.Dto;
 
 namespace EAdmin.Controllers
 {
@@ -195,7 +191,7 @@ namespace EAdmin.Controllers
                             //response insert new role successfully 
                             TempData["Empty"] = CommonMessages.Common_Msg_UpdateSuccess;
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             TempData["Error"] = CommonMessages.Common_Msg_UpdateFail;
                             return View("Detail", roleMenuInfo);

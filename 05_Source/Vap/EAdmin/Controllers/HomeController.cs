@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Threading;
 using System.Globalization;
 
-namespace EAdmin.Controllers
+namespace Vap.EAdmin.Controllers
 {
     public class HomeController : Controller
     {

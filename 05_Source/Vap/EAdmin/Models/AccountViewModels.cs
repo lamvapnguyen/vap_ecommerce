@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace EAdmin.Models
+namespace Vap.EAdmin.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

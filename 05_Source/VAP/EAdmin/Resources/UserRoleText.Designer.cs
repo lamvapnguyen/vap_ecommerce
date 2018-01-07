@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EAdmin.Resources {
+namespace Vap.EAdmin.Resources {
     using System;
     
     
@@ -22,7 +22,7 @@ namespace EAdmin.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class UserRoleText {
+    public class UserRoleText {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,10 +36,10 @@ namespace EAdmin.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EAdmin.Resources.UserRoleText", typeof(UserRoleText).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Vap.EAdmin.Resources.UserRoleText", typeof(UserRoleText).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace EAdmin.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace EAdmin.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ALL_COMPANY_FLAG.
         /// </summary>
-        internal static string ALL_COMPANY_FLAG {
+        public static string ALL_COMPANY_FLAG {
             get {
                 return ResourceManager.GetString("ALL_COMPANY_FLAG", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace EAdmin.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Thông tin cơ bản.
         /// </summary>
-        internal static string BasicInformations {
+        public static string BasicInformations {
             get {
                 return ResourceManager.GetString("BasicInformations", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace EAdmin.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Ngày tạo.
         /// </summary>
-        internal static string CREATE_DATE {
+        public static string CREATE_DATE {
             get {
                 return ResourceManager.GetString("CREATE_DATE", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace EAdmin.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Người tạo.
         /// </summary>
-        internal static string CREATE_PERSON_CD {
+        public static string CREATE_PERSON_CD {
             get {
                 return ResourceManager.GetString("CREATE_PERSON_CD", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace EAdmin.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Kích hoạt.
         /// </summary>
-        internal static string DEL_FLG {
+        public static string DEL_FLG {
             get {
                 return ResourceManager.GetString("DEL_FLG", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace EAdmin.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Mã.
         /// </summary>
-        internal static string ROLE_CD {
+        public static string ROLE_CD {
             get {
                 return ResourceManager.GetString("ROLE_CD", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace EAdmin.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Tên nhóm.
         /// </summary>
-        internal static string ROLE_NAME {
+        public static string ROLE_NAME {
             get {
                 return ResourceManager.GetString("ROLE_NAME", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace EAdmin.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Số thứ tự.
         /// </summary>
-        internal static string SORT_ORDER {
+        public static string SORT_ORDER {
             get {
                 return ResourceManager.GetString("SORT_ORDER", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace EAdmin.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Ngày cập nhật cuối.
         /// </summary>
-        internal static string UPDATE_DATE {
+        public static string UPDATE_DATE {
             get {
                 return ResourceManager.GetString("UPDATE_DATE", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace EAdmin.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Người cập nhật.
         /// </summary>
-        internal static string UPDATE_PERSON_CD {
+        public static string UPDATE_PERSON_CD {
             get {
                 return ResourceManager.GetString("UPDATE_PERSON_CD", resourceCulture);
             }

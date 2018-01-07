@@ -2,15 +2,14 @@
 //Date created: 26/08/2012
 //Description: 
 
+using Vap.EAdmin.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI.WebControls;
-using Vap.Core.Models;
 using Vap.Core.Com;
 
-namespace EAdmin.Helpers.Authorization
+namespace Vap.EAdmin.Helpers.Authorization
 {
     public class M_MENU_MODELS
     {

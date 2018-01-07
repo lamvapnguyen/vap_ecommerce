@@ -1,16 +1,14 @@
-﻿//   Author:     PQHung
-//   Create Date: 26/08/20112
+﻿//   Author:     NTLam
+//   Create Date: 07/01/2018
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Data.Common;
-using System.Data.Entity;
 using System.Web.Mvc;
-using Vap.Core.Models;
+using Vap.EAdmin.Models;
 using Vap.Core.Com;
 
-namespace EAdmin.Helpers.Authorization
+namespace Vap.EAdmin.Helpers.Authorization
 {
     public class M_COMPANY_MODELS
     {

@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
+@using Vap.EAdmin.Resources
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -17,7 +18,7 @@
                 </a>
             </li>
             <li>
-                @Html.ActionLink(EAdmin.Resources.MenuText.Hello + " " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                @Html.ActionLink(MenuText.Hello + " " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
         </ul>
@@ -37,7 +38,7 @@ else
             </a>
         </li>
 
-        <li>@Html.ActionLink(EAdmin.Resources.MenuText.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink(EAdmin.Resources.MenuText.LogIn, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink(MenuText.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink(MenuText.LogIn, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }

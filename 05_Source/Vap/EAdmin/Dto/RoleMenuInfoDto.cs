@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
-using Vap.Core.Models;
+using Vap.EAdmin.Models;
 
-namespace EAdmins.Dto
+namespace Vap.EAdmin.Dto
 {
     public class RoleMenuInfoDto
     {

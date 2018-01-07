@@ -1,15 +1,12 @@
 ﻿//Author: Nguyen Tien Lam
 //Create date: 20/07/2011
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Vap.EAdmin.Dto;
 using System.Web;
 using System.Web.Mvc;
 using Vap.Core.Com;
-using Vap.Core.Models;
 
-namespace EAdmin.Helpers.Authorization
+namespace Vap.EAdmin.Helpers.Authorization
 {
     public class PrivilegeAttribute : AuthorizeAttribute
     {

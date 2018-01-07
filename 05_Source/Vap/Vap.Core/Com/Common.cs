@@ -1462,32 +1462,7 @@ namespace Vap.Core.Com
 
         #endregion Excel release
 
-        #region Secsion
-
-        /// <summary>
-        /// Get all information of the staff logined.
-        /// </summary>
-        /// <returns></returns>
-        public static StaffLoginInfo GetStaffLoginInfo()
-        {
-            StaffLoginInfo info = new StaffLoginInfo();
-            try
-            {
-                if (!Common.IsNullOrEmpty(HttpContext.Current.Session))
-                {
-                    if (!Common.IsNullOrEmpty(HttpContext.Current.Session["StaffLoginInfoSection"]))
-                    {
-                        info = (StaffLoginInfo)HttpContext.Current.Session["StaffLoginInfoSection"];
-                    }
-                }
-            }
-            catch { }
-            return info;
-        }
-
-        #endregion
-
-
+       
         /// <summary>
         /// To get description of enum.
         /// </summary>

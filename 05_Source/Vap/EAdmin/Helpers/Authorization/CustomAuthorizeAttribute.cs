@@ -2,14 +2,12 @@
 //Date created: 26/Aug/2011
 //Description: To overwrite AuthorizeAttribute
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Vap.EAdmin.Dto;
 using System.Web;
 using System.Web.Mvc;
 using Vap.Core.Com;
 
-namespace EAdmin.Helpers.Authorization
+namespace Vap.EAdmin.Helpers.Authorization
 {
     public class CustomAuthorizeAttribute : AuthorizeAttribute
     {

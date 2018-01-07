@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI.WebControls;
-using Vap.Core.Models;
 using Vap.Core.Com;
+using Vap.EAdmin.Models;
 
-namespace EAdmin.Helpers.Authorization
+namespace Vap.EAdmin.Helpers.Authorization
 {
     public class CustomAuthorizModels
     {

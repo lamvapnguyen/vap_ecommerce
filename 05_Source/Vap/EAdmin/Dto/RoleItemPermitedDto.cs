@@ -1,4 +1,4 @@
-﻿namespace EAdmins.Dto
+﻿namespace Vap.EAdmin.Dto
 {
     public class RoleItemPermitedDto
     {

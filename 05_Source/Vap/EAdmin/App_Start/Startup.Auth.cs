@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using EAdmin.Models;
+using Vap.EAdmin.Models;
 
-namespace EAdmin
+namespace Vap.EAdmin
 {
     public partial class Startup
     {

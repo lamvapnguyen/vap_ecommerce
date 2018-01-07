@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EComm", "EComm\EComm.csproj", "{4EA817B7-06FE-4160-8349-A95926455113}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAdmin", "EAdmin\EAdmin.csproj", "{85042B53-E6A7-4456-B902-E8E20CDC1227}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vap.EAdmin", "EAdmin\Vap.EAdmin.csproj", "{85042B53-E6A7-4456-B902-E8E20CDC1227}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vap.Core", "Vap.Core\Vap.Core.csproj", "{11E4B316-2881-40C8-A4A8-30457B26F28D}"
 EndProject

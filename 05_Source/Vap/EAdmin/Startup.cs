@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(EAdmin.Startup))]
-namespace EAdmin
+[assembly: OwinStartupAttribute(typeof(Vap.EAdmin.Startup))]
+namespace Vap.EAdmin
 {
     public partial class Startup
     {

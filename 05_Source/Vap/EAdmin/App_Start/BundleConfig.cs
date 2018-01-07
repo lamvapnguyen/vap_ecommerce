@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace EAdmin
+namespace Vap.EAdmin
 {
     public class BundleConfig
     {

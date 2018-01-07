@@ -3,13 +3,12 @@
 //Updae Date:  
 //Update Desc: 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Web.Security;
 
-namespace EAdmin.Helpers.Authorization
+namespace Vap.EAdmin.Helpers.Authorization
 {
     #region Models
     [PropertiesMustMatch("NewPassword", "ConfirmPassword", ErrorMessage = "New Password & Retype password do not match. Please try again.")]

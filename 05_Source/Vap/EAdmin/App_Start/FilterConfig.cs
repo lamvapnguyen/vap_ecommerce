@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace EAdmin
+namespace Vap.EAdmin
 {
     public class FilterConfig
     {
